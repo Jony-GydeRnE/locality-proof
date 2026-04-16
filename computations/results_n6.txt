@@ -1,100 +1,105 @@
-=================================================================
-6-pt phi^3  1-zero nullspace computation  (numerical)
-=================================================================
+================================================================
+6-pt phi^3  1-zero nullspace computation  — RESULTS
+================================================================
+Date: 2026-04-16
+Script: computations/full_ansatz_n6.py
+Python: arm64 (venv), numpy 2.0.2
 
-Verifying A_6^tree vanishes on each locus:
-  Z1:  max|A_6| = 8.53e-14  ✓
-  Z2:  max|A_6| = 5.30e-14  ✓
-  Z3:  max|A_6| = 3.23e-14  ✓
-  Z4:  max|A_6| = 4.26e-14  ✓
-  Z5:  max|A_6| = 4.97e-13  ✓
-  Z6:  max|A_6| = 6.93e-14  ✓
+----------------------------------------------------------------
+SETUP
+----------------------------------------------------------------
+Variables:   9 planar Mandelstam invariants
+               X13=(p1+p2)^2,  X14=(p1+p2+p3)^2,  X15=(p1+p2+p3+p4)^2
+               X24=(p2+p3)^2,  X25=(p2+p3+p4)^2,  X26=(p2+p3+p4+p5)^2
+               X35=(p3+p4)^2,  X36=(p3+p4+p5)^2,  X46=(p4+p5)^2
 
-Simple-poles ansatz: 84 terms
-Broad ansatz:        165 terms
+1-zero loci:  6 legs, each zeroing 3 non-adjacent invariants
+               Z1: X13, X14, X15 = 0  (free: X24,X25,X26,X35,X36,X46)
+               Z2: X24, X25, X26 = 0  (free: X13,X14,X15,X35,X36,X46)
+               Z3: X13, X35, X36 = 0  (free: X14,X15,X24,X25,X26,X46)
+               Z4: X14, X24, X46 = 0  (free: X13,X15,X25,X26,X35,X36)
+               Z5: X15, X25, X35 = 0  (free: X13,X14,X24,X26,X36,X46)
+               Z6: X26, X36, X46 = 0  (free: X13,X14,X15,X24,X25,X35)
 
-Sampling for simple-poles ansatz...
-  Z1: 250 samples (270 attempts)
-  Z2: 250 samples (279 attempts)
-  Z3: 250 samples (274 attempts)
-  Z4: 250 samples (285 attempts)
-  Z5: 250 samples (276 attempts)
-  Z6: 250 samples (283 attempts)
+Preliminary:  A_6^tree verified to vanish on all 6 loci
+               max|A_6| on each locus <= 5e-13  (numerical noise)  ✓
 
-SIMPLE-POLES ANSATZ (84 terms)
-  Matrix: (1500, 84),  rank = 83 / 84
-  Singular values near cutoff:
-    S[ 81] = 5.453008e+01
-    S[ 82] = 4.646479e+01
-    S[ 83] = 1.964220e-13 <-- gap
-  NULLSPACE DIMENSION: 1
-  >>> PROPORTIONAL TO A_6^tree  (residual = 1.55e-15)  ✓
+----------------------------------------------------------------
+ANSATZ 1: SIMPLE-POLES  (distinct triples, no squared poles)
+----------------------------------------------------------------
+Basis size:          84 terms  [all C(9,3) triples 1/(X_a*X_b*X_c)]
+Constraint matrix:   1500 x 84  (250 samples per locus x 6 loci)
+Matrix rank:         83 / 84
+Nullspace dimension: 1
 
-Sampling for broad ansatz (with higher-order poles)...
-  Z1: 250 samples (281 attempts)
-  Z2: 250 samples (276 attempts)
-  Z3: 250 samples (276 attempts)
-  Z4: 250 samples (277 attempts)
-  Z5: 250 samples (281 attempts)
-  Z6: 250 samples (272 attempts)
+Singular value gap:
+  S[82] = 4.646e+01
+  S[83] = 8.981e-14  <-- zero (gap ratio ~5e12)
 
-BROAD ANSATZ (165 terms)
-  Matrix: (1500, 165),  rank = 164 / 165
-  Singular values near cutoff:
-    S[162] = 3.500701e+01
-    S[163] = 3.182669e+01
-    S[164] = 3.226101e-13 <-- gap
-  NULLSPACE DIMENSION: 1
-  >>> PROPORTIONAL TO A_6^tree  (residual = 9.99e-15)  ✓
+Nullspace vector (all 14 components, coefficient = +1 each):
+  1/(X13*X14*X15)   [TREE]
+  1/(X13*X14*X46)   [TREE]
+  1/(X13*X15*X35)   [TREE]
+  1/(X13*X35*X36)   [TREE]
+  1/(X13*X36*X46)   [TREE]
+  1/(X14*X15*X24)   [TREE]
+  1/(X14*X24*X46)   [TREE]
+  1/(X15*X24*X25)   [TREE]
+  1/(X15*X25*X35)   [TREE]
+  1/(X24*X25*X26)   [TREE]
+  1/(X24*X26*X46)   [TREE]
+  1/(X25*X26*X35)   [TREE]
+  1/(X26*X35*X36)   [TREE]
+  1/(X26*X36*X46)   [TREE]
 
-Robustness (3 additional seeds, simple ansatz):
+Result:  PROPORTIONAL TO A_6^tree  (residual = 1.17e-15)  ✓
+Non-Feynman denominators in nullspace:  ZERO
 
-  seed=77777
-  Matrix: (1200, 84),  rank = 83 / 84
-  Singular values near cutoff:
-    S[ 81] = 3.724194e+01
-    S[ 82] = 3.304691e+01
-    S[ 83] = 1.719263e-13 <-- gap
-  NULLSPACE DIMENSION: 1
+----------------------------------------------------------------
+ANSATZ 2: BROAD  (with squared and cubic poles)
+----------------------------------------------------------------
+Basis size:          165 terms  [all C_rep(9,3) triples]
+Constraint matrix:   1500 x 165
+Matrix rank:         164 / 165
+Nullspace dimension: 1
 
-  seed=31415
-  Matrix: (1200, 84),  rank = 83 / 84
-  Singular values near cutoff:
-    S[ 81] = 4.684183e+01
-    S[ 82] = 4.299444e+01
-    S[ 83] = 1.307752e-13 <-- gap
-  NULLSPACE DIMENSION: 1
+Singular value gap:
+  S[163] = 3.183e+01
+  S[164] = 6.039e-13  <-- zero (gap ratio ~5e10)
 
-  seed=27182
-  Matrix: (1200, 84),  rank = 83 / 84
-  Singular values near cutoff:
-    S[ 81] = 4.172317e+01
-    S[ 82] = 3.788022e+01
-    S[ 83] = 1.710226e-13 <-- gap
-  NULLSPACE DIMENSION: 1
+Result:  PROPORTIONAL TO A_6^tree  (residual = 2.48e-14)  ✓
+No contribution from squared/cubic-pole terms.
 
-Nonzero components of nullspace vector:
-  1/(X13*X14*X15):  +1.00000000 [TREE]
-  1/(X13*X14*X46):  +1.00000000 [TREE]
-  1/(X13*X15*X35):  +1.00000000 [TREE]
-  1/(X13*X35*X36):  +1.00000000 [TREE]
-  1/(X13*X36*X46):  +1.00000000 [TREE]
-  1/(X14*X15*X24):  +1.00000000 [TREE]
-  1/(X14*X24*X46):  +1.00000000 [TREE]
-  1/(X15*X24*X25):  +1.00000000 [TREE]
-  1/(X15*X25*X35):  +1.00000000 [TREE]
-  1/(X24*X25*X26):  +1.00000000 [TREE]
-  1/(X24*X26*X46):  +1.00000000 [TREE]
-  1/(X25*X26*X35):  +1.00000000 [TREE]
-  1/(X26*X35*X36):  +1.00000000 [TREE]
-  1/(X26*X36*X46):  +1.00000000 [TREE]
+----------------------------------------------------------------
+ROBUSTNESS (simple ansatz, 3 independent random seeds)
+----------------------------------------------------------------
+seed=77777: rank 83/84, nullspace dim 1  ✓
+seed=31415: rank 83/84, nullspace dim 1  ✓
+seed=27182: rank 83/84, nullspace dim 1  ✓
 
-=================================================================
+----------------------------------------------------------------
 CONCLUSION
-=================================================================
-Simple ansatz: rank 83/84, nullspace dim 1
-Broad  ansatz: rank 164/165, nullspace dim 1
+----------------------------------------------------------------
+At n=6, the cyclic 1-zero conditions uniquely determine the
+6-point tree amplitude within both the simple-poles ansatz (84
+terms) and the broad ansatz including higher-order poles (165
+terms).
 
-Nullspace is 1-dimensional and equals A_6^tree in both spaces.
-=> 1-zeros UNIQUELY determine the 6-pt amplitude.
-=> Theorem 5.6 verified at n=6.
+Explicitly:
+  Ansatz dim    = 84  (resp. 165)
+  Rank          = 83  (resp. 164)
+  Nullspace     = 1-dimensional
+  Unique solution = A_6^tree = sum over 14 hexagon triangulations
+
+The nullspace vector has nonzero coefficients on exactly the 14
+Feynman (planar) triples corresponding to non-crossing triangulations
+of the hexagon (all with equal coefficient +1), and zero coefficient
+on all 70 (resp. 151) non-Feynman triples.
+
+This verifies Theorem 5.6 of the paper at n=6.
+
+Comparison with n=5 result:
+  n=5: ansatz 45 terms, rank 44/45, nullspace dim 1, 5 Feynman terms
+  n=6: ansatz 84 terms, rank 83/84, nullspace dim 1, 14 Feynman terms
+  Pattern: nullspace always dim 1, rank always (ansatz_dim - 1)
+================================================================
