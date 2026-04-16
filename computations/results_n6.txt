@@ -1,0 +1,100 @@
+=================================================================
+6-pt phi^3  1-zero nullspace computation  (numerical)
+=================================================================
+
+Verifying A_6^tree vanishes on each locus:
+  Z1:  max|A_6| = 8.53e-14  ✓
+  Z2:  max|A_6| = 5.30e-14  ✓
+  Z3:  max|A_6| = 3.23e-14  ✓
+  Z4:  max|A_6| = 4.26e-14  ✓
+  Z5:  max|A_6| = 4.97e-13  ✓
+  Z6:  max|A_6| = 6.93e-14  ✓
+
+Simple-poles ansatz: 84 terms
+Broad ansatz:        165 terms
+
+Sampling for simple-poles ansatz...
+  Z1: 250 samples (270 attempts)
+  Z2: 250 samples (279 attempts)
+  Z3: 250 samples (274 attempts)
+  Z4: 250 samples (285 attempts)
+  Z5: 250 samples (276 attempts)
+  Z6: 250 samples (283 attempts)
+
+SIMPLE-POLES ANSATZ (84 terms)
+  Matrix: (1500, 84),  rank = 83 / 84
+  Singular values near cutoff:
+    S[ 81] = 5.453008e+01
+    S[ 82] = 4.646479e+01
+    S[ 83] = 1.964220e-13 <-- gap
+  NULLSPACE DIMENSION: 1
+  >>> PROPORTIONAL TO A_6^tree  (residual = 1.55e-15)  ✓
+
+Sampling for broad ansatz (with higher-order poles)...
+  Z1: 250 samples (281 attempts)
+  Z2: 250 samples (276 attempts)
+  Z3: 250 samples (276 attempts)
+  Z4: 250 samples (277 attempts)
+  Z5: 250 samples (281 attempts)
+  Z6: 250 samples (272 attempts)
+
+BROAD ANSATZ (165 terms)
+  Matrix: (1500, 165),  rank = 164 / 165
+  Singular values near cutoff:
+    S[162] = 3.500701e+01
+    S[163] = 3.182669e+01
+    S[164] = 3.226101e-13 <-- gap
+  NULLSPACE DIMENSION: 1
+  >>> PROPORTIONAL TO A_6^tree  (residual = 9.99e-15)  ✓
+
+Robustness (3 additional seeds, simple ansatz):
+
+  seed=77777
+  Matrix: (1200, 84),  rank = 83 / 84
+  Singular values near cutoff:
+    S[ 81] = 3.724194e+01
+    S[ 82] = 3.304691e+01
+    S[ 83] = 1.719263e-13 <-- gap
+  NULLSPACE DIMENSION: 1
+
+  seed=31415
+  Matrix: (1200, 84),  rank = 83 / 84
+  Singular values near cutoff:
+    S[ 81] = 4.684183e+01
+    S[ 82] = 4.299444e+01
+    S[ 83] = 1.307752e-13 <-- gap
+  NULLSPACE DIMENSION: 1
+
+  seed=27182
+  Matrix: (1200, 84),  rank = 83 / 84
+  Singular values near cutoff:
+    S[ 81] = 4.172317e+01
+    S[ 82] = 3.788022e+01
+    S[ 83] = 1.710226e-13 <-- gap
+  NULLSPACE DIMENSION: 1
+
+Nonzero components of nullspace vector:
+  1/(X13*X14*X15):  +1.00000000 [TREE]
+  1/(X13*X14*X46):  +1.00000000 [TREE]
+  1/(X13*X15*X35):  +1.00000000 [TREE]
+  1/(X13*X35*X36):  +1.00000000 [TREE]
+  1/(X13*X36*X46):  +1.00000000 [TREE]
+  1/(X14*X15*X24):  +1.00000000 [TREE]
+  1/(X14*X24*X46):  +1.00000000 [TREE]
+  1/(X15*X24*X25):  +1.00000000 [TREE]
+  1/(X15*X25*X35):  +1.00000000 [TREE]
+  1/(X24*X25*X26):  +1.00000000 [TREE]
+  1/(X24*X26*X46):  +1.00000000 [TREE]
+  1/(X25*X26*X35):  +1.00000000 [TREE]
+  1/(X26*X35*X36):  +1.00000000 [TREE]
+  1/(X26*X36*X46):  +1.00000000 [TREE]
+
+=================================================================
+CONCLUSION
+=================================================================
+Simple ansatz: rank 83/84, nullspace dim 1
+Broad  ansatz: rank 164/165, nullspace dim 1
+
+Nullspace is 1-dimensional and equals A_6^tree in both spaces.
+=> 1-zeros UNIQUELY determine the 6-pt amplitude.
+=> Theorem 5.6 verified at n=6.
