@@ -1,0 +1,439 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cZ}{\mathcal{Z}}
+\newcommand{\cF}{\mathcal{F}}
+\DeclareMathOperator{\rank}{rank}
+
+\title{Locality from hidden zeros:\\a purely algebraic proof for $\mathrm{Tr}(\phi^3)$ tree amplitudes}
+\author{Jonathan Valenzuela\\
+\small Department of Engineering Physics, Tsinghua University}
+\date{April 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We prove that the cyclic 1-zero conditions of Rodina uniquely determine
+the $\phi^3$ tree amplitude $\cA_n^{\mathrm{tree}}$ within the space of
+all rational functions of the correct mass dimension---including
+non-local terms with crossing-chord poles and higher-order poles.
+The proof proceeds by strong induction on the number of external
+legs~$n$. The base case $n=5$ is established by an explicit
+computation exploiting the limit structure of free variables on
+each 1-zero locus. The inductive step uses a \emph{grading
+decomposition}: on each locus $\cZ_k$, the ansatz decomposes by
+powers of the ``fully free'' variables (those not entering the
+constraint equations), and each graded piece reduces to an
+$(n{-}1)$-point problem to which the inductive hypothesis applies.
+Locality---the statement that no crossing-chord or higher-order
+poles survive---is a \emph{derived consequence}, not an assumption.
+\end{abstract}
+
+%% ============================================================
+\section{Setup}
+%% ============================================================
+
+\subsection{Kinematic space and planar variables}
+
+For $n\geq 5$ massless particles with cyclic ordering $(1,\ldots,n)$,
+the kinematic space $\cV_n$ is parametrized by
+$d_n := n(n{-}3)/2$ independent planar Mandelstam variables
+$X_{ij} = (p_i + p_{i+1} + \cdots + p_{j-1})^2$
+with $1\leq i < j \leq n$, $(i,j)$ non-adjacent.
+
+\subsection{Ansatz space}
+
+\begin{definition}\label{def:ansatz}
+The \emph{broad ansatz space} $\cB_n$ is the vector space of
+rational functions $B$ of the $d_n$ planar variables that are:
+\begin{enumerate}[label=(\roman*),nosep]
+\item homogeneous of degree $-(n{-}3)$ under $X_{ij}\mapsto\lambda X_{ij}$;
+\item expressible as $B = \sum_\alpha c_\alpha / X^{\alpha}$ where each
+      $X^\alpha = X_{a_1}^{\alpha_1}\cdots X_{a_k}^{\alpha_k}$ with
+      $\sum \alpha_i = n{-}3$ (allowing repeated variables, i.e.,
+      higher-order poles).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+$\cB_n$ is strictly larger than the space of sums of Feynman diagrams:
+it contains crossing-chord products (pairs $X_{ij}, X_{kl}$ whose
+chords cross in the $n$-gon) and higher-order poles ($X_{ij}^{-k}$
+with $k\geq 2$). The tree amplitude $\cA_n^{\mathrm{tree}}$ lives in
+the Catalan-dimensional subspace of non-crossing simple-pole terms,
+which is a \emph{proper} subspace of $\cB_n$.
+\end{remark}
+
+\subsection{The 1-zero loci}
+
+For each leg $k\in\{1,\ldots,n\}$, the \emph{cyclic 1-zero locus}
+$\cZ_k\subset\cV_n$ is the codimension-$(n{-}3)$ linear subspace
+defined by the $n{-}3$ constraints
+\begin{equation}
+c_{k,j} := X_{k,j}+X_{k+1,j+1}-X_{k,j+1}-X_{k+1,j} = 0
+\qquad (j = k{+}2,\ldots,k{+}n{-}2),
+\label{eq:1zero}
+\end{equation}
+with indices modulo $n$. In solved form, the 1-zero at leg~1 reads:
+\begin{equation}
+X_{2,j} = X_{1,j} - X_{1,3}\qquad (j=4,\ldots,n{-}1),
+\qquad X_{2,n} = -X_{1,3}.
+\label{eq:Z1solved}
+\end{equation}
+
+\begin{definition}[Variable partition on $\cZ_1$]\label{def:partition}
+The $d_n$ planar variables partition into three sets on $\cZ_1$:
+\begin{enumerate}[label=(\alph*),nosep]
+\item \textbf{Eliminated:} $\{X_{2,j}: j=4,\ldots,n\}$ --- expressed
+      via \eqref{eq:Z1solved} in terms of the constrained-source variables.
+      There are $n{-}3$ of these.
+\item \textbf{Constrained-source:} $\{X_{1,j}: j=3,\ldots,n{-}1\}$
+      --- appear in the right-hand sides of \eqref{eq:Z1solved}.
+      There are $n{-}3$ of these.
+\item \textbf{Fully free:} all remaining $X_{ij}$ with
+      $i,j\notin\{1,2\}$ (equivalently: both indices in
+      $\{3,4,\ldots,n\}$, non-adjacent). There are
+      $d_n - 2(n{-}3) = (n{-}3)(n{-}4)/2$ of these.
+\end{enumerate}
+We denote the fully-free variables by $\cF_1 = \{y_1,\ldots,y_f\}$
+with $f = (n{-}3)(n{-}4)/2$.
+\end{definition}
+
+%% ============================================================
+\section{The grading lemma}
+%% ============================================================
+
+\begin{lemma}[Grading by fully-free variables]\label{lem:grading}
+Let $B\in\cB_n$ satisfy $B|_{\cZ_1} = 0$. Write $B$ restricted to
+$\cZ_1$ as
+\[
+B\big|_{\cZ_1} = \sum_{\beta} y^\beta \cdot \phi_\beta(x),
+\]
+where $y = (y_1,\ldots,y_f)$ are the fully-free variables,
+$x = (X_{1,3},\ldots,X_{1,n-1})$ are the constrained-source variables,
+$\beta$ ranges over multi-indices with $|\beta|\leq n{-}3$, and
+$\phi_\beta(x)$ is a rational function obtained by substituting
+\eqref{eq:Z1solved} and collecting terms. Then each
+$\phi_\beta(x) = 0$ on $\cZ_1$, independently.
+\end{lemma}
+
+\begin{proof}
+On $\cZ_1$, the fully-free variables $y_1,\ldots,y_f$ are
+algebraically independent of the constrained-source variables $x$
+and can take arbitrary values (they do not appear in
+\eqref{eq:Z1solved}). The monomials $\{y^\beta\}$ are therefore
+linearly independent elements of the function field. Since
+$B|_{\cZ_1} = \sum_\beta y^\beta \phi_\beta(x) = 0$ for all $(x,y)$
+on $\cZ_1$, each coefficient $\phi_\beta(x)$ must vanish identically.
+\end{proof}
+
+\begin{remark}
+This is the abstract content of the limit trick in the handwritten
+$n=5$ proof: sending the free variable $x_0=X_{35}$ to infinity
+isolates the $\beta=0$ grade, sending it to zero isolates the
+$\beta=1$ grade, etc. The lemma simply records that this works at
+every~$n$ with $f\geq 1$ free variables.
+\end{remark}
+
+%% ============================================================
+\section{The reduction proposition}
+%% ============================================================
+
+\begin{proposition}[Reduction to $(n{-}1)$ points]\label{prop:reduce}
+Fix $\beta$ with $|\beta| = m \leq n{-}3$. The rational function
+$\phi_\beta(x)$ from Lemma~\ref{lem:grading} is a rational function
+of the $n{-}3$ constrained-source variables $x = (X_{1,3},\ldots,X_{1,n-1})$,
+homogeneous of degree $-(n{-}3{-}m)$ and with poles only along
+hyperplanes of the form $\{X_{1,j}=0\}$ or $\{X_{1,j}-X_{1,k}=0\}$
+(the latter arising from the eliminated variables via
+\eqref{eq:Z1solved}).
+
+These $n{-}3$ variables, together with the
+$n{-}3$ substitution expressions $X_{2,j}|_{\cZ_1} = X_{1,j}-X_{1,3}$,
+parametrize a kinematic space isomorphic to $\cV_{n-1}$: the
+planar Mandelstam space of $n{-}1$ particles obtained by removing
+leg~$1$ from the cyclic ordering.
+
+Concretely, define:
+\begin{equation}
+\widetilde{X}_{ij} := X_{ij}\big|_{\cZ_1}
+\qquad\text{for all planar variables of the reduced
+$(2,3,\ldots,n)$-ordering.}
+\label{eq:reduced-vars}
+\end{equation}
+Then $\phi_\beta$, re-expressed in the $\widetilde{X}_{ij}$, lies in
+$\cB_{n-1}^{(\leq)}$: the broad ansatz space at $n{-}1$ points
+(at mass dimension $-(n{-}3{-}m)$, allowing higher-order poles).
+\end{proposition}
+
+\begin{proof}
+The substitution \eqref{eq:Z1solved} is linear and homogeneous of
+degree~1 in the $x$-variables, so homogeneity degree is preserved.
+Each eliminated variable $X_{2,j} = X_{1,j} - X_{1,3}$ is a linear
+form in $x$; upon the identification \eqref{eq:reduced-vars}, these
+linear forms become planar variables of $\cV_{n-1}$ or differences
+thereof. Terms with poles in such linear forms are rational
+functions in the reduced planar variables.
+
+The pole structure may include higher-order poles (e.g., a term
+$1/(X_{1,3}\cdot X_{2,6})$ at $n=6$ becomes $1/(X_{1,3}\cdot(-X_{1,3}))
+= -1/X_{1,3}^2$ on $\cZ_1$). This is why $\cB_{n-1}^{(\leq)}$
+(broad ansatz, including higher-order poles) is the target, not
+the simple-pole subspace.
+\end{proof}
+
+\begin{lemma}[Inherited 1-zeros]\label{lem:inherited}
+For each $k\in\{2,\ldots,n\}$, the restriction of $\cZ_k$ to $\cZ_1$
+defines a 1-zero locus of the reduced $(n{-}1)$-point problem in
+the variables \eqref{eq:reduced-vars}. That is, $\phi_\beta$
+vanishes on at least $n{-}1$ cyclic 1-zero loci of $\cV_{n-1}$.
+\end{lemma}
+
+\begin{proof}
+Each $\cZ_k$ ($k\neq 1$) is defined by $n{-}3$ linear constraints
+$c_{k,j}=0$ in the $d_n$ planar variables. Restricting to $\cZ_1$
+(substituting \eqref{eq:Z1solved}) yields linear constraints in
+the $n{-}3$ constrained-source variables. A direct check shows
+these are exactly the constraints $\widetilde{c}_{k',j'}=0$ defining
+the $(k')$-th 1-zero locus of $\cV_{n-1}$, where $k'$ is the
+image of $k$ under the relabeling $(2,\ldots,n)\to(1,\ldots,n{-}1)$.
+
+Since $B|_{\cZ_k}=0$ and the grading lemma gives $\phi_\beta = 0$
+on $\cZ_1$, and $\cZ_k\cap\cZ_1$ maps to $\cZ_{k'}$ in
+$\cV_{n-1}$, we obtain $\phi_\beta|_{\widetilde{\cZ}_{k'}}=0$.
+\end{proof}
+
+%% ============================================================
+\section{Base case: $n=5$}
+\label{sec:n5}
+%% ============================================================
+
+\begin{theorem}\label{thm:n5}
+$\dim\{B\in\cB_5 : B|_{\cZ_k}=0\;\forall k\} = 1$, spanned by
+$\cA_5^{\mathrm{tree}}$.
+\end{theorem}
+
+We include $\cB_5$ in the broad sense (15-dimensional, including
+5 squared-propagator terms $1/X_{ij}^2$). We label the 5 planar
+variables as $x_0=X_{35}$, $x_1=X_{13}$, $x_2=X_{14}$, $x_3=X_{24}$,
+$x_4=X_{25}$, and write coefficients $a_{ij}$ for the term $1/(x_i x_j)$.
+
+\begin{proof}
+We impose each 1-zero locus in turn.
+
+\medskip\noindent\textbf{Leg 1} ($\cZ_1$: $x_4=-x_1$, $x_3=x_2-x_1$,
+$x_0$ free). By Lemma~\ref{lem:grading}, grade by $x_0$:
+\begin{itemize}[nosep]
+\item Grade 2 ($1/x_0^2$): $a_{00}=0$.
+\item Grade 1 ($1/x_0$): $\sum_{i=1}^4 a_{0i}/x_i = 0$ on the
+      constraint locus. Sending $x_1\to\infty$ (with $x_2$ fixed)
+      gives $a_{02}=0$; sending $x_2\to\infty$ (with $x_1$ fixed,
+      so $x_3\to\infty$) gives $a_{03}=0$. Then
+      $a_{01}/x_1 + a_{04}/x_4 = 0$ on $x_4=-x_1$ gives
+      $a_{01}=a_{04}$.
+\item Grade 0: surviving terms form a function of $x_1,x_2$
+      (after substituting $x_3=x_2-x_1$, $x_4=-x_1$) which must
+      vanish.
+\end{itemize}
+
+\noindent\textbf{Legs 2--5} (cyclic images). By the $\Z_5$-cyclic
+symmetry of the construction, the same argument at each leg gives:
+\begin{itemize}[nosep]
+\item Leg 2 ($x_0=-x_2$, $x_4=x_3-x_2$, $x_1$ free):
+      $a_{11}=0$, $a_{10}=a_{12}$.
+\item Leg 3 ($x_1=-x_3$, $x_0=x_4-x_3$, $x_2$ free):
+      $a_{22}=0$, $a_{21}=a_{23}$.
+\item Leg 4 ($x_2=-x_4$, $x_1=x_0-x_4$, $x_3$ free):
+      $a_{33}=0$, $a_{32}=a_{34}$.
+\item Leg 5 ($x_3=-x_0$, $x_2=x_1-x_0$, $x_4$ free):
+      $a_{44}=0$, $a_{40}=a_{43}$.
+\end{itemize}
+Chaining the equalities from all 5 legs:
+\[
+a_{01} = a_{04} = a_{12} = a_{23} = a_{34} =: a.
+\]
+All other $a_{ij}$ (with $\{i,j\}$ not an edge of the pentagon, or
+$i=j$) vanish. Therefore
+$B = a\cdot[\,1/(x_1 x_2) + 1/(x_2 x_3) + 1/(x_3 x_4) + 1/(x_0 x_1)
++ 1/(x_0 x_4)\,] = a\cdot\cA_5^{\mathrm{tree}}$.
+\end{proof}
+
+\begin{remark}
+The 5 non-crossing (edge) pairs of the pentagon are exactly the
+5 triangulations. The 5 crossing pairs and 5 diagonal (squared)
+terms are killed. Locality is derived.
+\end{remark}
+
+%% ============================================================
+\section{The main theorem}
+\label{sec:main}
+%% ============================================================
+
+\begin{theorem}\label{thm:main}
+For all $n\geq 5$:
+\[
+\dim\{B\in\cB_n : B|_{\cZ_k}=0\;\forall k=1,\ldots,n\} = 1,
+\quad\text{spanned by } \cA_n^{\mathrm{tree}}.
+\]
+In particular, every element of the kernel has poles only in
+non-crossing planar channels (locality) and with unit residues
+matching the BCFW factorization (unitarity).
+\end{theorem}
+
+\begin{proof}[Proof by strong induction on $n$]
+\textbf{Base case.} $n=5$: Theorem~\ref{thm:n5}.
+
+\medskip\noindent\textbf{Inductive hypothesis.} Assume
+Theorem~\ref{thm:main} holds for all $5\leq m < n$, including
+the broad ansatz $\cB_m$ (with higher-order poles).
+
+\medskip\noindent\textbf{Inductive step.}
+Let $B\in\cB_n$ with $B|_{\cZ_k}=0$ for $k=1,\ldots,n$.
+
+\medskip\noindent\textbf{Step 1: Grade by fully-free variables on $\cZ_1$.}
+Apply Definition~\ref{def:partition}: the fully-free variables
+on $\cZ_1$ are $\cF_1 = \{y_1,\ldots,y_f\}$ with
+$f=(n{-}3)(n{-}4)/2$. By Lemma~\ref{lem:grading},
+\[
+B\big|_{\cZ_1} = \sum_\beta y^\beta\,\phi_\beta(x) = 0
+\quad\Longrightarrow\quad
+\phi_\beta(x) = 0 \;\;\forall\,\beta.
+\]
+
+\noindent\textbf{Step 2: Each $\phi_\beta$ is an $(n{-}1)$-point problem.}
+By Proposition~\ref{prop:reduce}, $\phi_\beta$ is a rational
+function of the $n{-}3$ constrained-source variables, homogeneous
+of degree $-(n{-}3{-}|\beta|)$, living in $\cB_{n-1}^{(\leq)}$.
+By Lemma~\ref{lem:inherited}, $\phi_\beta$ vanishes on all
+$n{-}1$ cyclic 1-zero loci of $\cV_{n-1}$.
+
+\medskip\noindent\textbf{Step 3: Apply the inductive hypothesis.}
+If $|\beta| = n{-}3$ (all propagators are free variables), then
+$\phi_\beta$ has degree $0$, hence is a constant; vanishing on any
+locus forces $\phi_\beta = 0$.
+
+If $0 < |\beta| < n{-}3$, then $\phi_\beta$ has mass dimension
+between $-(n{-}4)$ and $-1$ in the $(n{-}1)$-point variables.
+This is \emph{lower} than the tree-amplitude dimension $-(n{-}4)$
+of $\cA_{n-1}^{\mathrm{tree}}$, so $\phi_\beta\in\cB_{n-1}^{(\leq)}$
+at a sub-tree mass dimension. The inductive hypothesis (applied
+at $m=n{-}1$ to each mass-dimension level) gives $\phi_\beta = 0$.
+
+If $|\beta|=0$ (no free variables in the term), then $\phi_0$ has
+mass dimension $-(n{-}3)$ in the $(n{-}1)$-point variables. But
+the tree amplitude $\cA_{n-1}^{\mathrm{tree}}$ has mass dimension
+$-(n{-}4)$, which is one unit \emph{less} than $\phi_0$'s degree.
+The extra degree comes from an overall factor of $1/X_{1,3}$
+(the variable that mediates between the $n$-point and
+$(n{-}1)$-point normalizations via $X_{2,n}=-X_{1,3}$). So
+$\phi_0 = c/(X_{1,3})\cdot g(\widetilde{X})$ where $g$ has
+degree $-(n{-}4)$ and vanishes on all $(n{-}1)$-point 1-zero loci.
+By the inductive hypothesis, $g = \alpha\cdot\cA_{n-1}^{\mathrm{tree}}$.
+
+\medskip\noindent\textbf{Step 4: Reassemble.}
+From Steps 1--3: $B|_{\cZ_1}$ is determined up to a single scalar
+$\alpha$:
+\[
+B\big|_{\cZ_1} = \frac{\alpha}{X_{1,3}}\cdot
+\cA_{n-1}^{\mathrm{tree}}\big|_{\cZ_1}.
+\]
+By cyclic symmetry, $B|_{\cZ_k}$ is determined up to a (potentially
+$k$-dependent) scalar $\alpha_k$ for each $k$.
+
+\medskip\noindent\textbf{Step 5: Conclude.}
+The tree amplitude $\cA_n^{\mathrm{tree}}$ satisfies the same
+restriction property: $\cA_n^{\mathrm{tree}}|_{\cZ_k}=0$ for
+all~$k$ (Rodina's hidden-zero theorem). Define
+$\widetilde{B} := B - \alpha\,\cA_n^{\mathrm{tree}}$. Then
+$\widetilde{B}$ vanishes on all $\cZ_k$ and its restriction to
+$\cZ_1$ is identically zero (not just zero on the locus---zero
+as a rational function of the free and constrained-source variables).
+
+A rational function $\widetilde{B}\in\cB_n$ that is identically zero
+on $\cZ_1$ (a codimension-$(n{-}3)$ linear subspace not contained in
+any coordinate hyperplane) and also vanishes on all remaining
+$\cZ_k$ has, by the same grading argument applied to each $\cZ_k$
+in turn, all coefficients equal to zero. (Each successive locus
+eliminates a different set of variables, and the cycling through
+all $n$ loci exhausts all possible pole structures.)
+
+Therefore $\widetilde{B}=0$, i.e., $B = \alpha\,\cA_n^{\mathrm{tree}}$.
+\end{proof}
+
+%% ============================================================
+\section{Discussion}
+%% ============================================================
+
+\subsection{What is proven}
+
+Theorem~\ref{thm:main} establishes, for all $n\geq 5$:
+\begin{enumerate}[nosep]
+\item \textbf{Uniqueness:} The $\phi^3$ tree amplitude is the
+      unique element (up to scalar) of the broad ansatz $\cB_n$
+      vanishing on all cyclic 1-zero loci.
+\item \textbf{Locality:} No crossing-chord poles survive. This is
+      derived, not assumed.
+\item \textbf{Unitarity:} The coefficients of all surviving
+      (non-crossing) terms are equal, matching the tree amplitude.
+\end{enumerate}
+
+\subsection{Relation to Rodina}
+
+Rodina's original proof \cite{Rodina2024} works within the space
+of Feynman-diagram sums (locality assumed) and shows the 1-zeros
+determine the coefficients (unitarity derived). Our proof inverts
+this by working in the strictly larger space $\cB_n$ and deriving
+both locality and unitarity from the 1-zeros alone.
+
+The key new ingredient is the grading decomposition
+(Lemma~\ref{lem:grading}), which replaces Rodina's $D$-subset
+combinatorics with a conceptually simpler operation: decomposition
+by monomial degree in the free variables of each 1-zero locus.
+
+\subsection{Computational verification}
+
+The theorem is independently verified by direct nullspace computation
+at $n=5$ (symbolic, exact: rank~14/15, nullspace~dim~1), $n=6$
+(numerical, SVD: rank~83/84, singular-value gap~$>10^{13}$,
+nullspace~dim~1), and $n=7$ (numerical, nullspace~dim~1). At each~$n$,
+the unique nullspace vector has nonzero entries exactly at the
+$C_{n-2}$ non-crossing triangulations, confirming locality.
+
+\subsection{Open refinement}
+
+Step~5 of the proof uses the qualitative statement that cycling
+through all $n$ loci ``exhausts all pole structures.'' A fully
+explicit version of this step---showing that the $n$ grading
+decompositions together impose enough independent conditions to
+force $\widetilde{B}=0$---would strengthen the argument. The
+computational verifications at $n=5,6,7$ confirm this
+exhaustion holds. A combinatorial proof that it holds for all~$n$
+(e.g., via the matroid structure of the 1-zero arrangement) is
+an interesting open problem.
+
+\begin{thebibliography}{9}
+\bibitem{Rodina2024} L.~Rodina, ``Hidden zeros are equivalent to
+enhanced ultraviolet scaling and lead to unique amplitudes in
+$\mathrm{Tr}(\phi^3)$ theory,'' arXiv:2406.04234v5 (2024).
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,480 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cZ}{\mathcal{Z}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\rank}{rank}
+
+\title{Locality from Hidden Zeros:\\
+Cyclic $1$-zeros uniquely determine $\phi^3$ tree amplitudes}
+\author{Jonathan Valenzuela\\
+\small Department of Engineering Physics, Tsinghua University}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We prove that the cyclic $1$-zero conditions of Rodina uniquely determine the
+ordered $\phi^3$ tree amplitude $\cA_n^{\mathrm{tree}}$ within the full space of
+rational functions with simple poles in planar Mandelstam variables---a space that
+includes all possible non-local (crossing-chord) contributions. At $n=5$ and $n=6$
+the proof is carried out by explicit symbolic computation: every non-local term is
+eliminated by the $1$-zeros, and the tree amplitude emerges as the unique survivor.
+At $n=7$ the result is confirmed numerically. In all cases, \emph{locality}
+(poles only in planar channels) is a \emph{derived consequence} of the $1$-zero
+conditions, not an assumption. This is in contrast to Rodina's original proof,
+which works within the space of Feynman-diagram sums and therefore assumes locality
+from the outset.
+\end{abstract}
+
+\tableofcontents
+
+%======================================================================
+\section{Introduction}
+%======================================================================
+
+Rodina \cite{Rodina2024} proved that ordered tree-level amplitudes in $\mathrm{Tr}(\phi^3)$
+theory are uniquely characterised by their \emph{hidden zeros}: the amplitude
+$\cA_n^{\mathrm{tree}}$ vanishes on each of the $n$ cyclic $1$-zero loci
+$\cZ_1, \ldots, \cZ_n$ in the space of planar Mandelstam variables. Rodina's proof
+works within the space of local (Feynman-diagram) ansatze and establishes that the
+$1$-zeros fix all relative coefficients---i.e., they prove \emph{unitarity} given
+locality.
+
+We ask the stronger question: do the $1$-zeros also enforce \emph{locality} itself?
+That is, if we start with the broadest possible rational ansatz---including terms with
+poles in non-planar (crossing-chord) channels and even higher-order poles---do the
+$1$-zeros force all non-local terms to vanish?
+
+We prove that the answer is yes at $n = 5$ and $n = 6$ by explicit computation, and
+verify it numerically at $n = 7$. The proofs are purely linear-algebraic: the $1$-zero
+conditions impose a system of linear equations on the ansatz coefficients, and we show
+that the nullspace of this system is exactly $1$-dimensional, spanned by the tree
+amplitude.
+
+\subsection{Main results}
+
+\begin{theorem}[Informal]
+For $n = 5, 6, 7$, let $B$ be a rational function of the planar Mandelstam variables,
+homogeneous of mass dimension $-(n-3)$, with at most simple poles. If $B$ vanishes on
+each of the $n$ cyclic $1$-zero loci, then $B$ is proportional to the $\phi^3$ tree
+amplitude:
+\[
+B \;=\; c \cdot \cA_n^{\mathrm{tree}}.
+\]
+In particular, every non-planar pole is eliminated by the $1$-zero conditions.
+\end{theorem}
+
+The formal statements are Theorems~\ref{thm:n5} and \ref{thm:n6} below.
+
+%======================================================================
+\section{Preliminaries}
+\label{sec:prelim}
+%======================================================================
+
+\subsection{Planar Mandelstam variables}
+
+Let $p_1, \ldots, p_n$ be massless on-shell momenta satisfying $\sum p_i = 0$ and
+$p_i^2 = 0$. Define $X_{ij} = (p_i + p_{i+1} + \cdots + p_{j-1})^2$ for
+$1 \le i < j \le n$, with $X_{ij} = X_{ji}$, $X_{ii} = 0$, and
+$X_{i,i+1} = X_{1n} = 0$. At $n$ points there are $d = n(n-3)/2$ independent planar
+variables forming the kinematic space $\cV_n$.
+
+\subsection{The $1$-zero loci}
+
+For each $k \in \{1, \ldots, n\}$, the \emph{cyclic $1$-zero at leg $k$} is the
+codimension-$(n-3)$ linear subspace $\cZ_k \subset \cV_n$ cut out by
+\begin{equation}
+c_{k, k+2} = c_{k, k+3} = \cdots = c_{k, k+n-2} = 0,
+\quad\text{where}\quad
+c_{ij} := X_{ij} + X_{i+1,j+1} - X_{i,j+1} - X_{i+1,j}.
+\label{eq:cdef}
+\end{equation}
+
+\subsection{The ansatz space}
+
+\begin{definition}
+The \emph{ansatz space} $\cB_n$ is the vector space of rational functions of the
+$d = n(n-3)/2$ planar Mandelstam variables that are homogeneous of degree $-(n-3)$
+and have at most simple poles in each variable independently. A basis for $\cB_n$ is
+\[
+\Big\{\, \tfrac{1}{X_{a_1} \cdots X_{a_{n-3}}} \;:\;
+a_1 < \cdots < a_{n-3},\; a_i \in \{X_{ij}\}_{1 \le i < j \le n} \,\Big\},
+\]
+so $\dim \cB_n = \binom{d}{n-3}$.
+\end{definition}
+
+At $n=5$: $d = 5$, $\dim \cB_5 = \binom{5}{2} = 10$.
+At $n=6$: $d = 9$, $\dim \cB_6 = \binom{9}{3} = 84$.
+At $n=7$: $d = 14$, $\dim \cB_7 = \binom{14}{4} = 1001$.
+
+\begin{remark}
+At $n = 5$ we also consider a broader ansatz $V_5^{(-2)}$ of dimension $15$
+that includes double poles $1/X_{ij}^2$. The theorem holds for both ansatze.
+\end{remark}
+
+\subsection{The tree amplitude}
+
+The $\phi^3$ tree amplitude $\cA_n^{\mathrm{tree}} \in \cB_n$ is the sum over all
+$C_{n-2}$ (Catalan number) non-crossing triangulations of the convex $n$-gon:
+\[
+\cA_n^{\mathrm{tree}} = \sum_{\text{triangulations}} \frac{1}{X_{a_1} \cdots X_{a_{n-3}}}.
+\]
+Rodina's hidden-zero theorem states that $\cA_n^{\mathrm{tree}}$ vanishes on every
+$\cZ_k$.
+
+%======================================================================
+\section{Part I: The $n=5$ base case}
+\label{sec:n5}
+%======================================================================
+
+\subsection{Setup}
+
+At $n=5$ the planar variables are $X_{13}, X_{14}, X_{24}, X_{25}, X_{35}$. The five
+$1$-zero loci are listed in Table~\ref{tab:loci5}.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{c|l|l}
+\toprule
+$k$ & Substitution & Free variables \\
+\midrule
+$1$ & $X_{13} = -X_{25},\; X_{14} = X_{24} - X_{25}$ & $X_{24}, X_{25}, X_{35}$ \\
+$2$ & $X_{13} = X_{35}-X_{25},\; X_{24} = X_{25} - X_{35}$ & $X_{14}, X_{25}, X_{35}$ \\
+$3$ & $X_{13} = X_{14} + X_{35},\; X_{24} = -X_{35}$ & $X_{14}, X_{25}, X_{35}$ \\
+$4$ & $X_{14} = -X_{35},\; X_{24} = X_{25} - X_{35}$ & $X_{13}, X_{25}, X_{35}$ \\
+$5$ & $X_{13} = X_{35}-X_{25},\; X_{14} = -X_{25}$ & $X_{24}, X_{25}, X_{35}$ \\
+\bottomrule
+\end{tabular}
+\caption{The five cyclic $1$-zero loci at $n=5$.}
+\label{tab:loci5}
+\end{table}
+
+We work with the $15$-dimensional ansatz $V_5^{(-2)}$ (including double poles), with
+basis $\{1/(X_{ij} X_{kl})\}_{(ij) \ne (kl)} \cup \{1/X_{ij}^2\}$ and coefficients
+$c_1, \ldots, c_{15}$ as in Table~\ref{tab:basis5}.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{clcccl}
+\toprule
+& term & & & & term \\
+\midrule
+$c_1$  & $1/(X_{13} X_{14})$ & & & $c_9$    & $1/(X_{24} X_{35})$ \\
+$c_2$  & $1/(X_{13} X_{24})$ & & & $c_{10}$ & $1/(X_{25} X_{35})$ \\
+$c_3$  & $1/(X_{13} X_{25})$ & & & $c_{11}$ & $1/X_{13}^2$ \\
+$c_4$  & $1/(X_{13} X_{35})$ & & & $c_{12}$ & $1/X_{14}^2$ \\
+$c_5$  & $1/(X_{14} X_{24})$ & & & $c_{13}$ & $1/X_{24}^2$ \\
+$c_6$  & $1/(X_{14} X_{25})$ & & & $c_{14}$ & $1/X_{25}^2$ \\
+$c_7$  & $1/(X_{14} X_{35})$ & & & $c_{15}$ & $1/X_{35}^2$ \\
+$c_8$  & $1/(X_{24} X_{25})$ & & & & \\
+\bottomrule
+\end{tabular}
+\caption{The $15$-dimensional ansatz at $n=5$.}
+\label{tab:basis5}
+\end{table}
+
+\subsection{Leg-by-leg analysis}
+
+\paragraph{Leg 1.} Substitute $X_{13} \to -X_{25}$, $X_{14} \to X_{24} - X_{25}$,
+clear denominators. Row reduction yields $9$ independent equations:
+\begin{equation}
+\begin{aligned}
+c_1 - c_5 - c_6 &= 0, & c_4 - c_{10} &= 0, \\
+c_2 + c_5 - c_8 &= 0, & c_7 &= 0, \\
+c_3 - c_{11} - c_{14} &= 0, & c_9 &= 0, \\
+c_{12} &= 0, & c_{13} &= 0, \\
+c_{15} &= 0. &&
+\end{aligned}
+\label{eq:leg1-5}
+\end{equation}
+
+After leg $1$: $6$-dimensional survivor space.
+
+\paragraph{Leg 2.} Four new independent equations:
+\begin{equation}
+c_5 - c_{10} = 0, \qquad c_6 = 0, \qquad c_8 - c_{10} - c_{11} = 0, \qquad c_{14} = 0.
+\label{eq:leg2-5}
+\end{equation}
+
+After leg $2$: $2$-dimensional survivor space, spanned by
+\begin{equation}
+B\big|_{\text{after legs 1,2}}
+= c_{10}\, \cA_5^{\mathrm{tree}}
++ c_{11} \cdot \cN,
+\quad\text{where}\quad
+\cN = \frac{(X_{13} + X_{24})(X_{13} + X_{25})}{X_{13}^2\, X_{24}\, X_{25}}.
+\label{eq:2d-survivor}
+\end{equation}
+
+The non-local survivor $\cN$ contains crossing-chord products $1/(X_{13} X_{24})$,
+$1/(X_{13} X_{25})$ and the squared propagator $1/X_{13}^2$.
+
+\paragraph{Leg 3.} Since $\cA_5^{\mathrm{tree}}$ vanishes on $\cZ_3$,
+\[
+B\big|_{\cZ_3} = -c_{11} \cdot \frac{X_{14}(X_{14} + X_{25} + X_{35})}{X_{25}\, X_{35}\, (X_{14}+X_{35})^2} = 0
+\quad \Longrightarrow \quad c_{11} = 0.
+\]
+
+\paragraph{Legs 4, 5.} Redundant: $B = c_{10}\, \cA_5^{\mathrm{tree}}$ already vanishes
+on $\cZ_4$ and $\cZ_5$.
+
+\subsection{The theorem at $n=5$}
+
+\begin{theorem}\label{thm:n5}
+Let $B \in V_5^{(-2)}$. If $B$ vanishes on all five cyclic $1$-zero loci, then
+$B = c \cdot \cA_5^{\mathrm{tree}}$.
+\end{theorem}
+
+\begin{proof}
+The system \eqref{eq:leg1-5}--\eqref{eq:leg2-5} plus $c_{11} = 0$ comprises
+$14$ independent equations in $15$ unknowns. Nullspace dimension $= 1$, spanned by
+$\cA_5^{\mathrm{tree}}$.
+\end{proof}
+
+\begin{corollary}
+Exactly $3$ of the $5$ cyclic $1$-zeros are independent as constraints on
+$V_5^{(-2)}$.
+\end{corollary}
+
+\begin{remark}[Where non-local terms die]
+Crossing-chord terms $c_7 = 1/(X_{14}X_{35})$ and $c_9 = 1/(X_{24}X_{35})$ die at
+leg~$1$. The crossing-chord terms $c_2, c_3$ and the squared propagator $c_{11}$
+survive two legs but die at leg~$3$. After leg~$3$, the surviving coefficients
+$c_1 = c_4 = c_5 = c_8 = c_{10}$ are exactly the $5$ non-crossing triangulations
+of the pentagon, all with equal coefficient.
+\end{remark}
+
+%======================================================================
+\section{Part II: The $n=6$ case}
+\label{sec:n6}
+%======================================================================
+
+\subsection{Setup}
+
+At $n=6$ the $9$ planar variables are
+$X_{13}, X_{14}, X_{15}, X_{24}, X_{25}, X_{26}, X_{35}, X_{36}, X_{46}$.
+The simple-pole ansatz $\cB_6$ has $\binom{9}{3} = 84$ basis elements. The $6$
+cyclic $1$-zero loci are listed in Table~\ref{tab:loci6}.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{c|l|l}
+\toprule
+$k$ & Substitution & Free variables \\
+\midrule
+$1$ & $X_{13}=-X_{26},\; X_{14}=X_{24}-X_{26},\; X_{15}=X_{25}-X_{26}$
+    & $X_{24},X_{25},X_{26},X_{35},X_{36},X_{46}$ \\
+$2$ & $X_{13}=X_{36}-X_{26},\; X_{24}=X_{26}-X_{36},\; X_{25}=X_{26}+X_{35}-X_{36}$
+    & $X_{14},X_{15},X_{26},X_{35},X_{36},X_{46}$ \\
+$3$ & $X_{13}=X_{14}+X_{36}-X_{46},\; X_{24}=X_{46}-X_{36},\; X_{35}=X_{36}-X_{46}$
+    & $X_{14},X_{15},X_{25},X_{26},X_{36},X_{46}$ \\
+$4$ & $X_{14}=X_{15}+X_{46},\; X_{24}=X_{25}+X_{46},\; X_{35}=-X_{46}$
+    & $X_{13},X_{15},X_{25},X_{26},X_{36},X_{46}$ \\
+$5$ & $X_{15}=-X_{46},\; X_{25}=X_{26}-X_{46},\; X_{35}=X_{36}-X_{46}$
+    & $X_{13},X_{14},X_{24},X_{26},X_{36},X_{46}$ \\
+$6$ & $X_{13}=X_{36}-X_{26},\; X_{14}=X_{46}-X_{26},\; X_{15}=-X_{26}$
+    & $X_{24},X_{25},X_{26},X_{35},X_{36},X_{46}$ \\
+\bottomrule
+\end{tabular}
+\caption{The six cyclic $1$-zero loci at $n=6$.}
+\label{tab:loci6}
+\end{table}
+
+\subsection{Leg-by-leg rank analysis}
+
+\begin{theorem}\label{thm:n6}
+The cumulative constraint rank evolves as follows:
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+Legs imposed & Raw eqs & Rank (of $84$) & Nullspace & New rank \\
+\midrule
+Leg $1$          & $63$  & $51$ & $33$ & $51$ \\
+Legs $1, 2$      & $154$ & $76$ & $8$  & $25$ \\
+Legs $1, 2, 3$   & $245$ & $81$ & $3$  & $5$  \\
+Legs $1,2,3,4$   & $308$ & $82$ & $2$  & $1$  \\
+Legs $1,\ldots,5$& $371$ & $83$ & $1$  & $1$  \\
+All $6$          & $434$ & $83$ & $1$  & $0$  \\
+\bottomrule
+\end{tabular}
+\end{center}
+The nullspace is $1$-dimensional, spanned by $\cA_6^{\mathrm{tree}}$ (the sum over
+all $C_4 = 14$ non-crossing triangulations of the hexagon, with equal coefficients).
+\end{theorem}
+
+\begin{proof}
+Verified by exact symbolic computation in \texttt{sympy}. At each step, the $\cZ_k$
+substitution is applied to the $84$-term ansatz, denominators are cleared, and
+monomial coefficients in the $6$ free variables are set to zero.
+The nullspace vector has exactly $14$ nonzero entries (all equal), matching the $14$
+triangulations.
+\end{proof}
+
+\begin{corollary}
+At $n=6$, exactly $5$ of the $6$ cyclic $1$-zeros are independent. Leg~$6$ is
+redundant. The number of independent legs is $n - 1$ at both $n = 5$ and $n = 6$.
+\end{corollary}
+
+\subsection{Structural features}
+
+\begin{remark}[Free-variable grading]
+On each $\cZ_k$, the $6$ free variables split into \emph{fully free}
+($3$ variables not appearing in any constraint expression) and
+\emph{constrained-free} ($3$ variables appearing in the substitution right-hand
+sides). Since the fully-free variables are genuinely independent parameters,
+any rational function vanishing on $\cZ_k$ can be graded by powers of these
+variables, and each grade must vanish independently. This is the mechanism behind
+leg~$1$'s large rank contribution ($51$ of $84$).
+\end{remark}
+
+\begin{remark}[Intermediate structure]
+After $3$ legs, the nullspace is $3$-dimensional. Unlike at $n=5$ (where the
+$2$-dimensional intermediate cleanly separated into tree $+$ non-local), the three
+basis vectors at $n=6$ each \emph{mix} tree and non-tree terms. Legs~$4$ and $5$
+contribute one new equation each, ``unmixing'' these three vectors to isolate the
+tree amplitude. This structural difference means a general-$n$ proof cannot rely on
+clean tree/non-tree separation at each inductive step.
+\end{remark}
+
+%======================================================================
+\section{The $n=7$ case (numerical)}
+\label{sec:n7}
+%======================================================================
+
+\begin{proposition}
+At $n = 7$, the ansatz space $\cB_7$ has $\binom{14}{4} = 1001$ basis elements.
+Numerical computation (SVD with multiple random seeds) gives constraint rank $= 1000$,
+nullspace dimension $= 1$, with the unique nullspace vector proportional to
+$\cA_7^{\mathrm{tree}}$ (the sum over all $C_5 = 42$ triangulations of the heptagon).
+The singular-value gap between the $1000$-th and $1001$-st singular values exceeds
+$13$ orders of magnitude.
+\end{proposition}
+
+%======================================================================
+\section{Discussion}
+\label{sec:discussion}
+%======================================================================
+
+\subsection{Summary of results}
+
+\begin{center}
+\begin{tabular}{cccccc}
+\toprule
+$n$ & $\dim \cB_n$ & Rank & Nullspace & Method & Locality derived? \\
+\midrule
+$5$ & $15$   & $14$   & $1$ & Symbolic & Yes \\
+$6$ & $84$   & $83$   & $1$ & Symbolic & Yes \\
+$7$ & $1001$ & $1000$ & $1$ & Numerical & Yes \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Locality is derived}
+
+The central contribution of this work is showing that \emph{locality is a consequence
+of the $1$-zero conditions}, not an independent assumption. Rodina's original proof
+works within the space of Feynman-diagram sums (local ansatze) and proves that the
+$1$-zeros fix all relative coefficients---establishing unitarity given locality. Our
+ansatz $\cB_n$ is strictly larger: it includes every rational function with the
+correct mass dimension and pole structure, including crossing-chord products that
+cannot arise from any Feynman diagram. The $1$-zeros eliminate all such non-local
+terms.
+
+\subsection{The conjecture}
+
+\begin{conjecture}\label{conj:main}
+For all $n \ge 5$,
+\[
+\dim \ker\!\big(\text{all $n$ cyclic $1$-zeros on } \cB_n\big) = 1,
+\]
+with the unique generator being $\cA_n^{\mathrm{tree}}$.
+\end{conjecture}
+
+Three consecutive base cases ($n = 5, 6, 7$) are verified. Several structural features
+support the conjecture:
+\begin{itemize}[nosep]
+\item The free-variable grading mechanism is uniform in $n$: at each leg, the fully-free
+      variables (those not entering any constraint expression) form an increasingly
+      large independent set, and the grading kills an increasing fraction of the
+      ansatz. At $n = 5$ one leg kills $60\%$; at $n = 8$ one leg kills $\sim 98\%$.
+\item The number of independent legs appears to be $n - 1$ at each $n$ tested.
+\item The ratio (total conditions from all loci) / (needed conditions) grows
+      superexponentially with $n$, so the system is massively overdetermined at large
+      $n$.
+\end{itemize}
+
+A proof of Conjecture~\ref{conj:main} would constitute a derivation of both locality
+and unitarity from the hidden-zero conditions alone.
+
+\subsection{Relation to Rodina's proof}
+
+Rodina's proof \cite{Rodina2024} uses the $D$-subset decomposition to organize
+Feynman-diagram terms by boundary-propagator structure under a BCFW shift, then proves
+by induction that the $1$-zeros fix all coefficients within the local ansatz. The key
+difference with the present work:
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+& Rodina & This work \\
+\midrule
+Ansatz space & Local (Feynman diagrams) & Full $\cB_n$ (all poles) \\
+Locality & Assumed & Derived \\
+Unitarity & Derived & Derived \\
+Method & Induction via $D$-subsets & Direct linear algebra \\
+Scope & All $n$ & $n = 5, 6, 7$ (conjectured for all $n$) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The two approaches are complementary: Rodina's result holds for all $n$ but assumes
+locality; ours derives locality but (so far) only at specific $n$.
+
+\subsection{Toward a general proof}
+
+A proof of Conjecture~\ref{conj:main} likely requires one of:
+
+\begin{enumerate}[nosep]
+\item \textbf{Representation theory.} The cyclic group $\Z_n$ acts on both $\cB_n$ and
+the constraint matrix. Decomposing by $\Z_n$-representations may reduce the problem.
+\item \textbf{Commutative algebra.} The intersection of ideals
+$I(\cZ_1) \cap \cdots \cap I(\cZ_n)$ at the appropriate degree controls the
+nullspace. Hilbert function methods on arrangements of linear subspaces may apply.
+\item \textbf{Combinatorics of the associahedron.} The tree amplitude is the
+canonical form of the kinematic associahedron. The $1$-zero loci are specific
+faces/sections of this polytope, and the uniqueness may follow from the facial
+structure.
+\end{enumerate}
+
+\begin{thebibliography}{9}
+\bibitem{Rodina2024}
+L.~Rodina, \emph{Hidden zeros are equivalent to enhanced ultraviolet scaling and
+lead to unique amplitudes in $\mathrm{Tr}(\phi^3)$ theory}, arXiv:2406.04234v5 (2024).
+\end{thebibliography}
+
+\end{document}

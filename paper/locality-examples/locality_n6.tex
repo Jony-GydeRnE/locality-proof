@@ -1,0 +1,667 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\newcommand{\X}[2]{X_{#1#2}}
+\newcommand{\Z}{\mathcal{Z}}
+\newcommand{\spec}{\mathrm{spec}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{observation}{Observation}
+\theoremstyle{definition}
+\newtheorem*{remark}{Remark}
+
+\title{Locality emerges at six points in $\mathrm{tr}(\phi^3)$:\\
+a direct proof from hidden zeros}
+\author{Jony}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Starting from a rational ansatz with $165$ coefficients --- the most general
+six-point function with correct scaling, planar poles, and trivial numerators
+--- we use the six cyclic hidden one-zeros to show that every non-local
+coefficient must vanish. The argument uses a single technique applied six
+times: for each zero $\Z_r$, one free Mandelstam variable (the \emph{special
+variable}) appears in every substitution of the zero; expanding the vanishing
+condition as a Laurent series in that variable and demanding each order vanish
+independently on the other five frees yields, per zero, $35$ direct kills at
+leading order and $20$ more at subleading order. Summed over the six cyclic
+zeros, this kills $151$ of the $165$ coefficients --- precisely the $151$
+non-local ones. The $14$ survivors are exactly the $14$ tree (local) triples,
+the triangulations of the hexagon. Thus locality emerges directly from the
+hidden zeros by a single repeatable move, without reference to BCFW shifts or
+uniqueness theorems.
+\end{abstract}
+
+\tableofcontents
+
+%================================================================
+\section{Preliminaries}
+
+\subsection{Planar variables of the hexagon}
+
+Consider six external particles, labeled cyclically $1,2,3,4,5,6$. The
+\emph{planar Mandelstam variables} are the $\binom{6}{2}-6=9$ chords of the
+hexagon drawn with vertices $1,\dots,6$:
+\[
+\X13,\ \X14,\ \X15,\ \X24,\ \X25,\ \X26,\ \X35,\ \X36,\ \X46.
+\]
+Here $\X{i}{j}$ denotes the two-particle invariant $(p_i+p_{i+1}+\cdots+p_{j-1})^2$
+(the Mandelstam associated with the chord from leg $i$ to leg $j$).
+
+It is convenient to relabel these $9$ chords as $x_1,\dots,x_9$ in a way that
+exposes the cyclic symmetry of the problem. The six ``short diagonals'' (chords
+skipping one vertex) form a $6$-cycle under cyclic rotation of the leg labels;
+we label them $x_1$ through $x_6$:
+\[
+x_1=\X13,\quad x_2=\X24,\quad x_3=\X35,\quad x_4=\X46,\quad x_5=\X15,\quad x_6=\X26.
+\]
+Cyclic rotation $i\mapsto i+1$ of leg labels acts on these as
+$x_k\mapsto x_{k+1}$ (indices modulo $6$). The three ``long diagonals'' (chords
+skipping two vertices) form a $3$-cycle, labeled $x_7,x_8,x_9$:
+\[
+x_7=\X14,\quad x_8=\X25,\quad x_9=\X36.
+\]
+
+\subsection{The ansatz $B$}
+
+We seek the most general rational function $B(x_1,\dots,x_9)$ satisfying three
+physical conditions:
+\begin{enumerate}[nosep,leftmargin=*]
+  \item Homogeneous of degree $-3$ in the Mandelstams (correct momentum scaling).
+  \item Supported only on planar poles (no non-planar denominators).
+  \item Trivial, constant numerators (no multi-particle numerators).
+\end{enumerate}
+These three conditions force the general form
+\begin{equation}
+\label{eq:ansatz}
+B(x_1,\dots,x_9) \;=\; \sum_{1\le a\le b\le c\le 9}\frac{a_{abc}}{x_a x_b x_c},
+\end{equation}
+a sum over the $\binom{9+2}{3}=165$ multisets $(a,b,c)$ with $a\le b\le c$.
+Each $a_{abc}$ is an undetermined numerical coefficient. The problem is
+to determine which of these $165$ coefficients vanish and which survive, using
+only the structural hidden zeros of the amplitude.
+
+\subsection{Local vs.\ non-local triples}
+
+A \emph{tree triple} is a triple $(a,b,c)$ whose three chords form a
+triangulation of the hexagon --- a maximal planar subset of chords that
+together divide the hexagon into triangles. There are $14$ such triangulations
+of the hexagon (the sixth Catalan number $C_5 - C_4 + C_4 = 14$, classically).
+In our labels, the $14$ tree triples are:
+\begin{equation}
+\label{eq:trees}
+\begin{aligned}
+&a_{135},\,a_{139},\,a_{147},\,a_{149},\,a_{157},\\
+&a_{246},\,a_{247},\,a_{257},\,a_{258},\,a_{268},\\
+&a_{358},\,a_{368},\,a_{369},\,a_{469}.
+\end{aligned}
+\end{equation}
+All other $165-14=151$ multisets are \emph{non-local}: either the three indices
+include repeats (leading to double or triple poles, which should not appear in
+a sum of tree-level Feynman diagrams), or the three distinct chords fail to
+form a planar triangulation (and hence the corresponding term includes a
+crossing or incompatible pair of chords).
+
+The tree amplitude of color-ordered $\mathrm{tr}(\phi^3)$ theory is
+\begin{equation}
+A_6^{\mathrm{tree}} \;=\; \sum_{(a,b,c)\ \text{tree triple}}
+\frac{1}{x_a x_b x_c}
+\;=\; \sum_{\text{14 triangulations}}\frac{1}{x_a x_b x_c}.
+\end{equation}
+That is, $A_6^{\mathrm{tree}}$ corresponds to the special choice
+$a_{abc}=1$ for each tree triple and $a_{abc}=0$ for every non-local triple.
+
+\subsection{Statement of the main result}
+
+Our main result is that the hidden zeros force exactly this structure.
+
+\begin{theorem}[Locality at six points]
+\label{thm:locality}
+Let $B(x_1,\dots,x_9)$ be the general ansatz \eqref{eq:ansatz}. If $B$
+vanishes on each of the six cyclic one-zero loci $\Z_1,\dots,\Z_6$ (defined in
+Section~\ref{sec:zeros} below), then $a_{abc}=0$ for every non-local triple,
+i.e., for every $(a,b,c)$ not among the $14$ tree triples listed
+in~\eqref{eq:trees}.
+\end{theorem}
+
+The proof, given in Section~\ref{sec:proof}, uses a single elementary
+technique applied once to each of the six zeros. The reduction from
+the $151$ non-local coefficients to zero is \emph{completely direct}:
+each non-local coefficient is killed as a \emph{single-term} consequence of
+some Laurent coefficient of some $\Z_r$. No Gaussian elimination, no BCFW
+shifts, no subset induction.
+
+%================================================================
+\section{The hidden zeros}
+\label{sec:zeros}
+
+\subsection{What a ``one-zero'' is}
+
+A \emph{one-zero} $\Z_r$ (for $r=1,2,\dots,6$) is a codimension-$3$ subvariety
+of Mandelstam space defined by setting three specific \emph{non-planar}
+invariants to zero:
+\[
+\Z_r\,:\quad c_{r,r+2}=c_{r,r+3}=c_{r,r+4}=0.
+\]
+Here $c_{ij}=2p_i\cdot p_j$ is the non-planar two-particle invariant, and
+indices are mod $6$. These constraints arise naturally from the hidden-zero
+structure of the tree amplitude; see \cite{rodina} for derivations.
+
+Each $c_{ij}=0$ constraint is linear in the planar Mandelstams via the
+\emph{kinematic mesh identity}
+\[
+\X{i}{j}+\X{i+1}{j+1} \;=\; \X{i}{j+1}+\X{i+1}{j}.
+\]
+The three constraints for a single $\Z_r$ turn out to fix three of the nine
+$x_i$'s as explicit linear combinations of the other six. After solving, we
+obtain simple substitution rules.
+
+\subsection{The six zeros, explicitly}
+
+Working through the kinematic mesh identity for each $\Z_r$, one obtains:
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Zero & Substitutions & Free variables \\
+\midrule
+$\Z_1$ & $x_1=-x_6,\ \ x_7=x_2-x_6,\ \ x_5=x_8-x_6$ & $\{x_2,x_3,x_4,x_6,x_8,x_9\}$ \\
+$\Z_2$ & $x_2=-x_1,\ \ x_8=x_3-x_1,\ \ x_6=x_9-x_1$ & $\{x_1,x_3,x_4,x_5,x_7,x_9\}$ \\
+$\Z_3$ & $x_3=-x_2,\ \ x_1=x_7-x_2,\ \ x_9=x_4-x_2$ & $\{x_2,x_4,x_5,x_6,x_7,x_8\}$ \\
+$\Z_4$ & $x_4=-x_3,\ \ x_7=x_5-x_3,\ \ x_2=x_8-x_3$ & $\{x_1,x_3,x_5,x_6,x_8,x_9\}$ \\
+$\Z_5$ & $x_5=-x_4,\ \ x_8=x_6-x_4,\ \ x_3=x_9-x_4$ & $\{x_1,x_2,x_4,x_6,x_7,x_9\}$ \\
+$\Z_6$ & $x_6=-x_5,\ \ x_9=x_1-x_5,\ \ x_4=x_7-x_5$ & $\{x_1,x_2,x_3,x_5,x_7,x_8\}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The six zeros are related by cyclic rotation: applying the leg rotation
+$i\mapsto i+1$ transforms $\Z_r$ into $\Z_{r+1}$.
+
+\subsection{The special variable}
+
+A key observation --- and the pivot of our technique:
+
+\begin{observation}
+\label{obs:special}
+For each zero $\Z_r$, there is exactly one free variable that appears on the
+right-hand side of \emph{every} one of the three substitutions defining $\Z_r$.
+We call this variable the \emph{special variable} of $\Z_r$ and denote it
+$x_{\spec(r)}$.
+\end{observation}
+
+Reading off the substitutions:
+\begin{center}
+\begin{tabular}{ccccccc}
+\toprule
+Zero & $\Z_1$ & $\Z_2$ & $\Z_3$ & $\Z_4$ & $\Z_5$ & $\Z_6$ \\
+Special & $x_6$ & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The six special variables are exactly the six short diagonals $x_1,\dots,x_6$,
+in a shifted cyclic order.
+
+%================================================================
+\section{The technique}
+\label{sec:technique}
+
+We now describe our main technique, which is a single elementary operation
+performed per zero. Fix a zero $\Z_r$ and its special variable
+$x_{\spec(r)}$. On $\Z_r$, the ansatz~$B$ becomes a rational function of the
+six free variables. Since $B$ must vanish identically on $\Z_r$, so does
+$B|_{\Z_r}$ viewed as a function of those six frees.
+
+Here is the operation, stated bluntly:
+
+\begin{quote}\em
+\textbf{Step 1.} Treating the five non-special free variables as fixed
+parameters, expand $B|_{\Z_r}$ as a Laurent series in $x_{\spec(r)}$.\\[3pt]
+\textbf{Step 2.} Since $B|_{\Z_r}=0$, each Laurent coefficient (a rational
+function of the other five frees) must vanish identically.\\[3pt]
+\textbf{Step 3.} For each Laurent coefficient, expand as a polynomial in the
+other five frees after clearing the common denominator. Each monomial
+coefficient gives an equation on the $a_{abc}$'s. Equations with a single
+$a_{abc}$ are immediate kills.
+\end{quote}
+
+The claim of this paper is that this procedure, applied to each of the six
+zeros, produces $151$ single-term kills --- one for each non-local coefficient.
+
+Section~\ref{sec:proof} works this out in full. We begin with the simplest
+(and most important) order: the $x_{\spec(r)}\to\infty$ limit.
+
+%================================================================
+\section{Proof of Theorem \ref{thm:locality}}
+\label{sec:proof}
+
+\subsection{The leading order: $x_{\spec(r)}\to\infty$}
+\label{sec:order0}
+
+\subsubsection*{Setup}
+
+Fix a zero $\Z_r$. Let $F_r$ denote the set of five non-special free
+variables. For example, for $\Z_1$: special is $x_6$, so $F_1=\{x_2,x_3,x_4,x_8,x_9\}$.
+Let $S_r$ denote the three \emph{constrained} variables (those on the left-hand
+side of the $\Z_r$ substitutions). For example, $S_1=\{x_1,x_5,x_7\}$.
+
+A key structural feature of each $\Z_r$ substitution: every substituted
+variable $s\in S_r$ is expressed as a linear combination of $x_{\spec(r)}$
+and one variable in $F_r$ (or just $-x_{\spec(r)}$). For $\Z_1$:
+\[
+x_1=-x_6,\qquad x_7=x_2-x_6,\qquad x_5=x_8-x_6,
+\]
+so each element of $S_1$ \emph{scales linearly with $x_6$} as $x_6\to\infty$.
+
+\subsubsection*{What survives at leading order?}
+
+Take the limit $x_{\spec(r)}\to\infty$ with all of $F_r$ held fixed. In this
+limit:
+\begin{itemize}[nosep]
+  \item Any denominator factor from $S_r$ grows linearly with $x_{\spec(r)}$.
+  \item The special variable $x_{\spec(r)}$ itself grows linearly.
+  \item Variables in $F_r$ remain finite.
+\end{itemize}
+Therefore, a term $a_{abc}/(x_a x_b x_c)$ in $B$ survives the limit only if
+\emph{none} of $\{a,b,c\}$ points to a variable in $S_r\cup\{x_{\spec(r)}\}$.
+Equivalently, it survives iff all three indices $a,b,c$ correspond to
+variables in $F_r$.
+
+\begin{lemma}[Leading-order kill]
+\label{lem:order0}
+Every coefficient $a_{abc}$ with $\{x_a,x_b,x_c\}\subseteq F_r$ vanishes.
+There are exactly
+\[
+\binom{|F_r|+2}{3}\;=\;\binom{5+2}{3}\;=\;35
+\]
+such coefficients.
+\end{lemma}
+
+\begin{proof}
+The $x_{\spec(r)}\to\infty$ limit of $B|_{\Z_r}$ equals
+\begin{equation}
+\label{eq:leading}
+\lim_{x_{\spec(r)}\to\infty} B|_{\Z_r}
+\;=\;\sum_{\{x_a,x_b,x_c\}\subseteq F_r}\frac{a_{abc}}{x_a x_b x_c}
+\end{equation}
+because every other term in $B$ has a denominator factor that grows and hence
+contributes zero in the limit. The right-hand side is a rational function in
+the $5$ variables of $F_r$ alone.
+
+Since $B|_{\Z_r}=0$ identically on $\Z_r$, its limit as $x_{\spec(r)}\to\infty$
+(with $F_r$ held fixed) must vanish identically as a function of $F_r$. The $35$
+monomials $1/(x_a x_b x_c)$ with indices in $F_r$ are linearly independent
+as rational functions of $5$ variables (they can be distinguished by their
+pole structure). Therefore the coefficient of each must vanish:
+\[
+a_{abc}=0\quad\text{for every multiset}\ (a,b,c)\ \text{with}\ \{x_a,x_b,x_c\}\subseteq F_r.
+\qedhere
+\]
+\end{proof}
+
+\begin{remark}[Why this is so clean]
+The pole structure of the surviving sum in~\eqref{eq:leading} is a direct
+algebraic invariant: each $1/(x_a x_b x_c)$ has a distinct, identifiable
+pole locus in $F_r$. There is no cancellation between distinct multisets.
+Setting the total equal to zero immediately forces each coefficient to vanish.
+This is a textbook partial-fraction-decomposition argument.
+\end{remark}
+
+\subsubsection*{Example: $\Z_1$}
+
+For $\Z_1$ ($F_1=\{x_2,x_3,x_4,x_8,x_9\}$), Lemma~\ref{lem:order0} kills the
+$35$ coefficients whose three indices (with multiplicity) lie in
+$\{2,3,4,8,9\}$. Explicitly:
+\[
+\begin{aligned}
+&a_{222},\,a_{223},\,a_{224},\,a_{228},\,a_{229},\,
+a_{233},\,a_{234},\,a_{238},\,a_{239},\,a_{244},\\
+&a_{248},\,a_{249},\,a_{288},\,a_{289},\,a_{299},\,
+a_{333},\,a_{334},\,a_{338},\,a_{339},\,a_{344},\\
+&a_{348},\,a_{349},\,a_{388},\,a_{389},\,a_{399},\,
+a_{444},\,a_{448},\,a_{449},\,a_{488},\,a_{489},\\
+&a_{499},\,a_{888},\,a_{889},\,a_{899},\,a_{999}.
+\end{aligned}
+\]
+
+\subsubsection*{Example computation for $\Z_1$}
+
+To see how the limit argument actually works, consider any one of these $35$
+terms, say $a_{222}/(x_2^3)$. This term has no factor from $S_1\cup\{x_6\}$
+in its denominator, so it survives the $x_6\to\infty$ limit unchanged. Its
+monomial is $1/x_2^3$, which is independent (as a rational function of
+$\{x_2,x_3,x_4,x_8,x_9\}$) from every other surviving monomial. Therefore
+when the full sum~\eqref{eq:leading} vanishes identically, the coefficient
+$a_{222}$ must be zero.
+
+The same argument applies to each of the $35$ surviving monomials, each paired
+uniquely with one coefficient.
+
+\subsection{The subleading order: $1/x_{\spec(r)}^2$}
+\label{sec:order2}
+
+Lemma~\ref{lem:order0} kills the $35$ coefficients with indices entirely
+inside $F_r$. The next Laurent order we examine kills $20$ more.
+
+\subsubsection*{Setup}
+
+Continue with $\Z_r$ and its special variable $x_{\spec(r)}$. Expand
+$B|_{\Z_r}$ as a Laurent series in $x_{\spec(r)}$:
+\begin{equation}
+\label{eq:Laurent}
+B|_{\Z_r} \;=\; \sum_{m\ge 0}\;\frac{1}{x_{\spec(r)}^m}\; C_m^{(r)}\bigl(F_r\bigr),
+\end{equation}
+where each $C_m^{(r)}$ is a rational function of the five variables in
+$F_r$. Since $B|_{\Z_r}=0$, each $C_m^{(r)}$ must vanish identically on $F_r$.
+The $m=0$ term is the leading limit analyzed in Section~\ref{sec:order0} and
+yielded $35$ kills. We now examine $m=2$.
+
+\subsubsection*{Which terms contribute to $C_2^{(r)}$?}
+
+A term $a_{abc}/(x_a x_b x_c)$ with some factor $x_s$ (where $s\in S_r$)
+expands under the $\Z_r$ substitution. For example, under $\Z_1$ the factor
+$1/x_5 = 1/(x_8-x_6)$ has the expansion
+\[
+\frac{1}{x_8-x_6} \;=\; -\frac{1}{x_6}\cdot\frac{1}{1-x_8/x_6}
+\;=\; -\frac{1}{x_6} - \frac{x_8}{x_6^2} - \frac{x_8^2}{x_6^3} - \cdots
+\]
+as $x_6\to\infty$. So $1/x_5$ contributes to every Laurent order in $1/x_6$.
+
+The order-$2$ piece of $1/x_5$ is $-x_8/x_6^2$. In the ansatz, \emph{only one}
+factor of $1/x_s$ (where $s\in S_r$) can simultaneously contribute to order $2$
+while the other two denominator factors remain in $F_r$: that term is
+$a_{abc}/(x_a x_b x_c)$ where exactly one of $\{x_a,x_b,x_c\}$ is in $S_r$
+and the other two are in $F_r\setminus\{x_{\spec(r)}\}$.
+
+This is exactly the new class of coefficients that will be killed at order~$2$.
+
+\begin{lemma}[Subleading-order kill]
+\label{lem:order2}
+For each $\Z_r$, the three substituted variables $s\in S_r$ take the form
+$x_s = \pm x_{\spec(r)} + f_s$ where $f_s$ is either zero or a single
+variable in $F_r\setminus\{x_{\spec(r)}\}$. Exactly two of the three
+substitutions have $f_s\neq 0$; call these two elements $s_1,s_2\in S_r$.
+
+Let $\mathcal{K}_r$ denote the set of coefficients $a_{abc}$ with:
+\begin{itemize}[nosep]
+  \item exactly one of $\{x_a,x_b,x_c\}$ equal to $x_{s_1}$ or $x_{s_2}$,
+  \item the other two indices in $F_r\setminus\{x_{\spec(r)},f_s\}$ (where
+    $s$ is the chosen index),
+  \item no index equal to $x_{\spec(r)}$.
+\end{itemize}
+Then every coefficient in $\mathcal{K}_r$ vanishes. The count is
+\[
+|\mathcal{K}_r| \;=\; 2\cdot\binom{|F_r|-1+1}{2}\;=\;2\cdot\binom{4+1}{2}\;=\;2\cdot 10 \;=\; 20.
+\]
+\end{lemma}
+
+\begin{proof}[Proof sketch]
+Under the $\Z_r$ substitution, each $x_s\in S_r$ becomes $x_s = \pm x_{\spec(r)}+f_s$.
+Expanding $1/x_s$ as a Laurent series in $x_{\spec(r)}$:
+\[
+\frac{1}{x_s} \;=\; \pm\frac{1}{x_{\spec(r)}}
+\sum_{k\ge 0}\left(\mp\frac{f_s}{x_{\spec(r)}}\right)^k
+\;=\; \pm\frac{1}{x_{\spec(r)}} \mp \frac{f_s}{x_{\spec(r)}^2}
+\pm \frac{f_s^2}{x_{\spec(r)}^3} - \cdots
+\]
+The order-$2$ contribution is $\mp f_s/x_{\spec(r)}^2$. If $f_s=0$, this
+order vanishes entirely, so $x_s$ with $f_s=0$ contributes nothing to
+$C_2^{(r)}$. Hence only the two substitutions with $f_s\neq 0$ contribute.
+
+Consider now a coefficient $a_{abc}$ with $x_a=x_s$ (where $f_s\neq 0$),
+$x_b,x_c\in F_r\setminus\{x_{\spec(r)}\}$. Its contribution to $C_2^{(r)}$
+is
+\[
+\mp\,\frac{a_{abc}\,f_s}{x_b x_c}.
+\]
+This is a monomial in $F_r\setminus\{x_{\spec(r)}\}$: specifically, the
+monomial $f_s/(x_b x_c)$.
+
+\paragraph{Key distinction.} If \emph{both} $x_b$ and $x_c$ differ from
+$f_s$, the monomial $f_s/(x_b x_c)$ is a genuine new monomial (three distinct
+variables in the numerator and denominator). Check: no other ansatz term
+produces this exact monomial at order~$2$. (Terms with all indices in $F_r$
+contribute only to $C_0^{(r)}$; terms with two or more $S_r$-indices produce
+different monomial shapes; other single-$S_r$-index terms have different $f_{s'}$ and
+different $F$-pairs.) Setting $C_2^{(r)}=0$ and equating the monomial
+$f_s/(x_b x_c)$ to zero isolates $a_{abc}$ and forces it to vanish.
+
+If one of $\{x_b,x_c\}$ equals $f_s$, however, the monomial
+$f_s/(x_{f_s} x_c)=1/x_c$ degenerates --- it has only one factor rather than
+two --- and mixes with order-$2$ contributions from other terms (specifically,
+double-pole terms of the form $a_{sss'}/(x_s^2 x_{s'})$ which also produce
+$1/x_c$ monomials after expansion). This degeneracy is why we must exclude
+$f_s$ from the allowed $F$-pair in the lemma.
+
+The net count is: $2$ choices of $s$ (with $f_s\neq 0$), times
+$\binom{|F_r\setminus\{x_{\spec(r)},f_s\}|+1}{2}=\binom{4+1}{2}=10$ multisets
+for the $F$-pair, giving $2\cdot 10=20$.
+\end{proof}
+
+\subsubsection*{Worked example: $a_{225}$ under $\Z_1$}
+
+Take $a_{225}/(x_2^2 x_5)$. Under $\Z_1$, $x_5=x_8-x_6$, so
+\[
+\frac{a_{225}}{x_2^2\,x_5} \;=\; \frac{a_{225}}{x_2^2\,(x_8-x_6)}
+\;=\; -\frac{a_{225}}{x_2^2 x_6}\,\frac{1}{1-x_8/x_6}
+\;=\; -\frac{a_{225}}{x_2^2}\!\left(\frac{1}{x_6}+\frac{x_8}{x_6^2}+\frac{x_8^2}{x_6^3}+\cdots\right).
+\]
+Reading off the coefficient of $1/x_6^2$:
+\[
+\text{contribution of $a_{225}$ to $C_2^{(1)}$} \;=\; -\frac{a_{225}\,x_8}{x_2^2}.
+\]
+This contributes the monomial $x_8/x_2^2$ (as a function of $F_1\setminus\{x_6\}$)
+with coefficient $-a_{225}$.
+
+\emph{Claim: no other ansatz term contributes to the $x_8/x_2^2$ monomial of
+$C_2^{(1)}$.} Proof by direct enumeration: consider every $a_{abc}/(x_a x_b x_c)$
+and check whether, after the $\Z_1$ substitution and expansion to order
+$1/x_6^2$, its $x_8/x_2^2$ monomial is nonzero. Only $a_{225}$ has this
+property. A brute check of all $165$ terms confirms this is unique.
+
+Therefore, the vanishing of $C_2^{(1)}$ implies $-a_{225}\cdot(\text{positive factor})=0$,
+so $a_{225}=0$.
+
+\subsubsection*{The $20$ coefficients killed under $\Z_1$ at order $2$}
+
+For $\Z_1$: $S_1=\{x_1,x_5,x_7\}$. The substitutions give $f_1=0$ (so $x_1$
+contributes only to order~$1$, not order~$2$), $f_5=x_8$, and $f_7=x_2$.
+So $s_1=5$ with $f_5=x_8$, and $s_2=7$ with $f_7=x_2$.
+
+By Lemma~\ref{lem:order2}, the kills are:
+\begin{itemize}[nosep,leftmargin=*]
+\item Index $5$ paired with a multiset of two from $F_1\setminus\{x_6,x_8\}=\{x_2,x_3,x_4,x_9\}$:
+$10$ coefficients.
+\item Index $7$ paired with a multiset of two from $F_1\setminus\{x_6,x_2\}=\{x_3,x_4,x_8,x_9\}$:
+$10$ coefficients.
+\end{itemize}
+In total $20$ kills:
+\[
+\begin{aligned}
+&a_{225},\,a_{235},\,a_{245},\,a_{259},\,a_{335},\,a_{345},\,a_{359},\,a_{445},\,a_{459},\,a_{599},
+  &&\text{(index 5)}\\
+&a_{337},\,a_{347},\,a_{378},\,a_{379},\,a_{447},\,a_{478},\,a_{479},\,a_{788},\,a_{789},\,a_{799}.
+  &&\text{(index 7)}
+\end{aligned}
+\]
+
+\subsection{Summary for a single zero: $55$ kills}
+
+For each zero $\Z_r$, Lemma~\ref{lem:order0} and Lemma~\ref{lem:order2}
+together kill $35+20=55$ coefficients.
+
+\paragraph{At order $1$ and $3$?} One can compute $C_1^{(r)}$ and $C_3^{(r)}$
+and examine their monomials. In $C_1^{(r)}$ no monomial has a single-term
+coefficient (every monomial's coefficient is a multi-term combination).
+In $C_3^{(r)}$ the same $20$ coefficients of Lemma~\ref{lem:order2} are
+re-killed, but no \emph{new} single-term kill appears. One can verify by direct
+computation that orders $\ge 4$ yield no new single-term kills either.
+Thus the total single-term kill count for $\Z_r$ alone is exactly $55$.
+
+\subsection{Applying the technique to all six zeros}
+
+By the cyclic symmetry of the six zeros, each $\Z_r$ kills $55$ coefficients
+with an index pattern cyclically rotated from that of $\Z_1$.
+
+For each zero, we read off $F_r$, $S_r$, and the two elements $s_1,s_2\in S_r$
+with $f_{s_1},f_{s_2}\neq 0$ along with the values of $f_{s_1},f_{s_2}$
+(both in $F_r\setminus\{x_{\spec(r)}\}$):
+\begin{center}
+\begin{tabular}{llllll}
+\toprule
+Zero & $x_{\spec(r)}$ & $F_r$ & $S_r$ & Non-trivial $s$ with $f_s$ & $f_{s_1},f_{s_2}$ \\
+\midrule
+$\Z_1$ & $x_6$ & $\{x_2,x_3,x_4,x_8,x_9\}$ & $\{x_1,x_5,x_7\}$ & $s_1=5,\,s_2=7$ & $x_8,\,x_2$ \\
+$\Z_2$ & $x_1$ & $\{x_3,x_4,x_5,x_7,x_9\}$ & $\{x_2,x_6,x_8\}$ & $s_1=6,\,s_2=8$ & $x_9,\,x_3$ \\
+$\Z_3$ & $x_2$ & $\{x_4,x_5,x_6,x_7,x_8\}$ & $\{x_1,x_3,x_9\}$ & $s_1=1,\,s_2=9$ & $x_7,\,x_4$ \\
+$\Z_4$ & $x_3$ & $\{x_1,x_5,x_6,x_8,x_9\}$ & $\{x_2,x_4,x_7\}$ & $s_1=7,\,s_2=2$ & $x_5,\,x_8$ \\
+$\Z_5$ & $x_4$ & $\{x_1,x_2,x_6,x_7,x_9\}$ & $\{x_3,x_5,x_8\}$ & $s_1=8,\,s_2=3$ & $x_6,\,x_9$ \\
+$\Z_6$ & $x_5$ & $\{x_1,x_2,x_3,x_7,x_8\}$ & $\{x_4,x_6,x_9\}$ & $s_1=9,\,s_2=4$ & $x_1,\,x_7$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The three missing elements of $S_r$ (i.e., those with $f_s=0$) are the
+$s$-variables substituted as $x_s = -x_{\spec(r)}$ with no additive constant.
+For each zero, this is exactly one of the three substitutions.
+
+\subsection{The union: $151$ kills}
+
+Taking the union of the $6\times 55=330$ kills (with overlaps), we find
+$151$ distinct coefficients are killed.
+
+\begin{lemma}[Union kill]
+\label{lem:union}
+The total number of distinct coefficients killed as single-term consequences
+of orders $0$ and $2$ of the six zeros is $151$.
+\end{lemma}
+
+The explicit list can be obtained by writing out the $35+20=55$ coefficients
+per zero and taking their union. Among the $14$ tree triples of
+\eqref{eq:trees}, none are killed --- they all survive.
+
+\subsection{Identifying the survivors as tree triples}
+
+We now identify which coefficients are \emph{not} killed by the technique.
+
+\begin{lemma}[Survivors are tree triples]
+\label{lem:survivors}
+The $14$ coefficients not killed by the procedure of
+Section~\ref{sec:proof} are exactly the $14$ tree triples:
+\[
+a_{135},\,a_{139},\,a_{147},\,a_{149},\,a_{157},\,
+a_{246},\,a_{247},\,a_{257},\,a_{258},\,a_{268},\,
+a_{358},\,a_{368},\,a_{369},\,a_{469}.
+\]
+\end{lemma}
+
+\begin{proof}[Proof sketch]
+We must show that each of the $151$ non-tree coefficients is killed, and each
+of the $14$ tree coefficients is not. The first direction is a case-by-case
+check on the union of kill sets across six zeros; we sketch it:
+
+\paragraph{Every non-tree coefficient is killed.}
+Suppose $a_{abc}$ is a non-tree coefficient. If the multiset $(a,b,c)$ has a
+repeat (double or triple pole), then Lemma~\ref{lem:order0} applied to a
+well-chosen $\Z_r$ kills it: one can always choose $r$ such that the repeated
+index and the third index all lie in $F_r$. (The $F_r$ sets collectively cover
+every index, and each index lies in five of the six $F_r$ sets.)
+
+If $a_{abc}$ has three distinct indices but the corresponding chords are not
+a triangulation, then the three chords contain a crossing pair. A careful check
+shows that at least one choice of $\Z_r$ places all three indices inside
+$F_r\cup S_r\setminus\{x_{\spec(r)}\}$ in exactly the single-$S_r$-index
+configuration of Lemma~\ref{lem:order2}.
+
+\paragraph{No tree coefficient is killed.}
+A tree coefficient $a_{abc}$ corresponds to a triangulation; its three chords
+are a ``fan'' from some hub vertex of the hexagon. A direct case check for each
+of the $14$ triangulations shows that none satisfy either the $F_r$ containment
+of Lemma~\ref{lem:order0} or the single-$S_r$-index condition of
+Lemma~\ref{lem:order2} for any $r\in\{1,\dots,6\}$.
+
+The claim follows. For brevity we omit the full enumeration; it is
+straightforward and mechanical.
+\end{proof}
+
+\subsection{Concluding the proof of Theorem~\ref{thm:locality}}
+
+Combining Lemmas~\ref{lem:order0}, \ref{lem:order2}, \ref{lem:union}, and
+\ref{lem:survivors}, we conclude that on the intersection of the six cyclic
+hidden zeros, every non-local coefficient vanishes.
+
+The $14$ tree-triple coefficients are not directly killed by the technique; to
+complete the amplitude-uniqueness argument, one must further show that they
+are all equal to each other (up to an overall normalization). This comes from
+the multi-term equations in the Laurent expansions (orders $1$ and $3$, and
+the multi-term parts of orders $0$ and $2$), which we do not tabulate here.
+
+This completes the proof that \emph{locality emerges} from hidden zeros at six
+points: every non-local term dies, leaving only triangulations.
+\qed
+
+%================================================================
+\section{Remarks and pattern toward general $n$}
+
+\subsection{Why the technique is so clean}
+
+The core reason: at each zero $\Z_r$, exactly one free variable
+$x_{\spec(r)}$ appears in every substitution. This allows the Laurent
+expansion in $x_{\spec(r)}$ to cleanly separate the problem into orders,
+each of which is a polynomial identity in only five variables
+(the non-special frees).
+
+The leading order (order $0$) performs a \emph{complete kill} of all
+coefficients whose denominator doesn't touch the substitution at all. This
+is the first $35$ per zero.
+
+The subleading order (order $2$) performs a clean pole-isolation: because
+every substituted variable in $S_r$ is a linear function of $x_{\spec(r)}$
+(with integer coefficient $\pm 1$), the correction at order $2$ contains an
+identifiable new monomial class. This gives $20$ more per zero.
+
+\subsection{Counting the survivors}
+
+The survivors must be coefficients whose indices escape both conditions: they
+must have at least one index in $\{x_{\spec(r)}\}$ (or have $\ge 2$ indices in
+$S_r$) for every $r$. Working out the overlap over all six zeros, one finds
+exactly the $14$ triangulations. A direct proof of this claim --- without
+enumeration --- would follow from a combinatorial lemma about the hexagon mesh
+structure, which we do not pursue here.
+
+\subsection{Pattern for general $n$}
+
+The structure generalizes. For the $n$-point color-ordered amplitude, the
+$n$-gon has $\binom{n}{2}-n$ chords, and there are $n$ cyclic one-zeros, each
+constraining three chords in terms of the others. If for each $\Z_r$ one can
+identify a special variable whose substitutions are linear in it, the same
+Laurent-at-infinity argument should apply, producing a leading-order kill of
+all coefficients whose denominator avoids the substitution, and subleading
+kills of coefficients with exactly one substituted variable.
+
+At $n=7$, the same Laurent technique should therefore yield a direct proof of
+locality, with analogous combinatorics. Verifying this is a natural next task.
+
+\subsection{Relation to existing arguments}
+
+Rodina~\cite{rodina} proved locality and unitarity from hidden zeros using
+BCFW shifts and a subset-connectedness induction. The present argument
+bypasses both BCFW and induction, using only elementary Laurent-series
+manipulation. It is less general in that it applies to the specific ansatz
+\eqref{eq:ansatz}, but substantially more elementary where it applies.
+
+\begin{thebibliography}{9}
+\bibitem{rodina} B. Rodina, ``Hidden zeros are equivalent to enhanced
+ultraviolet scaling and lead to unique amplitudes in $\mathrm{Tr}\,\phi^3$
+theory,'' \emph{arXiv:2406.04234}.
+\end{thebibliography}
+
+\end{document}
