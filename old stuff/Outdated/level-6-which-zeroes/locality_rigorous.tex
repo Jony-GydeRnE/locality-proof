@@ -1,0 +1,1072 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{hyperref}
+
+\newcommand{\X}[2]{X_{#1#2}}
+\newcommand{\Z}{\mathcal{Z}}
+\newcommand{\Enc}{E}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem*{remark}{Remark}
+
+\title{Locality emerges from hidden zeros in \texorpdfstring{$\mathrm{tr}(\phi^3)$}{tr(phi^3)}:\\
+a by-hand proof at four, five, and six points}
+\author{Jony}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We prove that the cyclic hidden one-zeros of color-ordered $\mathrm{tr}(\phi^3)$
+tree amplitudes force every non-local coefficient of the general rational
+ansatz to vanish, at $n=4, 5, 6$ external legs. The proof is entirely by
+hand: it uses only the kinematic mesh identity, elementary geometric series
+Laurent expansions, and the fact that rational functions in independent
+variables vanish iff each coefficient on a basis of monomials vanishes.
+The geometric heart of the argument is the \emph{enclosed-vertex principle}:
+each cyclic zero is tailor-built to kill non-local terms associated with
+chords crossing a designated ``special'' short diagonal. At $n=6$ we give a
+complete orbit-by-orbit enumeration showing that $129$ of the $151$ non-local
+coefficients are killed by a ``Layer~1'' argument ($x_r \to \infty$ limit),
+and the remaining $22$ are killed by ``Layer~2'' companion-isolation; the
+$22$ fall into exactly $5$ cyclic-symmetry orbits, and we verify one
+representative of each.
+\end{abstract}
+
+\tableofcontents
+
+%================================================================
+\section{Setup}
+
+\subsection{Chords, the ansatz, and locality}
+
+Label the external legs cyclically by $1,\ldots,n$. The planar Mandelstam
+variables are
+\[
+\X{i}{j} \;=\; (p_i+p_{i+1}+\cdots+p_{j-1})^2,\qquad 1\le i<j\le n,\ j-i\ge 2,\ (i,j)\ne(1,n).
+\]
+Geometrically, $\X{i}{j}$ is the chord of the convex $n$-gon from vertex $i$
+to vertex $j$. There are $n(n-3)/2$ chords: $2, 5, 9$ for $n=4,5,6$.
+
+A \emph{triangulation} of the $n$-gon is a maximal set of pairwise
+non-crossing chords; it has $n-3$ chords. The color-ordered tree amplitude
+of $\mathrm{tr}(\phi^3)$ is
+\[
+A_n \;=\;\sum_{T\text{ triangulation}}\ \prod_{(i,j)\in T}\frac{1}{\X{i}{j}}.
+\]
+The number of triangulations is the Catalan number $C_{n-2}$, which takes
+the values $2, 5, 14$ for $n=4, 5, 6$.
+
+We consider the most general rational function $B$ with the correct mass
+dimension $-2(n-3)$ and only planar simple poles:
+\[
+B \;=\; \sum_{\text{multisets }(a_1,\ldots,a_{n-3})}
+\frac{a_{a_1\ldots a_{n-3}}}{X_{a_1}\cdots X_{a_{n-3}}},
+\]
+the sum running over multisets (size $n-3$, with repetition) of chord
+indices. With $d=n(n-3)/2$ chords, there are $\binom{d+n-4}{n-3}$ such
+multisets, giving $2, 15, 165$ coefficients for $n=4, 5, 6$ respectively.
+
+\begin{definition}
+A multiset of size $n-3$ is \emph{local} if its chord indices form a
+triangulation. Otherwise it is \emph{non-local}: either it contains a
+repeated chord (higher-order pole) or two of its chords cross.
+\end{definition}
+
+\emph{Locality} is the statement that all non-local coefficients of $B$
+vanish.
+
+\subsection{The kinematic mesh identity}
+
+The non-planar two-particle invariants $c_{a,b}=2p_a\cdot p_b$ (for $a\ne b$
+non-adjacent) satisfy the \emph{mesh identity}
+\begin{equation}
+\label{eq:mesh}
+c_{a,b} \;=\; \X{a}{b+1} + \X{a+1}{b} - \X{a}{b} - \X{a+1}{b+1},
+\end{equation}
+with the convention that adjacent chords like $\X{a}{a+1}$ vanish
+(massless particles). Each equation $c_{a,b}=0$ thus imposes a linear
+relation on the planar chords.
+
+\subsection{The hidden one-zeros}
+
+For each leg $r\in\{1,\ldots,n\}$, the \emph{hidden one-zero} $\Z_r$ is the
+subvariety of kinematic space defined by the vanishing of all non-planar
+$c$-invariants involving leg $r$:
+\[
+\Z_r:\qquad c_{r,r+2}=c_{r,r+3}=\cdots=c_{r,r+n-2}=0\ \pmod n.
+\]
+This imposes $n-3$ linear constraints on the planar chords.
+
+The starting fact (proved elsewhere and taken as given here) is that the
+tree amplitude $A_n$ vanishes identically on each $\Z_r$. Our problem is the
+converse for the general ansatz $B$: assuming $B|_{\Z_r}=0$ for all
+$r=1,\ldots,n$, show that all non-local $a$-coefficients are forced to vanish.
+
+\subsection{The geometric heart: enclosed vertices}
+
+Every chord $\X{i}{j}$ divides the polygon's boundary into two arcs.
+The \emph{enclosed arc} is the shorter of the two, and the
+\emph{enclosed vertex set} is
+\[
+\Enc(\X{i}{j}) \;=\; \{\text{vertices strictly between $i$ and $j$ on the shorter arc}\}.
+\]
+We call $|\Enc(\X{i}{j})|$ the \emph{class} of the chord: class 1 chords
+(``short diagonals'') enclose 1 vertex, class 2 (``long diagonals'') enclose 2,
+and so on.
+
+\begin{lemma}[Crossing = enclosed-vertex sweep]
+\label{lem:crossing}
+Two chords $\X{i}{j}$ and $\X{r}{s}$ of a convex polygon cross in the
+interior iff exactly one endpoint of $\X{r}{s}$ lies in $\Enc(\X{i}{j})$,
+the other in the outer arc.
+\end{lemma}
+
+\begin{proof}
+Two chords of a convex polygon cross iff their four endpoints alternate
+around the boundary. Fix $\X{i}{j}$ and consider the two arcs it cuts off.
+The endpoints of $\X{r}{s}$ either both lie in the same arc (no alternation,
+no crossing) or one lies in each (alternation, crossing).
+\end{proof}
+
+\paragraph{Consequence.}
+Every non-local pair of chords (crossing pair) has the form
+``one chord with enclosed vertex $v$, another chord starting at $v$.''
+The hidden zeros, as we will see, are tailor-built to kill these non-local
+pairings.
+
+%================================================================
+\section{The main theorem, executive summary}
+\label{sec:summary}
+
+\begin{theorem}[Locality at four, five, and six points]
+\label{thm:main}
+The cyclic hidden one-zeros $\Z_1,\ldots,\Z_n$ force every non-local
+coefficient of the general rational ansatz $B$ to zero, at $n=4, 5, 6$.
+The surviving $C_{n-2}$ coefficients are exactly the tree triangulations
+of the $n$-gon.
+\end{theorem}
+
+Our proof at $n=4$ is trivial (no non-local terms exist); at $n=5$ it is
+a direct computation over each of $5$ zones; and at $n=6$ it requires an
+orbit enumeration of the $151$ non-local multisets:
+
+\begin{proposition}[$n=6$ coverage summary]
+\label{prop:n6-summary}
+The $151$ non-local multisets at $n=6$ split into:
+\begin{itemize}[nosep,leftmargin=2em]
+\item $129$ covered by ``Layer 1'' (the $x_r\to\infty$ limit at some $\Z_r$),
+\item $22$ covered by ``Layer 2'' (companion-isolation at order $1/x_r^2$),
+\item $0$ requiring higher layers.
+\end{itemize}
+The $22$ Layer-1 failures form exactly $5$ cyclic orbits:
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+Orbit & Size & Representative & Killing zone \\
+\midrule
+$(3,0)$ squared distance-3 pairs & 6 & $x_1^2\,x_4$ & $\Z_6$\\
+$(3,0)$ non-consec triples, orbit A & 6 & $\{x_1, x_2, x_4\}$ & $\Z_6$\\
+$(3,0)$ non-consec triples, orbit B & 6 & $\{x_1, x_2, x_5\}$ & $\Z_4$\\
+$(2,1)$ ``$y$-fork'' & 3 & $\{x_3, x_6, y_1\}$ & $\Z_2$\\
+$(0,3)$ all-$y$ & 1 & $\{y_1, y_2, y_3\}$ & $\Z_1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The notation $(p,q)$ refers to the chord-class composition: $p$ short, $q$
+long.
+\end{proposition}
+
+The rest of the paper proves Theorem~\ref{thm:main} by going through each
+of $n=4, 5, 6$ carefully, and in particular verifying
+Proposition~\ref{prop:n6-summary} with a complete orbit-by-orbit analysis.
+
+%================================================================
+\section{Four points: trivial warm-up}
+
+The square has two chords, $\X{1}{3}$ and $\X{2}{4}$. The ansatz
+\[
+B = \frac{a_{\X{1}{3}}}{\X{1}{3}} + \frac{a_{\X{2}{4}}}{\X{2}{4}}
+\]
+has $2$ coefficients, both \emph{local} (each chord by itself is a
+triangulation). There are no non-local multisets. A single zero suffices to
+recover amplitude unitarity (equal residues on both channels) but no locality
+question arises; we move on to $n=5$.
+
+%================================================================
+\section{Five points: full proof}
+\label{sec:n5}
+
+\subsection{The pentagon's chords, enclosed vertices, and crossings}
+
+The five chords of the pentagon, with their enclosed-vertex sets:
+\begin{center}
+\begin{tabular}{cccccc}
+\toprule
+Chord & $\X{1}{3}$ & $\X{1}{4}$ & $\X{2}{4}$ & $\X{2}{5}$ & $\X{3}{5}$ \\
+$\Enc(\cdot)$ & $\{2\}$ & $\{5\}$ & $\{3\}$ & $\{1\}$ & $\{4\}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Every chord has class $1$ at $n=5$ (class-2 chords first appear at $n=6$).
+
+There are $\binom{5}{2}=10$ unordered pairs of distinct chords; $5$ cross,
+$5$ share an endpoint. The $5$ crossings (by Lemma~\ref{lem:crossing}) are:
+\[
+\X{1}{3}\times\X{2}{4},\quad \X{1}{3}\times\X{2}{5},\quad \X{1}{4}\times\X{2}{5},\quad \X{1}{4}\times\X{3}{5},\quad \X{2}{4}\times\X{3}{5}.
+\]
+The $5$ non-crossing pairs are exactly the $5$ fan triangulations.
+
+\subsection{The 15-coefficient ansatz}
+
+With $n-3=2$ chord factors per monomial:
+\[
+B = \sum_{1\le i\le j\le 5}\frac{a_{ij}}{X_i X_j},\quad\text{15 coefficients.}
+\]
+Of these $15$:
+\begin{itemize}[nosep,leftmargin=2em]
+\item $5$ \emph{tree triples} (fan triangulations);
+\item $5$ \emph{double poles} $a_{X_i X_i}/X_i^2$;
+\item $5$ \emph{crossing pairs} $a_{X_i X_j}/(X_i X_j)$ with
+  $X_i\times X_j$ crossing.
+\end{itemize}
+The $10$ non-local coefficients are the $5$ double poles and the $5$
+crossing pairs.
+
+\subsection{Deriving the five cyclic hidden zeros}
+
+Each $\Z_r$ is defined by $c_{r,r+2}=c_{r,r+3}=0$ (two constraints at $n=5$).
+We derive each by applying the mesh identity \eqref{eq:mesh}.
+
+\paragraph{$\Z_1$:}
+\begin{align*}
+c_{1,3}&=\X{1}{4}+\X{2}{3}-\X{1}{3}-\X{2}{4}=\X{1}{4}-\X{1}{3}-\X{2}{4}=0,\\
+c_{1,4}&=\X{1}{5}+\X{2}{4}-\X{1}{4}-\X{2}{5}=\X{2}{4}-\X{1}{4}-\X{2}{5}=0.
+\end{align*}
+(Used: $\X{2}{3}=\X{1}{5}=0$.) Solving for $\X{2}{4}, \X{2}{5}$:
+\begin{equation}
+\Z_1:\qquad \X{2}{4}=\X{1}{4}-\X{1}{3},\qquad \X{2}{5}=-\X{1}{3}.
+\end{equation}
+The chord $\X{1}{3}$ appears on both right-hand sides: it is the
+\textbf{special variable}. Both substituted chords are chords from the
+enclosed vertex $2$ of $\X{1}{3}$.
+
+\paragraph{$\Z_2$ through $\Z_5$:} By cyclic rotation of the derivation,
+or equivalently by direct application of \eqref{eq:mesh}:
+\begin{align}
+\Z_2:& \X{3}{5}=\X{2}{5}-\X{2}{4},\quad \X{1}{3}=-\X{2}{4}; \quad\text{special }\X{2}{4}.\\
+\Z_3:& \X{1}{4}=\X{1}{3}-\X{3}{5},\quad \X{2}{4}=-\X{3}{5}; \quad\text{special }\X{3}{5}.\\
+\Z_4:& \X{2}{5}=\X{2}{4}-\X{1}{4},\quad \X{3}{5}=-\X{1}{4}; \quad\text{special }\X{1}{4}.\\
+\Z_5:& \X{1}{3}=\X{3}{5}-\X{2}{5},\quad \X{1}{4}=-\X{2}{5}; \quad\text{special }\X{2}{5}.
+\end{align}
+
+\subsection{Canonical vocabulary for every zone}
+
+\begin{definition}[Canonical vocabulary]
+\label{def:vocabulary}
+At $\Z_r$ in canonical form:
+\begin{itemize}[nosep,leftmargin=2em]
+\item \textbf{Special variable} $X_*$: the chord in the RHS of every
+substitution. It is the short diagonal $\X{r}{r+2}$ whose enclosed vertex
+is $r+1$.
+\item \textbf{Substituted chords} $S_r$: the chords on the LHS. At $\Z_r$
+they are the chords originating at the enclosed vertex $r+1$.
+\item A substituted chord $X_s$ is \textbf{non-bare} if its substitution
+has form $X_s = X_f - X_*$ with $X_f$ a genuinely free (non-zero) chord;
+$X_f$ is its \textbf{companion}, denoted $f_s$. It is \textbf{bare} if
+$X_s = -X_*$ (companion $0$).
+\item \textbf{Free set} $F_r$: chords that are neither substituted nor
+special.
+\end{itemize}
+\end{definition}
+
+At $n=5$, every zone has $|F_r|=2$, one non-bare substitution with its
+companion in $F_r$, and one bare substitution. Tabulating:
+
+\begin{center}
+\begin{tabular}{c|c|c|c|c}
+\toprule
+Zone & Special $X_*$ & Non-bare $X_s$ & Companion $f_s$ & Bare \\
+\midrule
+$\Z_1$ & $\X{1}{3}$ & $\X{2}{4}$ & $\X{1}{4}$ & $\X{2}{5}$ \\
+$\Z_2$ & $\X{2}{4}$ & $\X{3}{5}$ & $\X{2}{5}$ & $\X{1}{3}$ \\
+$\Z_3$ & $\X{3}{5}$ & $\X{1}{4}$ & $\X{1}{3}$ & $\X{2}{4}$ \\
+$\Z_4$ & $\X{1}{4}$ & $\X{2}{5}$ & $\X{2}{4}$ & $\X{3}{5}$ \\
+$\Z_5$ & $\X{2}{5}$ & $\X{1}{3}$ & $\X{3}{5}$ & $\X{1}{4}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{The kill technique at \texorpdfstring{$\Z_1$}{Z1}: two layers}
+
+For $\Z_1$: $X_*=\X{1}{3}$, non-bare $\X{2}{4}=\X{1}{4}-\X{1}{3}$
+with companion $f=\X{1}{4}$, bare $\X{2}{5}=-\X{1}{3}$, free set
+$F_1=\{\X{1}{4},\X{3}{5}\}$.
+
+After substitution, $B|_{\Z_1}$ is a rational function of the three
+variables $\X{1}{3}, \X{1}{4}, \X{3}{5}$. Since $B|_{\Z_1}=0$ identically,
+its Laurent expansion in $X_*=\X{1}{3}$ vanishes order by order, with
+coefficients that are rational functions of the two ``free'' variables.
+
+The key Laurent expansions:
+\begin{align}
+\frac{1}{\X{2}{4}} &= \frac{1}{\X{1}{4}-\X{1}{3}} = -\frac{1}{\X{1}{3}}-\frac{\X{1}{4}}{\X{1}{3}^2}-\frac{\X{1}{4}^2}{\X{1}{3}^3}-\cdots,\\
+\frac{1}{\X{2}{5}} &= \frac{1}{-\X{1}{3}} = -\frac{1}{\X{1}{3}}\qquad\text{(exact, no tail).}
+\end{align}
+
+\paragraph{Layer 1: Order $\X{1}{3}^0$, the limit $\X{1}{3}\to\infty$.}
+
+As $\X{1}{3}\to\infty$ with $\X{1}{4}, \X{3}{5}$ held fixed, we have
+$1/\X{2}{4}\to 0$ and $1/\X{2}{5}\to 0$. So every monomial of $B$
+containing $\X{1}{3}, \X{2}{4}$, or $\X{2}{5}$ vanishes in the limit.
+The only surviving monomials are those with both factors in $F_1$:
+\[
+\lim_{\X{1}{3}\to\infty} B|_{\Z_1} = \frac{a_{\X{1}{4}\X{1}{4}}}{\X{1}{4}^2} + \frac{a_{\X{3}{5}\X{3}{5}}}{\X{3}{5}^2} + \frac{a_{\X{1}{4}\X{3}{5}}}{\X{1}{4}\X{3}{5}}.
+\]
+The three rational functions $1/\X{1}{4}^2,\ 1/\X{3}{5}^2,\ 1/(\X{1}{4}\X{3}{5})$
+are linearly independent, so each coefficient must vanish:
+\[
+\boxed{a_{\X{1}{4}\X{1}{4}}=a_{\X{3}{5}\X{3}{5}}=a_{\X{1}{4}\X{3}{5}}=0.}\quad\text{(3 order-0 kills at }\Z_1)
+\]
+
+\paragraph{Layer 2: Order $1/\X{1}{3}^2$.}
+
+To verify the single-term kill at this order, we tabulate the contribution
+of each of the $15$ monomials of $B$ to the $1/\X{1}{3}^2$ coefficient of
+$B|_{\Z_1}$:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{c|l|l}
+\toprule
+\# & Monomial & Contribution to $(B|_{\Z_1})_{1/\X{1}{3}^2}$\\
+\midrule
+1 & $a_{\X{1}{3}\X{1}{3}}/\X{1}{3}^2$ & $+a_{\X{1}{3}\X{1}{3}}$ \\
+2 & $a_{\X{1}{3}\X{1}{4}}/(\X{1}{3}\X{1}{4})$ & $0$ (contributes at $1/\X{1}{3}$)\\
+3 & $a_{\X{1}{3}\X{2}{4}}/(\X{1}{3}\X{2}{4})$ & $-a_{\X{1}{3}\X{2}{4}}$\\
+4 & $a_{\X{1}{3}\X{2}{5}}/(\X{1}{3}\X{2}{5})$ & $-a_{\X{1}{3}\X{2}{5}}$\\
+5 & $a_{\X{1}{3}\X{3}{5}}/(\X{1}{3}\X{3}{5})$ & $0$\\
+6 & $a_{\X{1}{4}\X{1}{4}}/\X{1}{4}^2$ & $0$\\
+7 & $a_{\X{1}{4}\X{2}{4}}/(\X{1}{4}\X{2}{4})$ & $-a_{\X{1}{4}\X{2}{4}}$\\
+8 & $a_{\X{1}{4}\X{2}{5}}/(\X{1}{4}\X{2}{5})$ & $0$\\
+9 & $a_{\X{1}{4}\X{3}{5}}/(\X{1}{4}\X{3}{5})$ & $0$\\
+10 & $a_{\X{2}{4}\X{2}{4}}/\X{2}{4}^2$ & $+a_{\X{2}{4}\X{2}{4}}$\\
+11 & $a_{\X{2}{4}\X{2}{5}}/(\X{2}{4}\X{2}{5})$ & $+a_{\X{2}{4}\X{2}{5}}$\\
+12 & $a_{\X{2}{4}\X{3}{5}}/(\X{2}{4}\X{3}{5})$ & $\boldsymbol{-a_{\X{2}{4}\X{3}{5}}\cdot\X{1}{4}/\X{3}{5}}$\\
+13 & $a_{\X{2}{5}\X{2}{5}}/\X{2}{5}^2$ & $+a_{\X{2}{5}\X{2}{5}}$\\
+14 & $a_{\X{2}{5}\X{3}{5}}/(\X{2}{5}\X{3}{5})$ & $0$\\
+15 & $a_{\X{3}{5}\X{3}{5}}/\X{3}{5}^2$ & $0$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\emph{Spot-checks.} Row 7: $1/(\X{1}{4}\X{2}{4}) = (1/\X{1}{4})(-1/\X{1}{3}-\X{1}{4}/\X{1}{3}^2-\cdots)$;
+$1/\X{1}{3}^2$ piece is $-1/\X{1}{3}^2$, coefficient $-1$. Row 10:
+$1/\X{2}{4}^2 = 1/\X{1}{3}^2(1-\X{1}{4}/\X{1}{3})^{-2} = 1/\X{1}{3}^2 + 2\X{1}{4}/\X{1}{3}^3 + \cdots$, coefficient $+1$.
+Row 12: $1/(\X{2}{4}\X{3}{5}) = (1/\X{3}{5})(-1/\X{1}{3}-\X{1}{4}/\X{1}{3}^2-\cdots)$;
+$1/\X{1}{3}^2$ piece is $-\X{1}{4}/(\X{3}{5}\X{1}{3}^2)$, coefficient $-\X{1}{4}/\X{3}{5}$.
+
+\emph{Summing column 3:}
+\[
+(B|_{\Z_1})_{1/\X{1}{3}^2} = \underbrace{\left[a_{\X{1}{3}\X{1}{3}} - a_{\X{1}{3}\X{2}{4}} - a_{\X{1}{3}\X{2}{5}} - a_{\X{1}{4}\X{2}{4}} + a_{\X{2}{4}\X{2}{4}} + a_{\X{2}{4}\X{2}{5}} + a_{\X{2}{5}\X{2}{5}}\right]}_{K} - a_{\X{2}{4}\X{3}{5}}\cdot\frac{\X{1}{4}}{\X{3}{5}}.
+\]
+Setting this to zero as a rational function of two independent variables
+$\X{1}{4}, \X{3}{5}$: the functions $1$ and $\X{1}{4}/\X{3}{5}$ are
+linearly independent, so both coefficients vanish separately. This gives
+the multi-term equation $K=0$ and, more importantly,
+\[
+\boxed{a_{\X{2}{4}\X{3}{5}}=0.}\quad\text{(1 order-2 kill at }\Z_1)
+\]
+
+\paragraph{Summary for $\Z_1$.} Four single-coefficient kills: three
+order-0 (all multisets in $F_1$) and one order-2 (the crossing pair
+$\{X_s, X_b\}$ where $X_s=\X{2}{4}$ is the non-bare substituted chord and
+$X_b=\X{3}{5}$ is the free chord $\ne f_s = \X{1}{4}$).
+
+\subsection{The companion-isolation rule at \texorpdfstring{$n=5$}{n=5}}
+
+The order-2 mechanism generalizes cleanly. Examining row 12: the monomial
+of $B$ produced the fingerprint $\X{1}{4}/\X{3}{5}$, a non-constant rational
+function of the two free variables. All other monomials produced only
+constants at order $1/\X{1}{3}^2$. The mechanism is:
+
+\begin{lemma}[Companion-isolation, $n=5$]
+\label{lem:companion-n5}
+Let $\Z_r$ have non-bare substitution $X_s = X_f - X_*$ with companion
+$X_f\in F_r$. For each free chord $X_b\in F_r\setminus\{X_f\}$, the monomial
+$X_f/X_b$ at order $1/X_*^2$ has a unique source in $B|_{\Z_r}$:
+$a_{X_s\,X_b}/(X_s\,X_b)$. Consequently
+\[
+a_{X_s\,X_b}=0\quad\text{for every }X_b\in F_r\setminus\{X_f\}.
+\]
+\end{lemma}
+
+\begin{proof}
+The Laurent expansion of $1/X_s = 1/(X_f - X_*)$ contributes
+$-X_f/X_*^2$ at order $1/X_*^2$. Multiplying by a free factor $1/X_b$
+(with $X_b\ne X_f$) gives the monomial $-X_f/(X_*^2 X_b)$.
+
+No other monomial of $B$ produces $X_f/X_b$ at order $1/X_*^2$:
+\begin{itemize}[nosep,leftmargin=2em]
+\item Monomials with no substituted factor: contribute at order $X_*^0$.
+\item Monomials with only the bare substituted chord (and frees): the bare
+$1/X_{\text{bare}} = -1/X_*$ has no Laurent tail, so contributions at
+$1/X_*^2$ or higher have no free-variable dependence.
+\item Monomials with $X_*$ as a factor and a free $X_b$: $1/(X_* X_b)$
+contributes at order $1/X_*$, not $1/X_*^2$.
+\item Monomials with both $X_*$ and $X_s$: $1/(X_* X_s) = (1/X_*)(-1/X_* + \cdots)$
+contributes $-1/X_*^2$ at leading order (a constant).
+\item Monomials with $X_s$ twice: $1/X_s^2$ has leading piece $1/X_*^2$
+(constant in free variables).
+\item Monomials with $X_s\,X_{\text{bare}}$: $1/(X_s X_{\text{bare}}) =
+-(1/X_*)\cdot 1/X_s$, contributes $+1/X_*^2$ at leading order (constant).
+\item Monomials with $X_s$ and a free $X_b = X_f$: contributes
+$-X_f/(X_*^2 X_f) = -1/X_*^2$, a constant — the $X_f$ ``cancels''
+with $1/X_f$ in the denominator, losing its distinctness.
+\end{itemize}
+Only $a_{X_s X_b}/(X_s X_b)$ with $X_b\ne X_f$ produces the non-constant
+fingerprint $X_f/X_b$. Hence the kill.
+\end{proof}
+
+At $n=5$, $|F_r|-1=1$, so this gives exactly $1$ order-2 kill per zone.
+
+\subsection{Cycling: all five zones and the union}
+
+By cyclic symmetry, each $\Z_r$ produces $3$ order-0 kills (multisets in
+$F_r$) and $1$ order-2 kill (the Lemma~\ref{lem:companion-n5} product).
+Tabulating:
+
+\begin{center}
+\begin{tabular}{c|c|c}
+\toprule
+Zone & Order-0 kills (multisets in $F_r$) & Order-2 kill \\
+\midrule
+$\Z_1$ & $a_{\X{1}{4}\X{1}{4}}, a_{\X{3}{5}\X{3}{5}}, a_{\X{1}{4}\X{3}{5}}$ & $a_{\X{2}{4}\X{3}{5}}$\\
+$\Z_2$ & $a_{\X{1}{4}\X{1}{4}}, a_{\X{2}{5}\X{2}{5}}, a_{\X{1}{4}\X{2}{5}}$ & $a_{\X{3}{5}\X{1}{4}}$\\
+$\Z_3$ & $a_{\X{1}{3}\X{1}{3}}, a_{\X{2}{5}\X{2}{5}}, a_{\X{1}{3}\X{2}{5}}$ & $a_{\X{1}{4}\X{2}{5}}$\\
+$\Z_4$ & $a_{\X{1}{3}\X{1}{3}}, a_{\X{2}{4}\X{2}{4}}, a_{\X{1}{3}\X{2}{4}}$ & $a_{\X{2}{5}\X{1}{3}}$\\
+$\Z_5$ & $a_{\X{2}{4}\X{2}{4}}, a_{\X{3}{5}\X{3}{5}}, a_{\X{2}{4}\X{3}{5}}$ & $a_{\X{1}{3}\X{2}{4}}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Union check.} Every non-local coefficient appears as a kill:
+\begin{itemize}[nosep,leftmargin=2em]
+\item Double poles: $a_{\X{1}{3}^2}$ (at $\Z_3, \Z_4$), $a_{\X{1}{4}^2}$ (at
+$\Z_1, \Z_2$), $a_{\X{2}{4}^2}$ (at $\Z_4, \Z_5$), $a_{\X{2}{5}^2}$ (at $\Z_2,
+\Z_3$), $a_{\X{3}{5}^2}$ (at $\Z_1, \Z_5$).
+\item Crossing pairs: $a_{\X{1}{3}\X{2}{4}}$ (at $\Z_4$ order 0, $\Z_5$ order 2),
+$a_{\X{1}{3}\X{2}{5}}$ (at $\Z_3$ order 0, $\Z_4$ order 2),
+$a_{\X{1}{4}\X{2}{5}}$ (at $\Z_2$ order 0, $\Z_3$ order 2),
+$a_{\X{1}{4}\X{3}{5}}$ (at $\Z_1$ order 0, $\Z_2$ order 2),
+$a_{\X{2}{4}\X{3}{5}}$ (at $\Z_1$ order 2, $\Z_5$ order 0).
+\end{itemize}
+All $10$ non-local coefficients killed. Every crossing pair is killed by
+exactly two cyclically adjacent zones, once at order 0 and once at order 2.
+
+\subsection{Trees are not killed at \texorpdfstring{$n=5$}{n=5}}
+
+At each zone, the $3$ order-0 kills are multisets $\subseteq F_r$ and the
+$1$ order-2 kill uses the non-bare-substituted chord. A tree triple
+$\{\X{a}{b}, \X{b}{c}\}$ (sharing vertex $b$) is never in any $F_r$ because
+for each $r$, the fan from a specific vertex is broken by the substitution
+structure. A direct check of each tree against the $5$ free sets confirms this.
+
+\begin{theorem}[Locality at five points]
+The five hidden one-zeros of the pentagon force every non-local coefficient
+of the general rational ansatz to zero. The $5$ surviving coefficients are
+exactly the tree triangulations.
+\end{theorem}
+
+%================================================================
+\section{Six points: full proof}
+\label{sec:n6}
+
+At $n=6$ the hexagon has two classes of chords (short and long diagonals),
+and the kill structure acquires two ``layers''. The argument follows the
+$n=5$ template but with richer combinatorics, and we need an orbit-by-orbit
+analysis to verify that every one of the $151$ non-local multisets is killed.
+
+\subsection{Setup}
+
+The hexagon's $9$ chords split as:
+\begin{center}
+\begin{tabular}{ll}
+\textbf{Short diagonals} (class 1, enclose 1): &
+$\X{1}{3},\X{2}{4},\X{3}{5},\X{4}{6},\X{1}{5},\X{2}{6}$\\
+\textbf{Long diagonals} (class 2, enclose 2): &
+$\X{1}{4},\X{2}{5},\X{3}{6}$
+\end{tabular}
+\end{center}
+
+We use cyclic labels:
+\[
+x_r = \X{r}{r+2}\ \text{(short, }r=1,\ldots,6\bmod 6),\qquad y_r = \X{r}{r+3}\ (r=1,2,3\bmod 3).
+\]
+
+Enclosed-vertex sets: $\Enc(x_r) = \{r+1\}$ (mod 6), $\Enc(y_r) = \{r+1, r+2\}$
+(mod 6).
+
+The ansatz has $\binom{9+2}{3} = 165$ coefficients. Of these, $14=C_4$ are
+tree triples (the hexagon triangulations), leaving $151$ non-local.
+
+\subsection{The six zones in canonical form}
+
+Each $\Z_r$ imposes $3$ linear constraints $c_{r,r+2}=c_{r,r+3}=c_{r,r+4}=0$.
+We derive $\Z_1$ explicitly from \eqref{eq:mesh}:
+\begin{align*}
+c_{1,3} &= \X{1}{4}+\X{2}{3}-\X{1}{3}-\X{2}{4} = y_1-x_1-x_2=0,\\
+c_{1,4} &= \X{1}{5}+\X{2}{4}-\X{1}{4}-\X{2}{5} = x_5+x_2-y_1-y_2=0,\\
+c_{1,5} &= \X{1}{6}+\X{2}{5}-\X{1}{5}-\X{2}{6} = 0+y_2-x_5-x_6=0.
+\end{align*}
+(Used: $\X{2}{3}=\X{1}{6}=0$.) Solving for the three chords originating at
+vertex $2$ (the enclosed vertex of $x_1$):
+\[
+\Z_1:\qquad x_2 = y_1 - x_1,\quad y_2 = x_5 - x_1,\quad x_6 = -x_1.
+\]
+Special: $x_1$. Two non-bare substitutions ($x_2, y_2$ with companions
+$y_1, x_5$) and one bare ($x_6$). Free set:
+$F_1 = \{x_3, x_4, x_5, y_1, y_3\}$.
+
+The other five zones follow by cyclic rotation ($\sigma:r\mapsto r+1$ on
+$x$-indices mod 6, on $y$-indices mod 3, and on zone indices mod 6):
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{c|c|c|c}
+\toprule
+Zone & Substitutions & Non-bare + comp. & Bare \\
+\midrule
+$\Z_1$ & $x_2=y_1-x_1,\ y_2=x_5-x_1,\ x_6=-x_1$ & $x_2\,(y_1),\ y_2\,(x_5)$ & $x_6$ \\
+$\Z_2$ & $x_3=y_2-x_2,\ y_3=x_6-x_2,\ x_1=-x_2$ & $x_3\,(y_2),\ y_3\,(x_6)$ & $x_1$ \\
+$\Z_3$ & $x_4=y_3-x_3,\ y_1=x_1-x_3,\ x_2=-x_3$ & $x_4\,(y_3),\ y_1\,(x_1)$ & $x_2$ \\
+$\Z_4$ & $x_5=y_1-x_4,\ y_2=x_2-x_4,\ x_3=-x_4$ & $x_5\,(y_1),\ y_2\,(x_2)$ & $x_3$ \\
+$\Z_5$ & $x_6=y_2-x_5,\ y_3=x_3-x_5,\ x_4=-x_5$ & $x_6\,(y_2),\ y_3\,(x_3)$ & $x_4$ \\
+$\Z_6$ & $x_1=y_3-x_6,\ y_1=x_4-x_6,\ x_5=-x_6$ & $x_1\,(y_3),\ y_1\,(x_4)$ & $x_5$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Free sets:
+\begin{equation}
+\label{eq:Fsets}
+\begin{aligned}
+F_1 &= \{x_3, x_4, x_5, y_1, y_3\},\\
+F_2 &= \{x_4, x_5, x_6, y_1, y_2\},\\
+F_3 &= \{x_1, x_5, x_6, y_2, y_3\},\\
+F_4 &= \{x_1, x_2, x_6, y_1, y_3\},\\
+F_5 &= \{x_1, x_2, x_3, y_1, y_2\},\\
+F_6 &= \{x_2, x_3, x_4, y_2, y_3\}.
+\end{aligned}
+\end{equation}
+
+\paragraph{Structural observations.} Each $F_r$ has 3 shorts and 2 longs.
+The short parts are the six cyclic 3-windows $\{x_{r+2}, x_{r+3}, x_{r+4}\}$
+(mod 6). The long parts are $\{y_1, y_2, y_3\}\setminus\{y_{r+1}\}$ (mod 3),
+i.e., each $F_r$ omits exactly one $y$ — the non-bare-long-substituted one.
+
+\subsection{The two kill layers at \texorpdfstring{$\Z_1$}{Z1}}
+
+For $\Z_1$: $X_* = x_1$. Laurent expansions of the substituted chords:
+\begin{align}
+\frac{1}{x_2} &= \frac{1}{y_1 - x_1} = -\frac{1}{x_1} - \frac{y_1}{x_1^2} - \frac{y_1^2}{x_1^3} - \cdots,\\
+\frac{1}{y_2} &= \frac{1}{x_5 - x_1} = -\frac{1}{x_1} - \frac{x_5}{x_1^2} - \frac{x_5^2}{x_1^3} - \cdots,\\
+\frac{1}{x_6} &= -\frac{1}{x_1}\qquad\text{(exact).}
+\end{align}
+
+\paragraph{Layer 1: Order $x_1^0$. (35 kills at $\Z_1$.)}
+
+As $x_1\to\infty$ with the five free variables $\{x_3,x_4,x_5,y_1,y_3\}$
+fixed, every monomial of $B$ containing $x_1, x_2, y_2,$ or $x_6$ vanishes
+in the limit. The surviving monomials are those with all three indices
+in $F_1$:
+\[
+\lim_{x_1\to\infty} B|_{\Z_1} = \sum_{(X_a, X_b, X_c)\subseteq F_1}\frac{a_{X_a X_b X_c}}{X_a X_b X_c}.
+\]
+The number of multisets of size $3$ from a $5$-element set is
+$\binom{5+2}{3} = 35$.
+
+\begin{lemma}[Monomial linear independence]
+\label{lem:monomial-indep}
+Let $X_1,\ldots,X_m$ be $m$ independent variables. The $\binom{m+k-1}{k}$
+rational functions $\{1/(X_{i_1}\cdots X_{i_k}) : \text{multisets of size }k\}$
+are linearly independent over $\mathbb{Q}$.
+\end{lemma}
+
+\begin{proof}
+Suppose $\sum c_{(i_1,\ldots,i_k)}\prod_j 1/X_{i_j} = 0$. Multiply through by
+$\prod_i X_i^k$ (clearing denominators). Each term becomes a distinct monomial
+$\prod_i X_i^{k-m_i}$, where $m_i$ is the multiplicity of $X_i$ in the
+multiset; distinct multisets give distinct exponent tuples. Monomials in
+independent variables are linearly independent, so every $c=0$.
+\end{proof}
+
+Hence every $a_{X_a X_b X_c}$ with $\{X_a, X_b, X_c\}\subseteq F_1$ vanishes.
+\textbf{35 Layer-1 kills at $\Z_1$.}
+
+\paragraph{Layer 2: Order $1/x_1^2$. (20 new kills at $\Z_1$.)}
+
+The analysis parallels $n=5$, except each monomial of $B$ has $3$ factors,
+so the ``other two factors'' of a single-non-bare term must be a 2-multiset
+of free chords.
+
+\begin{lemma}[Companion-isolation at $n=6$]
+\label{lem:companion-n6}
+At $\Z_r$, let $X_s = X_f - X_*$ be a non-bare substitution (companion
+$X_f\in F_r$). For each multiset $(X_a, X_b)$ of size $2$ from
+$F_r\setminus\{X_f\}$, the monomial $X_f/(X_a X_b)$ at order $1/X_*^2$ in
+$B|_{\Z_r}$ has a unique source, namely $a_{X_s X_a X_b}/(X_s X_a X_b)$.
+Hence
+\[
+a_{X_s\,X_a X_b}=0 \quad\text{for every multiset }(X_a, X_b)\subseteq F_r\setminus\{X_f\}.
+\]
+\end{lemma}
+
+\begin{proof}[Proof sketch]
+The Laurent tail $-X_f/X_*^2$ of $1/X_s$, multiplied by $1/(X_a X_b)$
+with $\{X_a, X_b\}\subseteq F_r\setminus\{X_f\}$, gives the non-constant
+fingerprint $-X_f/(X_*^2 X_a X_b)$ with unique free-variable content
+$X_f/(X_a X_b)$.
+
+To check no other monomial of $B$ produces this fingerprint at order
+$1/X_*^2$, we enumerate possibilities (analogous to the $n=5$ proof): any
+other source must have either a different non-bare-substituted chord
+(different companion), or produce $X_f$ from a different algebraic source;
+each such source is ruled out. Crucially, if $X_a$ or $X_b$ equals $X_f$,
+the monomial degenerates to a constant and loses distinctness — this is
+why we require $X_b\ne X_f$.
+\end{proof}
+
+Applied at $\Z_1$:
+\begin{itemize}[nosep,leftmargin=2em]
+\item Non-bare $x_2$ (comp $y_1$): multisets of size $2$ from
+$F_1\setminus\{y_1\}=\{x_3, x_4, x_5, y_3\}$: $\binom{4+1}{2}=10$ kills.
+\item Non-bare $y_2$ (comp $x_5$): multisets of size $2$ from
+$F_1\setminus\{x_5\}=\{x_3, x_4, y_1, y_3\}$: another $10$ kills.
+\end{itemize}
+Total Layer-2 kills at $\Z_1$: $\mathbf{20}$.
+
+\paragraph{Total at $\Z_1$: 55 single-term kills (35 order 0 + 20 order 2).}
+
+By cyclic symmetry, each $\Z_r$ gives $55$ kills of the same structure.
+
+\subsection{The Layer-1 coverage count: 129}
+\label{sec:layer1-count}
+
+How many distinct non-local coefficients are covered by Layer 1 across all
+$6$ zones? Equivalently, how many non-local multisets lie in at least one
+$F_r$?
+
+We enumerate the complement — multisets \emph{not} in any $F_r$ — by
+chord-class composition.
+
+\paragraph{Type (3, 0): all-short multisets.} A multiset $\{x_a, x_b, x_c\}$
+(with possible repetition) lies in $F_r$ iff its index set $\{a,b,c\}$ lies
+in some cyclic 3-window $\{r+2, r+3, r+4\}$. There are $6$ such windows; a
+distinct-index triple is covered iff it equals such a window.
+
+Enumerate:
+\begin{itemize}[nosep,leftmargin=2em]
+\item Squared multisets $x_a^3$ (6 total): each index is in many windows. All covered.
+\item Mixed double-single $x_a^2 x_b$, $a\ne b$ (30 total): covered iff
+the pair $\{a,b\}$ fits in a 3-window, i.e., cyclic distance $<3$. Pairs
+with cyclic distance exactly $3$: $\{1,4\}, \{2,5\}, \{3,6\}$ — 3 pairs,
+each giving 2 multisets. \textbf{6 failures.}
+\item Distinct triples (20 total): covered iff a 3-window matches. There
+are $6$ such ``consecutive'' triples. Among the remaining $14$ non-consecutive
+triples, $2$ are trees ($\{1,3,5\}$ and $\{2,4,6\}$, the two ``zigzag''
+triangulations), leaving \textbf{12 non-tree failures.}
+\end{itemize}
+Type-(3,0) Layer-1 failures: $6+12=18$.
+
+\paragraph{Type (0, 3): all-long multisets (10 total).} A multiset
+$\{y_a, y_b, y_c\}$ lies in $F_r$ iff its distinct indices lie in
+$\{1,2,3\}\setminus\{r+1 \bmod 3\}$. Each $F_r$ omits exactly one $y$; across
+6 zones, every $y$ is present in $4$ zones. A multiset using only $2$
+distinct $y$'s is covered (pick the zone omitting the third). A multiset
+using all $3$ distinct $y$'s is \emph{not} covered by any zone.
+
+\textbf{Single non-tree failure:} $\{y_1, y_2, y_3\}$.
+
+\paragraph{Type (1, 2): one short, two long (36 total, 0 trees).} A multiset
+$\{x_a, y_c, y_d\}$ is covered iff $y_c, y_d$ both lie in some $F_r$'s $y$-pair
+AND $x_a$ lies in that zone's $x$-part.
+
+For each $y$-pair $\{y_i, y_j\}$ ($i\ne j$) there are two zones whose $y$-part
+is $\{y_i, y_j\}$; their $x$-parts are cyclic shifts differing by $3$, and
+their union is $\{x_1,\ldots, x_6\}$ (all $6$ shorts). So every
+$\{x_a, y_i, y_j\}$ with $i\ne j$ is covered.
+
+For $y_i^2$ (two copies of same $y$), $y_i\in F_r$ for $4$ zones; their
+$x$-parts union to all shorts. So every $\{x_a, y_i^2\}$ is covered.
+
+\textbf{Zero type-(1,2) failures.}
+
+\paragraph{Type (2, 1): two short, one long.} We enumerate with $y=y_1$
+fixed; the $y_2$ and $y_3$ slices follow by symmetry.
+
+With $y_1 \in F_r$ (zones $r\in\{1,2,4,5\}$), the available $x$-windows are
+$\{3,4,5\}, \{4,5,6\}, \{1,2,6\}, \{1,2,3\}$.
+
+A multiset $\{x_a, x_b, y_1\}$ is Layer-1 covered iff the pair $\{a,b\}$
+(as a multiset) lies in one of these 4 windows. Squared-$x$ multisets
+$\{x_a^2, y_1\}$: the union of x-parts above is $\{1,\ldots,6\}$ (all),
+so every squared-$x$ multiset is covered.
+
+Distinct-pair multisets $\{x_a, x_b, y_1\}$ with $a<b$: enumerate 15 pairs
+and check which fit in one of the 4 windows. A quick case analysis yields
+$5$ failures: pairs $\{1,4\}, \{1,5\}, \{2,4\}, \{2,5\}, \{3,6\}$.
+
+Among these $5$: the first four are \emph{trees}
+($\{x_1, x_4, y_1\} = 147$, etc., all fans), so they're supposed to survive.
+The remaining $1$ non-tree failure is $\{x_3, x_6, y_1\}$.
+
+By cyclic symmetry on $y$: 1 failure with $y_2$, 1 with $y_3$. \textbf{Total
+type-(2,1) failures: 3.}
+
+\paragraph{Total Layer-1 failures.}
+\[
+18 + 1 + 0 + 3 = \mathbf{22}\ \text{non-local Layer-1 failures; Layer-1 covered: } 151-22=\mathbf{129}.
+\]
+
+\subsection{Blocking-set property: no tree in any \texorpdfstring{$F_r$}{F\_r}}
+\label{sec:blocking-set}
+
+\begin{lemma}[Blocking set]
+\label{lem:blocking}
+No hexagon triangulation is entirely contained in any $F_r$.
+\end{lemma}
+
+\begin{proof}
+By cyclic symmetry, suffices to check $F_1 = \{x_3, x_4, x_5, y_1, y_3\}$
+against the $14$ tree triples:
+\begin{center}
+\footnotesize
+\begin{tabular}{l|l|l|l|l}
+\toprule
+Tree & Chord form & Excluded chord & Tree & \\
+\midrule
+135 & $\{x_1,x_3,x_5\}$ & $x_1$ & 258 & $\{x_2,x_5,y_2\}$: $x_2, y_2$ \\
+139 & $\{x_1,x_3,y_3\}$ & $x_1$ & 268 & $\{x_2,x_6,y_2\}$: $x_2, x_6, y_2$\\
+147 & $\{x_1,x_4,y_1\}$ & $x_1$ & 358 & $\{x_3,x_5,y_2\}$: $y_2$\\
+149 & $\{x_1,x_4,y_3\}$ & $x_1$ & 368 & $\{x_3,x_6,y_2\}$: $x_6, y_2$\\
+157 & $\{x_1,x_5,y_1\}$ & $x_1$ & 369 & $\{x_3,x_6,y_3\}$: $x_6$\\
+246 & $\{x_2,x_4,x_6\}$ & $x_2, x_6$ & 469 & $\{x_4,x_6,y_3\}$: $x_6$\\
+247 & $\{x_2,x_4,y_1\}$ & $x_2$ & & \\
+257 & $\{x_2,x_5,y_1\}$ & $x_2$ & & \\
+\bottomrule
+\end{tabular}
+\end{center}
+Every tree contains at least one chord outside $F_1$. By cyclic rotation,
+the same holds for every $F_r$.
+\end{proof}
+
+\begin{corollary}
+The Layer-1 argument at $\Z_r$ only kills non-tree multisets. No tree is
+accidentally killed.
+\end{corollary}
+
+\subsection{Layer-2 analysis for the 22 remaining multisets: orbit structure}
+\label{sec:orbit-analysis}
+
+The $22$ Layer-1 failures fall into $5$ cyclic-symmetry orbits:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{l|c|l|c|c}
+\toprule
+Orbit label & Size & Representative & Size×(per orbit) & Killing zone (L2) \\
+\midrule
+(a) Squared distance-3 pairs & 6 & $x_1^2\,x_4$ & 6 & $\Z_6$\\
+(b) Non-consec triples, sub-orbit $\alpha$ & 6 & $\{x_1,x_2,x_4\}$ & 6 & $\Z_6$ \\
+(c) Non-consec triples, sub-orbit $\beta$ & 6 & $\{x_1,x_2,x_5\}$ & 6 & $\Z_4$\\
+(d) Crossed $y$-fork & 3 & $\{x_3,x_6,y_1\}$ & 3 & $\Z_2$\\
+(e) All-three-$y$ & 1 & $\{y_1,y_2,y_3\}$ & 1 & $\Z_1$\\
+\bottomrule
+Total & & & \textbf{22} & \\
+\end{tabular}
+\end{center}
+
+\paragraph{Orbit verification.} Under $\sigma$ (shift by 1 on $x$-indices mod
+6 and $y$-indices mod 3 simultaneously):
+\begin{itemize}[nosep,leftmargin=2em]
+\item Orbit (a): $x_1^2 x_4 \to x_2^2 x_5 \to x_3^2 x_6 \to x_4^2 x_1 \to x_5^2 x_2 \to x_6^2 x_3 \to x_1^2 x_4$. Size 6.
+\item Orbit (b): $\{1,2,4\}\to\{2,3,5\}\to\{3,4,6\}\to\{1,4,5\}\to\{2,5,6\}\to\{1,3,6\}\to\{1,2,4\}$. Size 6.
+\item Orbit (c): $\{1,2,5\}\to\{2,3,6\}\to\{1,3,4\}\to\{2,4,5\}\to\{3,5,6\}\to\{1,4,6\}\to\{1,2,5\}$. Size 6.
+\item Orbit (d): $\{x_3, x_6, y_1\}\to\{x_4, x_1, y_2\}\to\{x_5, x_2, y_3\}\to\{x_3, x_6, y_1\}$ (size 3; $\sigma^3$ fixes $y$-index mod 3 and swaps $x_i\leftrightarrow x_{i+3}$, leaving the unordered pair $\{3,6\}$ invariant).
+\item Orbit (e): $\{y_1, y_2, y_3\}$ is fixed by $\sigma$ (the $y$-indices permute among themselves). Size 1.
+\end{itemize}
+
+We now verify one representative of each orbit. The remaining members
+follow by applying $\sigma$ to both the multiset and the zone.
+
+\subsection{Verification of orbit representatives}
+\label{sec:orbit-verif}
+
+\subsubsection*{Orbit (a): $x_1^2\,x_4 = a_{x_1 x_1 x_4}$ at $\Z_6$ Layer 2}
+
+$\Z_6$ substitutions: $x_1 = y_3 - x_6$ (non-bare, comp $y_3$),
+$y_1 = x_4 - x_6$ (non-bare, comp $x_4$), $x_5 = -x_6$ (bare).
+Special: $x_6$. Free: $F_6 = \{x_2, x_3, x_4, y_2, y_3\}$.
+
+The target monomial on $\Z_6$:
+\[
+\frac{a_{x_1^2 x_4}}{x_1^2\,x_4} = \frac{a_{x_1^2 x_4}}{(y_3 - x_6)^2\,x_4}.
+\]
+Expand $1/(y_3 - x_6)^2$:
+\[
+\frac{1}{(y_3 - x_6)^2} = \frac{1}{x_6^2}\left(1 + \frac{2y_3}{x_6} + \frac{3y_3^2}{x_6^2} + \cdots\right) = \frac{1}{x_6^2} + \frac{2y_3}{x_6^3} + \frac{3y_3^2}{x_6^4} + \cdots
+\]
+At order $1/x_6^3$: the coefficient is $2\,a_{x_1^2 x_4}\,y_3/x_4$.
+
+\emph{Fingerprint:} $y_3/x_4$ at order $1/x_6^3$.
+
+\emph{Unique source check.} On $\Z_6$, the only source of $y_3$ in a Laurent
+numerator is $1/x_1 = -1/x_6 - y_3/x_6^2 - y_3^2/x_6^3 - \cdots$. (The other
+non-bare $1/y_1$ produces powers of $x_4$, not $y_3$; the bare $1/x_5=-1/x_6$
+has no tail.)
+
+So any monomial of $B$ producing $y_3$ at any order must have $x_1$ as a
+factor. Cases:
+\begin{itemize}[nosep,leftmargin=2em]
+\item \textbf{Monomial with $x_1$ once:} $a_{x_1 X_a X_b}/(x_1 X_a X_b)$. At
+order $1/x_6^3$: $1/x_1$ contributes $-y_3^2/x_6^3$; fingerprint is
+$y_3^2/(X_a X_b)$, not $y_3/x_4$.
+\item \textbf{Monomial with $x_1$ twice:} $a_{x_1^2 X_c}/(x_1^2 X_c)$. At
+order $1/x_6^3$: $1/x_1^2$ contributes $2y_3/x_6^3$; times $1/X_c$ gives
+$2y_3/(x_6^3 X_c)$. Fingerprint is $y_3/X_c$.
+\item \textbf{Monomial with $x_1$ three times:} $a_{x_1^3}/x_1^3$. At order
+$1/x_6^3$: $1/x_1^3 = 1/(y_3-x_6)^3$, leading term $-1/x_6^3$ (constant in
+free variables), no $y_3$ at this order.
+\end{itemize}
+So the only candidates producing the fingerprint $y_3/x_4$ at $1/x_6^3$ are
+$a_{x_1^2 X_c}$ with $X_c = x_4$. The single coefficient $a_{x_1^2 x_4}$ is
+isolated.
+
+Additionally, we must check that $X_c = x_4$ doesn't degenerate (i.e., that
+$x_4\ne y_3$, the companion of $x_1$). Indeed $x_4\ne y_3$, so the
+fingerprint is non-constant and the kill is clean.
+
+\[
+\boxed{a_{x_1^2 x_4} = 0.}
+\]
+
+By cyclic rotation, the entire orbit (a) (6 multisets) is killed: $a_{x_r^2 x_{r+3}}$
+and $a_{x_r x_{r+3}^2}$ at $\Z_{r+5}$ for $r=1,\ldots,6$ (indices mod 6).
+
+\subsubsection*{Orbit (b): $\{x_1, x_2, x_4\} = a_{x_1 x_2 x_4}$ at $\Z_6$ Layer 2}
+
+The target on $\Z_6$:
+\[
+\frac{a_{x_1 x_2 x_4}}{x_1\,x_2\,x_4} = \frac{a_{x_1 x_2 x_4}}{(y_3-x_6)\,x_2\,x_4}.
+\]
+At order $1/x_6^2$: $1/x_1$ contributes $-y_3/x_6^2$, so the coefficient is
+$-a_{x_1 x_2 x_4}\,y_3/(x_2\,x_4)$.
+
+\emph{Fingerprint:} $y_3/(x_2\,x_4)$ at order $1/x_6^2$.
+
+\emph{Unique source check.} Again, $y_3$ comes only from $1/x_1$'s tail. For
+a single-$x_1$ monomial $a_{x_1 X_a X_b}/(x_1 X_a X_b)$ at order $1/x_6^2$,
+the $1/x_1$ piece $-y_3/x_6^2$ pairs with $1/(X_a X_b)$. The monomial
+$y_3/(X_a X_b)$ uniquely identifies $\{X_a, X_b\}$ as a multiset, provided
+$X_a, X_b\ne y_3$ (else degenerate).
+
+For multisets with $x_1$ appearing more than once, the Laurent contribution
+at order $1/x_6^2$ is
+$1/x_1^2 = 1/x_6^2 + O(1/x_6^3)$ — pure constant at leading order, no
+$y_3$ yet. So no contribution to the $y_3/(x_2\,x_4)$ fingerprint.
+
+Hence $a_{x_1 x_2 x_4}$ is uniquely isolated. Since $\{x_2, x_4\}\subseteq
+F_6\setminus\{y_3\}=\{x_2, x_3, x_4, y_2\}$, the fingerprint is non-constant.
+\[
+\boxed{a_{x_1 x_2 x_4} = 0.}
+\]
+Cyclic rotation kills the full 6-orbit.
+
+\subsubsection*{Orbit (c): $\{x_1, x_2, x_5\} = a_{x_1 x_2 x_5}$ at $\Z_4$ Layer 2}
+
+$\Z_4$ substitutions: $x_5 = y_1 - x_4$ (non-bare, comp $y_1$),
+$y_2 = x_2 - x_4$ (non-bare, comp $x_2$), $x_3 = -x_4$ (bare).
+Special: $x_4$. Free: $F_4 = \{x_1, x_2, x_6, y_1, y_3\}$.
+
+The target on $\Z_4$:
+\[
+\frac{a_{x_1 x_2 x_5}}{x_1\,x_2\,x_5} = \frac{a_{x_1 x_2 x_5}}{x_1\,x_2\,(y_1-x_4)}.
+\]
+At order $1/x_4^2$: $1/x_5 = 1/(y_1-x_4) = -1/x_4-y_1/x_4^2-\cdots$,
+so the $1/x_4^2$ piece is $-y_1/x_4^2$. Contribution:
+$-a_{x_1 x_2 x_5}\,y_1/(x_4^2\,x_1\,x_2)$.
+
+\emph{Fingerprint:} $y_1/(x_1 x_2)$ at order $1/x_4^2$.
+
+\emph{Unique source check.} Source of $y_1$ in a tail: only $1/x_5$ at
+$\Z_4$. (The other non-bare $1/y_2$ has companion $x_2$, producing $x_2$ not
+$y_1$.) A single-$x_5$ monomial $a_{x_5 X_a X_b}/(x_5 X_a X_b)$ at order
+$1/x_4^2$ has fingerprint $y_1/(X_a X_b)$; provided $X_a, X_b\ne y_1$, it's
+unique.
+
+$\{x_1, x_2\}\subseteq F_4\setminus\{y_1\}=\{x_1, x_2, x_6, y_3\}$: non-constant
+fingerprint. Hence
+\[
+\boxed{a_{x_1 x_2 x_5} = 0.}
+\]
+Cyclic rotation kills the full 6-orbit.
+
+\subsubsection*{Orbit (d): $\{x_3, x_6, y_1\} = a_{x_3 x_6 y_1}$ at $\Z_2$ Layer 2}
+
+$\Z_2$ substitutions: $x_3 = y_2 - x_2$ (non-bare, comp $y_2$),
+$y_3 = x_6 - x_2$ (non-bare, comp $x_6$), $x_1 = -x_2$ (bare).
+Special: $x_2$. Free: $F_2 = \{x_4, x_5, x_6, y_1, y_2\}$.
+
+The target on $\Z_2$:
+\[
+\frac{a_{x_3 x_6 y_1}}{x_3\,x_6\,y_1} = \frac{a_{x_3 x_6 y_1}}{(y_2-x_2)\,x_6\,y_1}.
+\]
+At order $1/x_2^2$: $1/x_3$ contributes $-y_2/x_2^2$, so the coefficient is
+$-a_{x_3 x_6 y_1}\,y_2/(x_6\,y_1)$.
+
+\emph{Fingerprint:} $y_2/(x_6\,y_1)$ at order $1/x_2^2$.
+
+\emph{Unique source check.} Source of $y_2$: only $1/x_3$'s tail. A
+single-$x_3$ monomial $a_{x_3 X_a X_b}/(x_3 X_a X_b)$ at order $1/x_2^2$ has
+fingerprint $y_2/(X_a X_b)$, unique provided $X_a, X_b\ne y_2$.
+
+Special check: could $X_a$ or $X_b = y_3$ contribute? $1/y_3 = -1/x_2 -
+x_6/x_2^2 - \cdots$ has $x_6$ (not $1/x_6$) in its Laurent tail; so
+$y_3$-as-factor puts $x_6$ in the numerator, not $1/x_6$ in the denominator.
+The fingerprint $y_2/(x_6\,y_1)$ requires $1/x_6$ directly, so this requires
+$x_6$ as a direct factor (not a substituted chord). Since $x_6\in F_2$, this
+is possible only with $X_a = x_6, X_b = y_1$ (or vice versa) — giving the
+target monomial.
+
+$\{x_6, y_1\}\subseteq F_2\setminus\{y_2\}=\{x_4,x_5,x_6,y_1\}$:
+non-constant fingerprint.
+\[
+\boxed{a_{x_3 x_6 y_1} = 0.}
+\]
+Cyclic rotation: orbit has size 3 (the $\sigma^3$ stabilizer fixes each
+element since $\sigma^3$ sends $\{x_3, x_6\}\mapsto\{x_6, x_3\}=\{x_3,x_6\}$).
+
+\subsubsection*{Orbit (e): $\{y_1, y_2, y_3\} = a_{y_1 y_2 y_3}$ at $\Z_1$ Layer 2}
+
+At $\Z_1$: non-bare $y_2 = x_5 - x_1$ with companion $x_5$. Special: $x_1$.
+Free: $F_1 = \{x_3, x_4, x_5, y_1, y_3\}$.
+
+The target on $\Z_1$:
+\[
+\frac{a_{y_1 y_2 y_3}}{y_1\,y_2\,y_3} = \frac{a_{y_1 y_2 y_3}}{y_1\,(x_5-x_1)\,y_3}.
+\]
+At order $1/x_1^2$: $1/y_2$ contributes $-x_5/x_1^2$; the coefficient is
+$-a_{y_1 y_2 y_3}\,x_5/(y_1 y_3)$.
+
+\emph{Fingerprint:} $x_5/(y_1 y_3)$ at order $1/x_1^2$.
+
+\emph{Unique source check.} Source of $x_5$ in a Laurent numerator: only
+$1/y_2$'s tail. Single-$y_2$ monomial $a_{y_2 X_a X_b}/(y_2 X_a X_b)$ at
+order $1/x_1^2$ gives fingerprint $x_5/(X_a X_b)$; unique provided $X_a,X_b
+\ne x_5$. $\{y_1, y_3\}\subseteq F_1\setminus\{x_5\}=\{x_3,x_4,y_1,y_3\}$.
+\[
+\boxed{a_{y_1 y_2 y_3} = 0.}
+\]
+Orbit has size 1: fixed by $\sigma$ because the $y$-set is shift-invariant.
+
+\subsection{Completing the proof at \texorpdfstring{$n=6$}{n=6}}
+
+\begin{theorem}[Locality at six points]
+\label{thm:n6}
+The six hidden one-zeros $\Z_1,\ldots,\Z_6$ force every non-local
+coefficient of the general rational ansatz at $n=6$ to zero. The surviving
+$14$ coefficients are exactly the tree triangulations of the hexagon.
+\end{theorem}
+
+\begin{proof}
+Let $B$ be the general rational ansatz, vanishing on each $\Z_r$.
+
+\textbf{Step 1: Layer 1 covers 129 non-local coefficients.} At each $\Z_r$,
+the $x_r\to\infty$ limit forces every multiset $M\subseteq F_r$ to have
+$a_M = 0$ (Lemma~\ref{lem:monomial-indep}). By the counting in
+Section~\ref{sec:layer1-count}, the union over $r$ of $\{M : M\subseteq F_r\}$
+contains exactly $129$ distinct non-tree multisets.
+
+\textbf{Step 2: Blocking-set lemma.} By Lemma~\ref{lem:blocking}, no tree
+is contained in any $F_r$, so Step 1 does not accidentally kill any tree.
+
+\textbf{Step 3: Layer 2 covers the remaining 22.} The $22$ multisets
+failing Layer 1 partition into $5$ cyclic orbits
+(Proposition~\ref{prop:n6-summary}). Sections \ref{sec:orbit-verif}
+verifies that one representative of each orbit is killed by Layer-2
+companion-isolation at a specific zone. By cyclic symmetry, every member
+of each orbit is killed: applying $\sigma^k$ to both the multiset and the
+zone transforms a verified kill at $\Z_r$ into a kill of the $\sigma^k$-image
+multiset at $\Z_{r+k}$.
+
+\textbf{Step 4: Conclusion.} All $129 + 22 = 151$ non-local coefficients
+of $B$ are forced to zero. The surviving $14$ are the tree triangulations,
+satisfying the tree-amplitude relations coming from $A_6|_{\Z_r}=0$.
+\end{proof}
+
+\paragraph{Remark on Layer 3.} A ``Layer 3'' analysis at order $1/x_r^4$
+(double companion-isolation, using monomials with \emph{both} non-bare
+substitutions as factors) does produce additional kills at each zone
+($3$ per zone at $n=6$). However, these kills are redundant — every
+Layer-3-killable multiset is already in some $F_{r'}$ and hence killed by
+Layer 1 at $\Z_{r'}$. At $n=6$, Layers 1 and 2 alone suffice. Layer 3 may
+become essential at higher $n$.
+
+%================================================================
+\section{Looking ahead}
+
+The proof template generalizes. At each zone $\Z_r$ at general $n$:
+\begin{itemize}[nosep,leftmargin=2em]
+\item $|F_r| = \binom{n}{2}-n - (n-3) - 1 = \frac{n(n-3)}{2}-(n-2)$.
+\item The number of non-bare substitutions is $n-4$, each with a companion
+in $F_r$.
+\item Layer 1 kills $\binom{|F_r|+n-4}{n-3}$ multisets at order $x_r^0$.
+\item Layer $k$ ($k\ge 1$) kills multisets with exactly $k$ non-bare indices
+via $k$-fold companion-isolation at order $1/x_r^{2k}$.
+\end{itemize}
+
+Layer counts per zone:
+\begin{center}
+\begin{tabular}{c|c|c|c|c|c|c}
+\toprule
+$n$ & $|F_r|$ & L0 & L2 & L4 & L6 & Total per zone\\
+\midrule
+4 & 0 & 0 & --- & --- & --- & 0\\
+5 & 2 & 3 & 1 & --- & --- & 4\\
+6 & 5 & 35 & 20 & 3 & --- & 58\\
+7 & 9 & 495 & 360 & 84 & 6 & 945\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+At $n=6$ our explicit union-count gives $129$ from Layer 1 and $22$ from
+Layer 2, a union of $151$. The detailed orbit structure (Section
+\ref{sec:orbit-analysis}) explains \emph{why} these are exactly the $151$
+non-local multisets.
+
+A general-$n$ proof along these lines would require:
+\begin{enumerate}[nosep,leftmargin=2em]
+\item A generalization of the blocking-set lemma: at every zone and every
+$n$, no triangulation lies in $F_r$.
+\item An orbit enumeration of Layer-1 failures (relating to which multisets
+escape every $F_r$).
+\item Explicit companion-isolation arguments for each orbit representative,
+using the appropriate Layer.
+\end{enumerate}
+The class hierarchy of chords (short, long, extra-long, $\ldots$) — with
+each new class born at $n = 2k$ — refines the bookkeeping. We leave the
+general-$n$ proof for future work.
+
+\end{document}

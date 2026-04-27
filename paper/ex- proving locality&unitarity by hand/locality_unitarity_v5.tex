@@ -1,0 +1,318 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\tphi}{\mathrm{tr}(\phi^3)}
+\newcommand{\Zr}{\mathcal{Z}}
+\newcommand{\Fr}{F}
+
+\title{Locality and unitarity emerge from hidden zeros in $\tphi$:\\
+a by-hand proof at four, five, and six points}
+\author{Jony}
+\date{April 25, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We prove that the cyclic hidden one-zeros of color-ordered
+$\tphi$ tree amplitudes force every non-local coefficient of the
+general rational ansatz to vanish, and force every triangulation
+coefficient to take a single common value, at $n=4,5,6$ external
+legs.  The proof uses one move applied at each cyclic zone:
+\emph{send a chosen subset of free chords to infinity and read off
+coefficients of the surviving rational function in the remaining
+variables}.  No Laurent expansions are required.  Locality (the
+survivors are exactly triangulations) and unitarity (they share a
+common scalar) emerge together.
+\end{abstract}
+
+% ==============================================================
+\section{Setup}
+% ==============================================================
+
+Label the legs of an $n$-point amplitude cyclically by $1,\dots,n$
+and let $X_{ij}=(p_i+\cdots+p_{j-1})^2$ for $1\le i<j\le n$, $j-i\ge 2$,
+$(i,j)\ne(1,n)$.  There are $d=n(n-3)/2$ such planar Mandelstam
+chords.  A \emph{triangulation} is a maximal non-crossing set of
+$n-3$ chords, and the tree amplitude is
+$A_n = \sum_{T}\prod_{c\in T}1/X_c$ summed over triangulations.
+We consider the most general rational ansatz with mass dimension
+$-2(n-3)$ and only planar simple poles,
+\begin{equation}\label{eq:ansatz}
+B \;=\; \sum_{w}\frac{a_w}{\prod_{c\in w}X_c},
+\end{equation}
+where $w$ runs over size-$(n-3)$ multisets of chord indices.  A
+multiset is \emph{local} if its chords form a triangulation.
+
+Non-planar invariants $c_{a,b}=2p_a\cdot p_b$ satisfy the mesh identity
+$c_{a,b}=X_{a,b+1}+X_{a+1,b}-X_{a,b}-X_{a+1,b+1}$ (with $X_{a,a+1}=0$).
+The hidden one-zero $\Zr_r$ is the linear subspace
+$c_{r,r+2}=\cdots=c_{r,r+n-2}=0$, $n-3$ constraints.  Solving these
+via the mesh identity gives the master substitution at $\Zr_r$:
+every chord $X_{r+1,j}$ becomes a $\mathbb{Q}$-linear function of
+the remaining (\emph{free}) chords, with the special chord
+$X_*:=X_{r,r+2}$ appearing on every right-hand side.  We write
+$\Fr_r$ for the free set excluding $X_*$.  Rodina has shown
+$A_n|_{\Zr_r}\equiv0$; our goal is the converse: assuming
+$B|_{\Zr_r}=0$ for all $r$, show $B=a\cdot A_n$ for some scalar $a$.
+
+\begin{lemma}[The kill move]\label{lem:move}
+Suppose $B|_{\Zr_r}=0$.  Let $S\subseteq \Fr_r\cup\{X_*\}$ be any
+subset of free chords held arbitrary, and let every chord outside
+$S$ go to $\infty$.  Whenever a non-bare master substitution
+$X_s = X_f - X_*$ has its companion $X_f$ outside $S$, also let
+$X_f \to \infty$ (otherwise $1/X_s = 1/(X_f-X_*)$ would survive as
+a non-monomial rational factor, blocking coefficient extraction).
+Then the surviving terms of $B|_{\Zr_r}$ form a Laurent polynomial
+in $S$, and each coefficient on a distinct monomial vanishes.
+\end{lemma}
+\begin{proof}
+After the master substitution, $B|_{\Zr_r}$ is a rational function
+in the $|\Fr_r|+1$ free chords.  Sending a chord to infinity drops
+every monomial of $B$ whose denominator contains it.  The
+companion condition ensures all surviving monomials are Laurent
+monomials in $S$; distinct multisets give distinct monomials, so
+linear independence forces individual vanishing.
+\end{proof}
+
+\noindent We use Lemma~\ref{lem:move} in two flavors:
+\begin{itemize}\setlength\itemsep{0pt}
+  \item \textbf{Step 1} drops $X_*$ from $S$.  Surviving multisets
+  are subsets of $\Fr_r$, and coefficients are forced to zero
+  individually.
+  \item \textbf{Step 2} keeps $X_*\in S$ and exploits
+  $X_{\text{bare}}=-X_*$.  All non-bare substituted chords get
+  dropped (by sending their companions outside $S$ to infinity).
+  The surviving polynomial in $S$ pairs multisets glued by the
+  sign of $-X_*$, producing equalities of original coefficients.
+\end{itemize}
+
+% ==============================================================
+\section{Four points}
+% ==============================================================
+
+The square has only $X_{13}, X_{24}$ and the ansatz
+$B = a_{X_{13}}/X_{13}+a_{X_{24}}/X_{24}$ has \emph{no} non-local
+multisets: with $n-3=1$, every single chord is itself a
+triangulation, and there is no room for a crossing.  Locality is
+automatic.  The single zero $\Zr_1$ gives $X_{24}=-X_{13}$, so
+$B|_{\Zr_1}=(a_{X_{13}}-a_{X_{24}})/X_{13}=0$, hence
+$a_{X_{13}}=a_{X_{24}}$.  This is unitarity.  $B = a\cdot A_4$.
+
+% ==============================================================
+\section{Five points}
+% ==============================================================
+
+\subsection{Setup}
+
+The pentagon has $5$ chords, all class $1$ (short).  The ansatz
+has $\binom{5+1}{2}=15$ coefficients: $5$ tree triples (the fan
+triangulations), $5$ double poles, $5$ crossing pairs.  We must
+kill the latter $10$ and equate the $5$ tree triples.  The five
+zones are
+\[
+\begin{array}{r|ll|c|c}
+\text{Zone} & \multicolumn{2}{c|}{\text{Master subs}} & X_* & \Fr_r\\\hline
+\Zr_1 & X_{24}=X_{14}-X_{13} & X_{25}=-X_{13} & X_{13} & \{X_{14},X_{35}\}\\
+\Zr_2 & X_{35}=X_{25}-X_{24} & X_{13}=-X_{24} & X_{24} & \{X_{25},X_{14}\}\\
+\Zr_3 & X_{14}=X_{13}-X_{35} & X_{24}=-X_{35} & X_{35} & \{X_{13},X_{25}\}\\
+\Zr_4 & X_{25}=X_{24}-X_{14} & X_{35}=-X_{14} & X_{14} & \{X_{24},X_{13}\}\\
+\Zr_5 & X_{13}=X_{35}-X_{25} & X_{14}=-X_{25} & X_{25} & \{X_{35},X_{24}\}\\
+\end{array}
+\]
+Each zone has one special $X_*$, one non-bare substitution $X_s = X_f - X_*$
+with companion $X_f\in\Fr_r$, one bare $X_{\text{bare}}=-X_*$, and two free chords.
+
+\subsection{Step 1 at $\Zr_1$ (three kills)}
+
+Send $X_{13}\to\infty$ holding $X_{14},X_{35}$ fixed: then
+$X_{24},X_{25}\to-\infty$ and every $B$-monomial involving any of
+$X_{13},X_{24},X_{25}$ drops out.  Surviving (with $a_{ij,kl} := a_{X_{ij}X_{kl}}$):
+\[
+\sum_{w\subseteq\{X_{14},X_{35}\}} \frac{a_w}{\prod X_w}
+= \frac{a_{14,14}}{X_{14}^2} + \frac{a_{14,35}}{X_{14}X_{35}} + \frac{a_{35,35}}{X_{35}^2}=0,
+\]
+so by independence $a_{14,14}=a_{14,35}=a_{35,35}=0$.
+
+\subsection{Step 2 at $\Zr_1$ (pair equalities)}
+
+To use the bare relation $X_{25}=-X_{13}$ cleanly we must drop the
+non-bare substituted chord $X_{24}=X_{14}-X_{13}$.  Sending
+$X_{14}\to\infty$ does this: then $X_{24}\to\infty$ as well, and
+\emph{both} $X_{14}$- and $X_{24}$-involving monomials drop from
+the surviving sum.  This is essential --- if we kept $X_{14}$
+finite while letting $X_{24}$ contribute, every $X_{24}$-monomial
+would carry a factor $1/X_{24} = 1/(X_{14}-X_{13})$, which is not
+a Laurent monomial in $\{X_{13}, X_{14}\}$ and would block clean
+coefficient extraction.
+
+Holding $X_{13},X_{35}$ fixed and sending $X_{14}\to\infty$, the
+survivors are multisets in $\{X_{13},X_{25},X_{35}\}$, glued by
+$X_{25}=-X_{13}$.  Below we abbreviate $a_{X_{ij}X_{kl}}$ as $a_{ij,kl}$:
+\[
+\frac{a_{13,13}}{X_{13}^2} - \frac{a_{13,25}}{X_{13}^2}
++\frac{a_{25,25}}{X_{13}^2}
++ \frac{a_{13,35}}{X_{13}X_{35}} - \frac{a_{25,35}}{X_{13}X_{35}}
++ \frac{a_{35,35}}{X_{35}^2} = 0.
+\]
+Collecting on $1/X_{13}^2,\ 1/(X_{13}X_{35}),\ 1/X_{35}^2$:
+\[
+\boxed{a_{13,13}-a_{13,25}+a_{25,25}=0,\qquad a_{13,35}=a_{25,35},\qquad a_{35,35}=0\ \text{(already from Step 1).}}
+\]
+The first identity, combined with Step 1 kills of $a_{13,13}$ (via
+$\Zr_3,\Zr_4$) and $a_{25,25}$ (via $\Zr_2,\Zr_3$), forces the
+crossing pair $a_{13,25}=0$ --- a second route to the same kill.
+The middle identity equates two fan triangulations sharing $X_{35}$.
+
+\subsection{Cycling and the union}
+
+Cycling $1\to 2\to\cdots\to 5$ rotates Step 1 and Step 2 across all five zones.  Below we abbreviate $a_{X_{ij}X_{kl}}$ as $a_{ij,kl}$:
+\begin{center}\small
+\begin{tabular}{c|c|c}
+Zone & Step 1 kills & Step 2 unitarity equality\\\hline
+$\Zr_1$ & $a_{14,14},\ a_{35,35},\ a_{14,35}$ & $a_{13,35}=a_{25,35}$\\
+$\Zr_2$ & $a_{25,25},\ a_{14,14},\ a_{14,25}$ & $a_{14,24}=a_{13,14}$\\
+$\Zr_3$ & $a_{13,13},\ a_{25,25},\ a_{13,25}$ & $a_{25,35}=a_{24,25}$\\
+$\Zr_4$ & $a_{24,24},\ a_{13,13},\ a_{13,24}$ & $a_{13,14}=a_{13,35}$\\
+$\Zr_5$ & $a_{35,35},\ a_{24,24},\ a_{24,35}$ & $a_{24,25}=a_{14,24}$\\
+\end{tabular}
+\end{center}
+
+\paragraph{Locality.}
+The Step 1 union covers the 5 double poles ($a_{ij,ij}$, each in
+two zones) and the 5 crossing pairs ($a_{14,35}$ at $\Zr_1$,
+$a_{14,25}$ at $\Zr_2$, $a_{13,25}$ at $\Zr_3$, $a_{13,24}$ at
+$\Zr_4$, $a_{24,35}$ at $\Zr_5$).  All ten non-locals are killed.
+
+\paragraph{Unitarity.}
+The five Step 2 equalities form a $5$-cycle on the five fan triangulations:
+\(
+a_{13,35} \overset{\Zr_1}{=} a_{25,35}
+          \overset{\Zr_3}{=} a_{24,25}
+          \overset{\Zr_5}{=} a_{14,24}
+          \overset{\Zr_2}{=} a_{13,14}
+          \overset{\Zr_4}{=} a_{13,35}.
+\)
+All five fan coefficients are equal to a common $a$, hence
+$B = a\cdot A_5$.
+
+\begin{theorem}[$n=5$]\label{thm:n5}
+The five hidden one-zeros of the pentagon force $B = a\cdot A_5$
+for a unique scalar $a$.  Locality and unitarity emerge
+simultaneously from the kill-and-equate enumeration.
+\end{theorem}
+
+% ==============================================================
+\section{Six points}
+% ==============================================================
+
+\subsection{Setup}
+
+The hexagon has $9$ chords: six short ($X_{13},X_{24},X_{35},X_{46},X_{15},X_{26}$,
+each enclosing one vertex) and three long ($X_{14},X_{25},X_{36}$,
+each enclosing two).  The ansatz has $\binom{9+2}{3}=165$
+coefficients, of which $14$ are tree triples ($C_4=14$
+triangulations) and $151$ are non-local.  Each $\Zr_r$ has three
+master substitutions, two non-bare and one bare.  For $\Zr_1$:
+\[
+X_{24}=X_{14}-X_{13},\qquad X_{25}=X_{15}-X_{13},\qquad X_{26}=-X_{13},
+\qquad X_*=X_{13}.
+\]
+The free set is
+$\Fr_1 = \{X_{35},X_{46},X_{15},X_{14},X_{36}\}$ (3 short, 2 long).
+The other zones are cyclic rotations.
+
+\subsection{Step 1 at $\Zr_1$ (35 kills)}
+
+Send $X_{13}\to\infty$, $\Fr_1$ fixed.  Then $X_{24},X_{25},X_{26}\to\pm\infty$,
+and the surviving terms are exactly the multisets in $\Fr_1$.
+Writing $a_{abc} := a_{X_aX_bX_c}$:
+\[
+\sum_{(a,b,c)\subseteq\Fr_1}\frac{a_{abc}}{X_aX_bX_c}=0
+\quad\Longrightarrow\quad
+\boxed{a_{abc}=0\ \text{for every multiset of size 3 from }\Fr_1.}
+\]
+There are $\binom{5+2}{3}=35$ such multisets.
+
+\subsection{Step 2 at $\Zr_1$ (equalities and 3-term identities)}
+
+To use the bare relation $X_{26}=-X_{13}$ cleanly we must drop
+\emph{both} non-bare substitutions $X_{24}=X_{14}-X_{13}$ and
+$X_{25}=X_{15}-X_{13}$.  If either survived in the sum, its
+$1/X_{24}=1/(X_{14}-X_{13})$ or $1/X_{25}=1/(X_{15}-X_{13})$ factor
+would not be a Laurent monomial in our chosen variables, blocking
+clean coefficient extraction.  Sending both companions
+$X_{14},X_{15}\to\infty$ achieves this: $X_{24},X_{25}\to\infty$
+also, and every $B$-monomial involving any of $X_{14},X_{24},X_{15},X_{25}$ drops.
+
+Keep $S=\{X_{13},X_{35},X_{46},X_{36}\}$ arbitrary.  Surviving
+multisets draw from $\{X_{13},X_{26},X_{35},X_{46},X_{36}\}$, glued
+by $X_{26}=-X_{13}$.  Each surviving $B$-monomial becomes a
+Laurent monomial in $S$, with sign $(-1)^k$ where $k$ counts
+factors of $X_{26}$.  Writing $a_{ab,c}:=a_{X_aX_bX_c}$:
+\[
+\boxed{a_{13^3}-a_{13^2,26}+a_{13,26^2}-a_{26^3}=0,\quad
+a_{13^2,b}-a_{13,26,b}+a_{26^2,b}=0,\quad
+a_{13,a,b}=a_{26,a,b}}
+\]
+for $X_a, X_b\in\{X_{35},X_{46},X_{36}\}$.  The third identity is
+a direct equality of two coefficients; whether each is between two
+triangulations or two non-locals depends on $\{X_a, X_b\}$ and is
+sorted out by the orbit accounting below.  Cyclic rotations to
+$\Zr_2,\dots,\Zr_6$ give the full Step 2 family.
+
+\subsection{Cycling: locality and unitarity}
+
+\paragraph{Locality at $n=6$.}  Step 1 across all six zones kills
+every multiset whose support sits inside some $\Fr_r$ ($129$ of
+the $151$ non-local multisets, after accounting for overlap).  The
+remaining $22$ non-local multisets touch every vertex; they fall
+into five cyclic-symmetry orbits:
+\[
+\text{(a) } X_{r,r+2}^2 X_{r+3,r+5},\;
+\text{(b) } \{X_{r,r+2}, X_{r+1,r+3}, X_{r+3,r+5}\},\;
+\text{(c) } \{X_{r,r+2}, X_{r+1,r+3}, X_{r+4,r+6}\},\;
+\]
+\[
+\text{(d) } \{X_{r,r+2}, X_{r+3,r+5}, X_{r,r+3}\},\;
+\text{(e) } \{X_{14}, X_{25}, X_{36}\}.
+\]
+For each orbit, two cyclically-shifted Step 2 identities (case A
+at $\Zr_r$, case B at $\Zr_{r-1}$) give both an equality
+$a_M = a_{M'}$ \emph{and} a difference $a_M - a_{M'} = 0$, forcing
+$a_M = 0$.  The detailed orbit verification is in the companion
+note (\#17 page 4 et seq.); each verification is one application
+of Step 2, so all $22$ remaining non-locals die, completing
+locality.
+
+\paragraph{Unitarity at $n=6$.}  The Step 2 identities
+$a_{13,a,b}=a_{26,a,b}$ equate adjacent triangulation coefficients;
+each pair $(X_{13},X_{26})$ corresponds to a flip in the hexagon's
+associahedron $K_5$.  Cyclically, every flip in the
+$14$-triangulation flip-graph is realized by some Step 2 equality,
+the flip-graph is connected, so all $14$ tree-triple coefficients
+equal a common $a$, and $B=a\cdot A_6$.
+
+\begin{theorem}[$n=6$]\label{thm:n6}
+The six hidden one-zeros of the hexagon force $B=a\cdot A_6$.  All
+$151$ non-local coefficients vanish ($129$ by Step 1, $22$ by
+cyclic-shifted Step 2 on five orbits) and the $14$ triangulation
+coefficients collapse to a single common value via Step 2 flips.
+\end{theorem}
+
+\paragraph{General-$n$ outlook.}  The two-step move applies at every
+$n$.  Open: (i) does cyclic-shifted Step 2 cover all multisets
+outside any $\Fr_r$? (verified $n\le 6$, numerical $n=7$);
+(ii) does Step 2 cover all flips of $K_{n-1}$? (verified $n\le 6$).
+Closing both is the central goal of the ongoing program.
+
+\end{document}

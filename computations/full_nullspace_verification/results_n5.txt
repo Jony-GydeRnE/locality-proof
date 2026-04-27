@@ -1,0 +1,79 @@
+=================================================================
+5-pt phi^3  1-zero nullspace computation
+=================================================================
+
+Momentum conservation check:
+  sum(all s_ij) = 0   (should be 0)
+
+Ansatz: 45 terms  (all C(10,2) pairs from 10 Mandelstam invariants)
+  B = sum_{a<b} c_{ab} / (s_a * s_b)
+
+Locus verification (vanishing invariants should evaluate to 0):
+  Z1: s13 = 0   ✓
+  Z1: s14 = 0   ✓
+  Z2: s24 = 0   ✓
+  Z2: s25 = 0   ✓
+  Z3: s13 = 0   ✓
+  Z3: s35 = 0   ✓
+  Z4: s14 = 0   ✓
+  Z4: s24 = 0   ✓
+  Z5: s25 = 0   ✓
+  Z5: s35 = 0   ✓
+
+Verifying known A_5 vanishes on each 1-zero locus:
+  Z1:  A_5 = 0   ✓ zero
+  Z2:  A_5 = 0   ✓ zero
+  Z3:  A_5 = 0   ✓ zero
+  Z4:  A_5 = 0   ✓ zero
+  Z5:  A_5 = 0   ✓ zero
+
+Building linear constraints from 1-zero conditions...
+  Z1: 17 finiteness eqs,  19 vanishing eqs,  28 active terms,  free vars: ['s12', 's23', 's34']
+  Z2: 17 finiteness eqs,  19 vanishing eqs,  28 active terms,  free vars: ['s23', 's34', 's45']
+  Z3: 17 finiteness eqs,  19 vanishing eqs,  28 active terms,  free vars: ['s12', 's23', 's15']
+  Z4: 17 finiteness eqs,  19 vanishing eqs,  28 active terms,  free vars: ['s12', 's45', 's15']
+  Z5: 17 finiteness eqs,  19 vanishing eqs,  28 active terms,  free vars: ['s12', 's23', 's15']
+
+Total equations (before dedup): 180
+Unique non-trivial equations:  115
+
+Building coefficient matrix...
+Matrix shape: (115, 45),  rank = 44
+Nullspace dimension (M - rank): 1
+
+Computing nullspace (may take a moment)...
+
+=================================================================
+NULLSPACE DIMENSION: 1
+=================================================================
+
+Known A_tree nonzero terms (these are the 5 non-crossing pentagon triangulations):
+  1/(s12*s34)
+  1/(s12*s45)
+  1/(s23*s45)
+  1/(s23*s15)
+  1/(s34*s15)
+
+
+── Nullspace vector 1 ──────────────────────────────────────
+  Total nonzero entries: 5
+  Planar (Feynman) pairs: 5,  Non-planar pairs: 0
+    [P]  1/(s12*s34):  1
+    [P]  1/(s12*s45):  1
+    [P]  1/(s23*s45):  1
+    [P]  1/(s23*s15):  1
+    [P]  1/(s34*s15):  1
+
+  >>> PROPORTIONAL TO A_tree  (factor = 1) ✓
+
+=================================================================
+SUMMARY
+=================================================================
+Ansatz:          45 terms (all C(10,2) pairs of Mandelstam invariants)
+1-zero loci:     5 cyclic legs, each zeroing 2 non-adjacent invariants
+Matrix rank:     44  (out of 45 params)
+Nullspace dim:   1
+
+CONCLUSION: Nullspace is 1-dimensional and EQUALS A_tree.
+  => 1-zeros UNIQUELY determine the amplitude (up to overall normalization).
+  => This verifies Theorem 1 of the paper.

@@ -1,0 +1,476 @@
+% main.tex — combined paper (Part I + Part II)
+%
+% =================================================================
+% HISTORICAL — alternate, earlier proof. Kept as a parallel approach,
+% not the current direction.
+%
+% This file uses the LINEAR-ALGEBRA / 15-DIMENSIONAL ANSATZ approach:
+% imposing the cyclic 1-zero conditions as a linear system on a
+% finite-dimensional ansatz of mass-dim −2 rational functions, then
+% reading the unique surviving direction as A_5^tree. Part II
+% (input{part2_induction}, now in ../old stuff/paper-older-works/)
+% extends to general n via BCFW homogeneity + dimensional reduction,
+% with one flagged factorization gap.
+%
+% The CURRENT primary write-up is paper/locality_unitarity_trphi3.tex,
+% which proves the same n=5,6 cases by hand using the kill-mechanism /
+% Laurent-expansion-in-special-variable formulation. The two are
+% complementary perspectives on the same theorem, but the by-hand
+% version is the one being extended toward general n.
+% =================================================================
+
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+
+% ---------- Theorem environments ----------
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+% ---------- Macros ----------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Nat}{\mathbb{N}}
+\newcommand{\N}{N}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cZ}{\mathcal{Z}}
+\newcommand{\cN}{\mathcal{N}}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\codim}{codim}
+
+% ---------- Title ----------
+\title{A purely algebraic proof of Rodina's hidden-zero theorem}
+\author{Jonathan Valenzuela}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We give a purely algebraic proof that cyclic 1-zero constraints uniquely characterise
+the $\phi^3$ tree amplitudes $A_n^{\mathrm{tree}}$ for all $n \geq 5$.
+\textbf{Part~I} (Sections~1--4) establishes the base case $n=5$ via an explicit
+finite-dimensional linear-algebra argument: the $15$-dimensional ansatz space
+$\cB_5$ of mass-dimension $-2$ rational functions is reduced by the five cyclic
+1-zero conditions to a one-dimensional subspace spanned by $A_5^{\mathrm{tree}}$.
+Every coefficient equation is exhibited; locality (poles only in planar channels)
+is a \emph{derived} consequence, not an assumption.
+\textbf{Part~II} (Sections~5--6) extends the result to all $n$ by strong induction,
+using a Homogeneity Lemma (BCFW-weight components inherit the 1-zero vanishing)
+and a Dimensional Reduction Proposition (restriction to a 1-zero locus lands in
+the $(n-1)$-point ansatz space $\cB_{n-1}$).
+Explicit gaps in the factorization step of the induction are flagged and supported
+by numerical verification for $n \leq 8$ in the accompanying
+\texttt{computations/} scripts.
+\end{abstract}
+
+\section{Preliminaries}
+
+\subsection{Planar Mandelstam variables}
+
+Let $p_1, \ldots, p_n$ be massless on-shell momenta satisfying
+$\sum_{i=1}^n p_i = 0$ and $p_i^2 = 0$. For $1 \le i < j \le n$ define
+\begin{equation}
+X_{ij} \;=\; (p_i + p_{i+1} + \cdots + p_{j-1})^2,
+\end{equation}
+extended to all $i, j$ by setting $X_{ij} = X_{ji}$ and $X_{ii} = 0$. Momentum
+conservation and masslessness together force
+\begin{equation}
+X_{i,i+1} = 0 \quad \text{and} \quad X_{1n} = 0.
+\end{equation}
+
+At $n = 5$ the non-trivial planar variables are
+\[
+X_{13}, \; X_{14}, \; X_{24}, \; X_{25}, \; X_{35},
+\]
+and these five are algebraically independent at generic on-shell kinematics. We denote
+this five-dimensional kinematic space by $\cV_5$.
+
+\subsection{The $1$-zero loci}
+
+Following Rodina, for each $k \in \{1, \ldots, n\}$ define the \emph{cyclic $1$-zero
+at leg $k$} as the simultaneous imposition of the $n-3$ constraints
+\begin{equation}
+c_{k, k+2} = c_{k, k+3} = \cdots = c_{k, k+n-2} = 0,
+\quad\text{where}\quad
+c_{ij} := X_{ij} + X_{i+1,j+1} - X_{i,j+1} - X_{i+1,j}
+\label{eq:cdef}
+\end{equation}
+(indices modulo $n$, with $X_{i,i+1} = 0$). The common zero locus of these $n-3$
+linear equations, intersected with the generic kinematic space, is called
+\emph{the $1$-zero locus at leg $k$}; we denote it $\cZ_k \subset \cV_n$.
+
+At $n=5$ each $\cZ_k$ is a codimension-$2$ linear subspace of $\cV_5$. The five loci
+are listed in Table~\ref{tab:loci}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c|l|l}
+\toprule
+leg $k$ & $1$-zero constraints (equivalent form) & free variables on $\cZ_k$ \\
+\midrule
+$1$ & $X_{13} = -X_{25},\;\; X_{14} = X_{24} - X_{25}$ & $X_{24}, X_{25}, X_{35}$ \\
+$2$ & $X_{13} = -X_{25} + X_{35},\;\; X_{24} = X_{25} - X_{35}$ & $X_{14}, X_{25}, X_{35}$ \\
+$3$ & $X_{13} = X_{14} + X_{35},\;\; X_{24} = -X_{35}$ & $X_{14}, X_{25}, X_{35}$ \\
+$4$ & $X_{14} = -X_{35},\;\; X_{24} = X_{25} - X_{35}$ & $X_{13}, X_{25}, X_{35}$ \\
+$5$ & $X_{13} = -X_{25} + X_{35},\;\; X_{14} = -X_{25}$ & $X_{24}, X_{25}, X_{35}$ \\
+\bottomrule
+\end{tabular}
+\caption{The five cyclic $1$-zero loci at $n=5$. Each $\cZ_k$ is three-dimensional
+inside the five-dimensional kinematic space $\cV_5$.}
+\label{tab:loci}
+\end{table}
+
+\begin{remark}
+The intersection $\bigcap_{k=1}^{5} \cZ_k$ is the single point $X_{ij} = 0$ (all
+five variables vanish). This is why the hidden-zero conditions must be imposed
+\emph{separately} on each $\cZ_k$ rather than on their intersection.
+\end{remark}
+
+\subsection{The $\phi^3$ tree amplitude at $n=5$}
+
+The ordered cubic-tree amplitude at $n=5$ is
+\begin{equation}
+\cA_5^{\text{tree}}
+\;=\; \frac{1}{X_{13} X_{14}} + \frac{1}{X_{13} X_{35}} + \frac{1}{X_{14} X_{24}}
+    + \frac{1}{X_{24} X_{25}} + \frac{1}{X_{25} X_{35}},
+\label{eq:tree}
+\end{equation}
+up to an overall coupling constant. Each of the five terms corresponds to a non-crossing
+triangulation of the convex pentagon whose vertices are the external legs, and
+together these are \emph{all} such triangulations. One verifies by direct substitution
+that $\cA_5^{\text{tree}}$ vanishes on each of the five loci $\cZ_k$; this is the
+statement of Rodina's hidden-zero theorem at $n=5$.
+
+\bigskip
+
+The goal of this note is the converse: we will show that \emph{any} homogeneous
+rational function of mass dimension $-2$ that vanishes on all five $\cZ_k$ must be
+a scalar multiple of $\cA_5^{\text{tree}}$.
+
+\section{The generic ansatz}
+
+\begin{definition}[Mass-dim $-2$ ansatz at $n=5$]
+Let $V_5^{(-2)}$ denote the complex vector space of rational functions of the five
+planar Mandelstam variables $X_{13}, X_{14}, X_{24}, X_{25}, X_{35}$ that are
+homogeneous of degree $-2$ under the scaling $X_{ij} \mapsto \lambda X_{ij}$, and whose
+poles (as divisors in $\cV_5$) have order at most one along the hyperplane $X_{ij} = 0$
+for each $ij$ independently, but we \emph{allow} double poles $X_{ij}^{-2}$ for each
+single variable.
+\end{definition}
+
+\begin{proposition}\label{prop:dim}
+$V_5^{(-2)}$ has a basis
+\[
+\Big\{\, \tfrac{1}{X_{ij}\, X_{kl}} \;:\; (ij) \ne (kl) \,\Big\}
+\;\cup\;
+\Big\{\, \tfrac{1}{X_{ij}^2} \,\Big\},
+\]
+consisting of $\binom{5}{2} + 5 = 15$ elements.
+\end{proposition}
+
+\begin{proof}
+Partial fractions in one variable at a time. Any monomial
+$\prod X_{ij}^{-n_{ij}}$ of total degree $-2$ either (a) has exactly two
+variables with $n = 1$ each and the rest zero, or (b) has one variable with
+$n = 2$ and the rest zero. These are precisely the listed basis elements.
+\end{proof}
+
+We fix coefficient labels $c_1, \ldots, c_{15}$ as in Table~\ref{tab:basis}.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{clcccl}
+\toprule
+index & term & & & index & term \\
+\midrule
+$c_1$    & $1/(X_{13} X_{14})$ & & & $c_9$    & $1/(X_{24} X_{35})$ \\
+$c_2$    & $1/(X_{13} X_{24})$ & & & $c_{10}$ & $1/(X_{25} X_{35})$ \\
+$c_3$    & $1/(X_{13} X_{25})$ & & & $c_{11}$ & $1/X_{13}^2$ \\
+$c_4$    & $1/(X_{13} X_{35})$ & & & $c_{12}$ & $1/X_{14}^2$ \\
+$c_5$    & $1/(X_{14} X_{24})$ & & & $c_{13}$ & $1/X_{24}^2$ \\
+$c_6$    & $1/(X_{14} X_{25})$ & & & $c_{14}$ & $1/X_{25}^2$ \\
+$c_7$    & $1/(X_{14} X_{35})$ & & & $c_{15}$ & $1/X_{35}^2$ \\
+$c_8$    & $1/(X_{24} X_{25})$ & & & & \\
+\bottomrule
+\end{tabular}
+\caption{Labelling of the $15$-dimensional ansatz basis for $V_5^{(-2)}$.}
+\label{tab:basis}
+\end{table}
+
+The generic ansatz is therefore
+\begin{equation}
+B(X) \;=\; \sum_{i=1}^{15} c_i \cdot t_i(X),
+\label{eq:ansatz}
+\end{equation}
+where $t_i$ is the $i$-th basis element listed in Table~\ref{tab:basis}.
+
+\section{The $1$-zero conditions as a linear system}
+
+Requiring $B \equiv 0$ on $\cZ_k$ for each $k \in \{1, \ldots, 5\}$ produces a linear
+system of equations in the coefficients $c_1, \ldots, c_{15}$. The derivation is
+mechanical but lengthy; we work one leg at a time, collect the \emph{independent}
+new equations each leg contributes, and track the surviving nullspace.
+
+\subsection{Leg 1}\label{sec:leg1}
+
+On $\cZ_1$, substitute $X_{13} \to -X_{25}$ and $X_{14} \to X_{24} - X_{25}$ in
+\eqref{eq:ansatz} and clear denominators. The result is a polynomial in the free
+variables $(X_{24}, X_{25}, X_{35})$ whose coefficients are linear in the $c_i$.
+Setting each coefficient to zero yields, after row reduction, \emph{nine} independent
+linear equations:
+\begin{equation}
+\begin{aligned}
+c_1 - c_5 - c_6 &= 0, &\qquad c_4 - c_{10} &= 0, \\
+c_2 + c_5 - c_8 &= 0, &\qquad c_7 &= 0, \\
+c_3 - c_{11} - c_{14} &= 0, &\qquad c_9 &= 0, \\
+c_{12} &= 0, &\qquad c_{13} &= 0, \\
+c_{15} &= 0. & &
+\end{aligned}
+\label{eq:leg1}
+\end{equation}
+
+The five vanishing equations at the right are what we will call the
+\emph{outright vanishings} at leg~$1$: the coefficients $c_7, c_9, c_{12}, c_{13},
+c_{15}$ are forced to zero by this leg alone. Geometrically, $c_7, c_9$ correspond to
+pairs of Mandelstam variables that are \emph{crossing chords} in the pentagon
+(i.e.\ not simultaneously forming a non-crossing triangulation), and $c_{12},
+c_{13}, c_{15}$ are squared-propagator terms not involving $X_{13}$ or $X_{25}$.
+
+After leg~$1$, the surviving ansatz has $15 - 9 = 6$ free parameters. Substituting
+\eqref{eq:leg1} into \eqref{eq:ansatz}:
+\begin{align}
+B \Big|_{\text{after leg 1}} \;=\;
+&\; (c_5 + c_6) \tfrac{1}{X_{13} X_{14}}
+    + (c_8 - c_5) \tfrac{1}{X_{13} X_{24}}
+    + (c_{11} + c_{14}) \tfrac{1}{X_{13} X_{25}}
+    + c_{10} \tfrac{1}{X_{13} X_{35}} \nonumber \\
+&\; + c_5 \tfrac{1}{X_{14} X_{24}}
+    + c_6 \tfrac{1}{X_{14} X_{25}}
+    + c_8 \tfrac{1}{X_{24} X_{25}}
+    + c_{10} \tfrac{1}{X_{25} X_{35}} \nonumber \\
+&\; + c_{11} \tfrac{1}{X_{13}^2} + c_{14} \tfrac{1}{X_{25}^2}.
+\label{eq:after-leg1}
+\end{align}
+The six free parameters are $c_5, c_6, c_8, c_{10}, c_{11}, c_{14}$.
+
+\subsection{Leg 2}
+
+On $\cZ_2$, substitute $X_{13} \to -X_{25} + X_{35}$ and $X_{24} \to X_{25} - X_{35}$
+in \eqref{eq:after-leg1} and clear denominators. The resulting polynomial in the free
+variables $(X_{14}, X_{25}, X_{35})$ gives, after row reduction against \eqref{eq:leg1},
+\emph{four} new independent linear equations:
+\begin{equation}
+c_5 - c_{10} = 0, \qquad c_6 = 0, \qquad c_8 - c_{10} - c_{11} = 0, \qquad c_{14} = 0.
+\label{eq:leg2}
+\end{equation}
+
+After leg~$2$ we set $c_6 = c_{14} = 0$ and $c_5 = c_{10}$, $c_8 = c_{10} + c_{11}$,
+reducing the surviving ansatz to $2$ free parameters:
+\begin{equation}
+B\Big|_{\text{after leg 2}}
+\;=\; c_{10}\, \cA_5^{\text{tree}}
+\;+\; c_{11} \cdot \cN,
+\qquad\text{where}\qquad
+\cN \;:=\; \frac{(X_{13} + X_{24})(X_{13} + X_{25})}{X_{13}^{2}\, X_{24}\, X_{25}}.
+\label{eq:after-leg2}
+\end{equation}
+The non-local survivor $\cN$ expands as
+\[
+\cN \;=\; \tfrac{1}{X_{13} X_{24}} + \tfrac{1}{X_{13} X_{25}}
+         + \tfrac{1}{X_{24} X_{25}} + \tfrac{1}{X_{13}^2},
+\]
+and it is the unique combination that survives the first two legs along with the
+tree amplitude.
+
+This is the critical structural observation: \emph{two cyclic $1$-zeros are
+insufficient to force locality.} The non-local survivor $\cN$ contains
+\begin{itemize}[nosep,topsep=2pt]
+ \item the crossing-chord products $\tfrac{1}{X_{13} X_{24}}$ and $\tfrac{1}{X_{13} X_{25}}$
+       (pairs of Mandelstam variables that do not correspond to non-crossing
+       triangulations of the pentagon), and
+ \item the squared propagator $\tfrac{1}{X_{13}^2}$ (which cannot appear in a cubic
+       Feynman diagram).
+\end{itemize}
+Any non-local completion of the tree amplitude compatible with the first two
+$1$-zeros is of the form $\alpha\, \cA_5^{\text{tree}} + \beta\, \cN$. The next leg kills $\cN$.
+
+\subsection{Leg 3}
+
+On $\cZ_3$, substitute $X_{13} \to X_{14} + X_{35}$ and $X_{24} \to -X_{35}$ in
+\eqref{eq:after-leg2}. Since $\cA_5^{\text{tree}}$ vanishes identically on $\cZ_3$,
+only the $c_{11}\cN$ piece contributes, and combining over a common denominator gives
+\[
+B \big|_{\cZ_3}
+\;=\; c_{11} \cdot \cN\big|_{\cZ_3}
+\;=\; -\, c_{11} \cdot \frac{X_{14}\,(X_{14} + X_{25} + X_{35})}
+                               {X_{25}\,X_{35}\,(X_{14}+X_{35})^{2}}.
+\]
+The numerator $X_{14}(X_{14} + X_{25} + X_{35})$ is a non-zero polynomial in the free
+variables $(X_{14}, X_{25}, X_{35})$ on $\cZ_3$, so vanishing of $B\big|_{\cZ_3}$
+forces
+\begin{equation}
+c_{11} = 0.
+\label{eq:leg3}
+\end{equation}
+
+\subsection{Legs 4 and 5}
+
+One checks directly that substituting $c_{11} = 0$ into \eqref{eq:after-leg2} leaves
+$B = c_{10} \cA_5^{\text{tree}}$, which vanishes on $\cZ_4$ and $\cZ_5$. Thus
+legs~$4$ and $5$ contribute no new constraints.
+
+\section{The main theorem at $n=5$}
+
+Collecting the results of Sections~\ref{sec:leg1}--\ref{sec:leg3} and the preceding
+remarks:
+
+\begin{theorem}\label{thm:n5}
+Let $B \in V_5^{(-2)}$ be a homogeneous rational function of mass dimension $-2$ in
+the five planar Mandelstam variables. If $B$ vanishes on each of the five cyclic
+$1$-zero loci $\cZ_1, \ldots, \cZ_5 \subset \cV_5$, then $B$ is a scalar multiple of
+the $\phi^3$ tree amplitude \eqref{eq:tree}:
+\[
+B(X) \;=\; c_{10} \cdot \cA_5^{\text{tree}}(X).
+\]
+\end{theorem}
+
+\begin{proof}
+The $15$-dimensional ansatz $V_5^{(-2)}$ is constrained by the linear system
+\eqref{eq:leg1}, \eqref{eq:leg2}, \eqref{eq:leg3}, comprising
+$9 + 4 + 1 = 14$ independent equations. The solution space has dimension
+$15 - 14 = 1$, and a direct check from \eqref{eq:after-leg2} with $c_{11} = 0$
+identifies the surviving generator with $\cA_5^{\text{tree}}$.
+\end{proof}
+
+\begin{corollary}[Independence count]
+Exactly \emph{three} of the five cyclic $1$-zeros are independent as constraints on
+$V_5^{(-2)}$. Legs $1$, $2$, $3$ suffice; legs $4$ and $5$ contribute no new
+information.
+\end{corollary}
+
+\begin{remark}[Where each term dies]
+The fifteen ansatz coefficients $c_1,\ldots,c_{15}$ die in the following order:
+\begin{itemize}[nosep,topsep=2pt]
+ \item \textbf{At leg 1:} $c_7, c_9, c_{12}, c_{13}, c_{15}$ are forced to zero outright.
+       Here $c_7 = 1/(X_{14}X_{35})$ and $c_9 = 1/(X_{24}X_{35})$ are crossing-chord
+       pairs, and $c_{12}, c_{13}, c_{15}$ are the squared propagators
+       $1/X_{14}^2, 1/X_{24}^2, 1/X_{35}^2$.
+ \item \textbf{At leg 2:} $c_6 = 1/(X_{14}X_{25})$ and $c_{14} = 1/X_{25}^2$ die.
+       Additionally $c_5, c_8, c_{10}, c_{11}$ become linked by two linear
+       relations, leaving two free parameters.
+ \item \textbf{At leg 3:} $c_{11} = 1/X_{13}^2$ dies, and with it the non-local
+       completion \eqref{eq:after-leg2} vanishes. This also eliminates the
+       crossing-chord terms $c_2 = 1/(X_{13}X_{24})$ and $c_3 = 1/(X_{13}X_{25})$,
+       which are carried by $c_{11}$ through the leg-$2$ relations.
+\end{itemize}
+After leg~$3$ the surviving $5$ coefficients $c_1, c_4, c_5, c_8, c_{10}$ are all
+equal to each other, and they are exactly the coefficients of the $5$ non-crossing
+pairs in the pentagon.
+\end{remark}
+
+\begin{remark}[Contrast with Rodina's $D$-subset argument]
+In the original proof, Rodina organizes the constraints by \emph{$D$-subsets} ---
+groups of Feynman diagrams sharing a common boundary propagator under a fixed BCFW
+shift. The advantage of that presentation is its combinatorial transparency and
+its natural generalization to induction on $n$. The disadvantage is that it
+presupposes a Feynman-diagram decomposition of the ansatz, which makes the
+\emph{locality} of the resulting amplitude look like an input rather than an output.
+
+The present algebraic approach inverts this. We start with an ansatz that contains
+all crossing-chord and squared-propagator terms (every a priori rational structure
+of mass dimension $-2$), then show that the cyclic $1$-zeros eliminate precisely
+those terms. Locality of the resulting amplitude is thus \emph{derived}.
+
+The two-parameter intermediate survivor \eqref{eq:after-leg2} identifies the exact
+non-local completion that would be consistent with two of the three independent
+$1$-zeros. That leg~$3$ eliminates exactly this completion (and no genuine
+tree-amplitude structure) is the \emph{specific} statement that the third $1$-zero
+enforces locality.
+\end{remark}
+
+\section{Outlook: the induction on $n$}
+
+The base case at $n=5$ established in Theorem~\ref{thm:n5} relies on two features:
+\begin{enumerate}[label=(\alph*)]
+\item the generic mass-dim $-2$ ansatz is finite-dimensional (here, $15$-dimensional),
+      so the $1$-zero conditions reduce to a finite linear system;
+\item sufficiently many cyclic $1$-zeros exist to force the nullspace down to a
+      one-dimensional subspace generated by the tree amplitude.
+\end{enumerate}
+For $n > 5$ the ansatz dimension grows combinatorially, and (b) needs to be replaced
+by an inductive argument. The two ingredients are:
+\begin{itemize}
+\item A \emph{homogeneity lemma} (to be developed in a companion note): any
+      rational function $B$ invariant under a joint scaling decomposes as a finite
+      sum $B = \sum_i B_i$ of BCFW-weight-homogeneous pieces, and if $B$ vanishes
+      on a $1$-zero locus, so does each $B_i$.
+\item A \emph{$D$-subset replacement by $y$-multidegree}: the $1$-zero constraint
+      $X_{2j} = X_{1j} - X_{13}$ fixes one variable per index $j$, leaving a
+      multi-indexed ``$y$'' family of free variables; decomposing the ansatz by
+      multidegree in $y$ reduces each sector to a smaller $(n-1)$-point problem.
+\end{itemize}
+Together with Theorem~\ref{thm:n5} as base case, these two ingredients yield the
+general statement of the hidden-zero theorem. The details are developed in Part~II.
+
+\appendix
+
+\section{Verification of the leg-1 equations}
+\label{app:leg1}
+
+For completeness we carry out the leg-$1$ substitution explicitly. Substituting
+$X_{13} = -X_{25}$ and $X_{14} = X_{24} - X_{25}$ into the generic ansatz
+\eqref{eq:ansatz} and multiplying through by the common denominator
+$X_{24}^2 X_{25}^2 X_{35}^2 (X_{24} - X_{25})^2$ yields a polynomial in
+$(X_{24}, X_{25}, X_{35})$. The coefficient of each monomial must vanish. Twelve
+distinct non-zero monomials appear, with the following coefficient equations:
+
+\begin{equation*}
+\begin{array}{r@{\;:\;}l}
+[X_{24}^4 X_{25}^2]       & c_{15} = 0 \\[1pt]
+[X_{24}^4 X_{25} X_{35}]  & -c_4 + c_{10} = 0 \\[1pt]
+[X_{24}^4 X_{35}^2]       & -c_3 + c_{11} + c_{14} = 0 \\[1pt]
+[X_{24}^3 X_{25}^3]       & -2 c_{15} = 0 \\[1pt]
+[X_{24}^3 X_{25}^2 X_{35}]& 2c_4 + c_7 + c_9 - 2c_{10} = 0 \\[1pt]
+[X_{24}^3 X_{25} X_{35}^2]& -c_1 - c_2 + 2c_3 + c_6 + c_8 - 2c_{11} - 2c_{14} = 0 \\[1pt]
+[X_{24}^2 X_{25}^4]       & c_{15} = 0 \\[1pt]
+[X_{24}^2 X_{25}^3 X_{35}]& -c_4 - c_7 - 2c_9 + c_{10} = 0 \\[1pt]
+[X_{24}^2 X_{25}^2 X_{35}^2]& c_1 + 2c_2 - c_3 + c_5 - c_6 - 2c_8 + c_{11} + c_{12} + c_{13} + c_{14} = 0 \\[1pt]
+[X_{24} X_{25}^4 X_{35}]  & c_9 = 0 \\[1pt]
+[X_{24} X_{25}^3 X_{35}^2]& -c_2 - c_5 + c_8 - 2c_{13} = 0 \\[1pt]
+[X_{25}^4 X_{35}^2]       & c_{13} = 0
+\end{array}
+\end{equation*}
+
+Row-reducing this $12 \times 15$ system yields the $9$-dimensional system
+\eqref{eq:leg1}. The analogous computation at legs $2, 3, 4, 5$ produces the
+remaining row-reduced equations \eqref{eq:leg2} and \eqref{eq:leg3}, together with
+confirmations that legs $4, 5$ add no new information.
+
+% ==============================================================
+%  PART II: The General Theorem (Sections 5--6)
+% ==============================================================
+\input{part2_induction}
+
+\end{document}

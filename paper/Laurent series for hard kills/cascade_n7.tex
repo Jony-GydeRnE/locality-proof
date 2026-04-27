@@ -1,0 +1,337 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.95in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black,citecolor=black}
+
+\setlength{\parskip}{4pt plus 1pt}
+\setlength{\parindent}{0pt}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+
+\title{The Laurent-tail kill at $n=7$:\\
+       seven layer-0 survivors and how they die}
+\author{Jony \\ \small{(notes towards locality at $n\ge 7$)}}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+At $n$ external legs, the layer-0 (``Step-1'') hidden-zero kill mechanism
+eliminates the coefficient $a_M$ of every chord multiset $M$ that, at
+some zone $Z_{r,r+2}$, omits the eliminated vertex $r{+}1$ and avoids
+the special chord $X_{r,r+2}$. Through $n=6$ this is enough: the
+mechanism kills every non-triangulation. At $n=7$, however, exactly
+seven non-triangulation multisets escape -- a cyclic family of ``fish.''
+We show that all seven die at the next Laurent layer. For each fish
+$M$ there is a zone $Z$ at which the order $X_S^{-3}$ Laurent expansion
+of $1/\prod X_c$ produces a free-variable fingerprint shared by exactly
+six ansatz monomials, and all five cousins of $M$ are killed by layer~0
+at a single neighbouring zone. The fingerprint equation collapses to
+$a_M=0$. Verification is symbolic, performed by the companion script
+\verb|cascade_kill_n7.py| at \cite{repo}, with full output in
+\verb|results_cascade_n7.txt|.
+\end{abstract}
+
+%--------------------------------------------------------------------------
+\section{Why the fish exist: layer-0 misses seven heptagon multisets}
+%--------------------------------------------------------------------------
+
+We work with a heptagon ($n=7$) with vertices $1,2,\dots,7$ in cyclic
+order. Chords are pairs $(i,j)$ with $1\le i<j\le 7$ that are not
+polygon edges. The general planar rational ansatz of mass dimension
+$-2(n{-}3)=-8$ is
+\[
+   B \;=\; \sum_{M} \frac{a_M}{\prod_{c\in M} X_c},
+\]
+where $M$ ranges over multisets of $N := n{-}3 = 4$ chords. A multiset
+is a \emph{triangulation} iff its four chords are pairwise non-crossing;
+the $\mathrm{Tr}(\phi^3)$ tree amplitude is a sum over the $C_5=42$
+heptagon triangulations.
+
+\paragraph{Zones and layer-0 kill.}
+For each $r\in\{1,\dots,n\}$, the zone $Z_{r,r+2}$ is the codimension-2
+hidden-zero locus on which the chords incident to vertex $r{+}1$ become
+linear combinations of chords incident to $r$ and the special chord
+$S=X_{r,r+2}$. Explicitly,
+\[
+   X_{r+1,k} \;=\; X_{r,k} - S \qquad (k\ne r,r{+}1,r{+}2),
+\]
+and the bare relation $X_{r+1,r-1} = -S$. At zone $Z_{r,r+2}$, every
+chord is exactly one of: special ($S$), bare ($X_{r+1,r-1}$),
+non-bare substituted ($X_{r+1,k}$, with companion $X_{r,k}$ free), or
+plain free (every chord avoiding both $r$ and $r{+}1$). Sending
+$S\to\infty$ and reading the leading Laurent order, linear independence
+of the free-variable monomials forces $a_M=0$ whenever
+\begin{itemize}[leftmargin=*,topsep=2pt,parsep=0pt,itemsep=2pt]
+\item[(K1)] $M$ contains neither $S$ nor the bare;
+\item[(K2)] for every (companion, substitute) pair, $M$ does not contain
+       both members.
+\end{itemize}
+We write $M\in\mathcal{K}_{r,r+2}$ when (K1)+(K2) hold.
+
+\paragraph{The seven layer-0 survivors at $n=7$.}
+A complete enumeration\footnote{Performed by
+\texttt{step1\_uncaught.py} in the companion repository \cite{repo}; the
+output is \texttt{nonlocal\_n7\_step1\_survivors.pdf}.} shows that
+exactly seven non-triangulation multisets satisfy
+$M\notin\mathcal{K}_{r,r+2}$ for \emph{every} $r$:
+\begin{equation}\label{eq:fish}
+\begin{aligned}
+M_1 &= \{(1,3),(1,6),(2,4),(4,6)\}, \quad &
+M_2 &= \{(1,3),(1,6),(3,5),(4,6)\}, \\
+M_3 &= \{(1,3),(1,6),(3,5),(5,7)\}, &
+M_4 &= \{(1,3),(2,7),(3,5),(5,7)\}, \\
+M_5 &= \{(1,6),(2,4),(2,7),(4,6)\}, &
+M_6 &= \{(2,4),(2,7),(3,5),(5,7)\}, \\
+M_7 &= \{(2,4),(2,7),(4,6),(5,7)\}. & &
+\end{aligned}
+\end{equation}
+They are the seven cyclic rotations of $M_1$ under $v\mapsto v{+}\sigma$
+mod $7$ for $\sigma=0,2,4,6,5,1,3$ respectively. Visually each is a
+``fish'' of two crossing chords plus a containing pair of chords (cf.\
+the survivor diagram in \cite{repo}).
+
+\begin{prop}[Layer-0 fails on every fish]\label{prop:layer0fails}
+For every $i\in\{1,\dots,7\}$ and every $r\in\{1,\dots,7\}$,
+$M_i\notin\mathcal{K}_{r,r+2}$.
+\end{prop}
+
+\begin{proof}
+By cyclic symmetry it suffices to do $i=1$. The vertices used by $M_1$
+are $\{1,2,3,4,6\}$; vertices $5$ and $7$ are unused. For
+$M_1\in\mathcal{K}_{r,r+2}$, condition (K1) requires the special
+$X_{r,r+2}\notin M_1$ and the bare $X_{r+1,r-1}\notin M_1$. Test each
+$r$:
+\begin{itemize}[leftmargin=*,topsep=1pt,parsep=0pt,itemsep=1pt]
+\item $r=1$: special $X_{1,3}\in M_1$; (K1) fails.
+\item $r=2$: special $X_{2,4}\in M_1$; (K1) fails.
+\item $r=3$: special $X_{3,5}\notin M_1$, bare $X_{4,2}=(2,4)\in M_1$;
+       (K1) fails.
+\item $r=4$: special $X_{4,6}=(4,6)\in M_1$; (K1) fails.
+\item $r=5$: special $X_{5,7}\notin M_1$, bare $X_{6,4}=(4,6)\in M_1$;
+       (K1) fails.
+\item $r=6$: special $X_{6,1}=(1,6)\in M_1$; (K1) fails.
+\item $r=7$: special $X_{7,2}=(2,7)\notin M_1$, bare
+       $X_{1,6}=(1,6)\in M_1$; (K1) fails.
+\end{itemize}
+So (K1) fails at every zone, and $M_1\notin\mathcal{K}_{r,r+2}$ for all
+$r$. \qed
+\end{proof}
+
+The proof shows the structural reason: each fish either uses the special
+or contains the bare at every cyclic zone. This is what makes the fish
+``unbreakable'' by layer-0 -- they are precisely the multisets whose
+chords cyclically saturate the special/bare slots.
+
+%--------------------------------------------------------------------------
+\section{The Laurent-tail kill}
+%--------------------------------------------------------------------------
+
+\paragraph{The mechanism.}
+At zone $Z_{r,r+2}$ with $S=X_{r,r+2}$, the geometric-series identity
+\begin{equation}\label{eq:geom}
+   \frac{1}{X_{r,k}-S} \;=\; -\frac{1}{S} \;-\; \frac{X_{r,k}}{S^2}
+   \;-\; \frac{X_{r,k}^{2}}{S^3} \;-\; \cdots
+\end{equation}
+expands every non-bare substitute $1/X_{r+1,k}$ as a Laurent series in
+$1/S$. The bare $1/X_{r+1,r-1}=-1/S$ has no tail. Multiplying $N$ such
+factors gives, for each ansatz monomial, a Laurent series in $1/S$ whose
+coefficients are rational \emph{free-variable} monomials -- monomials
+in the companions $\{X_{r,k}\}$ and the born-free chords (those avoiding
+both $r$ and $r{+}1$). Algebraic independence of the free variables
+implies that every free-variable monomial at every order in $S$ has
+total coefficient zero on $B|_{Z_{r,r+2}}=0$.
+
+\paragraph{Notation.}
+A \emph{fingerprint} is a specific rational free-variable monomial
+$\mathcal F$. The \emph{fingerprint equation} of $(\mathcal F, k, r)$ is
+the equation that the order-$S^{-(N+k)}$ coefficient of $\mathcal F$ in
+$B|_{Z_{r,r+2}}$ equals zero. Layer~$k$ refers to subleading order $k$
+beyond layer~0.
+
+\paragraph{The kill of $M_1$.}
+Take $M_1=\{(1,3),(1,6),(2,4),(4,6)\}$ at zone $Z_{5,7}$, where
+$S=X_{5,7}$, eliminated vertex $6$, and the substitutions are
+\begin{equation}\label{eq:Z57subs}
+   X_{1,6}=X_{1,5}-S,\quad X_{2,6}=X_{2,5}-S,\quad
+   X_{3,6}=X_{3,5}-S,\quad X_{4,6}=-S.
+\end{equation}
+The chords $(1,3)$ and $(2,4)$ avoid both $5$ and $6$, hence are free.
+The Laurent expansion of the fish monomial on $Z_{5,7}$ is
+\[
+   \frac{1}{X_{1,3}\,X_{2,4}\,X_{1,6}\,X_{4,6}}
+   \;=\;
+   \frac{1}{X_{1,3}X_{2,4}}\cdot\frac{1}{X_{1,5}-S}\cdot\frac{-1}{S}.
+\]
+Using \eqref{eq:geom}, the order $S^{-3}$ piece is
+$\dfrac{X_{1,5}}{X_{1,3}X_{2,4}}\cdot\dfrac{1}{S^{3}}$. We isolate the
+fingerprint
+\[
+   \mathcal F_1 \;:=\; \frac{X_{1,5}}{X_{1,3}X_{2,4}}.
+\]
+
+\begin{lem}[Six-monomial fingerprint equation for $M_1$]\label{lem:eqM1}
+The fingerprint $\mathcal F_1$ at order $S^{-3}$ on $Z_{5,7}$ receives
+contributions from exactly six ansatz monomials. The fingerprint
+equation is
+\begin{equation}\label{eq:eqM1}
+\hspace*{-2pt}
+\begin{aligned}
+0 \;=\; & -\,a_{\{(1,3),(1,5),(1,6),(2,4)\}}
+        \;+\;2\,a_{\{(1,3),(1,6),(1,6),(2,4)\}}
+        \;+\;a_{\{(1,3),(1,6),(2,4),(2,6)\}} \\
+        & +\,a_{\{(1,3),(1,6),(2,4),(3,6)\}}
+        \;+\;a_{\{(1,3),(1,6),(2,4),(4,6)\}}
+        \;-\;a_{\{(1,3),(1,6),(2,4),(5,7)\}}.
+\end{aligned}
+\end{equation}
+\end{lem}
+
+\begin{proof}
+A monomial of $B$ contributes a power of $X_{1,5}$ in the numerator at
+order $S^{-3}$ iff one of its chord factors is incident to vertex $6$
+on the substituted side -- specifically iff it contains $X_{1,6}$,
+because $X_{1,5}$ enters only through the Laurent tail
+\eqref{eq:Z57subs} of $1/X_{1,6}$. (The companions of $X_{2,6}$ and
+$X_{3,6}$ supply $X_{2,5}$ and $X_{3,5}$ respectively, not $X_{1,5}$.)
+Likewise the denominator of $\mathcal F_1$ requires the monomial to
+contain $X_{1,3}$ and $X_{2,4}$ each with multiplicity $1$. A size-$4$
+multiset thus has chord factors $\{X_{1,3}, X_{2,4}, X_{1,6}, X_a\}$ for
+some fourth chord $X_a$. Direct expansion using \eqref{eq:geom} gives
+each of the six contributing $X_a\in\{X_{1,5}, X_{1,6}, X_{2,6}, X_{3,6},
+X_{4,6}, X_{5,7}\}$ the integer scalar shown. The full computation is
+performed by \texttt{fingerprint\_equation} in
+\verb|cascade_kill_n7.py|. \qed
+\end{proof}
+
+\begin{lem}[All five cousins die by layer-0 at $Z_{4,6}$]\label{lem:cousins}
+Each of the five non-fish multisets in \eqref{eq:eqM1} satisfies
+$M\in\mathcal{K}_{4,6}$, hence its coefficient is killed by layer-0 at
+zone $Z_{4,6}$.
+\end{lem}
+
+\begin{proof}
+At $Z_{4,6}$: special $X_{4,6}=(4,6)$, bare $X_{5,3}=(3,5)$,
+companion-substitute pairs $(X_{4,7},X_{5,7})$, $(X_{4,1},X_{5,1})$
+$=(X_{1,4},X_{1,5})$, $(X_{4,2},X_{5,2})=(X_{2,4},X_{2,5})$. We check
+(K1)+(K2) for each cousin:
+\begin{itemize}[leftmargin=*,topsep=1pt,parsep=0pt,itemsep=1pt]
+\item $\{(1,3),(1,5),(1,6),(2,4)\}$: special $\notin$, bare $\notin$,
+       pair $(X_{1,4},X_{1,5})$ has only $X_{1,5}$, others have at most
+       one. \checkmark
+\item $\{(1,3),(1,6),(1,6),(2,4)\}$: special $\notin$, bare $\notin$,
+       no pair has both members. \checkmark
+\item $\{(1,3),(1,6),(2,4),(2,6)\}$: special $\notin$, bare $\notin$,
+       no pair has both ($X_{2,4}\in$, $X_{2,5}\notin$).
+       \checkmark
+\item $\{(1,3),(1,6),(2,4),(3,6)\}$: special $\notin$, bare $\notin$,
+       no pair has both. \checkmark
+\item $\{(1,3),(1,6),(2,4),(5,7)\}$: special $\notin$, bare $\notin$,
+       pair $(X_{4,7},X_{5,7})$ has only $X_{5,7}$, pair
+       $(X_{2,4},X_{2,5})$ has only $X_{2,4}$. \checkmark
+\end{itemize}
+All five satisfy (K1)+(K2) at $Z_{4,6}$. \qed
+\end{proof}
+
+\begin{thm}[Cascade kill of all seven $n=7$ fish]\label{thm:main}
+For each $i\in\{1,\dots,7\}$, $a_{M_i}=0$.
+\end{thm}
+
+\begin{proof}
+For $i=1$, substitute Lemma~\ref{lem:cousins} into \eqref{eq:eqM1}:
+all five cousin coefficients are zero, so the equation collapses to
+$+a_{M_1}=0$. For $i=2,\dots,7$, apply the cyclic shift
+$v\mapsto v{+}\sigma_i$ mod $7$ to the entire $i=1$ argument: the recipe
+$(Z_{5,7},\mathcal F_1)$ becomes $(Z_{5+\sigma_i,7+\sigma_i},
+\mathrm{rot}_{\sigma_i}(\mathcal F_1))$, the six-monomial equation
+becomes the cyclic rotate of \eqref{eq:eqM1}, and the cousins'
+$Z_{4,6}$-layer-0 kill becomes $Z_{4+\sigma_i,6+\sigma_i}$-layer-0 kill.
+The companion script \verb|cascade_kill_n7.py| recomputes the rotated
+equation directly (rather than rotating the symbolic answer), confirming
+the recipe and verifying every cousin kill at the rotated zone; see
+\verb|results_cascade_n7.txt|. \qed
+\end{proof}
+
+%--------------------------------------------------------------------------
+\section{Companion code and reproducibility}\label{sec:code}
+%--------------------------------------------------------------------------
+
+The script
+\href{https://github.com/Jony-GydeRnE/locality-proof/blob/main/cascade_kill_n7.py}%
+{\tt cascade\_kill\_n7.py} reproduces every step of
+Theorem~\ref{thm:main} symbolically. The main routines:
+
+\begin{itemize}[leftmargin=*,topsep=2pt,parsep=0pt,itemsep=2pt]
+\item \texttt{laurent\_coefficient(M, r, n, k)}: Laurent expansion of
+       $1/\prod_{c\in M} X_c$ on $Z_{r,r+2}$ to order $S^{-k}$, via
+       \texttt{sympy.series} after the substitution $S\mapsto 1/u$.
+\item \texttt{coefficient\_of\_monomial(expr, target, free\_vars)}:
+       extract the scalar coefficient of a target free-variable
+       monomial from a sum of rational monomials.
+\item \texttt{candidate\_multisets\_for\_fingerprint(fp, n, N)}: fast
+       pre-filter that enumerates only multisets whose chord factors are
+       compatible with producing \texttt{fp} (so the search runs in
+       seconds rather than hours).
+\item \texttt{fingerprint\_equation(M, r, n, k, fp, pool)}: returns
+       $[(M', \text{scalar})]$ for every multiset that contributes the
+       fingerprint at order $S^{-k}$ on $Z_{r,r+2}$.
+\item \texttt{verify\_each\_fish\_from\_scratch}: for each fish,
+       computes its kill recipe by cyclic rotation of the $M_1$ recipe
+       and \emph{verifies it directly} by recomputing the fingerprint
+       equation and checking that every cousin is layer-0 killable.
+\item \texttt{verify\_all\_seven\_fish}: top-level driver, writes the
+       human-readable cascade trace to \texttt{results\_cascade\_n7.txt}.
+\end{itemize}
+
+The output file \texttt{results\_cascade\_n7.txt} contains, for each
+fish, the kill zone and order, the fingerprint, the six-term equation,
+and the layer-0 kill zone of every cousin. All seven kills are
+confirmed.
+
+%--------------------------------------------------------------------------
+\section{Outlook}
+%--------------------------------------------------------------------------
+
+The cascade has a strikingly simple shape: \emph{one Laurent step deeper
+at one zone, with prerequisites all of layer-0 type at one neighbouring
+zone}. The cyclic structure of \eqref{eq:fish} reflects this -- each
+fish is the rotated image of $M_1$, and the kill recipe rotates with
+it. This raises the natural conjecture that every layer-0 survivor at
+$n\ge 7$ dies via a depth-1 cascade of the same shape: identify the
+per-fish recipe combinatorially, then verify the fingerprint equation's
+cousins are all layer-0 killable. The next experiment is to check this
+at $n=8,9$ using the same script with the obvious adaptations. If the
+depth-1 phenomenon persists, the path to a clean all-$n$ locality proof
+is to reduce the all-layer fingerprint problem to a single-step
+combinatorial induction.
+
+\begin{thebibliography}{9}
+\bibitem{repo}
+GitHub repository \emph{locality-proof}:
+\url{https://github.com/Jony-GydeRnE/locality-proof}.
+Files: \texttt{cascade\_kill\_n7.py} (verifier),
+\texttt{results\_cascade\_n7.txt} (cascade trace),
+\texttt{step1\_uncaught.py} (layer-0 enumeration),
+\texttt{nonlocal\_n7\_step1\_survivors.pdf} (the seven fish drawn).
+
+\bibitem{rodina}
+A.\ Rodina, \emph{Hidden zeros are equivalent to enhanced ultraviolet
+scaling and lead to unique amplitudes in $\mathrm{Tr}(\phi^3)$ theory},
+arXiv:2406.04234.
+
+\bibitem{aharkanihamed}
+N.\ Arkani-Hamed, Q.\ Cao, J.\ Dong, C.\ Figueiredo, S.\ He,
+\emph{Hidden zeros for particle/string amplitudes and the unity of
+colored scalars, pions, and gluons}, arXiv:2312.16282.
+\end{thebibliography}
+
+\end{document}
