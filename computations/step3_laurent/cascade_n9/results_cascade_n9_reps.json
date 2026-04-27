@@ -1,0 +1,5994 @@
+{
+  "n": 9,
+  "orbits_total": 78,
+  "completed": 113,
+  "successes": 94,
+  "failures": [
+    [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        7
+      ]
+    ],
+    [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        7,
+        9
+      ]
+    ],
+    [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        7,
+        9
+      ]
+    ],
+    [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        7,
+        9
+      ]
+    ],
+    [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        7,
+        9
+      ]
+    ],
+    [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        7,
+        9
+      ]
+    ],
+    [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        9
+      ]
+    ],
+    [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        7,
+        9
+      ]
+    ],
+    [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        7
+      ]
+    ],
+    [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        7
+      ]
+    ],
+    [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        5,
+        7
+      ]
+    ],
+    [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        7,
+        9
+      ]
+    ]
+  ],
+  "records": [
+    {
+      "orbit_id": 1,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        5,
+        7,
+        9
+      ],
+      "elapsed_s": 151.33421802520752,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "fingerprint": "X_5_8/(X_1_3**2*X_1_4*X_1_8)",
+      "companion_Y_U": [
+        5,
+        8
+      ],
+      "substitute_U": [
+        6,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 2,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        4,
+        6,
+        9
+      ],
+      "elapsed_s": 181.4275679588318,
+      "recipe_found": true,
+      "zone_r": 4,
+      "order_k": 3,
+      "fingerprint": "X_4_7/(X_1_3**2*X_1_7*X_1_8)",
+      "companion_Y_U": [
+        4,
+        7
+      ],
+      "substitute_U": [
+        5,
+        7
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 3,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "elapsed_s": 184.438472032547,
+      "recipe_found": true,
+      "zone_r": 4,
+      "order_k": 3,
+      "fingerprint": "X_4_7/(X_1_3**2*X_1_7*X_7_9)",
+      "companion_Y_U": [
+        4,
+        7
+      ],
+      "substitute_U": [
+        5,
+        7
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 4,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        5,
+        7,
+        9
+      ],
+      "elapsed_s": 121.60926127433777,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "fingerprint": "X_5_8/(X_1_3**2*X_1_8*X_2_4)",
+      "companion_Y_U": [
+        5,
+        8
+      ],
+      "substitute_U": [
+        6,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 5,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        4,
+        7,
+        9
+      ],
+      "elapsed_s": 3753.6812529563904,
+      "recipe_found": true,
+      "zone_r": 7,
+      "order_k": 3,
+      "fingerprint": "X_1_7/(X_1_3**2*X_3_5*X_3_6)",
+      "companion_Y_U": [
+        1,
+        7
+      ],
+      "substitute_U": [
+        1,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 6,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        7,
+        9
+      ],
+      "elapsed_s": 184.85442399978638,
+      "recipe_found": true,
+      "zone_r": 7,
+      "order_k": 3,
+      "fingerprint": "X_1_7/(X_1_3**2*X_3_5*X_4_6)",
+      "companion_Y_U": [
+        1,
+        7
+      ],
+      "substitute_U": [
+        1,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 7,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        4,
+        6,
+        9
+      ],
+      "elapsed_s": 223.87305212020874,
+      "recipe_found": true,
+      "zone_r": 4,
+      "order_k": 4,
+      "fingerprint": "X_4_7/(X_1_3**2*X_1_8)",
+      "companion_Y_U": [
+        4,
+        7
+      ],
+      "substitute_U": [
+        5,
+        7
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": -1,
+      "n_cousins": 39
+    },
+    {
+      "orbit_id": 8,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        4,
+        9
+      ],
+      "elapsed_s": 165.41327905654907,
+      "recipe_found": true,
+      "zone_r": 4,
+      "order_k": 3,
+      "fingerprint": "X_4_7/(X_1_3**2*X_1_8*X_6_8)",
+      "companion_Y_U": [
+        4,
+        7
+      ],
+      "substitute_U": [
+        5,
+        7
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 9,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        4,
+        6
+      ],
+      "elapsed_s": 170.47612500190735,
+      "recipe_found": true,
+      "zone_r": 4,
+      "order_k": 3,
+      "fingerprint": "X_4_7/(X_1_3**2*X_1_8*X_7_9)",
+      "companion_Y_U": [
+        4,
+        7
+      ],
+      "substitute_U": [
+        5,
+        7
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 10,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        4,
+        7,
+        9
+      ],
+      "elapsed_s": 165.00262999534607,
+      "recipe_found": true,
+      "zone_r": 4,
+      "order_k": 3,
+      "fingerprint": "X_4_8/(X_1_3**2*X_1_8*X_6_8)",
+      "companion_Y_U": [
+        4,
+        8
+      ],
+      "substitute_U": [
+        5,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 11,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        5,
+        7,
+        9
+      ],
+      "elapsed_s": 475.13059973716736,
+      "recipe_found": true,
+      "zone_r": 7,
+      "order_k": 3,
+      "fingerprint": "X_1_7/(X_1_3**2*X_3_6*X_4_6)",
+      "companion_Y_U": [
+        1,
+        7
+      ],
+      "substitute_U": [
+        1,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 12,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        4,
+        6,
+        8
+      ],
+      "elapsed_s": 165.9920210838318,
+      "recipe_found": true,
+      "zone_r": 4,
+      "order_k": 3,
+      "fingerprint": "X_4_7/(X_1_3**2*X_2_9*X_7_9)",
+      "companion_Y_U": [
+        4,
+        7
+      ],
+      "substitute_U": [
+        5,
+        7
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 13,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "elapsed_s": 3574.4323530197144,
+      "recipe_found": true,
+      "zone_r": 4,
+      "order_k": 3,
+      "fingerprint": "X_4_7/(X_1_3**2*X_3_9*X_7_9)",
+      "companion_Y_U": [
+        4,
+        7
+      ],
+      "substitute_U": [
+        5,
+        7
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 14,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        5,
+        7,
+        9
+      ],
+      "elapsed_s": 1535.9667057991028,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "fingerprint": "X_5_8/(X_1_3*X_1_4**2*X_1_8)",
+      "companion_Y_U": [
+        5,
+        8
+      ],
+      "substitute_U": [
+        6,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 15,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        7,
+        9
+      ],
+      "elapsed_s": 241.1627962589264,
+      "recipe_found": true,
+      "zone_r": 7,
+      "order_k": 3,
+      "fingerprint": "X_1_7/(X_1_3*X_1_4*X_1_5*X_4_6)",
+      "companion_Y_U": [
+        1,
+        7
+      ],
+      "substitute_U": [
+        1,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 16,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        9
+      ],
+      "elapsed_s": 974.9080429077148,
+      "recipe_found": true,
+      "zone_r": 9,
+      "order_k": 5,
+      "fingerprint": "X_3_9/(X_5_7*X_6_8)",
+      "companion_Y_U": [
+        3,
+        9
+      ],
+      "substitute_U": [
+        1,
+        3
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 155
+    },
+    {
+      "orbit_id": 17,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        6
+      ],
+      "elapsed_s": 146.15355587005615,
+      "recipe_found": true,
+      "zone_r": 6,
+      "order_k": 3,
+      "fingerprint": "X_6_9/(X_1_3*X_1_4*X_1_5*X_1_8)",
+      "companion_Y_U": [
+        6,
+        9
+      ],
+      "substitute_U": [
+        7,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 18,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        6,
+        8
+      ],
+      "elapsed_s": 145.50208568572998,
+      "recipe_found": true,
+      "zone_r": 6,
+      "order_k": 3,
+      "fingerprint": "X_6_9/(X_1_3*X_1_4*X_1_5*X_2_9)",
+      "companion_Y_U": [
+        6,
+        9
+      ],
+      "substitute_U": [
+        7,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 19,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        6,
+        8
+      ],
+      "elapsed_s": 4.935594797134399,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_9/(X_1_4*X_1_5*X_5_7*X_7_9)",
+      "companion_Y_U": [
+        2,
+        9
+      ],
+      "substitute_U": [
+        3,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 20,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        6,
+        8
+      ],
+      "elapsed_s": 126.74346208572388,
+      "recipe_found": true,
+      "zone_r": 3,
+      "order_k": 3,
+      "fingerprint": "X_3_9/(X_1_3*X_1_5*X_5_7*X_7_9)",
+      "companion_Y_U": [
+        3,
+        9
+      ],
+      "substitute_U": [
+        4,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 21,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        6,
+        9
+      ],
+      "elapsed_s": 117.58469295501709,
+      "recipe_found": true,
+      "zone_r": 6,
+      "order_k": 3,
+      "fingerprint": "X_1_6/(X_1_3*X_1_4*X_1_8*X_3_5)",
+      "companion_Y_U": [
+        1,
+        6
+      ],
+      "substitute_U": [
+        1,
+        7
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 22,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        9
+      ],
+      "elapsed_s": 5705.200917005539,
+      "recipe_found": false
+    },
+    {
+      "orbit_id": 23,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        5,
+        9
+      ],
+      "elapsed_s": 140.4286549091339,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "fingerprint": "X_5_8/(X_1_3*X_1_4*X_1_7*X_1_8)",
+      "companion_Y_U": [
+        5,
+        8
+      ],
+      "substitute_U": [
+        6,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 24,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        6,
+        8
+      ],
+      "elapsed_s": 186.73401808738708,
+      "recipe_found": true,
+      "zone_r": 6,
+      "order_k": 4,
+      "fingerprint": "X_1_6/(X_1_3*X_1_4*X_3_5)",
+      "companion_Y_U": [
+        1,
+        6
+      ],
+      "substitute_U": [
+        1,
+        7
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": -1,
+      "n_cousins": 39
+    },
+    {
+      "orbit_id": 25,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": null,
+      "elapsed_s": 600.0,
+      "timed_out": true,
+      "recipe_found": false
+    },
+    {
+      "orbit_id": 26,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": null,
+      "elapsed_s": 140.9,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "substitute_U": [
+        6,
+        8
+      ],
+      "companion_Y_U": [
+        5,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fingerprint": "X_5_8/(X_1_3*X_1_4*X_1_7*X_7_9)",
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 27,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": null,
+      "elapsed_s": 140.1,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "substitute_U": [
+        6,
+        9
+      ],
+      "companion_Y_U": [
+        5,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fingerprint": "X_5_9/(X_1_3*X_1_4*X_1_7*X_7_9)",
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 28,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": null,
+      "elapsed_s": 600.0,
+      "timed_out": true,
+      "recipe_found": false
+    },
+    {
+      "orbit_id": 29,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": null,
+      "elapsed_s": 152.7,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 4,
+      "order_k": 3,
+      "substitute_U": [
+        2,
+        5
+      ],
+      "companion_Y_U": [
+        2,
+        4
+      ],
+      "Y_U_in_M_rep": false,
+      "fingerprint": "X_2_4/(X_1_3*X_1_4*X_1_8*X_6_8)",
+      "fish_scalar": -1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 30,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": null,
+      "elapsed_s": 216.4,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 4,
+      "substitute_U": [
+        2,
+        6
+      ],
+      "companion_Y_U": [
+        2,
+        5
+      ],
+      "Y_U_in_M_rep": false,
+      "fingerprint": "X_2_5/(X_1_3*X_1_4*X_1_8)",
+      "fish_scalar": -1,
+      "n_cousins": 39
+    },
+    {
+      "orbit_id": 31,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": null,
+      "elapsed_s": 151.6,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "substitute_U": [
+        6,
+        8
+      ],
+      "companion_Y_U": [
+        5,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fingerprint": "X_5_8/(X_1_3*X_1_4*X_1_8*X_2_7)",
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 32,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": null,
+      "elapsed_s": 237.7,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "substitute_U": [
+        6,
+        8
+      ],
+      "companion_Y_U": [
+        5,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fingerprint": "X_5_8/(X_1_3*X_1_4*X_1_8*X_2_8)",
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 33,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": null,
+      "elapsed_s": 140.9,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "substitute_U": [
+        6,
+        8
+      ],
+      "companion_Y_U": [
+        5,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fingerprint": "X_5_8/(X_1_3*X_1_4*X_1_8*X_2_9)",
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 34,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": null,
+      "elapsed_s": 600.0,
+      "timed_out": true,
+      "recipe_found": false
+    },
+    {
+      "orbit_id": 35,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "vertices_missed": null,
+      "elapsed_s": 600.0,
+      "timed_out": true,
+      "recipe_found": false
+    },
+    {
+      "orbit_id": 36,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        9
+      ],
+      "elapsed_s": 388.58983397483826,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 9,
+      "order_k": 4,
+      "fingerprint": "X_4_9/(X_3_5*X_5_7*X_6_8)",
+      "companion_Y_U": [
+        4,
+        9
+      ],
+      "substitute_U": [
+        1,
+        4
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": -1,
+      "n_cousins": 39
+    },
+    {
+      "orbit_id": 37,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        6
+      ],
+      "elapsed_s": 123.2921130657196,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 6,
+      "order_k": 3,
+      "fingerprint": "X_6_9/(X_1_3*X_1_4*X_1_8*X_3_5)",
+      "companion_Y_U": [
+        6,
+        9
+      ],
+      "substitute_U": [
+        7,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 38,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        7,
+        9
+      ],
+      "elapsed_s": 600.0231430530548,
+      "timed_out": true,
+      "recipe_found": false
+    },
+    {
+      "orbit_id": 39,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        5,
+        7,
+        9
+      ],
+      "elapsed_s": 573.7713260650635,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 7,
+      "order_k": 3,
+      "fingerprint": "X_1_7/(X_1_3*X_1_4*X_3_6*X_4_6)",
+      "companion_Y_U": [
+        1,
+        7
+      ],
+      "substitute_U": [
+        1,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 40,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        5,
+        9
+      ],
+      "elapsed_s": 150.17438387870789,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "fingerprint": "X_5_8/(X_1_3*X_1_4*X_1_8*X_3_7)",
+      "companion_Y_U": [
+        5,
+        8
+      ],
+      "substitute_U": [
+        6,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 41,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        5,
+        7,
+        9
+      ],
+      "elapsed_s": 155.69370198249817,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "fingerprint": "X_5_8/(X_1_3*X_1_4*X_1_8*X_3_8)",
+      "companion_Y_U": [
+        5,
+        8
+      ],
+      "substitute_U": [
+        6,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 42,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        5,
+        7
+      ],
+      "elapsed_s": 156.05055499076843,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "fingerprint": "X_5_8/(X_1_3*X_1_4*X_1_8*X_3_9)",
+      "companion_Y_U": [
+        5,
+        8
+      ],
+      "substitute_U": [
+        6,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 43,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        5,
+        7
+      ],
+      "elapsed_s": 600.0167601108551,
+      "timed_out": true,
+      "recipe_found": false
+    },
+    {
+      "orbit_id": 44,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        9
+      ],
+      "elapsed_s": 581.4696359634399,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 9,
+      "order_k": 4,
+      "fingerprint": "X_3_9/(X_4_6*X_5_7*X_5_8)",
+      "companion_Y_U": [
+        3,
+        9
+      ],
+      "substitute_U": [
+        1,
+        3
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": -1,
+      "n_cousins": 39
+    },
+    {
+      "orbit_id": 45,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        9
+      ],
+      "elapsed_s": 356.6643798351288,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 9,
+      "order_k": 4,
+      "fingerprint": "X_3_9/(X_4_6*X_5_7*X_6_8)",
+      "companion_Y_U": [
+        3,
+        9
+      ],
+      "substitute_U": [
+        1,
+        3
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": -1,
+      "n_cousins": 39
+    },
+    {
+      "orbit_id": 46,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2
+      ],
+      "elapsed_s": 501.41863107681274,
+      "timed_out": false,
+      "recipe_found": false
+    },
+    {
+      "orbit_id": 47,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        7,
+        9
+      ],
+      "elapsed_s": 600.026074886322,
+      "timed_out": true,
+      "recipe_found": false
+    },
+    {
+      "orbit_id": 48,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        7
+      ],
+      "elapsed_s": 148.95789408683777,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 4,
+      "order_k": 3,
+      "fingerprint": "X_4_9/(X_1_3*X_1_4*X_1_8*X_6_8)",
+      "companion_Y_U": [
+        4,
+        9
+      ],
+      "substitute_U": [
+        5,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": -1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 49,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        5
+      ],
+      "elapsed_s": 150.90958189964294,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "fingerprint": "X_5_8/(X_1_3*X_1_4*X_1_8*X_7_9)",
+      "companion_Y_U": [
+        5,
+        8
+      ],
+      "substitute_U": [
+        6,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 50,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        5
+      ],
+      "elapsed_s": 158.07170701026917,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "fingerprint": "X_5_9/(X_1_3*X_1_4*X_1_8*X_7_9)",
+      "companion_Y_U": [
+        5,
+        9
+      ],
+      "substitute_U": [
+        6,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 51,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        6,
+        9
+      ],
+      "elapsed_s": 300.06514406204224,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 4,
+      "order_k": 3,
+      "fingerprint": "X_4_8/(X_1_3*X_1_4*X_1_8*X_4_7)",
+      "companion_Y_U": [
+        4,
+        8
+      ],
+      "substitute_U": [
+        5,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 52,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        9
+      ],
+      "elapsed_s": 397.58124899864197,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 9,
+      "order_k": 4,
+      "fingerprint": "X_3_9/(X_4_7*X_5_7*X_6_8)",
+      "companion_Y_U": [
+        3,
+        9
+      ],
+      "substitute_U": [
+        1,
+        3
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": -1,
+      "n_cousins": 39
+    },
+    {
+      "orbit_id": 53,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        6
+      ],
+      "elapsed_s": 600.015144109726,
+      "timed_out": true,
+      "recipe_found": false
+    },
+    {
+      "orbit_id": 54,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        5,
+        7
+      ],
+      "elapsed_s": 310.5325539112091,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "fingerprint": "X_5_8/(X_1_3*X_1_4*X_2_8*X_2_9)",
+      "companion_Y_U": [
+        5,
+        8
+      ],
+      "substitute_U": [
+        6,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 55,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        6,
+        8
+      ],
+      "elapsed_s": 132.94719696044922,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 6,
+      "order_k": 3,
+      "fingerprint": "X_6_9/(X_1_3*X_1_4*X_2_9*X_3_5)",
+      "companion_Y_U": [
+        6,
+        9
+      ],
+      "substitute_U": [
+        7,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 56,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        8
+      ],
+      "elapsed_s": 176.30689311027527,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 8,
+      "order_k": 3,
+      "fingerprint": "X_2_8/(X_1_3*X_1_4*X_4_6*X_5_7)",
+      "companion_Y_U": [
+        2,
+        8
+      ],
+      "substitute_U": [
+        2,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 57,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        5
+      ],
+      "elapsed_s": 160.23874592781067,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "fingerprint": "X_5_8/(X_1_3*X_1_4*X_2_9*X_7_9)",
+      "companion_Y_U": [
+        5,
+        8
+      ],
+      "substitute_U": [
+        6,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 58,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        5,
+        8
+      ],
+      "elapsed_s": 159.266526222229,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "fingerprint": "X_5_9/(X_1_3*X_1_4*X_2_9*X_7_9)",
+      "companion_Y_U": [
+        5,
+        9
+      ],
+      "substitute_U": [
+        6,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 59,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        6,
+        8
+      ],
+      "elapsed_s": 526.1928083896637,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 8,
+      "order_k": 3,
+      "fingerprint": "X_2_8/(X_1_3*X_1_4*X_4_7*X_5_7)",
+      "companion_Y_U": [
+        2,
+        8
+      ],
+      "substitute_U": [
+        2,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 60,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        6,
+        8
+      ],
+      "elapsed_s": 493.0055298805237,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 6,
+      "order_k": 3,
+      "fingerprint": "X_6_9/(X_1_3*X_1_4*X_3_5*X_3_9)",
+      "companion_Y_U": [
+        6,
+        9
+      ],
+      "substitute_U": [
+        7,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 61,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        6,
+        8
+      ],
+      "elapsed_s": 600.0185599327087,
+      "timed_out": true,
+      "recipe_found": false
+    },
+    {
+      "orbit_id": 62,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        5,
+        7
+      ],
+      "elapsed_s": 80.12288808822632,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 4,
+      "fingerprint": "X_2_8/(X_1_4*X_4_6*X_6_8)",
+      "companion_Y_U": [
+        2,
+        8
+      ],
+      "substitute_U": [
+        3,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": -1,
+      "n_cousins": 39
+    },
+    {
+      "orbit_id": 63,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        8
+      ],
+      "elapsed_s": 6.094393730163574,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_9/(X_1_4*X_4_6*X_5_7*X_7_9)",
+      "companion_Y_U": [
+        2,
+        9
+      ],
+      "substitute_U": [
+        3,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 64,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        5
+      ],
+      "elapsed_s": 5.832808256149292,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_9/(X_1_4*X_4_6*X_6_8*X_7_9)",
+      "companion_Y_U": [
+        2,
+        9
+      ],
+      "substitute_U": [
+        3,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 65,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        5,
+        8
+      ],
+      "elapsed_s": 5.974877119064331,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_9/(X_1_4*X_4_6*X_6_9*X_7_9)",
+      "companion_Y_U": [
+        2,
+        9
+      ],
+      "substitute_U": [
+        3,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 66,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        6,
+        8
+      ],
+      "elapsed_s": 5.968383073806763,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_9/(X_1_4*X_4_7*X_5_7*X_7_9)",
+      "companion_Y_U": [
+        2,
+        9
+      ],
+      "substitute_U": [
+        3,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 67,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        8
+      ],
+      "elapsed_s": 600.0091419219971,
+      "timed_out": true,
+      "recipe_found": false
+    },
+    {
+      "orbit_id": 68,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        5
+      ],
+      "elapsed_s": 600.0198471546173,
+      "timed_out": true,
+      "recipe_found": false
+    },
+    {
+      "orbit_id": 69,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        7,
+        9
+      ],
+      "elapsed_s": 38.182018995285034,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 4,
+      "order_k": 3,
+      "fingerprint": "X_1_4/(X_1_3*X_1_8*X_2_4*X_6_8)",
+      "companion_Y_U": [
+        1,
+        4
+      ],
+      "substitute_U": [
+        1,
+        5
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": -1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 70,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        7,
+        9
+      ],
+      "elapsed_s": 222.00919675827026,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 7,
+      "order_k": 3,
+      "fingerprint": "X_1_7/(X_1_3*X_1_5*X_3_5*X_4_6)",
+      "companion_Y_U": [
+        1,
+        7
+      ],
+      "substitute_U": [
+        1,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 71,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        4,
+        9
+      ],
+      "elapsed_s": 600.0165059566498,
+      "timed_out": true,
+      "recipe_found": false
+    },
+    {
+      "orbit_id": 72,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        4,
+        6
+      ],
+      "elapsed_s": 507.59538888931274,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 6,
+      "order_k": 3,
+      "fingerprint": "X_6_9/(X_1_3*X_1_5*X_1_8*X_3_5)",
+      "companion_Y_U": [
+        6,
+        9
+      ],
+      "substitute_U": [
+        7,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 73,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        7,
+        9
+      ],
+      "elapsed_s": 9.342331886291504,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_6/(X_1_5*X_1_8*X_4_6*X_6_8)",
+      "companion_Y_U": [
+        2,
+        6
+      ],
+      "substitute_U": [
+        3,
+        6
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 74,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        4,
+        6,
+        8
+      ],
+      "elapsed_s": 467.72972106933594,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 6,
+      "order_k": 3,
+      "fingerprint": "X_6_9/(X_1_3*X_1_5*X_2_9*X_3_5)",
+      "companion_Y_U": [
+        6,
+        9
+      ],
+      "substitute_U": [
+        7,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 75,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "elapsed_s": 600.0164442062378,
+      "timed_out": true,
+      "recipe_found": false
+    },
+    {
+      "orbit_id": 76,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "vertices_missed": [
+        5,
+        9
+      ],
+      "elapsed_s": 45.33100700378418,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "fingerprint": "X_1_5/(X_1_3*X_1_7*X_1_8*X_2_4)",
+      "companion_Y_U": [
+        1,
+        5
+      ],
+      "substitute_U": [
+        1,
+        6
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 77,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        9
+      ],
+      "elapsed_s": 10.325980186462402,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_5/(X_1_6*X_1_7*X_1_8*X_4_6)",
+      "companion_Y_U": [
+        2,
+        5
+      ],
+      "substitute_U": [
+        3,
+        5
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 78,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        4,
+        9
+      ],
+      "elapsed_s": 9.002607822418213,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_5/(X_1_6*X_1_7*X_1_8*X_5_7)",
+      "companion_Y_U": [
+        2,
+        5
+      ],
+      "substitute_U": [
+        3,
+        5
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 79,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        4
+      ],
+      "elapsed_s": 9.600069284439087,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_5/(X_1_6*X_1_8*X_5_7*X_7_9)",
+      "companion_Y_U": [
+        2,
+        5
+      ],
+      "substitute_U": [
+        3,
+        5
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 80,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        5,
+        8
+      ],
+      "elapsed_s": 150.65713477134705,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 4,
+      "fingerprint": "X_1_5/(X_1_3*X_2_4*X_7_9)",
+      "companion_Y_U": [
+        1,
+        5
+      ],
+      "substitute_U": [
+        1,
+        6
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": -1,
+      "n_cousins": 39
+    },
+    {
+      "orbit_id": 81,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        4,
+        8
+      ],
+      "elapsed_s": 26.85093927383423,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 4,
+      "order_k": 3,
+      "fingerprint": "X_4_7/(X_1_3*X_1_6*X_2_9*X_7_9)",
+      "companion_Y_U": [
+        4,
+        7
+      ],
+      "substitute_U": [
+        5,
+        7
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 82,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        4,
+        8
+      ],
+      "elapsed_s": 487.25224709510803,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 4,
+      "order_k": 3,
+      "fingerprint": "X_4_7/(X_1_3*X_1_6*X_3_9*X_7_9)",
+      "companion_Y_U": [
+        4,
+        7
+      ],
+      "substitute_U": [
+        5,
+        7
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 83,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        8
+      ],
+      "elapsed_s": 7.859368324279785,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_5/(X_1_6*X_4_6*X_6_9*X_7_9)",
+      "companion_Y_U": [
+        2,
+        5
+      ],
+      "substitute_U": [
+        3,
+        5
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 84,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        4,
+        8
+      ],
+      "elapsed_s": 7.78482985496521,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_5/(X_1_6*X_5_7*X_6_9*X_7_9)",
+      "companion_Y_U": [
+        2,
+        5
+      ],
+      "substitute_U": [
+        3,
+        5
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 85,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        4,
+        8
+      ],
+      "elapsed_s": 7.718373775482178,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_5/(X_1_6*X_5_9*X_6_9*X_7_9)",
+      "companion_Y_U": [
+        2,
+        5
+      ],
+      "substitute_U": [
+        3,
+        5
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 86,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        4,
+        6,
+        9
+      ],
+      "elapsed_s": 7.052568197250366,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_5/(X_1_7**2*X_1_8*X_5_7)",
+      "companion_Y_U": [
+        2,
+        5
+      ],
+      "substitute_U": [
+        3,
+        5
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 87,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "vertices_missed": [
+        6,
+        9
+      ],
+      "elapsed_s": 205.41864204406738,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 6,
+      "order_k": 3,
+      "fingerprint": "X_1_6/(X_1_3*X_1_8*X_2_4*X_3_5)",
+      "companion_Y_U": [
+        1,
+        6
+      ],
+      "substitute_U": [
+        1,
+        7
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 88,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "vertices_missed": [
+        9
+      ],
+      "elapsed_s": 586.8514380455017,
+      "timed_out": false,
+      "recipe_found": false
+    },
+    {
+      "orbit_id": 89,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        5,
+        9
+      ],
+      "elapsed_s": 30.041046142578125,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "fingerprint": "X_5_8/(X_1_3*X_1_7*X_1_8*X_2_4)",
+      "companion_Y_U": [
+        5,
+        8
+      ],
+      "substitute_U": [
+        6,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 90,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "vertices_missed": [
+        6,
+        9
+      ],
+      "elapsed_s": 600.0107750892639,
+      "timed_out": true,
+      "recipe_found": false
+    },
+    {
+      "orbit_id": 91,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "vertices_missed": [
+        4,
+        6,
+        9
+      ],
+      "elapsed_s": 600.0167932510376,
+      "timed_out": true,
+      "recipe_found": false
+    },
+    {
+      "orbit_id": 92,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "vertices_missed": [
+        4,
+        9
+      ],
+      "elapsed_s": 15.735503196716309,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 1,
+      "order_k": 3,
+      "fingerprint": "X_1_6/(X_1_7*X_1_8*X_3_5*X_5_7)",
+      "companion_Y_U": [
+        1,
+        6
+      ],
+      "substitute_U": [
+        2,
+        6
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": -1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 93,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "vertices_missed": [
+        4,
+        6,
+        9
+      ],
+      "elapsed_s": 156.35415315628052,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 4,
+      "order_k": 3,
+      "fingerprint": "X_4_7/(X_1_3*X_1_7*X_1_8*X_2_7)",
+      "companion_Y_U": [
+        4,
+        7
+      ],
+      "substitute_U": [
+        5,
+        7
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 94,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "vertices_missed": [
+        4,
+        6
+      ],
+      "elapsed_s": 22.95189118385315,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 4,
+      "order_k": 3,
+      "fingerprint": "X_4_7/(X_1_3*X_1_7*X_1_8*X_2_9)",
+      "companion_Y_U": [
+        4,
+        7
+      ],
+      "substitute_U": [
+        5,
+        7
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 95,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        4,
+        6
+      ],
+      "elapsed_s": 457.711452960968,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 4,
+      "order_k": 3,
+      "fingerprint": "X_4_7/(X_1_3*X_1_7*X_1_8*X_3_9)",
+      "companion_Y_U": [
+        4,
+        7
+      ],
+      "substitute_U": [
+        5,
+        7
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 96,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        9
+      ],
+      "elapsed_s": 8.837621212005615,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_5/(X_1_7*X_1_8*X_4_6*X_5_7)",
+      "companion_Y_U": [
+        2,
+        5
+      ],
+      "substitute_U": [
+        3,
+        5
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 97,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        9
+      ],
+      "elapsed_s": 7.599165916442871,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_5/(X_1_7*X_1_8*X_4_6*X_6_8)",
+      "companion_Y_U": [
+        2,
+        5
+      ],
+      "substitute_U": [
+        3,
+        5
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 98,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        6,
+        9
+      ],
+      "elapsed_s": 7.4932861328125,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_5/(X_1_7*X_1_8*X_4_7*X_5_7)",
+      "companion_Y_U": [
+        2,
+        5
+      ],
+      "substitute_U": [
+        3,
+        5
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 99,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        6
+      ],
+      "elapsed_s": 7.826033115386963,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_5/(X_1_7*X_1_8*X_4_9*X_5_7)",
+      "companion_Y_U": [
+        2,
+        5
+      ],
+      "substitute_U": [
+        3,
+        5
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 100,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        4,
+        9
+      ],
+      "elapsed_s": 7.894371271133423,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_5/(X_1_7*X_1_8*X_5_7*X_6_8)",
+      "companion_Y_U": [
+        2,
+        5
+      ],
+      "substitute_U": [
+        3,
+        5
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 101,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        4
+      ],
+      "elapsed_s": 7.728455066680908,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_5/(X_1_7*X_1_8*X_5_7*X_6_9)",
+      "companion_Y_U": [
+        2,
+        5
+      ],
+      "substitute_U": [
+        3,
+        5
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 102,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        9
+      ],
+      "elapsed_s": 7.959872007369995,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_6/(X_1_7*X_1_8*X_4_6*X_5_7)",
+      "companion_Y_U": [
+        2,
+        6
+      ],
+      "substitute_U": [
+        3,
+        6
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 103,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        5,
+        7
+      ],
+      "elapsed_s": 197.24399995803833,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "fingerprint": "X_5_8/(X_1_3*X_1_8*X_2_4*X_2_9)",
+      "companion_Y_U": [
+        5,
+        8
+      ],
+      "substitute_U": [
+        6,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 104,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        9
+      ],
+      "elapsed_s": 247.5060169696808,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 9,
+      "order_k": 3,
+      "fingerprint": "X_3_9/(X_2_4*X_3_5*X_5_7*X_6_8)",
+      "companion_Y_U": [
+        3,
+        9
+      ],
+      "substitute_U": [
+        1,
+        3
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 105,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        6
+      ],
+      "elapsed_s": 220.94312191009521,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 6,
+      "order_k": 3,
+      "fingerprint": "X_6_9/(X_1_3*X_1_8*X_2_4*X_3_5)",
+      "companion_Y_U": [
+        6,
+        9
+      ],
+      "substitute_U": [
+        7,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 106,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        5,
+        9
+      ],
+      "elapsed_s": 212.30743789672852,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "fingerprint": "X_5_8/(X_1_3*X_1_8*X_2_4*X_3_7)",
+      "companion_Y_U": [
+        5,
+        8
+      ],
+      "substitute_U": [
+        6,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 107,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        5,
+        7
+      ],
+      "elapsed_s": 215.16302108764648,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "fingerprint": "X_5_8/(X_1_3*X_1_8*X_2_4*X_3_9)",
+      "companion_Y_U": [
+        5,
+        8
+      ],
+      "substitute_U": [
+        6,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 108,
+      "size": 3,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [],
+      "elapsed_s": 85.8845272064209,
+      "timed_out": false,
+      "recipe_found": false
+    },
+    {
+      "orbit_id": 109,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        7
+      ],
+      "elapsed_s": 41.401843786239624,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 4,
+      "order_k": 3,
+      "fingerprint": "X_4_9/(X_1_3*X_1_8*X_2_4*X_6_8)",
+      "companion_Y_U": [
+        4,
+        9
+      ],
+      "substitute_U": [
+        5,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": -1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 110,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        5
+      ],
+      "elapsed_s": 35.8131639957428,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "fingerprint": "X_5_9/(X_1_3*X_1_8*X_2_4*X_7_9)",
+      "companion_Y_U": [
+        5,
+        9
+      ],
+      "substitute_U": [
+        6,
+        9
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 111,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "vertices_missed": [
+        9
+      ],
+      "elapsed_s": 249.30639481544495,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 9,
+      "order_k": 3,
+      "fingerprint": "X_3_9/(X_2_4*X_4_7*X_5_7*X_6_8)",
+      "companion_Y_U": [
+        3,
+        9
+      ],
+      "substitute_U": [
+        1,
+        3
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 112,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        4
+      ],
+      "elapsed_s": 10.820698738098145,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_5/(X_1_8*X_5_9*X_6_9*X_7_9)",
+      "companion_Y_U": [
+        2,
+        5
+      ],
+      "substitute_U": [
+        3,
+        5
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    },
+    {
+      "orbit_id": 113,
+      "size": 9,
+      "representative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "vertices_missed": [
+        2,
+        5
+      ],
+      "elapsed_s": 7.871059894561768,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 2,
+      "order_k": 3,
+      "fingerprint": "X_2_6/(X_1_8*X_4_6*X_6_9*X_7_9)",
+      "companion_Y_U": [
+        2,
+        6
+      ],
+      "substitute_U": [
+        3,
+        6
+      ],
+      "Y_U_in_M_rep": false,
+      "fish_scalar": 1,
+      "n_cousins": 7
+    }
+  ]
+}
