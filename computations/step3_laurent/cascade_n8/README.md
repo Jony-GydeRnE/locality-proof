@@ -89,3 +89,85 @@ python3 cascade_kill_n8.py 5          # smoke test on first 5 survivors
 If $n=9$ also shows uniform depth-1, the empirical case for Item 10
 becomes very strong, and the remaining work is the combinatorial
 proof that the depth-1 recipe is *always* available.
+
+## Recipe analysis (`analyze_recipes.py`)
+
+The follow-up script `analyze_recipes.py` parses the cascade trace
+and computes per-survivor structural data:
+
+- **Cyclic orbit decomposition.** The 100 survivors break into **13
+  $\mathbb Z_8$-orbits**: 12 orbits of size 8 (free) and 1 orbit of
+  size 4 (stabilised by the $\mathbb Z_2$ subgroup). All orbit sizes
+  divide 8 as required.
+- **Missed-vertex set $V_{\text{missed}}(M) = \{1,\dots,8\} \setminus V(M)$.**
+- **Frame candidates** (cyclic-distance-2 pairs inside $V_{\text{missed}}$)
+  — these are the kill-zone candidates predicted by the **Φ-I rule**:
+  *the kill zone $\mathcal Z_{r,r+2}$ has $(r, r{+}2) \subseteq V_{\text{missed}}(M)$.*
+- **Φ-I prediction match against the empirical kill zone.**
+
+### Φ-I match: 48 / 100 (per-orbit breakdown)
+
+| Orbit | Canonical rep | Size | Φ-I match |
+|---:|---|---:|---:|
+| 1 | $\{(1,3),(1,3),(1,7),(3,5),(5,7)\}$ | 8 | **8 / 8** |
+| 2 | $\{(1,3),(1,4),(1,7),(3,5),(5,7)\}$ | 8 | **8 / 8** |
+| 3 | $\{(1,3),(1,4),(1,7),(4,6),(5,7)\}$ | 8 | 6 / 8 |
+| 4 | $\{(1,3),(1,4),(1,7),(4,6),(6,8)\}$ | 8 | 0 / 8 |
+| 5 | $\{(1,3),(1,4),(2,8),(4,6),(6,8)\}$ | 8 | 6 / 8 |
+| 6 | $\{(1,3),(1,4),(3,8),(4,6),(6,8)\}$ | 8 | 2 / 8 |
+| 7 | $\{(1,3),(1,6),(1,7),(2,4),(4,6)\}$ | 8 | 0 / 8 |
+| 8 | $\{(1,3),(1,6),(1,7),(3,5),(4,6)\}$ | 8 | 0 / 8 |
+| 9 | $\{(1,3),(1,6),(1,7),(3,5),(5,7)\}$ | 8 | 6 / 8 |
+| 10 | $\{(1,3),(1,7),(2,4),(3,5),(5,7)\}$ | 8 | 6 / 8 |
+| 11 | $\{(1,3),(1,7),(2,4),(4,6),(5,7)\}$ | 8 | 0 / 8 |
+| 12 | $\{(1,3),(1,7),(2,6),(3,5),(5,7)\}$ | 4 | 0 / 4 |
+| 13 | $\{(1,3),(1,7),(3,5),(5,8),(6,8)\}$ | 8 | 6 / 8 |
+
+### What the 48% match rate means
+
+**Φ-I as currently stated is not the full structural rule.** It works
+perfectly on orbits 1 and 2 (where the survivor's missed-vertex set
+contains the chosen kill-zone special), partially on orbits 3, 5, 9,
+10, 13 (cyclic action with multiple frame candidates per survivor;
+the empirical recipe picks one but not always the Φ-I-predicted one),
+and **never** on orbits 4, 7, 8, 11, 12 — these survivors are killed
+at zones whose special chord has at least one endpoint in $V(M)$.
+
+This empirical data:
+
+1. **Refines the all-$n$ conjecture (Item 10).** A uniform recipe rule
+   needs to handle the 0% orbits, where the kill zone touches $V(M)$.
+   Φ-I missed those because its hypothesis (frame entirely in
+   $V_{\text{missed}}$) doesn't hold there.
+2. **Suggests a richer structural rule.** Possibly a refinement: pick
+   a substitute chord $c_{\text{sub}} = (r{+}1, k) \in M$ and use its
+   companion as the fingerprint, with kill zone $\mathcal Z_{r, r+2}$ —
+   regardless of whether the special is in $V_{\text{missed}}$.
+3. **Justifies the per-orbit verification approach.** Each of the 13
+   orbits has a single recipe pattern (under cyclic shift); the
+   all-$n$ proof needs only to verify one recipe per orbit.
+
+## Files
+
+- **`cascade_kill_n8.py`** — verifier (heavily commented; every
+  function has a `LOGIC` and a `PHYSICS / MATHEMATICS` docstring per
+  the repo contribution standards in the root README).
+- **`results_cascade_n8.txt`** — full human-readable cascade trace
+  (100 blocks, one per survivor: kill zone, fingerprint, equation,
+  cousin kills).
+- **`analyze_recipes.py`** — recipe-structure analyser (parses the
+  trace, computes orbits, missed vertices, Φ-I predictions).
+- **`recipe_analysis.md`** — markdown table with per-survivor data
+  (M, $V_{\text{missed}}$, frame candidates, actual zone, Φ-I match,
+  orbit ID).
+- **`orbits.md`** — orbit decomposition (13 orbits, sizes 4 and 8,
+  canonical representatives).
+- **`analysis_summary.txt`** — short end-of-run summary.
+
+## Run
+
+```bash
+python3 cascade_kill_n8.py            # full cascade run (~76 min)
+python3 cascade_kill_n8.py 5          # smoke test on first 5 survivors
+python3 analyze_recipes.py            # parse + analyse (seconds)
+```

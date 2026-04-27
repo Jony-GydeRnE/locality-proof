@@ -1,9 +1,8 @@
 # Locality and Unitarity of Tr(φ³) Tree Amplitudes from Hidden Zeros
 
-> A working repository, by **Jonathan Valenzuela**, building toward an algebraic
-> proof that the cyclic hidden 1-zero conditions uniquely determine the
-> Tr(φ³) tree amplitudes — locality and unitarity emerge as *consequences*,
-> not assumptions.
+> A working repository building toward an algebraic proof that the cyclic
+> hidden 1-zero conditions uniquely determine the Tr(φ³) tree amplitudes —
+> locality and unitarity emerge as *consequences*, not assumptions.
 
 This README is the entry point. Read it top to bottom: it states the problem
 precisely, gives the proof strategy in plain words, summarizes the current
@@ -272,6 +271,9 @@ experiment should know exactly what conventions to match.
 
 ---
 
-## Author
+## Acknowledgements
 
-**Jonathan Valenzuela**, 2026. Contact: see commit metadata.
+The hidden-zero theorem this work extends is due to **A. Rodina**
+(arXiv:2406.04234); the framing of the locality programme owes much
+to ongoing conversations with Rodina (professor) and with **Giuseppe**
+(tutor). Any errors in the satellites here are the author's own.

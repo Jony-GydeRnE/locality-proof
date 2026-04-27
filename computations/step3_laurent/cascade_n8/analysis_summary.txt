@@ -1,0 +1,17 @@
+n=8 step-1-survivor recipe analysis -- summary
+=============================================
+
+Total survivors:          100
+Total cyclic orbits:      13
+Phi-I match rate:         48/100 = 48.0%
+
+Phi-I rule:  the empirical kill zone Z_{r,r+2} of M
+             satisfies (r, r+2) in V_missed(M), i.e., both
+             endpoints of the special chord are vertices
+             that no chord of M touches.
+
+Orbit-size distribution:
+  size 4: 1 orbit(s)
+  size 8: 12 orbit(s)
+
+Full per-survivor table: see recipe_analysis.md
