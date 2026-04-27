@@ -14,6 +14,8 @@ For the precise theorem and proof strategy, read the root README first.
 |---|---|---|
 | [`elementary-geometric-background-and-understanding/`](elementary-geometric-background-and-understanding/) | §1. Introduction | Geometric / closed-timelike-curve story for newcomers — polygon ↔ Feynman-diagram dictionary, what a hidden zero is, why locality has to hold. |
 | [`B=0->B_i = 0/`](B=0->B_i%20=%200/) | §3. Foundational lemma | If $B\|_{\mathcal Z_r}=0$, each homogeneity weight-component $B_i$ vanishes too. Generalizes Rodina's eqs ~15–17. Needed to apply the kill move term-by-term. |
+| [`step-one-doesnt-kill-triangulations/`](step-one-doesnt-kill-triangulations/) | §4. Local-survival lemma | **Closes Item 2.** No triangulation $T$ is ever Step-1 killable at any zone. Two-page, three-case proof using only the polygon edge $(r, r{+}1)$. |
+| [`step-one-kill-statistics/`](step-one-kill-statistics/) | §5. Numerical evidence | **Backs Item 4.** Global kill-rate data through $n=9$ (99.888% non-tri kill), monotonically increasing rate, and the asymptotic conjecture $S(n)/T(n) \to 0$. |
 | [`ex- proving locality&unitarity by hand/`](ex-%20proving%20locality%26unitarity%20by%20hand/) | §4. Worked examples | The current "core example" at $n=4, 5, 6$. Step 1 and Step 2 in full detail. **Doubles as the standing placeholder for the core paper** until it is written. |
 | [`Laurent series for hard kills/`](Laurent%20series%20for%20hard%20kills/) | §6. Step-3 mechanism | The Laurent cascade kill at $n=7$. Proves all seven non-triangulation "fish" that escape Steps 1 and 2 die at the next Laurent order via a depth-1 cascade. |
 

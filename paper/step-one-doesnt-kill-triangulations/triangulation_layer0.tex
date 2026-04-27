@@ -1,0 +1,158 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black,citecolor=black}
+
+\setlength{\parskip}{4pt plus 1pt}
+\setlength{\parindent}{0pt}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+
+\title{Layer-0 hidden-zero kills no triangulation}
+\author{Jonathan Valenzuela \\ \small{(short note for the locality program)}}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+For the planar $\mathrm{Tr}(\phi^3)$ ansatz at $n$ external legs, the
+\emph{layer-$0$ kill} at the cyclic hidden-zero zone $\mathcal Z_{r,r+2}$
+eliminates the coefficient $a_M$ of every chord multiset $M$ that, at
+that zone, contains neither the special chord nor the bare and uses no
+(companion, substitute) pair in full. We prove that no triangulation of
+the $n$-gon is killed at any zone. The argument is two lines once the
+right object is identified: the unique triangle of the triangulation
+that contains the polygon edge $(r,r{+}1)$ has its third vertex $a$
+falling into one of three exhaustive cases, each of which forces a
+violation of the layer-$0$ kill criterion. No appeal to Meisters's
+two-ears theorem is needed.
+\end{abstract}
+
+%--------------------------------------------------------------------------
+\section{Setup}
+%--------------------------------------------------------------------------
+
+Let $n\ge 4$ and label the vertices $1,2,\dots,n$ cyclically. A
+\emph{chord} is a pair $(i,j)$, $i\ne j$, that is not a polygon edge.
+For $r\in\{1,\dots,n\}$, the zone $\mathcal Z_{r,r+2}$ is the
+codimension-$2$ hidden-zero locus on which
+\begin{equation}\label{eq:subs}
+   X_{r+1,k} \;=\; X_{r,k} - X_{r,r+2}
+   \qquad
+   \text{for } k\notin\{r,r{+}1,r{+}2\}\text{ (cyclic),}
+\end{equation}
+together with the bare relation $X_{r+1,r-1} = -X_{r,r+2}$. Indices are
+taken modulo $n$ throughout.
+
+\begin{defn}[Step-1 / layer-$0$ kill]\label{defn:K}
+A chord multiset $M$ of size $n{-}3$ is \emph{killable at
+$\mathcal Z_{r,r+2}$}, written $M\in\mathcal K_{r,r+2}$, if both
+\begin{itemize}[leftmargin=*,topsep=0pt,parsep=0pt,itemsep=2pt]
+\item[\rm (K1)] $M$ contains neither the special $X_{r,r+2}$ nor the
+       bare $X_{r+1,r-1}$;
+\item[\rm (K2)] for every $k\in\{r{+}3,\dots,r{+}n{-}2\}$ (cyclic), $M$
+       does not contain both members of the (companion, substitute) pair
+       $(X_{r,k},\,X_{r+1,k})$.
+\end{itemize}
+If $M\in\mathcal K_{r,r+2}$ then a leading-Laurent argument with
+$X_{r,r+2}\to\infty$ forces $a_M=0$. We do not use that argument here.
+\end{defn}
+
+\begin{defn}[Triangulation]
+A \emph{triangulation} $T$ of the $n$-gon is a maximal set of pairwise
+non-crossing chords; equivalently, a set of $n{-}3$ chords whose
+addition to the polygon edges partitions the polygon into $n{-}2$
+triangles.
+\end{defn}
+
+%--------------------------------------------------------------------------
+\section{Result}
+%--------------------------------------------------------------------------
+
+\begin{thm}\label{thm:main}
+For every $n\ge 4$, every triangulation $T$ of the $n$-gon, and every
+$r\in\{1,\dots,n\}$,
+\[
+   T \;\notin\; \mathcal K_{r,r+2}.
+\]
+\end{thm}
+
+\begin{proof}
+Fix $r$ and let $T$ be any triangulation. The polygon edge $(r,r{+}1)$
+is a side of exactly one triangle of $T$; call it $\Delta$, and let $a$
+be its third vertex (so $a\notin\{r,r{+}1\}$). The two sides of $\Delta$
+incident to $a$ are then $(r,a)$ and $(r{+}1,a)$.
+
+We split on the value of $a$:
+
+\smallskip\noindent
+\textbf{Case 1: $a = r{+}2$.} Then the side $(r,a)=(r,r{+}2)$ is the
+special chord, and it is a side of $\Delta$, hence is contained in $T$.
+So the special $X_{r,r+2}\in T$, violating (K1). Therefore
+$T\notin\mathcal K_{r,r+2}$.
+
+\smallskip\noindent
+\textbf{Case 2: $a = r{-}1$ (cyclic).} Then the side $(r{+}1,a) =
+(r{+}1,r{-}1)$ is the bare chord, and it is a side of $\Delta$, hence
+in $T$. So the bare $X_{r+1,r-1}\in T$, violating (K1). Therefore
+$T\notin\mathcal K_{r,r+2}$.
+
+\smallskip\noindent
+\textbf{Case 3: $a\in\{r{+}3,\dots,r{+}n{-}2\}$ (cyclic).} Then the
+sides $(r,a)$ and $(r{+}1,a)$ are both chords (neither is a polygon
+edge, since $a$ is not adjacent to $r$ or $r{+}1$ on the polygon
+boundary). They are sides of $\Delta$, hence both in $T$. But these are
+exactly the (companion, substitute) pair
+$(X_{r,a},\,X_{r+1,a})$, both contained in $T$. This violates (K2).
+Therefore $T\notin\mathcal K_{r,r+2}$.
+
+The three cases exhaust the possible values of $a$, so the conclusion
+$T\notin\mathcal K_{r,r+2}$ holds. \qed
+\end{proof}
+
+\begin{cor}\label{cor:loc}
+No layer-$0$ hidden-zero argument at any cyclic zone kills the
+coefficient $a_T$ of any triangulation $T$.
+\end{cor}
+
+\begin{proof}
+The layer-$0$ kill at $\mathcal Z_{r,r+2}$ acts only on coefficients
+$a_M$ with $M\in\mathcal K_{r,r+2}$. By Theorem~\ref{thm:main}, $T$ is
+in no such set. \qed
+\end{proof}
+
+\section*{Remarks}
+
+\textbf{1.\ The geometric content.} The proof says: the polygon edge
+$(r,r{+}1)$ sits inside exactly one triangle of $T$, and the third
+vertex $a$ of that triangle determines which of (K1)'s two clauses or
+(K2) is violated. This is purely local at the edge $(r,r{+}1)$ and uses
+nothing about the rest of $T$.
+
+\smallskip\noindent
+\textbf{2.\ No two-ears theorem.} Earlier formulations of this lemma
+appealed to Meisters's two-ears theorem (every triangulation of a
+convex polygon with $n\ge 4$ vertices has at least two ears). The
+two-ears theorem is unnecessary here: the polygon edge $(r,r{+}1)$ is a
+boundary edge of \emph{any} triangulation, in particular always lies in
+exactly one triangle, and that single fact does the work.
+
+\smallskip\noindent
+\textbf{3.\ What this does and does not give.} Theorem~\ref{thm:main}
+guarantees triangulations survive Step-1 (layer-$0$). It says nothing
+about Step-2 (the bare-relation equality chains), Step-3 (higher
+Laurent layers), or whether non-triangulations are all eventually
+killed. Those are separate questions; this lemma is the local-survival
+half of the locality programme.
+
+\end{document}

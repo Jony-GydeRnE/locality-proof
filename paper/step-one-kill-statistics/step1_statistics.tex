@@ -1,0 +1,236 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black,citecolor=black}
+
+\setlength{\parskip}{4pt plus 1pt}
+\setlength{\parindent}{0pt}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+
+\title{Step-1 kill statistics and asymptotic locality:\\
+       \large empirical evidence for survivor fraction $\to 0$}
+\author{Jonathan Valenzuela \\ \small{(satellite for the locality program)}}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+At $n$ external legs, the layer-$0$ (``Step-1'') hidden-zero kill mechanism
+forces $a_M = 0$ for the coefficient of every chord multiset $M$ of size
+$n-3$ that satisfies the killability conditions (K1)+(K2) at some cyclic
+zone. Through $n=9$ we report the exact count of surviving (non-killable)
+non-triangulation multisets at each $n$, the resulting kill rate, and the
+cyclic-orbit structure of the survivors. The data show: (i) the kill rate
+on non-triangulations exceeds $99.6\%$ for every $n \ge 7$ measured;
+(ii) the kill rate is monotonically increasing in $n$; (iii) at $n=9$
+already $99.888\%$ of all non-triangulation multisets are killed by
+Step-1 alone. We state the precise asymptotic conjecture (Item 4 of the
+master plan) and identify what a proof would need to establish.
+This satellite is companion to the local-survival lemma of
+\verb|paper/step-one-doesnt-kill-triangulations/|, which closes the
+matching combinatorial side (Item 2).
+\end{abstract}
+
+%--------------------------------------------------------------------------
+\section{Setup}
+%--------------------------------------------------------------------------
+
+We adopt the conventions of the root README: $n$ vertices labelled
+$1, \dots, n$ cyclically; planar Mandelstam invariants
+$X_{ij} = (p_i + \cdots + p_{j-1})^2$ for chord pairs $(i, j)$; rational
+ansatz
+\[
+   B \;=\; \sum_M \frac{a_M}{\prod_{c \in M} X_c}
+\]
+where $M$ runs over size-$(n-3)$ chord multisets. The cyclic
+hidden-zero zone $\mathcal Z_{r, r+2}$ has special chord
+$X_{r,r+2}$, bare chord $X_{r+1,r-1} = -X_{r,r+2}$, and substitutions
+$X_{r+1, k} = X_{r,k} - X_{r,r+2}$ for $k$ in cyclic range.
+
+$M \in \mathcal K_{r,r+2}$ (``killable at zone $r$'') iff
+\begin{itemize}[leftmargin=*,topsep=0pt,itemsep=2pt]
+\item[\rm (K1)] $M$ contains neither the special nor the bare;
+\item[\rm (K2)] for every (companion, substitute) pair $(X_{r,k}, X_{r+1,k})$,
+$M$ does not contain both members.
+\end{itemize}
+A multiset $M$ is a \emph{Step-1 survivor} iff it is in no
+$\mathcal K_{r, r+2}$ for any $r$. By the local-survival lemma of
+\cite{tri-survives}, every triangulation $T$ is a Step-1 survivor; the
+non-triangulation Step-1 survivors are the focus of this note.
+
+%--------------------------------------------------------------------------
+\section{The data}
+%--------------------------------------------------------------------------
+
+The script \verb|computations/step1_layer0_kill/kill_enumeration/step1_uncaught.py|
+enumerates all size-$(n-3)$ multisets, applies the (K1)+(K2) test at
+every cyclic zone, and reports the survivors. The output through
+$n = 9$:
+
+\begin{center}
+\begin{tabular}{rrrrrr}
+\toprule
+$n$ & total multisets & triangulations $C_{n-2}$
+       & non-tri total & non-tri survivors & non-tri kill \% \\
+\midrule
+4 &       2 &     2 &       0 &     0 & --- \\
+5 &      15 &     5 &      10 &     0 & 100\,\% \\
+6 &     165 &    14 &     151 &     0 & 100\,\% \\
+7 &   2 380 &    42 &   2 338 &     7 & 99.700\,\% \\
+8 &  42 504 &   132 &  42 372 &   100 & 99.764\,\% \\
+9 & 906 192 &   429 & 905 763 & 1 011 & 99.888\,\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Triangulation counts match the Catalan numbers $C_{n-2}$ exactly,
+consistent with the local-survival lemma of \cite{tri-survives}. The
+total multiset count at $n$ is
+$\binom{d+n-4}{n-3}$ where $d = n(n-3)/2$.
+
+\paragraph{Kill rate is monotonically increasing.} For every $n \ge 7$
+in the data, the kill rate strictly exceeds the rate at $n - 1$:
+$99.700\% \to 99.764\% \to 99.888\%$. The headline number at $n = 9$
+is that fewer than $0.12\%$ of all non-triangulation multisets escape
+Step-1.
+
+%--------------------------------------------------------------------------
+\section{Cyclic orbit structure of the survivors}
+%--------------------------------------------------------------------------
+
+The survivors at each $n$ are closed under the cyclic-rotation action
+$v \mapsto v + 1 \pmod{n}$ on chord endpoints, so they break into
+$\mathbb Z_n$-orbits of size $\le n$.
+
+\paragraph{$\boldsymbol{n=7}$.} All 7 survivors form a single
+$\mathbb Z_7$-orbit (the ``fish'' family); they are the cyclic shifts of
+$M_1 = \{(1,3), (1,6), (2,4), (4,6)\}$. See
+\verb|paper/Laurent series for hard kills/cascade_n7.tex| for the kill.
+
+\paragraph{$\boldsymbol{n=8}$.} The 100 survivors break into multiple
+$\mathbb Z_8$-orbits (orbit-shape detail in
+\verb|computations/step1_layer0_kill/kill_enumeration/outputs/|). The
+companion script
+\verb|computations/step3_laurent/cascade_n8/cascade_kill_n8.py| verifies
+\textbf{every one} of these 100 survivors dies at Step~3 via a depth-$1$
+Laurent cascade --- 90 of them at order $X_*^{-3}$ (leading + 1) and 10
+at order $X_*^{-4}$ (leading + 2), with all cousins step-$1$ killable at
+one neighbouring zone. So at $n=8$, the cumulative kill rate of
+\textbf{Step-1 + Step-3} on non-triangulations is $100\%$.
+
+\paragraph{$\boldsymbol{n=9}$.} 1011 survivors. Cyclic-orbit
+decomposition is in the script's PDF output. The Step-3 cascade
+verification at $n=9$ has not yet been run.
+
+%--------------------------------------------------------------------------
+\section{Asymptotic conjecture (Item 4)}
+%--------------------------------------------------------------------------
+
+Let $S(n)$ denote the number of non-triangulation Step-1 survivors at
+$n$, and $T(n)$ the total number of non-triangulation size-$(n-3)$
+multisets ($T(n) = \binom{d + n - 4}{n-3} - C_{n-2}$). The data
+$(S(n), T(n))$ for $n = 5, \dots, 9$:
+
+\begin{center}
+\begin{tabular}{rrrcc}
+\toprule
+$n$ & $S(n)$ & $T(n)$ & $S(n)/T(n)$ & $S(n+1)/S(n)$ \\
+\midrule
+5 &     0 &      10 &  0\,\%       &   ---     \\
+6 &     0 &     151 &  0\,\%       &   ---     \\
+7 &     7 &   2 338 &  0.300\,\%   &   ---     \\
+8 &   100 &  42 372 &  0.236\,\%   & $\approx 14.3$ \\
+9 & 1 011 & 905 763 &  0.112\,\%   & $\approx 10.1$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The ratio $S(n)/T(n)$ is roughly halving per increment of $n$, while
+$S(n+1)/S(n)$ is decreasing (suggesting sub-exponential survivor
+growth). The total grows superexponentially.
+
+\begin{conj}[Asymptotic locality from Step-1 alone]\label{conj:asympt}
+There exist constants $C, \alpha > 0$ such that for every $n \ge 7$,
+\[
+   \frac{S(n)}{T(n)} \;\le\; \frac{C}{n^{\alpha}}
+   \quad\text{(polynomial decay)}\qquad\text{or}\qquad
+   \frac{S(n)}{T(n)} \;\le\; C \cdot 2^{-n}
+   \quad\text{(exponential decay).}
+\]
+The data favour the exponential form with rate $\sim 2^{-n}$ but the
+polynomial form is not ruled out by $n \le 9$.
+\end{conj}
+
+A proof would need to:
+\begin{enumerate}[leftmargin=*,topsep=0pt,itemsep=2pt]
+\item identify the structural family of multisets that satisfies neither
+       (K1) nor (K2) at every zone (the survivors);
+\item bound the cardinality of that family by a closed-form expression
+       in $n$;
+\item compare to $T(n)$, whose growth is known.
+\end{enumerate}
+The cyclic-orbit structure reduces (1)--(2) to characterising one
+representative per orbit, then multiplying by orbit size $\le n$.
+At $n = 7$ all 7 survivors are one orbit; at $n = 8$ the orbit count is
+the natural quantity to track in the proof. We do not pursue this here.
+
+\paragraph{What this conjecture is \emph{not} needed for.} The all-$n$
+locality theorem does \emph{not} depend on
+Conjecture~\ref{conj:asympt}. What it depends on is the per-survivor
+Laurent cascade (Item 10 of the master plan): every Step-1 survivor
+dies via a depth-1 cascade with prerequisites all of layer-0 type.
+Verified at $n = 7$ symbolically and at $n = 8$ in
+\verb|computations/step3_laurent/cascade_n8/|. The asymptotic
+conjecture here is supportive evidence, not a load-bearing component.
+
+%--------------------------------------------------------------------------
+\section{What the satellite Step-1 ecosystem now looks like}
+%--------------------------------------------------------------------------
+
+The two satellites that close out the Step-1 analysis:
+
+\begin{itemize}[leftmargin=*,topsep=2pt,itemsep=4pt]
+\item \verb|paper/step-one-doesnt-kill-triangulations/| --- proves the
+       \emph{local} side: no triangulation is ever Step-1 killable.
+       Closes Item 2 of the master plan.
+\item \verb|paper/step-one-kill-statistics/| (this note) --- documents
+       the \emph{global} kill rate: which fraction of non-triangulations
+       does Step-1 catch, and how does that fraction grow with $n$?
+       Backs Item 4 of the master plan.
+\end{itemize}
+
+Together with the homogeneity-decomposition lemma
+(\verb|paper/B=0->B_i = 0/|, Item 1) and the Laurent-cascade analysis
+(\verb|paper/Laurent series for hard kills/|, Item 10), Step-1 is
+fully understood up to the asymptotic question above.
+
+%--------------------------------------------------------------------------
+\begin{thebibliography}{9}
+\bibitem{tri-survives}
+J.\ Valenzuela, \emph{Layer-0 hidden-zero kills no triangulation},
+\verb|paper/step-one-doesnt-kill-triangulations/triangulation_layer0.pdf|.
+
+\bibitem{cascade-n7}
+J.\ Valenzuela, \emph{The Laurent-tail kill at $n=7$},
+\verb|paper/Laurent series for hard kills/cascade_n7.pdf|.
+
+\bibitem{rodina}
+A.\ Rodina, \emph{Hidden zeros are equivalent to enhanced ultraviolet
+scaling and lead to unique amplitudes in $\mathrm{Tr}(\phi^3)$ theory},
+arXiv:2406.04234.
+\end{thebibliography}
+
+\end{document}

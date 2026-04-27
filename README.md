@@ -68,19 +68,29 @@ the coefficients of $B$:
   cascades to higher Laurent orders to kill each escapee using
   already-established Step-1 kills at one neighbouring zone.
 
-The **central open question** of the upcoming core paper is purely
-combinatorial:
+**Item 2 (originally the central combinatorial conjecture) is now closed.**
+The lemma in `paper/step-one-doesnt-kill-triangulations/` proves the
+strictly stronger statement that *no triangulation $T$ is in
+$\mathcal K_{r,r+2}$ at any zone $r$* — ruling out both the originally
+conjectured $T \subseteq F_r$ case and the case where $T$ contains a
+substitute without its companion. The proof is two pages, three
+exhaustive cases, using only the polygon edge $(r, r{+}1)$.
 
-> **Conjecture (Item 2).** For each zone $\mathcal Z_r$, every
-> $(n-3)$-element subset of $F_r$ contains a crossing pair of chords.
-> Equivalently: no triangulation of the $n$-gon is contained in any $F_r$.
+The new **central open question** is the *all-$n$ uniformity* of the
+Laurent cascade (Items 7 + 10 below):
 
-This conjecture protects the triangulation coefficients from being
-accidentally killed by Step 1, and is the missing combinatorial piece
-of the all-$n$ proof. If proven — and the numerical kill rate at $n=9$
-(99.889%) suggests it is true and the survivor fraction goes to $0$ fast —
-the rest of the proof falls into place via a counting argument
-(see §6 below, Items 7 and 4).
+> **Conjecture (Item 10).** For every $n \ge 7$, every Step-1 survivor
+> dies via a depth-1 Laurent cascade of the same shape as the $n=7$ fish
+> kills — *one Laurent step deeper at one zone, with all prerequisites
+> of layer-0 type at one neighbouring zone*.
+
+If true, every non-triangulation coefficient $a_M$ is forced to zero,
+and combined with Step-2 flip-graph connectivity, the surviving space
+is one-dimensional and spanned by $A_n^{\text{tree}}$. The depth-1
+phenomenon is verified at $n=7$ symbolically; the $n=8$ verification
+is in progress (`computations/step3_laurent/cascade_n8/`). At $n=9$
+the survivor fraction is already 99.889%, and the rate appears to grow
+fast with $n$ (Item 4).
 
 ---
 
@@ -91,8 +101,8 @@ the rest of the proof falls into place via a counting argument
 | 4 | trivial | ✓ | ✓ | dim 1 |
 | 5 | all 10 non-locals killed | ✓ | ✓ | **dim 1 (verified)** |
 | 6 | 129 / 151 killed | ✓ remaining 22 die by cyclic Step 2 | ✓ | **dim 1 (verified)** |
-| 7 | 7 fish escape | 7 fish still escape | ✓ all die by Laurent cascade | **dim 1 (verified)** |
-| 8 | 100 escape | … | conjectured, not yet checked | — |
+| 7 | 7 fish escape | 7 fish still escape | ✓ all 7 die by Laurent cascade | **dim 1 (verified)** |
+| 8 | 100 escape | … | ✓ **all 100 die by depth-1 Laurent cascade** | — |
 | 9 | 1 011 escape (out of 906 192) | … | conjectured, not yet checked | — |
 
 At $n = 9$ Step 1 alone already kills **99.889%** of all non-triangulation
@@ -212,16 +222,53 @@ Rodina-locality-proof/
 | # | Item | Status |
 |---|---|---|
 | 1 | Foundational lemma $B = 0 \Rightarrow B_i = 0$ | draft in `paper/B=0->B_i = 0/` |
-| 2 | Every $(n-3)$-subset of $F_r$ contains a crossing pair | conjectured, **central open** |
-| 3 | Use Item 2 to identify exactly which indices Step 1 kills | depends on Item 2 |
-| 4 | Survivor fraction $\to 0$ fast as $n$ grows | quantitative asymptotic |
-| 5 | Numerical verification at $n = 7, 8, 9$ | done — see `computations/` |
-| 6 | Dual experiment ($X_{13}$ never special) | done — see `computations/step1_layer0_kill/dual_X13_never_special/` |
-| 7 | Conditional theorem: # survivors $= C_{n-2}$ | proof strategy clear once Item 2 holds |
-| 8 | Worked examples at $n = 5, 6$ | done — see `paper/ex- proving locality&unitarity by hand/` |
+| 2 | No triangulation is killed by Step 1 at any zone | **closed** — `paper/step-one-doesnt-kill-triangulations/` |
+| 3 | Use Item 2 to identify exactly which indices Step 1 kills | now mechanical (Item 2 closed) |
+| 4 | Survivor fraction $\to 0$ fast as $n$ grows | data through $n=9$; asymptotic conjecture open |
+| 5 | Numerical verification at $n = 7, 8, 9$ | done ($n{=}7,8$); see `computations/` |
+| 6 | Dual experiment ($X_{13}$ never special) | done — `computations/step1_layer0_kill/dual_X13_never_special/` |
+| 7 | Conditional theorem: # survivors $= C_{n-2}$ | reduces to Item 10 |
+| 8 | Worked examples at $n = 5, 6$ | done — `paper/ex- proving locality&unitarity by hand/` |
 | 9 | Undergraduate guide derived from the notes | in progress; `geometric_story.pdf` is the seed |
+| 10 | Per-orbit depth-1 Laurent cascade closes all Step-1 survivors | **central open**; depth-1 verified at $n=7$ (7/7) and $n=8$ (100/100); $n=9$ not yet checked |
 
-The dependency chain is: **Items 1 + 2 ⟹ Item 3 ⟹ Item 7 ⟹ locality + unitarity theorem.**
+The updated dependency chain is:
+
+**Items 1 + 2 (closed) ⟹ Item 3 (mechanical) ⟹ Item 7 (counting) + Item 10 (cascade uniformity) ⟹ locality + unitarity theorem.**
+
+---
+
+## 7. Contributing
+
+If you write code for this repo (verifier scripts, enumerators, symbolic
+checks, figure generators), please follow these conventions so that
+mathematicians and physicists can read the code without prior Python
+fluency, and so that programmers can read it without prior knowledge of
+the proof:
+
+1. **Every function has a docstring with two parts:**
+   - *LOGIC* — what algorithm is implemented (in CS / Python terms).
+   - *PHYSICS / MATHEMATICS* — what the algorithm computes in the
+     language of the proof (chords, zones, kill mechanism, etc.).
+   See `computations/step3_laurent/cascade_n8/cascade_kill_n8.py` for
+   the canonical example.
+2. **Every script has a top-of-file block comment** stating its purpose,
+   the conjecture it tests, the inputs/outputs, and any conventions that
+   differ from the rest of the repo. If conventions are shared with
+   another file (e.g. chord normalization), say so explicitly.
+3. **Add a `README.md` to every new folder.** State what the folder is
+   for, what files it contains, how to run them, and what results to
+   expect. Headline numbers (kill rates, survivor counts, etc.) belong
+   in the README, not buried in the script's stdout.
+4. **No silent constants.** Every magic number (Laurent order to expand
+   to, max number of survivors to check, etc.) is named and commented.
+5. **If the script prints results, also write them to a text file** so
+   they are reviewable without re-running.
+
+The goal is that any working physicist or mathematician who knows the
+proof but has never seen this codebase should be able to open any script
+and follow the logic in one read, and any contributor adding a new
+experiment should know exactly what conventions to match.
 
 ---
 
