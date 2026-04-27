@@ -147,22 +147,35 @@ This empirical data:
    orbits has a single recipe pattern (under cyclic shift); the
    all-$n$ proof needs only to verify one recipe per orbit.
 
+## Per-orbit structural audit (`audit_orbits.py`)
+
+`audit_orbits.py` does a deeper structural audit than `analyze_recipes.py`.
+For each of the 13 orbit representatives, it walks every zone $Z$ and
+every substitute $U \in M_{\text{rep}}$ at $Z$ with companion $Y_U \notin M$
+(K2-clean), and tries the depth-1 cascade at $(Z, U)$.
+
+> **Headline.** Every one of the 13 orbits has at least one valid
+> depth-1 $(Z, U)$ recipe — total 26 valid recipes across all orbits.
+> See `orbit_audit_findings.md` for takeaways. The audit confirms the
+> Φ-I frame rule is too restrictive (4 orbits with empty Φ-I but with
+> recipes anyway) and suggests a strictly weaker rule: every K2-clean
+> $(Z, U)$ with $\ell_Z \ge 2$ produces a recipe whose cousins all
+> step-1-die.
+
 ## Files
 
-- **`cascade_kill_n8.py`** — verifier (heavily commented; every
-  function has a `LOGIC` and a `PHYSICS / MATHEMATICS` docstring per
-  the repo contribution standards in the root README).
-- **`results_cascade_n8.txt`** — full human-readable cascade trace
-  (100 blocks, one per survivor: kill zone, fingerprint, equation,
-  cousin kills).
-- **`analyze_recipes.py`** — recipe-structure analyser (parses the
-  trace, computes orbits, missed vertices, Φ-I predictions).
-- **`recipe_analysis.md`** — markdown table with per-survivor data
-  (M, $V_{\text{missed}}$, frame candidates, actual zone, Φ-I match,
-  orbit ID).
-- **`orbits.md`** — orbit decomposition (13 orbits, sizes 4 and 8,
-  canonical representatives).
-- **`analysis_summary.txt`** — short end-of-run summary.
+| File | What it is |
+|---|---|
+| `cascade_kill_n8.py` | Cascade verifier (one depth-1 recipe per survivor). |
+| `results_cascade_n8.txt` | Full cascade trace (100 survivor blocks). |
+| `analyze_recipes.py` | Per-survivor analyser: orbits, missed vertices, Φ-I match. |
+| `recipe_analysis.md` | Per-survivor markdown table. |
+| `orbits.md` | Orbit decomposition (13 orbits). |
+| `analysis_summary.txt` | Short summary of the per-survivor analysis. |
+| `audit_orbits.py` | Per-orbit audit: every (Z, U) recipe per orbit rep. |
+| `orbit_audit.json` | Machine-readable audit record (zones × substitutes × recipes). |
+| `orbit_audit_summary.md` | Per-orbit audit table. |
+| `orbit_audit_findings.md` | **Headline takeaways from the audit.** |
 
 ## Run
 
@@ -170,4 +183,5 @@ This empirical data:
 python3 cascade_kill_n8.py            # full cascade run (~76 min)
 python3 cascade_kill_n8.py 5          # smoke test on first 5 survivors
 python3 analyze_recipes.py            # parse + analyse (seconds)
+python3 audit_orbits.py               # per-orbit audit (~10 min)
 ```
