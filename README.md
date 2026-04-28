@@ -12,51 +12,28 @@ conjecture.
 
 ---
 
-## 📌 Pinned brief overview
+## 📌 Reader's guide — where each result lives
 
-For a quick read: five concrete deliverables, with paper + code/output
-pointers, all derived from the cyclic 1-zero conditions of Rodina,
-arXiv:2406.04234. **Every claim below is backed by a verifiable file
-in this repo.**
+Every claim in the accompanying letter is backed by a verifiable file in
+this repo. Use this table to jump directly from a claim to the file that
+establishes it.
 
-1. **Rewritten foundational lemmas.** Self-contained rigorous proofs of
-   $B|_{\mathcal Z_r}=0 \Rightarrow B_i|_{\mathcal Z_r}=0$ (homogeneity
-   decomposition) and the d-subset uniqueness argument that Rodina's
-   paper leaves implicit. → `paper/Details missing in Hidden zero -> unitarity Rodina proof/`
-   (subfolders `Proof of Rodina claim B=0->B_i = 0/subset_vanishing.pdf`
-   and `details for Rodina D subset argument/dsubset_uniqueness.pdf`).
+| Result | File / folder |
+|---|---|
+| **Foundational lemma 1.** Self-contained proof of $B \equiv 0 \Rightarrow B_i \equiv 0$ on each cyclic 1-zero zone (homogeneity decomposition). | `paper/Details missing in Hidden zero -> unitarity Rodina proof/Proof of Rodina claim B=0->B_i = 0/subset_vanishing.pdf` |
+| **Foundational lemma 2.** Self-contained proof that the d-subset uniqueness argument works for all $n$. | `paper/Details missing in Hidden zero -> unitarity Rodina proof/details for Rodina D subset argument/dsubset_uniqueness.pdf` and `notes/18. d subset rigorous proof.pdf` |
+| **Locality at $n = 4, 5, 6$ by hand.** Cyclic 1-zeros force every non-local coefficient to vanish via the Step-1 kill mechanism — 100% of non-locals killed at $n \le 6$. | `paper/step1 Kill technique and statistics/locality_unitarity_v5.pdf` |
+| **Step-1 kill statistics across $n$.** 100% at $n \le 6$, 99.7–99.9% at $n = 7, 8, 9$. | `paper/step1 Kill technique and statistics/step-one-kill-statistics/step1_statistics.pdf` |
+| **Locality at $n = 7, 8$.** Every Step-1 survivor dies via a depth-1 Laurent cascade — verified analytically (representative cases) and computationally (complete enumeration). | `paper/step2 Laurent series for hard kills/cascade_n7.pdf` (analytic write-up); `computations/step3_laurent/cascade_n7/` ($n=7$ enumeration); `computations/step4_laurent_block_analysis/n8/` ($n=8$ enumeration) |
+| **Full nullspace dim $= 1$ at $n = 5, 6, 7$.** End-to-end SVD verification of the complete constraint system. | `computations/full_nullspace_verification/` |
+| **Locality at $n = 9$ (new).** Step-1 kills 904,752 of 905,763 non-locals directly. The 1,011 survivors form 113 cyclic orbits — 23 close by independent depth-1 cascades, and the remaining **90 form a coupled cluster whose depth-1 fingerprint matrix has rank 90 (full)**, forcing every cluster coefficient to vanish jointly. First $n$ at which a block-rule mechanism is required. | `paper/step3 block rule/step3_block_rule_n9_REVISED.pdf` (write-up) and `paper/step3 block rule/step3_block_rule_README_REVISED.md`; per-orbit consolidated audit (all 113 reps) at `computations/step4_laurent_block_analysis/n9/outputs/n9_locality_status.md` |
+| **Structural lemma.** Step-1 *never* removes a triangulation at any zone. Two-page exhaustive proof. | `paper/step1 Kill technique and statistics/step-one-doesnt-kill-triangulations/triangulation_layer0.pdf` |
+| **All-$n$ working conjecture.** Locality follows from a rank condition on the depth-1 fingerprint matrix on each connected component of the cousin graph (verified through $n = 9$). | §6 below; refined statement in `paper/step3 block rule/step3_block_rule_README_REVISED.md` |
+| **Reproducibility.** Every script that produced a number in this repo is committed alongside its raw output and a folder README. | `computations/` (top-level guide); each subfolder has its own README |
+| **Working notes (~70 PDFs, condensing into a ~30-page undergrad-accessible companion).** | `notes/` — load-bearing: notes 13–17; the d-subset proof is note 18 |
 
-2. **Locality emergence at $n = 4, 5, 6$ by hand, no BCFW.** A direct
-   Laurent expansion at each cyclic 1-zero plus an "enclosed-vertex
-   kill" + "companion isolation" forces every non-local coefficient
-   to vanish. → `paper/step1 Kill technique and statistics/locality_unitarity_v5.pdf`.
-
-3. **Computational framework through $n = 9$.** Python scripts
-   enumerate all chord multisets, apply the kill mechanism at every
-   zone, and identify survivors. Headline numbers:
-   - $n=5, 6$: 100% of non-local terms killed by Step 1 alone.
-   - $n=7$: 7 "fish" survive Step 1; all die via depth-1 Laurent cascade.
-   - $n=8$: 100/100 survivors die via depth-1 Laurent cascade.
-   - **$n=9$ (906 192 multisets): Step 1 kills 99.888% of non-locals;
-     the 1 011 remaining survivors organise into a 90-orbit cluster
-     whose depth-1 fingerprint matrix has rank $90 / $ nullity $0$.
-     Combined with 23 single-orbit cascades, locality at $n=9$ is
-     fully proven from the 1-zeros.**
-   → `computations/step3_laurent/` (n=7), `computations/step4_laurent_block_analysis/n8/` (n=8),
-   `.../n9/` (n=9, with the consolidated artifact `outputs/n9_locality_status.md`).
-
-4. **Full nullspace verification.** At $n = 5, 6, 7$, the complete
-   constraint system has nullspace dimension exactly 1, spanned by
-   $A_n^{\text{tree}}$. SVD gap $> 13$ orders of magnitude. →
-   `computations/full_nullspace_verification/`.
-
-5. **Triangulation survival lemma.** Step 1 *never* accidentally kills
-   a triangulation at any zone — strictly stronger than what the
-   proof needs, ruling out both the special-in-$T$ and substitute-
-   without-companion cases. → `paper/step1 Kill technique and statistics/step-one-doesnt-kill-triangulations/triangulation_layer0.pdf`.
-
-The status table below (§3) gives the same picture in tabular form,
-and the guided tour (§4) walks through how to read the repo end-to-end.
+The status table below (§3) gives the same picture in tabular form, and
+the guided tour (§4) walks through how to read the repo end-to-end.
 
 ---
 
@@ -208,7 +185,7 @@ Proves all 7 of the $n=7$ "fish" die via a depth-1 Laurent cascade.
 At $n = 9$ singleton cascade fails for some orbits and the **block-rule**
 generalisation kicks in:
 
-→ `paper/step3 block rule/step3_block_rule_n9.pdf`
+→ `paper/step3 block rule/step3_block_rule_n9_REVISED.pdf`
 
 The 90-orbit cluster around orbit 22 has a depth-1 fingerprint matrix
 of full rank — collectively kills every cluster orbit including the

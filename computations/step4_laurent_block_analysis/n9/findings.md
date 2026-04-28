@@ -1,8 +1,7 @@
 # n=9 findings — quick reference
 
-For the full block-rule kill writeup see [`cluster_findings.md`](cluster_findings.md);
-for per-anomaly verdicts see [`anomaly_summary.md`](anomaly_summary.md);
-for per-failure detail see the [`diagnostics/`](diagnostics/) folder.
+For the per-orbit consolidated audit see [`outputs/n9_locality_status.md`](outputs/n9_locality_status.md);
+for per-orbit deep-search reports see the [`diagnostics/`](diagnostics/) folder.
 
 This file is a one-page summary.
 

@@ -62,7 +62,8 @@ on its own, but not a locality gap to be closed here.
 ## Cross-references
 
 - Locality proof at $n=9$ (cluster matrix + cascades):
-  `../../step4_laurent_block_analysis/n9/cluster_findings.md`
+  `../../step4_laurent_block_analysis/n9/findings.md` and
+  `../../step4_laurent_block_analysis/n9/outputs/n9_locality_status.md`
 - Triangulation equating (unitarity via d-subset):
   `../../../paper/Details missing in Hidden zero -> unitarity Rodina proof/details for Rodina D subset argument/`
   and `../../../notes/18. d subset rigorous proof.pdf`
