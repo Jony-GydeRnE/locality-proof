@@ -1,6 +1,9 @@
-# §6 — The Laurent cascade for hard kills
+# §6 — The Laurent cascade for hard kills (Step-2 in the new naming)
 
-**Backs paper §6 (Step-3 mechanism).**
+**Backs paper §6.** The cascade kill that handles step-1 survivors at
+$n = 7$ (and at $n = 8$ as a singleton kill). At $n = 9$ singleton
+cascade fails; the **block-rule** generalisation lives in
+[`../step3 block rule/`](../step3%20block%20rule/).
 
 Through $n = 6$, Steps 1 and 2 of the kill mechanism alone kill every
 non-local coefficient. At $n = 7$, exactly **seven** non-triangulation

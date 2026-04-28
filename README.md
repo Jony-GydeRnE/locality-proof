@@ -69,7 +69,7 @@ the coefficients of $B$:
   already-established Step-1 kills at one neighbouring zone.
 
 **Item 2 (originally the central combinatorial conjecture) is now closed.**
-The lemma in `paper/step-one-doesnt-kill-triangulations/` proves the
+The lemma in `paper/step1 Kill technique and statistics/step-one-doesnt-kill-triangulations/` proves the
 strictly stronger statement that *no triangulation $T$ is in
 $\mathcal K_{r,r+2}$ at any zone $r$* — ruling out both the originally
 conjectured $T \subseteq F_r$ case and the case where $T$ contains a
@@ -129,28 +129,37 @@ heuristic for why locality has to hold. No prior knowledge assumed.
 ### 4.2 Read the by-hand worked example (the current "core" placeholder)
 Once the setup makes sense:
 
-→ `paper/ex- proving locality&unitarity by hand/locality_unitarity_v5.tex`
+→ `paper/step1 Kill technique and statistics/locality_unitarity_v5.pdf`
 
 The full kill mechanism worked through at $n = 4, 5, 6$ explicitly, so you
 can see Step 1 and Step 2 in action. This is the placeholder while the
 core paper is still being written.
 
-### 4.3 Read the foundational lemma
-The kill mechanism rests on a homogeneity decomposition:
+### 4.3 Read the foundational lemmas
+The kill mechanism rests on two foundational lemmas:
 
-→ `paper/B=0->B_i = 0/subset_vanishing.pdf`
+→ `paper/Details missing in Hidden zero -> unitarity Rodina proof/Proof of Rodina claim B=0->B_i = 0/subset_vanishing.pdf`
+   (homogeneity decomposition: $B|_{\mathcal Z_r}=0 \Rightarrow B_i|_{\mathcal Z_r}=0$)
 
-This generalizes Rodina's eqs ~15–17: if $B$ vanishes on $\mathcal Z_r$,
-then so does each homogeneous weight-component $B_i$ separately. Needed
-to apply the kill move term-by-term.
+→ `paper/Details missing in Hidden zero -> unitarity Rodina proof/details for Rodina D subset argument/dsubset_uniqueness.pdf`
+   (uniqueness of the master substitution from the d-subset structure)
+
+Together these justify applying the kill move term-by-term.
 
 ### 4.4 Read the Laurent cascade for hard kills
 For why Step 1 alone is not enough at $n \ge 7$:
 
-→ `paper/Laurent series for hard kills/cascade_n7.pdf`
+→ `paper/step2 Laurent series for hard kills/cascade_n7.pdf`
 
-Proves all 7 of the $n=7$ "fish" die via a depth-1 Laurent cascade. The
-companion script reproduces every step symbolically.
+Proves all 7 of the $n=7$ "fish" die via a depth-1 Laurent cascade.
+At $n = 9$ singleton cascade fails for some orbits and the **block-rule**
+generalisation kicks in:
+
+→ `paper/step3 block rule/step3_block_rule_n9.pdf`
+
+The 90-orbit cluster around orbit 22 has a depth-1 fingerprint matrix
+of full rank — collectively kills every cluster orbit including the
+4 singletons-cascade failures.
 
 ### 4.5 Run the experiments
 For numerical verification, survivor enumeration, and figures:
@@ -193,17 +202,23 @@ Rodina-locality-proof/
 ├── paper/                                   ← in-progress write-ups (one per §)
 │   ├── README.md                              guided tour of paper/
 │   ├── elementary-geometric-background…/      §1 — intuition for newcomers
-│   ├── B=0->B_i = 0/                          §3 — foundational lemma
-│   ├── ex- proving locality&unitarity by hand/  §4 — worked examples (n=4,5,6)
-│   │                                            (also the standing core-paper placeholder)
-│   └── Laurent series for hard kills/         §6 — Step-3 cascade at n=7
+│   ├── Details missing in Hidden zero -> unitarity Rodina proof/
+│   │   ├── Proof of Rodina claim B=0->B_i = 0/  §3 — homogeneity decomposition lemma
+│   │   └── details for Rodina D subset argument/ §3 — d-subset uniqueness lemma
+│   ├── step1 Kill technique and statistics/   §4 + §5 — Step-1 layer-0 kill
+│   │   ├── locality_unitarity_v5               worked examples (n=4,5,6)
+│   │   ├── step-one-doesnt-kill-triangulations local-survival lemma (Item 2 closed)
+│   │   └── step-one-kill-statistics            global kill rates + asymptotic
+│   ├── step2 Laurent series for hard kills/   §6 — singleton Laurent cascade (n=7)
+│   └── step3 block rule/                      §7 — block-rule cluster kill (n=9)
 │
 ├── computations/                            ← experiments backing each proof step
 │   ├── README.md                              guided tour of computations/
 │   ├── step0_sanity/                          §2 — A_n^tree vanishes on each Z_r
 │   ├── step1_layer0_kill/                     §4 — Step-1 kill enumeration + dual
-│   ├── step2_equate/                          §4 — Step-2 equivalence classes
+│   ├── step2_equate/                          §4 — Step-2 equivalence + flip-graph (n=9)
 │   ├── step3_laurent/                         §6 — Laurent cascade at n=7
+│   ├── step4_laurent_block_analysis/          §6 + §7 — n=8 singleton + n=9 block-rule
 │   ├── full_nullspace_verification/           §7 — full-ansatz nullspace = 1
 │   ├── survivor_gallery/                      §7 — n=8, n=9 survivor figures
 │   └── old/                                   superseded experiments (15-dim approach)
@@ -221,20 +236,21 @@ Rodina-locality-proof/
 
 | # | Item | Status |
 |---|---|---|
-| 1 | Foundational lemma $B = 0 \Rightarrow B_i = 0$ | draft in `paper/B=0->B_i = 0/` |
-| 2 | No triangulation is killed by Step 1 at any zone | **closed** — `paper/step-one-doesnt-kill-triangulations/` |
+| 1 | Foundational lemma $B = 0 \Rightarrow B_i = 0$ | draft in `paper/Details missing.../Proof of Rodina claim B=0->B_i = 0/` |
+| 2 | No triangulation is killed by Step 1 at any zone | **closed** — `paper/step1 Kill technique and statistics/step-one-doesnt-kill-triangulations/` |
 | 3 | Use Item 2 to identify exactly which indices Step 1 kills | now mechanical (Item 2 closed) |
 | 4 | Survivor fraction $\to 0$ fast as $n$ grows | data through $n=9$; asymptotic conjecture open |
-| 5 | Numerical verification at $n = 7, 8, 9$ | done ($n{=}7,8$); see `computations/` |
+| 5 | Numerical verification at $n = 7, 8, 9$ | done ($n=7,8,9$); see `computations/step3_laurent/` and `computations/step4_laurent_block_analysis/` |
 | 6 | Dual experiment ($X_{13}$ never special) | done — `computations/step1_layer0_kill/dual_X13_never_special/` |
 | 7 | Conditional theorem: # survivors $= C_{n-2}$ | reduces to Item 10 |
-| 8 | Worked examples at $n = 5, 6$ | done — `paper/ex- proving locality&unitarity by hand/` |
+| 8 | Worked examples at $n = 5, 6$ | done — `paper/step1 Kill technique and statistics/locality_unitarity_v5.pdf` |
 | 9 | Undergraduate guide derived from the notes | in progress; `geometric_story.pdf` is the seed |
-| 10 | Per-orbit depth-1 Laurent cascade closes all Step-1 survivors | **central open**; depth-1 verified at $n=7$ (7/7) and $n=8$ (100/100); $n=9$ not yet checked |
+| 10 | Per-orbit depth-1 Laurent cascade closes all Step-1 survivors | **refined**; singleton verified at $n=7,8$; at $n=9$ generalises to BLOCK-RULE (cluster rank = full on the 90-orbit cluster) |
+| 11 | Step-2 flip-graph connectivity at $n=9$ bridges all triangulation orbits | **partially open** — Step-2 alone gives 16 components on 49 orbits; cluster matrix bridges 12 of them; 4 components remain untouched |
 
 The updated dependency chain is:
 
-**Items 1 + 2 (closed) ⟹ Item 3 (mechanical) ⟹ Item 7 (counting) + Item 10 (cascade uniformity) ⟹ locality + unitarity theorem.**
+**Items 1 + 2 (closed) ⟹ Item 3 (mechanical) ⟹ Item 7 (counting) + Item 10 (block-rule cluster kill) + Item 11 (triangulation flip-graph) ⟹ locality + unitarity theorem.**
 
 ---
 
