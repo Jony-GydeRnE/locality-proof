@@ -4,6 +4,12 @@ By Jony V
 > A working repository building toward an algebraic proof that the cyclic
 > hidden 1-zero conditions uniquely determine the Tr(φ³) tree amplitudes —
 > locality and unitarity emerge as *consequences*, not assumptions.
+>
+> The repo doubles as (i) an entry point into Rodina's paper
+> ([arXiv:2406.04234](https://arxiv.org/abs/2406.04234)) — turning the
+> implicit steps of his proof into self-contained arguments aimed at
+> upper-level undergraduates — and (ii) an extension of his hidden-zero
+> theorem into a direct proof of locality verified through $n = 9$.
 
 This README is the entry point. Read it top to bottom: it states the problem
 precisely, gives the proof strategy in plain words, summarizes the current
@@ -20,7 +26,7 @@ establishes it.
 
 | Result | File / folder |
 |---|---|
-| **Foundational lemma 1.** Self-contained proof of $B \equiv 0 \Rightarrow B_i \equiv 0$ on each cyclic 1-zero zone (homogeneity decomposition). | `paper/Details missing in Hidden zero -> unitarity Rodina proof/Proof of Rodina claim B=0->B_i = 0/subset_vanishing.pdf` |
+| **Foundational lemma 1.** Self-contained proof of $B \equiv 0 \Rightarrow B_i \equiv 0$ on each cyclic 1-zero zone (homogeneity decomposition). | `paper/Details missing in Hidden zero -> unitarity Rodina proof/Proof of Rodina claim B=0->B_i = 0/subset_vanishing.pdf` and `notes/13. alternate-proof-more-general.pdf` |
 | **Foundational lemma 2.** Self-contained proof that the d-subset uniqueness argument works for all $n$. | `paper/Details missing in Hidden zero -> unitarity Rodina proof/details for Rodina D subset argument/dsubset_uniqueness.pdf` and `notes/18. d subset rigorous proof.pdf` |
 | **Locality at $n = 4, 5, 6$ by hand.** Cyclic 1-zeros force every non-local coefficient to vanish via the Step-1 kill mechanism — 100% of non-locals killed at $n \le 6$. | `paper/step1 Kill technique and statistics/locality_unitarity_v5.pdf` |
 | **Step-1 kill statistics across $n$.** 100% at $n \le 6$, 99.7–99.9% at $n = 7, 8, 9$. | `paper/step1 Kill technique and statistics/step-one-kill-statistics/step1_statistics.pdf` |
@@ -93,7 +99,7 @@ the coefficients of $B$:
   cascades to higher Laurent orders to kill each escapee using
   already-established Step-1 kills at one neighbouring zone.
 
-**Item 2 (originally the central combinatorial conjecture) is now closed.**
+**Item 2 (formerly an important thing to verify) is now closed.**
 The lemma in `paper/step1 Kill technique and statistics/step-one-doesnt-kill-triangulations/` proves the
 strictly stronger statement that *no triangulation $T$ is in
 $\mathcal K_{r,r+2}$ at any zone $r$* — ruling out both the originally
@@ -101,7 +107,7 @@ conjectured $T \subseteq F_r$ case and the case where $T$ contains a
 substitute without its companion. The proof is two pages, three
 exhaustive cases, using only the polygon edge $(r, r{+}1)$.
 
-The new **central open question** is the *all-$n$ uniformity* of the
+The **central question** is the *all-$n$ uniformity* of the
 Laurent cascade (Items 7 + 10 below):
 
 > **Conjecture (Item 10).** For every $n \ge 7$, every Step-1 survivor
@@ -145,7 +151,7 @@ the Laurent cascade.
 ## 4. How to read this repo (the guided tour)
 
 Follow this order. Each section ends with a pointer to the relevant file
-or subfolder.
+or subfolder. General notes are found in the Notes. This content takes one from trace phi 3 lagrangian and Feynman diagrams as triangulations to the the detailed proof that unitarity emerges at all n via hidden zeroes, following Rodina's paper https://arxiv.org/abs/2406.04234.  
 
 ### 4.1 Start with the geometric story
 For readers who have never seen scattering amplitudes:
