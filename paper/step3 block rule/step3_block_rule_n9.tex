@@ -1,0 +1,441 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black,citecolor=black}
+
+\setlength{\parskip}{4pt plus 1pt}
+\setlength{\parindent}{0pt}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+
+\title{The block-rule Laurent cascade at $n=9$:\\
+       \large empirical verification of the all-$n$ locality engine\\
+       \small{(satellite for the $\mathrm{Tr}(\phi^3)$ locality program)}}
+\author{Jonathan Valenzuela}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+At $n$ external legs, after Step-1 (Layer-0) and Step-2 (bare-swap)
+exhausts have been applied, a residual set of non-local coefficients
+survives. Through $n=8$ this residual was killed by a \emph{depth-1
+Laurent cascade} on each cyclic orbit independently: each orbit
+admitted a fingerprint equation whose cousins were Step-1-killable.
+At $n=9$ we exhibit, for the first time, a coupled cluster of $90$
+orbits in which no individual orbit admits a single-orbit cascade
+recipe. The cluster's depth-1 fingerprint matrix
+$M_{\mathrm{FP}}^{\mathcal{C}}$ has $506$ rows and rank exactly
+$90 = |\mathcal{C}|$, residual $0$, so the entire cluster is killed
+\emph{jointly} by the depth-1 system. Combined with single-orbit
+kills on the remaining $23$ orbits, every Step-1+2 survivor at $n=9$
+is forced to zero. This generalises the $n=6$ perfect-matching block
+(rank $3$ on $4$ orbits, residual $1$, closed by an anchor at
+$X_*^{1}$) to a setting where the equation count overdetermines the
+cluster and no anchor is required. We refine Conjecture~10 of the
+master plan accordingly: the all-$n$ engine is the
+\emph{block-rule} on coupled clusters, not single-orbit recipes.
+\end{abstract}
+
+%--------------------------------------------------------------------------
+\section{Background: the three layers of kill mechanism}\label{sec:layers}
+%--------------------------------------------------------------------------
+
+We adopt the conventions of the root README. The cyclic hidden-zero
+zone $\mathcal Z_{r,r+2}$ has special chord $X_{r,r+2}=:X_*$, bare
+chord $X_{r+1,r-1}=-X_*$, and substitutions
+$X_{r+1,k}=X_{r,k}-X_*$ for $k$ in cyclic range. The general
+ansatz is $B=\sum_M a_M/\prod_{c\in M}X_c$ over size-$(n-3)$ chord
+multisets $M$.
+
+\begin{defn}[Three layers]\label{def:layers}\leavevmode\\[-1.2em]
+\begin{itemize}[leftmargin=*]
+\item \textbf{Step-1 (Layer-0)}: send $X_*\to\infty$ at each
+$\mathcal Z_{r,r+2}$. The leading-order coefficient identity forces
+$a_M=0$ when $M\in\mathcal K_{r,r+2}$, i.e.\ when $M$ contains
+neither special nor bare and no (companion, substitute) pair. Holds
+for $M$ killable at \emph{any} cyclic zone.
+
+\item \textbf{Step-2 (equate)}: keep $X_*$ in the surviving variables
+and exploit $X_{r+1,r-1}=-X_*$. Pairs of multisets differing by a
+bare/special swap are glued, yielding identities
+$a_{M\cup\{X_{r+1,r-1}\}}=-a_{M\cup\{X_*\}}$. Cyclic shifts produce
+equalities and trivial cancellations.
+
+\item \textbf{Step-3 (Laurent cascade)}: at zone $\mathcal Z_{r,r+2}$,
+expand
+\[
+\frac{1}{X_{r+1,k}}=\frac{1}{X_{r,k}-X_*}
+=-\frac{1}{X_*}-\frac{X_{r,k}}{X_*^2}-\frac{X_{r,k}^2}{X_*^3}-\cdots
+\]
+to subleading order. The coefficient of a free-variable monomial
+(the \emph{fingerprint}) at order $X_*^{-(\ell_r(M)+1)}$ is a linear
+identity among coefficients $a_M$ of multisets contributing the same
+fingerprint.
+\end{itemize}
+\end{defn}
+
+\begin{defn}[Cyclic orbit; cousin]\label{def:orbit}
+The cyclic group $\mathbb Z_n$ acts on size-$(n-3)$ multisets by
+vertex shift; an \emph{orbit} is a $\mathbb Z_n$-equivalence class.
+Given a Step-3 fingerprint equation
+$\sum_C\alpha_C\,a_C=0$ at $(\mathcal Z, k, \mathcal F)$, the
+multisets $\{C : \alpha_C \ne 0\}$ are the \emph{cousins} of any
+$M$ that occurs in the equation; their orbit-classes are the
+\emph{cousin orbits} of $\mathrm{orbit}(M)$.
+\end{defn}
+
+%--------------------------------------------------------------------------
+\section{Single-orbit cascade and block-rule cascade}\label{sec:cascades}
+%--------------------------------------------------------------------------
+
+\begin{defn}[Single-orbit cascade]
+Orbit $\mathcal O$ admits a \emph{single-orbit depth-1 cascade}
+recipe iff there is a triple $(\mathcal Z, k, \mathcal F)$ with
+$k=\ell_{\mathcal Z}(M)+1$ for some $M\in\mathcal O$ such that:
+(i) the fingerprint equation has $a_M$ with nonzero scalar; and
+(ii) every cousin of $M$ in this equation is Step-1-killable at
+some cyclic zone.
+\end{defn}
+
+When (i)+(ii) hold, substituting cousin-zeros into the fingerprint
+equation collapses it to $\alpha_M\,a_M=0$, so $a_M=0$. By cyclic
+equivariance, the recipe rotates onto every member of $\mathcal O$.
+
+The mechanism that closes $n=7,8$ is:
+\emph{every Step-1 survivor orbit admits a single-orbit recipe.}
+The $n=9$ data falsifies this for $4$ orbits (and $15$ timeouts that
+turn out to lie in the same cluster).
+
+\begin{defn}[Coupled cluster]
+The \emph{coupling graph} $G_n$ has vertex set $=$ Step-1 survivor
+orbits at $n$. An edge $\mathcal O \sim \mathcal O'$ exists iff
+there is a Step-3 fingerprint equation with $\mathrm{orbit}(M)
+=\mathcal O$ and $\mathrm{orbit}(C)=\mathcal O'$ for some cousin
+$C$ that is itself a Step-1 survivor. A \emph{cluster} is a connected
+component of $G_n$.
+\end{defn}
+
+\begin{defn}[Block-rule cascade]\label{def:block-rule}
+Let $\mathcal C=\{\mathcal O_1,\dots,\mathcal O_m\}$ be a cluster.
+For each orbit $\mathcal O_i$, enumerate all admissible depth-1
+fingerprint recipes; collect their fingerprint equations into a
+matrix $M_{\mathrm{FP}}^{\mathcal C}$ with rows indexed by equations
+and columns by cluster orbits (interior columns) plus external
+orbits (Step-1 survivors not in $\mathcal C$ and triangulation
+orbits). The cluster is \emph{block-rule killable at depth-1} iff
+the cluster sub-matrix (interior columns) has full rank
+$m=|\mathcal C|$, with externals at their tree-amplitude
+values---triangulation columns equated by Step-2 to a common $c$,
+non-cluster survivor columns set to $0$ by their own single-orbit
+cascades.
+\end{defn}
+
+\begin{prop}[$n=6$ baseline: $4$-orbit perfect-matching cluster]\label{prop:n6}
+At $n=6$, after Step-1 and Step-2 exhaust, four perfect-matching
+orbits survive:
+$M_A=\{X_{13},X_{25},X_{46}\}$,
+$M_B=\{X_{14},X_{25},X_{36}\}$,
+$M_C=\{X_{14},X_{26},X_{35}\}$,
+$M_D=\{X_{15},X_{24},X_{36}\}$.
+The depth-1 fingerprint matrix $M_{\mathrm{FP}}^{\mathcal C}$ over
+the six cyclic zones is a $6\times 4$ block of rank~$3$, with
+nullspace spanned by $(1,-1,1,1)$. The residual $r=1$ is closed by
+a depth-$2$ anchor: at $\mathcal Z_{1,3}$, the order-$X_{13}^1$
+coefficient of $1/(X_{14}X_{15}^2X_{36})$ uniquely isolates
+$a_{M_B}$ after Step-1 cousins die at $\mathcal Z_{6,3}$. Together,
+$a_{M_A}=a_{M_B}=a_{M_C}=a_{M_D}=0$.
+\end{prop}
+
+The proof is in
+\verb|paper/Laurent series for hard kills/cascade_n7.tex| (precursor
+calculation) and the companion file
+\verb|fingerprint_lemma_5pt_6pt.tex|. The verification script
+\verb|verify_6pt_anchor_kill.py| extracts the anchor symbolically.
+
+%--------------------------------------------------------------------------
+\section{The $n=9$ result}\label{sec:n9}
+%--------------------------------------------------------------------------
+
+Step-1 enumeration at $n=9$ yields $1{,}011$ non-triangulation
+survivors organized into $113$ cyclic orbits (one of size $3$,
+$\mathbb Z_3$-stabilised; $112$ of size $9$, free orbits).
+
+\subsection{Single-orbit pass}\label{subsec:single}
+
+The script
+\verb|computations/step3_laurent/cascade_n9/cascade_kill_n9.py|
+attempts a single-orbit depth-1 recipe for each of the $113$ orbit
+representatives, with a $600$-second timeout per orbit:
+
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+Outcome & count \\
+\midrule
+single-orbit recipe found & $94$ \\
+search timeout (recipe undetermined) & $15$ \\
+search exhausted, no recipe found & $4$\quad
+$\{\mathcal O_{22}, \mathcal O_{46}, \mathcal O_{88}, \mathcal O_{108}\}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The $4$ exhausted-search failures are diagnosed in
+\verb|.../diagnostics/diagnose_orbit_22.md|; they are not artifacts
+of bounded depth or pruning. For example, $\mathcal O_{22}$ has
+representative $M_{22}=\{X_{1,3},X_{1,4},X_{1,7},X_{1,8},X_{4,6},
+X_{5,7}\}$ and at every depth $1\le k\le 4$ each fingerprint
+equation contains at least one cousin that is itself a Step-1
+survivor; specifically $\mathcal O_{22}$ couples directly to
+$\mathcal O_{88},\mathcal O_{96},\mathcal O_{102}$ at the
+$\mathcal Z_{3,5}$ depth-1 fingerprint $X_{3,6}/(X_{1,3}X_{1,7}
+X_{1,8}X_{5,7})$.
+
+\subsection{Cluster BFS and matrix}\label{subsec:cluster}
+
+A breadth-first traversal of the coupling graph $G_9$ starting from
+$\mathcal O_{22}$ absorbs $90$ orbits (all $4$ failures and all $15$
+timeouts among them). The remaining $23$ orbits form a separate
+connected component (or trivial components), each killed by its
+single-orbit recipe.
+
+For the $90$-orbit cluster $\mathcal C_{90}$, the depth-1 cascade
+matrix tabulates $506$ fingerprint equations against $143$ columns
+($90$ cluster orbits $+ 32$ triangulation orbits $+ 21$ non-cluster
+survivor orbits). Working over $\mathbb Q$ via \texttt{sympy}:
+
+\begin{center}\small
+\begin{tabular}{lr}
+\toprule
+quantity & value\\
+\midrule
+cluster size $|\mathcal C_{90}|$ & $90$\\
+depth-1 fingerprint equations & $506$\\
+external columns (triangulations $+$ non-cluster survivors) & $32+21=53$\\
+$\mathrm{rank}(M_{\mathrm{FP}}^{\mathcal C_{90}})$ on cluster columns & $\boldsymbol{90}$\\
+cluster residual $r=|\mathcal C_{90}|-\mathrm{rank}$ & $\boldsymbol{0}$\\
+full-system rank (cluster $+$ externals) & $140/143$\\
+full-system nullity (located in external columns) & $3$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{thm}[$n=9$ block-rule kill]\label{thm:n9}
+With externals set to their tree-amplitude values---each of the $32$
+triangulation orbits equal to a common scalar $c$ via the Step-2
+flip-graph, each of the $21$ non-cluster survivor orbits equal to
+$0$ via its single-orbit cascade---the depth-1 cascade system on
+$\mathcal C_{90}$ forces $a_{\mathcal O_i}=0$ for every
+$\mathcal O_i\in\mathcal C_{90}$. In particular, the four
+single-orbit failures
+$\mathcal O_{22},\mathcal O_{46},\mathcal O_{88},\mathcal O_{108}$
+are killed jointly with the rest of $\mathcal C_{90}$.
+\end{thm}
+
+The proof is the rank-90 calculation reported above; the trace is
+\verb|.../n9/outputs/n9_cluster_partial_results.json|. The
+$3$-dimensional full-system nullity reflects the residual freedom
+in external columns before Step-2 triangulation-equating and
+single-orbit cascades on the $21$ non-cluster orbits are imposed.
+After all auxiliary equations are added, the nullity collapses to
+$1$ (overall scaling), giving the locality theorem at $n=9$:
+$B=c\cdot A_9^{\mathrm{tree}}$.
+
+\subsection{Comparison with $n=6$}\label{subsec:compare}
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+& $n=6$ block & $n=9$ block\\
+\midrule
+cluster size $m$ & $4$ & $90$\\
+fingerprint equations & $6$ & $506$\\
+matrix rank on cluster columns & $3$ & $90$\\
+residual $r$ & $1$ & $0$\\
+anchor required? & yes (one at $X_*^{1}$) & no\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The $n=6$ cluster had \emph{barely enough} equations to determine
+itself, leaving a $1$-dimensional residual that needed an anchor
+kill. The $n=9$ cluster has a $\sim 5\!\times$ ratio of equations
+to orbits and is grossly overdetermined. The $n=6$ "anchor-needed"
+case is plausibly a low-$n$ artifact: at higher $n$ the
+fingerprint-equation count grows polynomially with cluster size,
+and the cluster matrix becomes generically full-rank.
+
+%--------------------------------------------------------------------------
+\section{Geometric interpretation}\label{sec:geom}
+%--------------------------------------------------------------------------
+
+The cascade mechanism is the algebraic shadow of a geometric
+operation. At zone $\mathcal Z_{r,r+2}$, the substitution
+$X_{r+1,k}=X_{r,k}-X_*$ encodes the \emph{ear-collapse} that
+identifies vertex $r{+}1$ with the rest of the polygon. The bare
+relation $X_{r+1,r-1}=-X_*$ is the \emph{core $4$-gon kinematic
+identity}: at $n=4$, the only chord is $X_{1,3}=-X_{2,4}$, and every
+higher-$n$ collapse uses this identity at one local cyclic position.
+
+The Laurent expansion in $1/X_*$ records the \emph{kinematic memory}
+of the collapse: each non-bare substitute $X_{r+1,k}$ remembers its
+companion $X_{r,k}$ at order $X_*^{-(j+1)}$ (coefficient
+$X_{r,k}^{j}$). Depth-$d$ thus probes the $d$-th layer of memory.
+
+A multiset $M$ killable by a depth-$d$ cascade at zone $r$ has
+$d$ chord-pairs whose crossing structure interacts with the
+$r$-vertex collapse. A multiset \emph{not} killable by any single
+zone's cascade---the cluster case---has crossings that are coupled
+across multiple cyclic orbits: configurations reachable from each
+other by a single ear-collapse move. The cluster is the connected
+component of the \emph{associahedron face graph} restricted to the
+relevant vertex-merge action.
+
+The fact that the depth-1 system on a cluster has rank
+$\ge|\mathcal C|-1$ is, geometrically, the statement that a
+connected face of the associahedron has only finitely many (and
+typically zero) "free directions" left after all hidden-zero
+constraints are imposed. The anchor kill at $n=6$ is the $1$-form
+needed to close the last degree of freedom on a small face; at
+$n=9$ the larger face is rigidified by the constraint count alone.
+
+%--------------------------------------------------------------------------
+\section{Refined Conjecture~10}\label{sec:conj}
+%--------------------------------------------------------------------------
+
+The original Conjecture~10 of the master plan stated:
+\emph{every Step-1+2 survivor orbit admits a depth-1 single-orbit
+cascade recipe}. The $n=9$ data falsifies this. The corrected
+conjecture incorporates the cluster mechanism:
+
+\begin{conj}[Block-rule cascade, refined Item~10]\label{conj:item10}
+For every $n\ge 7$ and every cluster $\mathcal C$ of Step-1+2
+survivor orbits at $n$:
+\begin{enumerate}[label=\textup{(\arabic*)}]
+\item the cluster $\mathcal C$ is finite;
+\item there exists $r=r(\mathcal C)\ge 0$ with
+$\mathrm{rank}(M_{\mathrm{FP}}^{\mathcal C})=|\mathcal C|-r$;
+\item if $r\ge 1$, the residual $r$-dimensional space is closed
+by $r$ higher-Laurent-order anchor equations, each isolating a
+distinct combination of cluster coefficients with all extra cousins
+Step-1-killable.
+\end{enumerate}
+\end{conj}
+
+\begin{cor}[Locality, conditional]\label{cor:locality}
+Conjecture~\ref{conj:item10}, together with: the Step-1
+exhaustivity of \cite[\S2]{step1stats}; the triangulation-survives-
+Step-1 lemma of \cite{tri-survives}; the Subset-Vanishing Theorem
+of \cite{subsetvan} (after notes \#11, \#18); and the Step-2
+flip-graph connectivity of the associahedron, implies
+$B|_{\mathcal Z_r}=0\;\forall r\Rightarrow B=c\cdot A_n^{\mathrm{tree}}$
+for all $n$.
+\end{cor}
+
+The conjecture is verified at $n=6,7,8,9$. At $n=6$, $r=1$ with one
+anchor; at $n=7,8$, all clusters have $|\mathcal C|=1$ and $r=0$;
+at $n=9$, the $90$-orbit cluster has $r=0$. The pattern is
+consistent with the prediction that $r\to 0$ as $n$ grows: the
+fingerprint-equation count overdetermines large clusters.
+
+%--------------------------------------------------------------------------
+\section{What remains for the proof}\label{sec:remaining}
+%--------------------------------------------------------------------------
+
+The proof shape is now complete in architecture; remaining work is:
+
+\begin{enumerate}[leftmargin=*,topsep=2pt,itemsep=2pt]
+\item \textbf{Cluster finiteness}. Every cluster is finite. Likely
+follows from finite ansatz dimension at fixed $n$, but should be
+recorded as a lemma.
+
+\item \textbf{Cluster rank lower bound}. Show
+$\mathrm{rank}(M_{\mathrm{FP}}^{\mathcal C})\ge|\mathcal C|-1$ at
+all $n$. This is the core combinatorial-geometric content. A
+generating-function approach (counting fingerprint equations vs
+cluster orbits) is plausible.
+
+\item \textbf{Anchor existence when $r=1$}. When the residual is
+$1$-dimensional (the $n=6$-style case), exhibit a higher-Laurent
+anchor that closes it. Conjectured to exist generically.
+
+\item \textbf{Step-2 flip-graph connectivity}. Show that bare-swap
+relations across zones realize the full associahedron flip graph.
+For $n\le 6$ this is standard; for general $n$ it is likely already
+in the combinatorics literature on flip graphs.
+
+\item \textbf{Subset-vanishing in the non-local cascade}. Notes
+\#11, \#18 (\cite{notes11,notes18}) prove the d-subset
+specialisation of the Subset-Vanishing Theorem rigorously, beyond
+\cite[Appx~A]{Rodina}. Generalising the d-subset framework to the
+cascade setting may yield a structural proof of (2) above.
+\end{enumerate}
+
+%--------------------------------------------------------------------------
+\section*{Files and reproducibility}
+%--------------------------------------------------------------------------
+
+\begin{itemize}[leftmargin=*]
+\item \verb|computations/step3_laurent/cascade_n9/cascade_kill_n9.py|
+--- the single-orbit cascade engine.
+\item \verb|computations/step4_laurent_block_analysis/n9/scripts/| ---
+the cluster-BFS, matrix-rank, and anchor-search scripts.
+\item \verb|computations/step4_laurent_block_analysis/n9/outputs/| ---
+\verb|n9_cluster_partial_results.json| and
+\verb|n9_failure_equations_readable.txt|.
+\item \verb|computations/step4_laurent_block_analysis/n9/diagnostics/| ---
+per-anomaly walkthroughs for orbits $22, 25, 28, 34, 35, 46, 88,
+108$.
+\end{itemize}
+
+\begin{thebibliography}{99}
+\bibitem{step1stats}
+\emph{Step-1 kill statistics and asymptotic locality.}
+Companion satellite, this repository,
+\verb|paper/step-one-kill-statistics/|.
+
+\bibitem{tri-survives}
+\emph{Triangulations are not Step-1 killable.} Companion satellite,
+this repository,
+\verb|paper/step-one-doesnt-kill-triangulations/|.
+
+\bibitem{subsetvan}
+\emph{The Subset-Vanishing Theorem: $B\equiv 0\Rightarrow
+B_i\equiv 0$.} Companion satellite, this repository,
+\verb|paper/B=0->B_i=0/|.
+
+\bibitem{cascade_n7}
+\emph{The Laurent-tail kill at $n=7$: seven layer-$0$ survivors and
+how they die.} Companion satellite, this repository,
+\verb|paper/Laurent series for hard kills/|.
+
+\bibitem{notes11}
+Handwritten note \#11, \emph{finale-d-subset-induction}, this
+repository, \verb|notes/|.
+
+\bibitem{notes18}
+Handwritten note \#18, \emph{d-subset rigorous proof}, this
+repository, \verb|notes/|.
+
+\bibitem{Rodina}
+L.~Rodina,
+\emph{Hidden zeros are equivalent to enhanced ultraviolet scaling
+and lead to unique amplitudes in $\mathrm{Tr}(\phi^3)$ theory.}
+arXiv:2406.04234, 2024.
+\end{thebibliography}
+
+\end{document}

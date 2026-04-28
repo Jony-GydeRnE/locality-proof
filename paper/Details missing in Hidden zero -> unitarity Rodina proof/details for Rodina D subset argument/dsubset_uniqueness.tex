@@ -1,0 +1,170 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[expansion=false]{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=blue!50!black,
+  urlcolor=blue!50!black
+}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem*{remark}{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Tr}{\mathrm{Tr}}
+
+\title{D-Subsets Have Equal Coefficients: Filling in Rodina's Argument\thanks{Section draft, intended as \S4 of the rewritten \emph{Locality and Unitarity of $\Tr(\phi^3)$ Tree Amplitudes from Hidden Zeros}.}}
+\author{Jony}
+\date{April 2026}
+
+\begin{document}
+\maketitle
+
+\setcounter{section}{4}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+
+\section*{Section 4 --- D-Subsets Have Equal Coefficients}
+
+\noindent
+The proof of $\Tr(\phi^3)$ uniqueness in \cite[``Tr$(\phi^3)$ subset zeros and uniqueness'']{Rodina} runs through D-subsets: collections of $n$-point diagrams obtained by attaching leg 1 in every valid way to a fixed $(n-1)$-point diagram. The argument has two key claims. The first --- that each D-subset satisfies the 1-zero on its own (eqs.~(20)--(21)) --- is rigorous as stated. The second --- that within each D-subset \emph{all coefficients are equal} (eq.~(22)) --- is established only by example, illustrated for $k=2$ at $n=6$.
+
+This section fills in the second claim for arbitrary $k$ and $n$. The argument is a single induction on adjacent pairs: for each pair of consecutive diagrams in a D-subset, two simultaneous limits isolate the pair and the master substitution $X_{2,j} = X_{1,j} - X_{1,3}$ from the 1-zero collapses the residual identity to $\alpha_j = \alpha_{j+1}$. Chaining gives the proposition.
+
+\subsection{Setup: D-subsets as fixed-$\beta$ slices of $B_i$}
+
+By the subset-vanishing theorem of \S3, the BCFW homogeneity partition commutes with the zero condition: writing $B = \sum_i B_i$, each $B_i$ separately satisfies $B_i|_{Z_1} = 0$. Splitting variables as $x = (\text{boundary props})$ and $y = (\text{everything else})$, expand
+\[
+B_i(x,y) \;=\; \sum_{\substack{\beta\\|\beta|=(n-3)-i}}\;\sum_{\substack{\alpha\\|\alpha|=i}} \frac{a_{\alpha\beta}}{x^\alpha\,y^\beta}.
+\]
+Since $\ell(x) = 0$ does not depend on $y$, each fixed-$\beta$ piece must vanish on $Z_1$ on its own. \emph{This fixed-$\beta$ piece is the D-subset:}
+\[
+S_\beta \;=\; \sum_{\substack{\alpha\\|\alpha|=i}} \frac{a_{\alpha\beta}}{x^\alpha\,y^\beta}, \qquad S_\beta\big|_{Z_1} \;=\; 0.
+\]
+
+\paragraph{Geometric reading.} The boundary propagators are the planar chords containing leg 1: chords of the form $X_{1,\ell}$ (separating leg 1 from one side of the diagram) and $X_{2,\ell}$ (separating legs 1 and 2 from the rest). A D-subset with $k$ boundary propagators contains $k+1$ diagrams, one for each way to insert leg 1 into the corresponding $(n-1)$-point skeleton. Writing the relevant indices in increasing order
+\[
+3 \;=\; \ell_0 \,<\, \ell_1 \,<\, \cdots \,<\, \ell_{k-1} \,<\, \ell_k \;=\; n,
+\]
+with $\ell_1, \dots, \ell_{k-1} \in \{4, \dots, n-1\}$ arbitrary, the $i$-th diagram (for $i = 0, 1, \dots, k$) has rational form
+\[
+\frac{1}{X_{1,\ell_0}\,X_{1,\ell_1}\cdots X_{1,\ell_{i-1}}\,\cdot\,X_{2,\ell_{i+1}}\,X_{2,\ell_{i+2}}\cdots X_{2,\ell_k}},
+\]
+with empty products understood as $1$. (Note $X_{1,\ell_0} = X_{1,3}$ and $X_{2,\ell_k} = X_{2,n}$.)
+
+\begin{proposition}[D-subset uniqueness]\label{prop:Dsubset}
+Let $S$ be a D-subset with $k \geq 1$ boundary propagators and coefficients $\alpha_0, \alpha_1, \dots, \alpha_k$. If $S|_{Z_1} = 0$, then $\alpha_0 = \alpha_1 = \cdots = \alpha_k$.
+\end{proposition}
+
+\subsection{Worked cases}
+
+We illustrate the argument for $k=1$ and $k=2$ before stating it in general; both are special cases of the general induction step that follows.
+
+\paragraph{$k = 1$.} Two diagrams. Common denominator gives
+\[
+S \;\propto\; \frac{\alpha_1}{X_{1,3}} + \frac{\alpha_2}{X_{2,n}} \;=\; \frac{\alpha_1\,X_{2,n} + \alpha_2\,X_{1,3}}{X_{1,3}\,X_{2,n}}.
+\]
+On $Z_1$, the master substitution gives $X_{2,n} = X_{1,n} - X_{1,3} = -X_{1,3}$ (since $X_{1,n} = 0$ as an external leg). Substituting,
+\[
+0 \;=\; \alpha_1 X_{2,n} + \alpha_2 X_{1,3} \;=\; (-\alpha_1 + \alpha_2)\,X_{1,3} \quad\Longrightarrow\quad \alpha_1 = \alpha_2.
+\]
+
+\paragraph{$k = 2$.} Three diagrams, parameterized by an internal index $\ell_1 \in \{4, \dots, n-1\}$. Common denominator,
+\begin{equation}\label{eq:k2num}
+0 \;\propto\; \alpha_1\,X_{2,\ell_1}X_{2,n} \;+\; \alpha_2\,X_{1,3}X_{2,n} \;+\; \alpha_3\,X_{1,3}X_{1,\ell_1} \quad\text{on } Z_1.
+\end{equation}
+On $Z_1$ the free variables are $X_{1,3}$ and $X_{1,\ell_1}$; the remaining boundary props are determined by $X_{2,\ell_1} = X_{1,\ell_1} - X_{1,3}$ and $X_{2,n} = -X_{1,3}$. Take two limits in turn:
+
+\smallskip
+\noindent\emph{Limit $X_{1,\ell_1} \to 0$.} Then $X_{2,\ell_1} \to -X_{1,3}$ and the $\alpha_3$ term vanishes (it has $X_{1,\ell_1}$ as an explicit factor). What remains:
+\[
+0 \;=\; \alpha_1(-X_{1,3})(-X_{1,3}) + \alpha_2 X_{1,3}(-X_{1,3}) \;=\; (\alpha_1 - \alpha_2)\,X_{1,3}^2 \;\Longrightarrow\; \alpha_1 = \alpha_2.
+\]
+
+\smallskip
+\noindent\emph{Limit $X_{2,\ell_1} \to 0$ (i.e.\ $X_{1,\ell_1} \to X_{1,3}$).} Now the $\alpha_1$ term vanishes. What remains:
+\[
+0 \;=\; \alpha_2 X_{1,3}(-X_{1,3}) + \alpha_3 X_{1,3}\cdot X_{1,3} \;=\; (-\alpha_2 + \alpha_3)\,X_{1,3}^2 \;\Longrightarrow\; \alpha_2 = \alpha_3.
+\]
+
+\noindent
+This is exactly Rodina's eq.~(22). The mechanism is: each limit kills all but two of the three terms, and the master substitution turns the remainder into a single linear relation $\propto (\alpha_a - \alpha_b)\,X_{1,3}^2$.
+
+\subsection{General $k$: the induction step}
+
+\paragraph{Numerator after clearing.}
+Multiply $S$ through by the common denominator $\bigl(\prod_{a=0}^{k-1} X_{1,\ell_a}\bigr)\bigl(\prod_{b=1}^{k} X_{2,\ell_b}\bigr)$. The $i$-th term has its $X_{1,\ell_a}$ factors for $a = 0, \dots, i-1$ in the denominator, so clearing leaves the \emph{remaining} factors in the numerator. The numerator that must vanish on $Z_1$ is
+\begin{equation}\label{eq:Nsum}
+\mathcal{N} \;=\; \sum_{i=0}^{k} \alpha_i \,\Bigl(\prod_{a=i}^{k-1} X_{1,\ell_a}\Bigr) \Bigl(\prod_{b=1}^{i} X_{2,\ell_b}\Bigr) \;=\; 0.
+\end{equation}
+
+\paragraph{Two simultaneous limits.}
+For each $j \in \{0, 1, \dots, k-1\}$, take the joint limit
+\[
+X_{1,\ell_{j+1}} \;\to\; 0, \qquad X_{2,\ell_j} \;\to\; 0.
+\]
+On $Z_1$, $X_{2,\ell_j} = X_{1,\ell_j} - X_{1,3}$, so the second limit is achieved by $X_{1,\ell_j} \to X_{1,3}$, a free specialization. Both limits are legal.
+
+Examine which terms of \eqref{eq:Nsum} vanish: the $i$-th term has first product $\prod_{a=i}^{k-1} X_{1,\ell_a}$ and second product $\prod_{b=1}^{i} X_{2,\ell_b}$.
+\begin{itemize}
+  \item The first product contains the vanishing $X_{1,\ell_{j+1}}$ as a factor when $i \leq j+1 \leq k-1$, in which case the term picks up at least one factor of $X_{1,\ell_{j+1}} \to 0$.
+  \item The second product contains the vanishing $X_{2,\ell_j}$ as a factor when $1 \leq j \leq i$, in which case the term picks up at least one factor of $X_{2,\ell_j} \to 0$.
+\end{itemize}
+
+For $i \leq j-1$: only the first condition fires (one factor of $X_{1,\ell_{j+1}}$). The term is $O(X_{1,\ell_{j+1}})$ in the joint limit.
+For $i \geq j+2$: only the second condition fires (one factor of $X_{2,\ell_j}$). The term is $O(X_{2,\ell_j})$.
+For $i \in \{j, j+1\}$: \emph{both} conditions fire (one factor of each). The term is $O(X_{1,\ell_{j+1}} X_{2,\ell_j})$.
+
+So the leading-order content of \eqref{eq:Nsum} in the joint limit at the rate $O(X_{1,\ell_{j+1}})$ is
+\begin{equation}\label{eq:rateN1}
+\sum_{i \leq j-1} \alpha_i \,\Bigl(\prod_{a=i}^{k-1} X_{1,\ell_a}\Bigr) \Bigl(\prod_{b=1}^{i} X_{2,\ell_b}\Bigr) \;=\; 0,
+\end{equation}
+and at the rate $O(X_{2,\ell_j})$ is
+\begin{equation}\label{eq:rateN2}
+\sum_{i \geq j+2} \alpha_i \,\Bigl(\prod_{a=i}^{k-1} X_{1,\ell_a}\Bigr) \Bigl(\prod_{b=1}^{i} X_{2,\ell_b}\Bigr) \;=\; 0.
+\end{equation}
+These are independent identities (corresponding to different orders of vanishing) and they are inductively redundant for the pairs $j-1$ and $j+1$. The new content of the joint limit $j$ is the cross-term at rate $O(X_{1,\ell_{j+1}} X_{2,\ell_j})$, which is the sum of the $i = j$ and $i = j+1$ terms:
+\begin{equation}\label{eq:cross}
+\alpha_j \,\Bigl(\prod_{a=j}^{k-1} X_{1,\ell_a}\Bigr) \Bigl(\prod_{b=1}^{j} X_{2,\ell_b}\Bigr) \;+\; \alpha_{j+1} \Bigl(\prod_{a=j+1}^{k-1} X_{1,\ell_a}\Bigr) \Bigl(\prod_{b=1}^{j+1} X_{2,\ell_b}\Bigr) \;=\; 0.
+\end{equation}
+
+\paragraph{Reducing the cross-term.} Pull out the common factor $\bigl(\prod_{a=j+1}^{k-1} X_{1,\ell_a}\bigr)\bigl(\prod_{b=1}^{j} X_{2,\ell_b}\bigr)$, leaving
+\[
+\alpha_j \, X_{1,\ell_j} \;+\; \alpha_{j+1}\, X_{2,\ell_{j+1}} \;=\; 0.
+\]
+Under the limit, $X_{1,\ell_j} \to X_{1,3}$ (from $X_{2,\ell_j} \to 0$) and $X_{2,\ell_{j+1}} = X_{1,\ell_{j+1}} - X_{1,3} \to -X_{1,3}$ (from $X_{1,\ell_{j+1}} \to 0$). Substituting,
+\[
+\alpha_j\, X_{1,3} \;+\; \alpha_{j+1}\,(-X_{1,3}) \;=\; (\alpha_j - \alpha_{j+1})\,X_{1,3} \;=\; 0 \;\Longrightarrow\; \alpha_j = \alpha_{j+1}.
+\]
+
+\paragraph{Boundary cases $j=0$ and $j=k-1$.} The argument above assumed $1 \leq j \leq k-2$ so that both vanishing variables $X_{1,\ell_{j+1}}$ and $X_{2,\ell_j}$ are interior. For $j = 0$, take $X_{1,\ell_1} \to 0$ alone (the other ``limit'' $X_{2,\ell_0} \to 0$ is automatic since $\ell_0 = 3$ and $X_{2,3}$ is degenerate). The cross-term reduces to $\alpha_0\,X_{1,\ell_0} + \alpha_1\,X_{2,\ell_1} = 0$, which under the limit gives $\alpha_0 X_{1,3} - \alpha_1 X_{1,3} = 0$, hence $\alpha_0 = \alpha_1$. Symmetrically for $j = k-1$, take $X_{2,\ell_{k-1}} \to 0$ alone, giving $\alpha_{k-1} = \alpha_k$.
+
+\paragraph{Chaining.} Applying the result to each $j \in \{0, 1, \dots, k-1\}$:
+\[
+\alpha_0 \;=\; \alpha_1 \;=\; \alpha_2 \;=\; \cdots \;=\; \alpha_k. \qquad\square
+\]
+
+\subsection{What this fills in vs.\ Rodina}
+
+Rodina's eq.~(22) gives the $k=2, n=6$ case explicitly and asserts ``the whole process can be carried out for each D-subset.'' The induction above makes that assertion precise. The mechanism is uniform across $k$: for each adjacent pair $(\alpha_j, \alpha_{j+1})$ in any D-subset of any size, the simultaneous limit $X_{1,\ell_{j+1}}, X_{2,\ell_j} \to 0$ on $Z_1$ isolates exactly those two coefficients in the cross-term \eqref{eq:cross}, and the master substitution collapses the residue to $(\alpha_j - \alpha_{j+1}) X_{1,3} = 0$.
+
+The argument never invokes residue cuts at non-boundary propagators (Rodina's eq.~(21)); those cuts are an independent argument, used to establish that each D-subset satisfies the zero on its own. Here we are proving uniqueness within an already-vanishing D-subset, and the limit-on-boundary-chords mechanism above is what does the work.
+
+Combined with Rodina's graph-connectivity argument (a leg-removal induction on $n$, rigorous as stated in his ``Amplitude uniqueness'' paragraph), Proposition~\ref{prop:Dsubset} closes the uniqueness theorem for $\Tr(\phi^3)$.
+
+\begin{thebibliography}{9}
+\bibitem{Rodina} L.~Rodina, ``Hidden zeros are equivalent to enhanced ultraviolet scaling and lead to unique amplitudes in $\Tr(\phi^3)$ theory,'' arXiv:2406.04234.
+\end{thebibliography}
+
+\end{document}
