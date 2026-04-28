@@ -2,7 +2,7 @@
   "n": 9,
   "orbits_total": 78,
   "completed": 113,
-  "successes": 94,
+  "successes": 95,
   "failures": [
     [
       [
@@ -310,32 +310,6 @@
       [
         5,
         7
-      ],
-      [
-        7,
-        9
-      ]
-    ],
-    [
-      [
-        1,
-        3
-      ],
-      [
-        1,
-        4
-      ],
-      [
-        4,
-        6
-      ],
-      [
-        4,
-        9
-      ],
-      [
-        6,
-        8
       ],
       [
         7,
@@ -3766,9 +3740,24 @@
         2,
         5
       ],
-      "elapsed_s": 600.0198471546173,
-      "timed_out": true,
-      "recipe_found": false
+      "elapsed_s": 224.4,
+      "timed_out": false,
+      "recipe_found": true,
+      "zone_r": 5,
+      "order_k": 3,
+      "substitute_U": [
+        6,
+        8
+      ],
+      "companion_Y_U": [
+        5,
+        8
+      ],
+      "Y_U_in_M_rep": false,
+      "fingerprint": "X_5_8/(X_1_3*X_1_4*X_4_9*X_7_9)",
+      "fish_scalar": 1,
+      "n_cousins": 7,
+      "verified_by": "diagnose_anomalies.py at extended budget"
     },
     {
       "orbit_id": 69,
