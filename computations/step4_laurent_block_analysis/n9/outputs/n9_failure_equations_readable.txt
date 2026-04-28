@@ -1,0 +1,118 @@
+==============================================================================
+Reduced (survivor-only) depth-1 fingerprint equations
+for the 4 genuine n=9 cascade-failure orbits.
+Step-1-killable cousins have been dropped (they contribute 0).
+==============================================================================
+
+------------------------------------------------------------------------------
+Orbit 22  M_rep = ((1, 3), (1, 4), (1, 7), (1, 8), (4, 6), (5, 7))  V_missed = [2, 9]
+------------------------------------------------------------------------------
+
+  Z_{3,5}  fp = X_3_6/(X_1_3*X_1_7*X_1_8*X_5_7)
+    0 = a_{O22} + a_{O88} - a_{O96} - a_{O102}
+    (3 survivor-cousins out of 7 total cousins; the rest are step-1-killable.)
+
+  Z_{3,5}  fp = 1/(X_1_7*X_1_8*X_5_7)
+    0 = -a_{O21} + a_{O22} + a_{O113} + a_raw((1, 3), (1, 4), (1, 7), (1, 8), (4, 7), (5, 7))
+    (5 survivor-cousins out of 123 total cousins; the rest are step-1-killable.)
+
+  Z_{4,6}  fp = X_4_7/(X_1_3*X_1_4*X_1_7*X_1_8)
+    0 = a_{O21} - a_{O22} + a_raw((1, 3), (1, 4), (1, 5), (1, 7), (1, 8), (5, 7)) - a_raw((1, 3), (1, 4), (1, 7), (1, 8), (4, 7), (5, 7))
+    (3 survivor-cousins out of 7 total cousins; the rest are step-1-killable.)
+
+  Z_{6,8}  fp = X_1_6/(X_1_3*X_1_4*X_1_8*X_4_6)
+    0 = a_{O22} - a_{O23} - a_raw((1, 3), (1, 4), (1, 6), (1, 7), (1, 8), (4, 6)) + a_raw((1, 3), (1, 4), (1, 7), (1, 8), (4, 6), (4, 7))
+    (3 survivor-cousins out of 7 total cousins; the rest are step-1-killable.)
+
+  Z_{7,9}  fp = 1/(X_1_3*X_1_4*X_4_6*X_5_7)
+    0 = -a_{O22} + a_{O44} + a_{O45} - a_{O46}
+    (3 survivor-cousins out of 32 total cousins; the rest are step-1-killable.)
+
+  Z_{3,5}  fp = X_3_6/(X_1_7*X_1_8*X_5_7)
+    0 = a_{O22} - a_{O90}
+    (1 survivor-cousins out of 39 total cousins; the rest are step-1-killable.)
+
+------------------------------------------------------------------------------
+Orbit 46  M_rep = ((1, 3), (1, 4), (1, 8), (4, 6), (5, 7), (7, 9))  V_missed = [2]
+------------------------------------------------------------------------------
+
+  Z_{3,5}  fp = X_3_6/(X_1_3*X_1_8*X_5_7*X_7_9)
+    0 = a_{O46} - a_{O104} + a_{O108} - a_{O110}
+    (3 survivor-cousins out of 7 total cousins; the rest are step-1-killable.)
+
+  Z_{3,5}  fp = 1/(X_1_8*X_5_7*X_7_9)
+    0 = -a_{O37} + a_{O46} + a_{O53} + a_{O111}
+    (5 survivor-cousins out of 123 total cousins; the rest are step-1-killable.)
+
+  Z_{4,6}  fp = X_4_7/(X_1_3*X_1_4*X_1_8*X_7_9)
+    0 = a_{O17} + a_{O37} - a_{O46} - a_{O53}
+    (3 survivor-cousins out of 7 total cousins; the rest are step-1-killable.)
+
+  Z_{6,8}  fp = X_6_9/(X_1_3*X_1_4*X_1_8*X_4_6)
+    0 = a_{O25} + a_{O46} - a_{O49} - a_{O50}
+    (3 survivor-cousins out of 7 total cousins; the rest are step-1-killable.)
+
+  Z_{7,9}  fp = X_1_7/(X_1_3*X_1_4*X_4_6*X_5_7)
+    0 = -a_{O22} + a_{O44} + a_{O45} - a_{O46}
+    (3 survivor-cousins out of 7 total cousins; the rest are step-1-killable.)
+
+  Z_{3,5}  fp = X_3_6/(X_1_8*X_5_7*X_7_9)
+    0 = a_{O46} - a_{O88}
+    (1 survivor-cousins out of 39 total cousins; the rest are step-1-killable.)
+
+  Z_{9,2}  fp = X_3_9*X_4_9/(X_4_6*X_5_7*X_7_9)
+    0 = -a_{O25} - a_{O46} + a_{O56} + a_{O63}
+    (4 survivor-cousins out of 8 total cousins; the rest are step-1-killable.)
+
+------------------------------------------------------------------------------
+Orbit 88  M_rep = ((1, 3), (1, 7), (1, 8), (2, 4), (4, 6), (5, 7))  V_missed = [9]
+------------------------------------------------------------------------------
+
+  Z_{1,3}  fp = X_1_4/(X_1_7*X_1_8*X_4_6*X_5_7)
+    0 = a_{O64} + a_{O83} - a_{O88} - a_{O90}
+    (4 survivor-cousins out of 7 total cousins; the rest are step-1-killable.)
+
+  Z_{3,5}  fp = X_3_6/(X_1_3*X_1_7*X_1_8*X_5_7)
+    0 = a_{O22} + a_{O88} - a_{O96} - a_{O102}
+    (3 survivor-cousins out of 7 total cousins; the rest are step-1-killable.)
+
+  Z_{4,6}  fp = X_4_7/(X_1_3*X_1_7*X_1_8*X_2_4)
+    0 = a_{O58} + a_{O87} - a_{O88} - a_{O90}
+    (3 survivor-cousins out of 7 total cousins; the rest are step-1-killable.)
+
+  Z_{6,8}  fp = X_1_6/(X_1_3*X_1_8*X_2_4*X_4_6)
+    0 = a_{O53} - a_{O76} + a_{O88} - a_{O89}
+    (3 survivor-cousins out of 7 total cousins; the rest are step-1-killable.)
+
+  Z_{7,9}  fp = 1/(X_1_3*X_2_4*X_4_6*X_5_7)
+    0 = a_{O57} - a_{O88} + a_{O105} - a_{O108}
+    (3 survivor-cousins out of 32 total cousins; the rest are step-1-killable.)
+
+  Z_{9,2}  fp = X_3_9*X_7_9/(X_2_4*X_4_6*X_5_7)
+    0 = a_{O46} - a_{O88}
+    (1 survivor-cousins out of 8 total cousins; the rest are step-1-killable.)
+
+------------------------------------------------------------------------------
+Orbit 108  M_rep = ((1, 3), (1, 8), (2, 4), (4, 6), (5, 7), (7, 9))  V_missed = []
+------------------------------------------------------------------------------
+
+  Z_{1,3}  fp = X_1_4/(X_1_8*X_4_6*X_5_7*X_7_9)
+    0 = a_{O57} - a_{O88} + a_{O105} - a_{O108}
+    (3 survivor-cousins out of 7 total cousins; the rest are step-1-killable.)
+
+  Z_{3,5}  fp = X_3_6/(X_1_3*X_1_8*X_5_7*X_7_9)
+    0 = a_{O46} - a_{O104} + a_{O108} - a_{O110}
+    (3 survivor-cousins out of 7 total cousins; the rest are step-1-killable.)
+
+  Z_{4,6}  fp = X_4_7/(X_1_3*X_1_8*X_2_4*X_7_9)
+    0 = a_{O57} - a_{O88} + a_{O105} - a_{O108}
+    (3 survivor-cousins out of 7 total cousins; the rest are step-1-killable.)
+
+  Z_{6,8}  fp = X_6_9/(X_1_3*X_1_8*X_2_4*X_4_6)
+    0 = a_{O46} - a_{O104} + a_{O108} - a_{O110}
+    (3 survivor-cousins out of 7 total cousins; the rest are step-1-killable.)
+
+  Z_{7,9}  fp = X_1_7/(X_1_3*X_2_4*X_4_6*X_5_7)
+    0 = a_{O57} - a_{O88} + a_{O105} - a_{O108}
+    (3 survivor-cousins out of 7 total cousins; the rest are step-1-killable.)
+
