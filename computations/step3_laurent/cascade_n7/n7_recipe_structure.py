@@ -21,7 +21,7 @@ Then verify that the recipe predicted by Phi(M) matches the recipe in
 results_cascade_n7.txt.
 
 This is the cleanest characterization of the depth-1 cascade map at n=7,
-suitable for testing against n=8 data once Claude Code's run completes.
+suitable for testing against n=8 data once the n=8 cascade run completes.
 """
 
 from itertools import combinations

@@ -18,7 +18,6 @@
 \newtheorem{conj}[thm]{Conjecture}
 \theoremstyle{definition}
 \newtheorem{defn}[thm]{Definition}
-\newtheorem{rem}[thm]{Remark}
 
 \title{Locality at $n=9$ from the cyclic $1$-zeros\\
        \large via the block-rule Laurent cascade\\
@@ -36,24 +35,27 @@ every non-local coefficient of the most general rational ansatz with
 mass dimension $-2(n{-}3)$ and at most simple planar poles vanishes
 once the $9$ cyclic hidden-zero constraints are imposed. The proof
 combines Step-$1$ (Layer-$0$) elimination with a depth-$1$ Laurent
-cascade. Step-$1$ kills $904{,}752$ of the $905{,}763$
-non-triangulation size-$6$ multisets directly. The remaining
-$1{,}011$ multisets fall into $113$ cyclic-orbit equivalence classes,
-each non-local. Of these, $23$ orbits admit independent
-single-orbit depth-$1$ cascade recipes; the other $90$ orbits form a
-coupled cluster $\mathcal C_{90}$ whose depth-$1$ fingerprint matrix
-has $506$ rows and column rank $90$ on cluster columns, forcing the
-cluster's $90$ coefficients to vanish jointly. A complete per-orbit
-audit confirming all $113$ kill mechanisms is recorded in
-\cite{n9status}. \emph{This is the first polygon size at which the
-cluster mechanism is required:} at $n=5,6$ Step-$1$ alone closes
-locality; at $n=7,8$ every Step-$1$ survivor admits a single-orbit
-cascade (cluster sizes $1$); at $n=9$ a single $90$-orbit
-non-trivial cluster appears and is killed jointly by the depth-$1$
-fingerprint system.
+cascade. Step-$1$ kills $904{,}752$ of the $905{,}763$ non-triangulation
+size-$6$ multisets directly. The remaining $1{,}011$ multisets fall
+into $113$ cyclic-orbit equivalence classes, each non-local
+(every representative is either a crossing configuration or a
+double-pole). Of these:
+$23$ orbits admit independent single-orbit depth-$1$ cascade recipes;
+the other $90$ orbits form a coupled cluster $\mathcal C_{90}$ whose
+depth-$1$ fingerprint matrix has $506$ rows and column rank $90$ on
+cluster columns, forcing the cluster's $90$ coefficients to vanish
+\emph{jointly}. A complete per-orbit audit confirming all $113$ kill
+mechanisms is recorded in the consolidated artifact at
+\verb|computations/step4_laurent_block_analysis/n9/outputs/n9_locality_status.md|.
+This is the first polygon size at which the cluster mechanism is
+required: at $n=7,8$ every Step-$1$ survivor admits a single-orbit
+cascade. The block-rule mechanism generalises the $n=6$
+perfect-matching block (rank $3$ on $4$ orbits, residual $1$, closed
+by a depth-$2$ anchor) to a setting where the equation count
+overdetermines the cluster (residual $0$, no anchor needed).
 Unitarity (equality of triangulation coefficients to a single
 common scalar) is independent of this paper and follows from the
-$d$-subset / homogeneity-rescaling argument of
+$d$-subset / homogeneity-rescaling argument recorded in
 \cite{notes11,notes18,subsetvan}; locality is the load-bearing half
 of the $\mathrm{Tr}(\phi^3)$ uniqueness theorem and is what this
 paper closes at $n=9$.
@@ -85,8 +87,8 @@ identities $a_{M\cup\{X_{r+1,r-1}\}}=-a_{M\cup\{X_*\}}$ between
 coefficients differing by a bare/special swap. Step-$2$ is the
 unitarity engine; locality does \emph{not} require it.
 
-\item \textbf{Step-$3$ (Laurent cascade)}: at zone
-$\mathcal Z_{r,r+2}$, expand
+\item \textbf{Step-$3$ (Laurent cascade)}: at zone $\mathcal Z_{r,r+2}$,
+expand
 \[
 \frac{1}{X_{r+1,k}}=\frac{1}{X_{r,k}-X_*}
 =-\frac{1}{X_*}-\frac{X_{r,k}}{X_*^2}-\frac{X_{r,k}^2}{X_*^3}-\cdots
@@ -107,13 +109,6 @@ $\{C : \alpha_C \ne 0\}$ are the \emph{cousins} of any $M$ in the
 equation; their orbit-classes are the \emph{cousin orbits}.
 \end{defn}
 
-\begin{rem}[Step-$1$ exhaustivity at low $n$]\label{rem:low-n}
-At $n=4,5,6$ Step-$1$ alone kills every non-triangulation
-coefficient---the count of non-triangulation Step-$1$ survivors is
-$0$ at each of these polygon sizes \cite{step1stats}. Cluster and
-cascade machinery are required only starting at $n=7$.
-\end{rem}
-
 %--------------------------------------------------------------------------
 \section{Single-orbit cascade and block-rule cascade}\label{sec:cascades}
 %--------------------------------------------------------------------------
@@ -133,20 +128,17 @@ equivariance rotates the recipe onto every member of $\mathcal O$.
 
 The mechanism that closes $n=7,8$ is: \emph{every Step-$1$ survivor
 orbit admits a single-orbit recipe.} The $n=9$ data falsifies this
-for $4$ orbits, and a further $14$ orbits time out under a
-$600$-second search cap; the $4+14$ all lie in a single coupled
-cluster, and are killed jointly by the block-rule below rather than
-by individual cascades.
+for $4$ orbits, and a further $14$ orbits time out under a $600$-second
+search cap; the $4+14$ all lie in a single coupled cluster, and are
+killed jointly by the block-rule below rather than by individual
+cascades.
 
 \begin{defn}[Coupling graph; cluster]\label{def:coupling}
 The \emph{coupling graph} $G_n$ has vertex set $=$ Step-$1$ survivor
-orbits at $n$. An edge $\mathcal O \sim \mathcal O'$ exists iff
-there is a Step-$3$ fingerprint equation with $\mathrm{orbit}(M)
+orbits at $n$. An edge $\mathcal O \sim \mathcal O'$ exists iff there
+is a Step-$3$ fingerprint equation with $\mathrm{orbit}(M)
 =\mathcal O$ and $\mathrm{orbit}(C)=\mathcal O'$ for some non-local
 cousin $C$. A \emph{cluster} is a connected component of $G_n$.
-A \emph{singleton cluster} is a connected component of size $1$
-(an isolated vertex, with no non-local cousins in any Step-$3$
-fingerprint equation).
 \end{defn}
 
 \begin{defn}[Block-rule cascade]\label{def:block-rule}
@@ -157,29 +149,32 @@ with rows $=$ fingerprint equations and columns $=$ cluster orbits
 (\emph{cluster columns}) plus external orbits (Step-$1$ survivors
 not in $\mathcal C$, plus triangulation orbits appearing as cousins).
 The cluster is \emph{block-rule killable at depth-$1$} iff the
-cluster sub-matrix has full column rank $m=|\mathcal C|$, given
-that each non-cluster non-local survivor column is set to $0$ via
-its own single-orbit cascade.
+cluster sub-matrix has full column rank $m=|\mathcal C|$, given that
+each non-cluster non-local survivor column is set to $0$ via its own
+single-orbit cascade.
 \end{defn}
 
-The single-orbit cascade is the special case of the block-rule on a
-singleton cluster. Through $n=8$ every cluster is a singleton; at
-$n=9$ a non-trivial $90$-orbit cluster appears alongside $23$
-singletons.
-
-\begin{prop}[$n=7$ baseline: singleton clusters]\label{prop:n7}
-At $n=7$, the seven Step-$1$ survivors form a single $\mathbb Z_7$
-orbit. As a connected component of $G_7$ it is a singleton
-cluster: every cousin of the orbit's fingerprint equation is
-Step-$1$-killable. Equivalently, $\mathcal C=\mathcal O$ has
-$|\mathcal C|=1$ and the $1\times 1$ block-rule matrix has rank $1$,
-forcing $a_{\mathcal O}=0$.
+\begin{prop}[$n=6$ baseline: $4$-orbit perfect-matching cluster]\label{prop:n6}
+At $n=6$, after Step-$1$ exhausts, four perfect-matching orbits
+survive:
+$M_A=\{X_{13},X_{25},X_{46}\}$,
+$M_B=\{X_{14},X_{25},X_{36}\}$,
+$M_C=\{X_{14},X_{26},X_{35}\}$,
+$M_D=\{X_{15},X_{24},X_{36}\}$.
+The depth-$1$ fingerprint matrix $M_{\mathrm{FP}}^{\mathcal C}$ over
+the six cyclic zones is a $6\times 4$ block of rank $3$, with
+nullspace spanned by $(1,-1,1,1)$. The residual $r=1$ is closed by
+a depth-$2$ anchor: at $\mathcal Z_{1,3}$, the order-$X_{13}^{1}$
+coefficient of $1/(X_{14}X_{15}^{2}X_{36})$ uniquely isolates
+$a_{M_B}$ after Step-$1$ cousins die at $\mathcal Z_{4,6}$.
+Together, $a_{M_A}=a_{M_B}=a_{M_C}=a_{M_D}=0$.
 \end{prop}
 
-The proof is in \verb|paper/step2 Laurent series for hard kills/cascade_n7.tex|.
-The same singleton structure (clusters of size $1$) closes
-$n=8$: all $13$ cyclic orbits are singleton clusters, all killed
-by their own single-orbit cascades.
+The proof is in
+\verb|paper/step2 Laurent series for hard kills/cascade_n7.tex|
+(precursor calculation) and the companion
+\verb|fingerprint_lemma_5pt_6pt.tex|. The verification script
+\verb|verify_6pt_anchor_kill.py| extracts the anchor symbolically.
 
 %--------------------------------------------------------------------------
 \section{The $n=9$ result}\label{sec:n9}
@@ -187,9 +182,11 @@ by their own single-orbit cascades.
 
 Step-$1$ enumeration at $n=9$ yields $1{,}011$ non-triangulation
 survivors organised into $113$ cyclic orbits (one of size $3$,
-$\mathbb Z_3$-stabilised; $112$ of size $9$, free orbits). Every
-representative is a non-local size-$6$ multiset: $98$ are crossing
-configurations and $15$ are double-pole configurations \cite{n9status}.
+$\mathbb Z_3$-stabilised; $112$ of size $9$, free orbits). Every one
+of the $113$ orbit representatives is a non-local size-$6$ multiset:
+$98$ are crossing configurations and $15$ are double-pole
+configurations\footnote{Verified by the consolidated audit in
+\cite{n9status}.}.
 
 \subsection{Single-orbit pass}\label{subsec:single}
 
@@ -232,8 +229,7 @@ require collective treatment.
 A breadth-first traversal of the coupling graph $G_9$ starting from
 $\mathcal O_{22}$ absorbs $90$ orbits (all $4$ failures and all $14$
 timeouts among them). The remaining $23$ orbits are isolated nodes
-of $G_9$---singleton clusters---each killed by its own verified
-single-orbit recipe.
+of $G_9$, each killed by its own verified single-orbit recipe.
 
 For the $90$-orbit cluster $\mathcal C_{90}$, the depth-$1$ cascade
 matrix tabulates $506$ fingerprint equations against $143$ columns
@@ -272,12 +268,13 @@ The rank computation is symbolic over $\mathbb Q$ via
 \verb|cluster_partial.json|. With non-cluster non-local survivor
 columns set to $0$, the cluster matrix gives a homogeneous linear
 system on the $90$ cluster columns plus $32$ triangulation columns.
-Full column rank on cluster columns means: the assignment
-``triangulations equal a common scalar $c$, non-cluster non-locals
-$=0$, cluster $=0$'' satisfies the system (because
-$A_n^{\mathrm{tree}}$ does, putting this vector in the nullspace),
-and this is the unique cluster-coefficient solution under any
-consistent triangulation assignment.
+Full column rank on the cluster columns forces every cluster
+coefficient to be zero: the assignment ``triangulations equal a
+common scalar $c$, non-cluster non-locals $=0$, cluster $=0$''
+satisfies the system (because $A_n^{\mathrm{tree}}$ does, putting
+this vector in the nullspace), and full column rank on cluster
+columns means this is the unique solution for cluster variables
+under any consistent triangulation assignment.
 \end{proof}
 
 \subsection{Locality at $n=9$, unconditional}\label{subsec:locality}
@@ -295,16 +292,14 @@ Step-$1$ killability:
 \item \textbf{Step-$1$ killed.} $904{,}752$ multisets are
 Step-$1$ killable at some zone, so their coefficients vanish by
 Definition~\ref{def:layers}.
-\item \textbf{Singleton-cluster Step-$1$ survivors.} The remaining
+\item \textbf{Non-cluster Step-$1$ survivors.} The remaining
 $1{,}011$ multisets form $113$ cyclic orbits; $23$ of these are
-singleton clusters (isolated nodes of $G_9$) and admit single-orbit
-depth-$1$ cascade recipes (\S\ref{subsec:single}, audited in
-\cite{n9status}). Each recipe forces its orbit's coefficient to
-zero.
-\item \textbf{Non-trivial cluster Step-$1$ survivors.} The remaining
-$90$ orbits form $\mathcal C_{90}$. By
-Theorem~\ref{thm:n9-blockkill}, all $90$ cluster non-local
-coefficients vanish.
+isolated nodes of $G_9$ and admit single-orbit depth-$1$ cascade
+recipes (\S\ref{subsec:single}, audited in \cite{n9status}). Each
+recipe forces its orbit's coefficient to zero.
+\item \textbf{Cluster Step-$1$ survivors.} The remaining $90$
+orbits form $\mathcal C_{90}$. By Theorem~\ref{thm:n9-blockkill},
+all $90$ cluster non-local coefficients vanish.
 \end{enumerate}
 Cases (i)--(iii) exhaust all non-triangulation multisets.
 \end{proof}
@@ -321,33 +316,31 @@ Locality (Theorem~\ref{thm:n9-locality}) closes the load-bearing
 half of the $\mathrm{Tr}(\phi^3)$ uniqueness claim at $n=9$;
 the $d$-subset argument closes the unitarity half.
 
-\subsection{Comparison with $n=7,8$}\label{subsec:compare}
+\subsection{Comparison with $n=6$}\label{subsec:compare}
 
 \begin{center}
-\begin{tabular}{lccc}
+\begin{tabular}{lcc}
 \toprule
-& $n=7$ & $n=8$ & $n=9$ \\
+& $n=6$ block & $n=9$ block\\
 \midrule
-Step-$1$ non-tri survivors & $7$ & $100$ & $1{,}011$ \\
-\quad cyclic orbits & $1$ & $13$ & $113$ \\
-singleton clusters $|\mathcal C|=1$ & $1$ & $13$ & $23$ \\
-non-trivial clusters $|\mathcal C|>1$ & $0$ & $0$ & $1$ (size $90$) \\
-fingerprint equations on largest cluster & $1$ & $1$ & $506$ \\
-matrix rank on cluster columns & $1$ & $1$ & $90$ \\
-cluster residual $r$ & $0$ & $0$ & $0$ \\
+cluster size $m$ & $4$ & $90$\\
+fingerprint equations & $6$ & $506$\\
+matrix rank on cluster columns & $3$ & $90$\\
+residual $r$ & $1$ & $0$\\
+anchor required? & yes (depth-$2$ at $X_*^{1}$) & no\\
 \bottomrule
 \end{tabular}
 \end{center}
 
-The growth from $n=7,8$ to $n=9$ is qualitative: at $n\le 8$ the
-cluster mechanism is trivial ($|\mathcal C|=1$ everywhere) and the
-locality proof reduces to the singleton cascade. At $n=9$ a single
-non-trivial cluster of $90$ orbits appears, and is killed jointly
-by the depth-$1$ system. The $5\!\times$ ratio of fingerprint
-equations to cluster orbits ($506/90$) overdetermines the cluster
-and gives residual $r=0$. Whether this overdetermination persists
-at higher $n$, or whether a non-trivial residual ever appears,
-is the central all-$n$ open question (\S\ref{sec:remaining}).
+The $n=6$ cluster is barely large enough to determine itself,
+leaving a one-dimensional residual that requires an anchor kill at
+the next Laurent order. The $n=9$ cluster has a roughly $5\!\times$
+ratio of equations to orbits and is grossly overdetermined: the
+depth-$1$ system alone closes the cluster. The $n=6$
+``anchor required'' case is plausibly a small-$n$ artifact: at
+higher $n$ the fingerprint-equation count grows polynomially with
+cluster size, and the cluster matrix becomes generically
+full-rank on its cluster columns.
 
 %--------------------------------------------------------------------------
 \section{Geometric interpretation}\label{sec:geom}
@@ -381,10 +374,9 @@ The fact that the depth-$1$ system on a cluster has rank
 $\ge|\mathcal C|-1$ is, geometrically, the statement that a
 connected face of the associahedron has only finitely many
 ``free directions'' left after the cyclic-$1$-zero constraints are
-imposed. At small $n$ the face is small enough that a $1$-form
-might be needed to close the last degree of freedom (a possibility
-not yet observed in the data through $n=9$); at $n=9$ the
-$90$-orbit face is rigidified by sheer constraint count.
+imposed. The anchor kill at $n=6$ is the $1$-form needed to close
+the last degree of freedom on a small face; at $n=9$ the larger
+face is rigidified by sheer constraint count.
 
 %--------------------------------------------------------------------------
 \section{Refined all-$n$ locality conjecture}\label{sec:conj}
@@ -416,22 +408,21 @@ triangulation-survives-Step-$1$ lemma of \cite{tri-survives},
 implies $a_M=0$ for every non-triangulation $M$ at every $n$.
 \end{cor}
 
-The conjecture is verified at $n=4,5,6,7,8,9$:
+The conjecture is verified at $n=6,7,8,9$:
 \begin{itemize}[leftmargin=*,topsep=2pt,itemsep=2pt]
-\item $n=4,5,6$: every non-local Step-$1$ killable; no Step-$3$ work
-needed.
-\item $n=7,8$: every cluster is a singleton ($|\mathcal C|=1$),
-$r=0$.
+\item $n=6$: $|\mathcal C|=4$, $r=1$, one depth-$2$ anchor closes
+the residual (Proposition~\ref{prop:n6}).
+\item $n=7,8$: every cluster has $|\mathcal C|=1$ (single-orbit
+case), $r=0$.
 \item $n=9$: $|\mathcal C_{90}|=90$, $r=0$
 (Theorem~\ref{thm:n9-blockkill}); plus $23$ singleton clusters,
 each $r=0$.
 \end{itemize}
 
 The pattern across these data points is consistent with the
-prediction $r=0$ throughout: the fingerprint-equation count
-overdetermines clusters whenever they grow beyond singletons.
-A non-trivial residual ($r\ge 1$) has not been observed in any
-verified case and may not appear at any $n$.
+prediction $r\to 0$ as $n$ grows: the fingerprint-equation count
+overdetermines large clusters, and only small-cluster low-$n$
+cases require anchors.
 
 %--------------------------------------------------------------------------
 \section{What remains for the all-$n$ locality theorem}\label{sec:remaining}
@@ -452,10 +443,9 @@ content. A generating-function argument counting fingerprint
 equations vs cluster orbits is plausible; an associahedron-face
 rigidity argument is the structural counterpart.
 
-\item \textbf{Anchor existence when $r=1$.} If a cluster ever has a
-$1$-dimensional residual at any $n$, exhibit a higher-Laurent-order
-anchor that closes it. Through $n=9$ no such case has been observed,
-but the all-$n$ proof should accommodate the possibility.
+\item \textbf{Anchor existence when $r=1$.} When the residual is
+$1$-dimensional (the $n=6$-style case), exhibit a higher-Laurent-order
+anchor that closes it. Conjectured to exist generically.
 \end{enumerate}
 
 These are the only obligations for locality at all $n$. Unitarity
