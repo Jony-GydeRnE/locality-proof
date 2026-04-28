@@ -26,7 +26,9 @@ import re
 import sys
 
 LOG = sys.argv[1] if len(sys.argv) > 1 else None
-JSON_PATH = "/Users/jonthanvalenzuela/Desktop/Rodina-locality-proof/computations/step3_laurent/cascade_n9/results_cascade_n9_reps.json"
+_HERE = os.path.dirname(os.path.abspath(__file__))
+JSON_PATH = os.path.normpath(os.path.join(
+    _HERE, "..", "outputs", "results_cascade_n9_reps.json"))
 
 
 def parse_log(log_path):

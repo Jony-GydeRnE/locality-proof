@@ -240,18 +240,41 @@ The updated dependency chain is:
 
 ## 7. Contributing
 
-If you write code for this repo (verifier scripts, enumerators, symbolic
-checks, figure generators), please follow these conventions so that
-mathematicians and physicists can read the code without prior Python
-fluency, and so that programmers can read it without prior knowledge of
-the proof:
+### The non-negotiable rule
+
+**If you produce experimental results that inform the research
+direction of this proof, the code that produced them AND the
+result files MUST land in this repo, in a folder under
+[`computations/`](computations/).** No load-bearing claim about
+locality, kill rates, cascade depth, cluster rank, etc. is
+allowed in the paper or in any working note unless a reader can
+go to a folder under `computations/` and find:
+
+- the script that produced it (well commented per the rules below),
+- the raw output (`.txt` / `.json` / `.md`) the script wrote,
+- a README explaining what was tested, how long it took, what command
+  ran, what the result means mathematically, and what remains unknown.
+
+This is so that a mathematician who can't read code, but knows the
+proof, can still verify *what was actually computed* by reading the
+README and the result files. And so that another contributor (or a
+future you) can re-run any experiment without having to reconstruct
+the setup.
+
+### Code style for the scripts themselves
+
+If you write code for this repo (verifier scripts, enumerators,
+symbolic checks, figure generators), follow these conventions so
+that mathematicians and physicists can read the code without prior
+Python fluency, and so that programmers can read it without prior
+knowledge of the proof:
 
 1. **Every function has a docstring with two parts:**
    - *LOGIC* — what algorithm is implemented (in CS / Python terms).
    - *PHYSICS / MATHEMATICS* — what the algorithm computes in the
      language of the proof (chords, zones, kill mechanism, etc.).
-   See `computations/step3_laurent/cascade_n8/cascade_kill_n8.py` for
-   the canonical example.
+   See `computations/step4_laurent_block_analysis/n8/scripts/cascade_kill_n8.py`
+   for the canonical example.
 2. **Every script has a top-of-file block comment** stating its purpose,
    the conjecture it tests, the inputs/outputs, and any conventions that
    differ from the rest of the repo. If conventions are shared with
@@ -264,6 +287,10 @@ the proof:
    to, max number of survivors to check, etc.) is named and commented.
 5. **If the script prints results, also write them to a text file** so
    they are reviewable without re-running.
+6. **Push the code and the results together.** Don't push a paper claim
+   like "all 100 survivors die" without simultaneously pushing the
+   verifier and its trace; don't push a verifier without its
+   results; don't put either of them outside `computations/`.
 
 The goal is that any working physicist or mathematician who knows the
 proof but has never seen this codebase should be able to open any script

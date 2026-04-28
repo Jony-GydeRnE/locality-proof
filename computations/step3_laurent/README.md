@@ -19,6 +19,12 @@ at one *neighbouring* zone. Substituting those zeros isolates the fish.
 | [`cascade_n7/`](cascade_n7/) | Symbolic verification of the depth-1 cascade kill for all seven $n=7$ fish. Reproduces the fingerprint equation, identifies the kill zone for each cousin, and confirms the equation collapses to $a_M = 0$ for every fish. Output trace in `results_cascade_n7.txt`. |
 
 The same shape (one Laurent step deeper at one zone, prerequisites all
-of Layer-0 type at one neighbouring zone) is conjectured to handle every
-Step-1 survivor at $n \ge 8$ as well; this is the next experiment to
-extend.
+of Layer-0 type at one neighbouring zone) does handle every $n=8$
+step-1 survivor (100/100 verified). At $n=9$ singleton-cascade fails
+for 4 out of 113 orbit reps, but the **block-rule** Laurent kill —
+the depth-1 fingerprint matrix on the coupled cluster of failures —
+still forces every cluster orbit to zero (rank 90 = full, nullity 0).
+
+The full $n=8$ and $n=9$ Laurent work, including the cluster matrix
+analysis, lives in
+[`../step4_laurent_block_analysis/`](../step4_laurent_block_analysis/).

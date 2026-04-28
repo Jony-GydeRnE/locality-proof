@@ -59,7 +59,9 @@ from itertools import combinations_with_replacement, product
 import sympy as sp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-N8_DIR = os.path.normpath(os.path.join(HERE, "..", "cascade_n8"))
+OUT_DIR = os.path.normpath(os.path.join(HERE, "..", "outputs"))
+DIAG_DIR = os.path.normpath(os.path.join(HERE, "..", "diagnostics"))
+N8_DIR = os.path.normpath(os.path.join(HERE, "..", "..", "n8", "scripts"))
 sys.path.insert(0, N8_DIR)
 
 from cascade_kill_n8 import (  # noqa: E402
@@ -502,7 +504,7 @@ def main():
         sys.exit(1)
     orbit_ids = [int(x) for x in sys.argv[1:]]
 
-    with open(os.path.join(HERE, "orbits_n9.json")) as f:
+    with open(os.path.join(OUT_DIR, "orbits_n9.json")) as f:
         manifest = json.load(f)
     by_id = {o["orbit_id"]: o for o in manifest["orbits"]}
 
@@ -511,7 +513,7 @@ def main():
         if oid not in by_id:
             print(f"Orbit {oid} not in manifest.")
             continue
-        out_path = os.path.join(HERE, f"diagnose_orbit_{oid}.md")
+        out_path = os.path.join(DIAG_DIR, f"diagnose_orbit_{oid}.md")
         rec = diagnose_one(oid, by_id[oid]["representative"],
                             n=9, max_depth=4, pool_cap=10000,
                             out_path=out_path)
@@ -527,7 +529,7 @@ def main():
         summary_lines.append(f"| {r['orbit_id']} | "
                              f"{d if d is not None else '—'} | "
                              f"{r['n_recipes']} |")
-    with open(os.path.join(HERE, "anomaly_summary.md"), "w") as f:
+    with open(os.path.join(HERE, "..", "anomaly_summary.md"), "w") as f:
         f.write("\n".join(summary_lines) + "\n")
     print("Wrote anomaly_summary.md.")
 

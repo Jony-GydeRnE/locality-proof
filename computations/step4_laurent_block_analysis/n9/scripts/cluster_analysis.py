@@ -59,7 +59,9 @@ from itertools import combinations_with_replacement
 import sympy as sp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-N8_DIR = os.path.normpath(os.path.join(HERE, "..", "cascade_n8"))
+OUT_DIR = os.path.normpath(os.path.join(HERE, "..", "outputs"))
+DIAG_DIR = os.path.normpath(os.path.join(HERE, "..", "diagnostics"))
+N8_DIR = os.path.normpath(os.path.join(HERE, "..", "..", "n8", "scripts"))
 sys.path.insert(0, N8_DIR)
 
 from cascade_kill_n8 import (  # noqa: E402
@@ -83,7 +85,7 @@ N = 9
 def load_orbit_manifest(path=None):
     """Load orbits_n9.json and return rep_to_id, id_to_record."""
     if path is None:
-        path = os.path.join(HERE, "orbits_n9.json")
+        path = os.path.join(OUT_DIR, "orbits_n9.json")
     with open(path) as f:
         d = json.load(f)
     rep_to_id = {}
@@ -443,9 +445,9 @@ def main(start_orbit_id=22, output_json=None, output_md=None):
         "anchors": anchors,
     }
     if output_json is None:
-        output_json = os.path.join(HERE, f"cluster_{start_orbit_id}.json")
+        output_json = os.path.join(OUT_DIR, f"cluster_{start_orbit_id}.json")
     if output_md is None:
-        output_md = os.path.join(HERE, f"cluster_{start_orbit_id}_summary.md")
+        output_md = os.path.join(HERE, "..", f"cluster_{start_orbit_id}_summary.md")
     with open(output_json, "w") as f:
         json.dump(out, f, indent=2, default=str)
 

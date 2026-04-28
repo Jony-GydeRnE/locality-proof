@@ -37,7 +37,9 @@ import time
 import sympy as sp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-N8_DIR = os.path.normpath(os.path.join(HERE, "..", "cascade_n8"))
+OUT_DIR = os.path.normpath(os.path.join(HERE, "..", "outputs"))
+DIAG_DIR = os.path.normpath(os.path.join(HERE, "..", "diagnostics"))
+N8_DIR = os.path.normpath(os.path.join(HERE, "..", "..", "n8", "scripts"))
 sys.path.insert(0, N8_DIR)
 
 from cascade_kill_n8 import (  # noqa: E402
@@ -167,7 +169,7 @@ def build_partial_matrix(cluster_ids, rep_to_id, id_to_rec, n=9,
                 "n_cluster": n_cluster,
                 "n_external": len(external_columns),
             }
-            with open(os.path.join(HERE, "cluster_partial_progress.json"),
+            with open(os.path.join(OUT_DIR, "cluster_partial_progress.json"),
                       "w") as f:
                 json.dump(partial, f)
 
@@ -278,8 +280,8 @@ def main():
                 print(f"    orbit {oid}: coef = {val}")
 
     # Save outputs.
-    out_json = os.path.join(HERE, "cluster_partial.json")
-    out_md = os.path.join(HERE, "cluster_partial.md")
+    out_json = os.path.join(OUT_DIR, "cluster_partial.json")
+    out_md = os.path.join(OUT_DIR, "cluster_partial.md")
     out_data = {
         "n_cluster_orbits": info["n_cluster"],
         "n_external_columns": info["n_external"],

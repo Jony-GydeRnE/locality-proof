@@ -48,7 +48,9 @@ from collections import defaultdict
 # Pull machinery from the cascade_n8 folder.  These functions are all
 # parametric in n.
 HERE = os.path.dirname(os.path.abspath(__file__))
-N8_DIR = os.path.normpath(os.path.join(HERE, "..", "cascade_n8"))
+OUT_DIR = os.path.normpath(os.path.join(HERE, "..", "outputs"))
+DIAG_DIR = os.path.normpath(os.path.join(HERE, "..", "diagnostics"))
+N8_DIR = os.path.normpath(os.path.join(HERE, "..", "..", "n8", "scripts"))
 sys.path.insert(0, N8_DIR)
 
 from cascade_kill_n8 import (  # noqa: E402
@@ -200,8 +202,8 @@ def main():
     print(f"  {len(orbits)} orbits, size distribution: "
           f"{dict((sz, sum(1 for v in orbits.values() if len(v) == sz)) for sz in sizes)}")
 
-    out_json = os.path.join(HERE, "orbits_n9.json")
-    out_md   = os.path.join(HERE, "orbits_n9.md")
+    out_json = os.path.join(OUT_DIR, "orbits_n9.json")
+    out_md   = os.path.join(OUT_DIR, "orbits_n9.md")
     write_outputs(orbits, n, out_json, out_md)
     print(f"Wrote {out_json} and {out_md}.")
 
