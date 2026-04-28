@@ -14,7 +14,7 @@ conjecture.
 
 ## 📌 Pinned brief overview
 
-For a quick read: six concrete deliverables, with paper + code/output
+For a quick read: five concrete deliverables, with paper + code/output
 pointers, all derived from the cyclic 1-zero conditions of Rodina,
 arXiv:2406.04234. **Every claim below is backed by a verifiable file
 in this repo.**
@@ -50,18 +50,7 @@ in this repo.**
    proof needs, ruling out both the special-in-$T$ and substitute-
    without-companion cases. → `paper/step1 Kill technique and statistics/step-one-doesnt-kill-triangulations/triangulation_layer0.pdf`.
 
-5. **Step-2 unitarity engine (flip-graph).** The bare/special swap
-   identities induce a flip graph on the Catalan triangulations. At
-   $n \le 8$ the graph is connected and all triangulation
-   coefficients collapse to one common value. At $n = 9$ the graph
-   has 16 components, of which 12 are bridged by cluster-matrix
-   external columns; the remaining 4 (chord-length signature
-   `(2,2,3,3,4,4)`, fan-class) are a *unitarity* question handled by
-   the d-subset paper, not a locality gap.
-   → `computations/step2_equate/flip_graph_n9/` and
-   `paper/Details missing in Hidden zero -> unitarity Rodina proof/details for Rodina D subset argument/`.
-
-6. **Full nullspace verification.** At $n = 5, 6, 7$, the complete
+5. **Full nullspace verification.** At $n = 5, 6, 7$, the complete
    constraint system has nullspace dimension exactly 1, spanned by
    $A_n^{\text{tree}}$. SVD gap $> 13$ orders of magnitude. →
    `computations/full_nullspace_verification/`.
@@ -162,13 +151,11 @@ fast with $n$ (Item 4).
 | 6 | 129 / 151 killed | ✓ remaining 22 die by cyclic Step 2 | ✓ | **dim 1 (verified)** |
 | 7 | 7 fish escape | 7 fish still escape | ✓ all 7 die by Laurent cascade | **dim 1 (verified)** |
 | 8 | 100 escape | … | ✓ **all 100 die by depth-1 Laurent cascade** | — |
-| 9 | 1 011 escape (out of 906 192 non-tri multisets) | 16 Step-2 components on 49 triangulation orbits; 12 bridged by cluster externals, 4 fan-class components are a *unitarity* question handled by d-subset | **all 1 011 survivors die: 23 single-orbit depth-1 cascades + 90-orbit block-rule cluster (rank 90, nullity 0)** | — |
+| 9 | 1 011 escape (out of 906 192 non-tri multisets) | not relevant for locality at this $n$ (unitarity handled separately by d-subset) | **all 1 011 survivors die: 23 single-orbit depth-1 cascades + 90-orbit block-rule cluster (rank 90, nullity 0)** | — |
 
 > **Bottom line: locality is proven at $n \le 9$ from the cyclic 1-zeros
-> alone.** Unitarity is proven at $n \le 8$ via Step-2's flip-graph
-> (connected at every $n \le 8$); at $n = 9$ four flip-graph components
-> remain not-yet-bridged by Step-2 alone, and equating their
-> triangulation $c$-values is handled by the d-subset paper in
+> alone.** Unitarity (all triangulation coefficients equal one common
+> scalar) is handled separately by the d-subset paper in
 > `paper/Details missing in Hidden zero -> unitarity Rodina proof/details for Rodina D subset argument/`.
 
 At $n = 9$ Step 1 alone already kills **99.888%** of all non-triangulation
