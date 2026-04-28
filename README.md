@@ -45,15 +45,15 @@ in this repo.**
    → `computations/step3_laurent/` (n=7), `computations/step4_laurent_block_analysis/n8/` (n=8),
    `.../n9/` (n=9, with the consolidated artifact `outputs/n9_locality_status.md`).
 
-4. **Triangulation survival lemma.** Step 1 *never* accidentally kills
-   a triangulation at any zone — strictly stronger than what the
-   proof needs, ruling out both the special-in-$T$ and substitute-
-   without-companion cases. → `paper/step1 Kill technique and statistics/step-one-doesnt-kill-triangulations/triangulation_layer0.pdf`.
-
-5. **Full nullspace verification.** At $n = 5, 6, 7$, the complete
+4. **Full nullspace verification.** At $n = 5, 6, 7$, the complete
    constraint system has nullspace dimension exactly 1, spanned by
    $A_n^{\text{tree}}$. SVD gap $> 13$ orders of magnitude. →
    `computations/full_nullspace_verification/`.
+
+5. **Triangulation survival lemma.** Step 1 *never* accidentally kills
+   a triangulation at any zone — strictly stronger than what the
+   proof needs, ruling out both the special-in-$T$ and substitute-
+   without-companion cases. → `paper/step1 Kill technique and statistics/step-one-doesnt-kill-triangulations/triangulation_layer0.pdf`.
 
 The status table below (§3) gives the same picture in tabular form,
 and the guided tour (§4) walks through how to read the repo end-to-end.
