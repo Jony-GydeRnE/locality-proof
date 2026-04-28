@@ -12,6 +12,65 @@ conjecture.
 
 ---
 
+## 📌 Pinned brief overview
+
+For a quick read: six concrete deliverables, with paper + code/output
+pointers, all derived from the cyclic 1-zero conditions of Rodina,
+arXiv:2406.04234. **Every claim below is backed by a verifiable file
+in this repo.**
+
+1. **Rewritten foundational lemmas.** Self-contained rigorous proofs of
+   $B|_{\mathcal Z_r}=0 \Rightarrow B_i|_{\mathcal Z_r}=0$ (homogeneity
+   decomposition) and the d-subset uniqueness argument that Rodina's
+   paper leaves implicit. → `paper/Details missing in Hidden zero -> unitarity Rodina proof/`
+   (subfolders `Proof of Rodina claim B=0->B_i = 0/subset_vanishing.pdf`
+   and `details for Rodina D subset argument/dsubset_uniqueness.pdf`).
+
+2. **Locality emergence at $n = 4, 5, 6$ by hand, no BCFW.** A direct
+   Laurent expansion at each cyclic 1-zero plus an "enclosed-vertex
+   kill" + "companion isolation" forces every non-local coefficient
+   to vanish. → `paper/step1 Kill technique and statistics/locality_unitarity_v5.pdf`.
+
+3. **Computational framework through $n = 9$.** Python scripts
+   enumerate all chord multisets, apply the kill mechanism at every
+   zone, and identify survivors. Headline numbers:
+   - $n=5, 6$: 100% of non-local terms killed by Step 1 alone.
+   - $n=7$: 7 "fish" survive Step 1; all die via depth-1 Laurent cascade.
+   - $n=8$: 100/100 survivors die via depth-1 Laurent cascade.
+   - **$n=9$ (906 192 multisets): Step 1 kills 99.888% of non-locals;
+     the 1 011 remaining survivors organise into a 90-orbit cluster
+     whose depth-1 fingerprint matrix has rank $90 / $ nullity $0$.
+     Combined with 23 single-orbit cascades, locality at $n=9$ is
+     fully proven from the 1-zeros.**
+   → `computations/step3_laurent/` (n=7), `computations/step4_laurent_block_analysis/n8/` (n=8),
+   `.../n9/` (n=9, with the consolidated artifact `outputs/n9_locality_status.md`).
+
+4. **Triangulation survival lemma.** Step 1 *never* accidentally kills
+   a triangulation at any zone — strictly stronger than what the
+   proof needs, ruling out both the special-in-$T$ and substitute-
+   without-companion cases. → `paper/step1 Kill technique and statistics/step-one-doesnt-kill-triangulations/triangulation_layer0.pdf`.
+
+5. **Step-2 unitarity engine (flip-graph).** The bare/special swap
+   identities induce a flip graph on the Catalan triangulations. At
+   $n \le 8$ the graph is connected and all triangulation
+   coefficients collapse to one common value. At $n = 9$ the graph
+   has 16 components, of which 12 are bridged by cluster-matrix
+   external columns; the remaining 4 (chord-length signature
+   `(2,2,3,3,4,4)`, fan-class) are a *unitarity* question handled by
+   the d-subset paper, not a locality gap.
+   → `computations/step2_equate/flip_graph_n9/` and
+   `paper/Details missing in Hidden zero -> unitarity Rodina proof/details for Rodina D subset argument/`.
+
+6. **Full nullspace verification.** At $n = 5, 6, 7$, the complete
+   constraint system has nullspace dimension exactly 1, spanned by
+   $A_n^{\text{tree}}$. SVD gap $> 13$ orders of magnitude. →
+   `computations/full_nullspace_verification/`.
+
+The status table below (§3) gives the same picture in tabular form,
+and the guided tour (§4) walks through how to read the repo end-to-end.
+
+---
+
 ## 1. The problem we want to prove
 
 Label the legs of an n-point amplitude cyclically by 1,…,n. Write the
@@ -103,9 +162,16 @@ fast with $n$ (Item 4).
 | 6 | 129 / 151 killed | ✓ remaining 22 die by cyclic Step 2 | ✓ | **dim 1 (verified)** |
 | 7 | 7 fish escape | 7 fish still escape | ✓ all 7 die by Laurent cascade | **dim 1 (verified)** |
 | 8 | 100 escape | … | ✓ **all 100 die by depth-1 Laurent cascade** | — |
-| 9 | 1 011 escape (out of 906 192) | … | conjectured, not yet checked | — |
+| 9 | 1 011 escape (out of 906 192 non-tri multisets) | 16 Step-2 components on 49 triangulation orbits; 12 bridged by cluster externals, 4 fan-class components are a *unitarity* question handled by d-subset | **all 1 011 survivors die: 23 single-orbit depth-1 cascades + 90-orbit block-rule cluster (rank 90, nullity 0)** | — |
 
-At $n = 9$ Step 1 alone already kills **99.889%** of all non-triangulation
+> **Bottom line: locality is proven at $n \le 9$ from the cyclic 1-zeros
+> alone.** Unitarity is proven at $n \le 8$ via Step-2's flip-graph
+> (connected at every $n \le 8$); at $n = 9$ four flip-graph components
+> remain not-yet-bridged by Step-2 alone, and equating their
+> triangulation $c$-values is handled by the d-subset paper in
+> `paper/Details missing in Hidden zero -> unitarity Rodina proof/details for Rodina D subset argument/`.
+
+At $n = 9$ Step 1 alone already kills **99.888%** of all non-triangulation
 multisets. The hope is to prove the survivor fraction drops to $0$ fast as
 $n$ grows, and that the residual "hard kills" can be handled uniformly by
 the Laurent cascade.

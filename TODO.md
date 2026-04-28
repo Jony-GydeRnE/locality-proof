@@ -21,12 +21,12 @@ Last touched: 2026-04-28.
   `paper/step3 block rule/step3_block_rule_n9_REVISED.{tex,pdf}` and the
   matching README `step3_block_rule_README_REVISED.md`.
 
-## Pending — big repo reorganization (Notion `📋 Claude Code Prompt`)
+## Pending — big repo reorganization (see Notion master plan)
 
 **Skipped this session intentionally.** A future session can execute
-this if/when the user wants. The Notion page
-`📋 Claude Code Prompt: Locality-Proof Repo Reorganization (5 Changes)`
-under the master plan dashboard has the full spec. Summary:
+this if/when the user wants. The Notion page titled
+`Locality-Proof Repo Reorganization (5 Changes)` under the master
+plan dashboard has the full spec. Summary:
 
 1. **Merge `paper/` and `computations/` into unified `stepN-…/` folders**,
    each with `paper/`, `code/`, `outputs/` subfolders. Top-level layout:
