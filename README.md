@@ -72,7 +72,7 @@ be the most general rational function of mass dimension $-2(n-3)$ with
 at most simple poles on planar invariants ($w$ runs over size-$(n-3)$
 multisets of chord indices). Define the cyclic hidden 1-zero locus
 
-$$\mathcal{Z}_r \;:=\; \bigl\{c_{r,r+2}=c_{r,r+3}=\dots=c_{r,r+n-2}=0\bigr\},$$
+$$\mathcal{Z}_r \;:=\; \{c_{r,r+2}=c_{r,r+3}=\dots=c_{r,r+n-2}=0\},$$
 
 the codimension-$(n-3)$ subspace where the $n-3$ non-planar Mandelstams
 incident to vertex $r$ vanish. Rodina (arXiv:2406.04234) proved that the
