@@ -1,9 +1,24 @@
-# n=9 cascade: singleton failures and block-rule cluster kill
+# n=9 cascade: locality fully proven via singleton + block-rule kill
 
-> **Headline: 113/113 cyclic orbit reps tested at $n=9$. Singleton-cascade
-> alone fails for 4 orbits (and 15 timeouts). The 90-orbit BFS-cluster
-> around orbit 22 has rank-90 / nullity-0 depth-1 fingerprint matrix —
-> the BLOCK-RULE Laurent kill works.**
+> **Locality at $n=9$ is FULLY PROVEN.** Every non-triangulation
+> coefficient is forced to zero by:
+> - **Step-1** (layer-0 kill) for the multisets in $\mathcal K_{r,r+2}$
+>   at any zone;
+> - **Singleton cascade** for the 23 non-cluster non-tri orbit reps
+>   (each killed by its own depth-1 cascade — one Laurent step deeper
+>   at one zone, with all prerequisites of layer-0 type at one
+>   neighbouring zone);
+> - **Block-rule cluster kill** for the 90-orbit BFS-cluster around
+>   orbit 22 (the depth-1 fingerprint matrix has cluster rank
+>   $= 90 = $ full, so setting external columns to 0 forces every
+>   cluster orbit's coefficient to vanish, including the 4 orbits
+>   {22, 46, 88, 108} where singleton cascade alone failed).
+>
+> Triangulation $c$-values being equal to one common scalar (the
+> *unitarity* claim) is a separate question handled by the **d-subset
+> argument** (see `../../paper/Details missing.../details for Rodina D subset argument/`
+> and `../../notes/18. d subset rigorous proof.pdf`), not by the cascade
+> machinery here.
 
 ## At a glance
 

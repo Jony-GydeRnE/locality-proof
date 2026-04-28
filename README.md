@@ -245,12 +245,12 @@ Rodina-locality-proof/
 | 7 | Conditional theorem: # survivors $= C_{n-2}$ | reduces to Item 10 |
 | 8 | Worked examples at $n = 5, 6$ | done — `paper/step1 Kill technique and statistics/locality_unitarity_v5.pdf` |
 | 9 | Undergraduate guide derived from the notes | in progress; `geometric_story.pdf` is the seed |
-| 10 | Per-orbit depth-1 Laurent cascade closes all Step-1 survivors | **refined**; singleton verified at $n=7,8$; at $n=9$ generalises to BLOCK-RULE (cluster rank = full on the 90-orbit cluster) |
-| 11 | Step-2 flip-graph connectivity at $n=9$ bridges all triangulation orbits | **partially open** — Step-2 alone gives 16 components on 49 orbits; cluster matrix bridges 12 of them; 4 components remain untouched |
+| 10 | Per-orbit depth-1 Laurent cascade closes all Step-1 survivors | **refined**; singleton verified at $n=7,8$; at $n=9$ generalises to BLOCK-RULE (cluster rank = full on the 90-orbit cluster). **Locality at $n=9$ is fully proven** (Step-1 + 23 single-orbit cascades + block-rule cluster kill ⟹ every non-triangulation coefficient is zero). |
+| 11 | Triangulation $c$-values collapse to a single common scalar at $n \ge 9$ (UNITARITY) | handled separately by the **d-subset argument** in `paper/Details missing.../details for Rodina D subset argument/` and `notes/18.` — independent of the cascade machinery. (An earlier flip-graph framing of this question turned out to be a misframing — the 4 "untouched" Step-2 components at $n=9$ are triangulation components, which are LOCAL terms that should survive Step-1 by design, not be killed.) |
 
 The updated dependency chain is:
 
-**Items 1 + 2 (closed) ⟹ Item 3 (mechanical) ⟹ Item 7 (counting) + Item 10 (block-rule cluster kill) + Item 11 (triangulation flip-graph) ⟹ locality + unitarity theorem.**
+**Items 1 + 2 (closed) ⟹ Item 3 (mechanical) ⟹ Item 10 (locality, via block-rule cluster kill) + Item 11 (unitarity, via d-subset) ⟹ locality + unitarity theorem.**
 
 ---
 

@@ -60,19 +60,26 @@ already determining.
 
 The 3-dimensional nullspace of $[A \mid B]$ corresponds to:
 
-1. **Tree-amplitude direction** — the 32 triangulation cousins together
-   carry the $A_n^{\text{tree}}$ coefficient, which is a single
-   uncategorised scalar (Step 2's flip-graph kicks in here, not Step 1).
+1. **Tree-amplitude direction** — the 32 triangulation external columns
+   carry triangulation $c$-values, which are LOCAL coefficients (not
+   killed). Whether all 32 collapse to one common scalar is the
+   *unitarity* claim, handled by the **d-subset argument** in
+   `../../paper/Details missing in Hidden zero -> unitarity Rodina proof/details for Rodina D subset argument/` and `notes/18.`,
+   not by the cascade machinery here.
 2. **Two non-cluster-survivor directions** — the 21 outside-cluster
-   step-1 survivors that BFS would have eventually pulled in if it had
-   continued. Once those are added, expect cluster nullity to still
-   stay at 0 (or pick up at most the tree direction, depending on how
-   triangulation columns combine).
+   step-1 survivors are themselves killed by their own single-orbit
+   cascades (verified separately), so their coefficients are zero.
+   These directions in the cluster-matrix nullspace evaporate once
+   those independent kills are added.
 
 The **$r = 0$ residual** is the key takeaway: the cluster as a whole is
-fully determined by the depth-1 system, so the 4 failure orbits are not
-genuinely uncaught — they're tied to the rest of the cluster through
-linear constraints that, when solved jointly, force every $a_M = 0$.
+fully determined by the depth-1 system, so the 4 singleton-cascade
+"failures" {22, 46, 88, 108} are not genuinely uncaught — they're tied
+to the rest of the cluster through linear constraints that, when solved
+jointly, force every $a_M = 0$.
+
+**Locality at $n=9$ is therefore fully proven** by Step-1 + the 23
+non-cluster cascades + the block-rule kill on the 90-orbit cluster.
 
 ## Comparison to n=6 perfect-matching cluster
 
@@ -99,22 +106,29 @@ The n=9 data refines this:
 > no individual orbit-by-orbit recipe exists.*
 
 This is consistent with the n=6 perfect-matching observation, but
-generalises naturally to large clusters. The all-$n$ proof of locality
+generalises naturally to large clusters. The all-$n$ proof of LOCALITY
 should now be framed as:
-1. Step-1 kills coefficients with $M \in \mathcal K_{r,r+2}$ at any zone.
-2. Step-2 equates triangulation coefficients via flip-graph connectivity.
-3. **Cluster step-3**: groups of step-1 survivors form coupled clusters;
-   the depth-1 fingerprint matrix on each cluster has trivial nullspace
-   (modulo external columns which are themselves killed by other clusters
-   or by step-2).
-4. Triangulation coefficients collapse to one common scalar (= the tree).
+
+1. **Step-1** kills coefficients with $M \in \mathcal K_{r,r+2}$ at any zone.
+2. **Singleton cascade** kills each non-cluster non-tri step-1 survivor
+   via its own depth-1 recipe.
+3. **Block-rule cluster kill** (the new piece): groups of step-1
+   survivors form coupled clusters; the depth-1 fingerprint matrix on
+   each cluster has trivial cluster-column nullspace, forcing every
+   cluster coefficient to zero.
+
+UNITARITY (all triangulation $c$-values equal a common scalar) is a
+SEPARATE story handled by the **d-subset argument** of
+`../../paper/Details missing in Hidden zero -> unitarity Rodina proof/details for Rodina D subset argument/`
+(see also `notes/18. d subset rigorous proof.pdf`), independent of
+the cascade machinery here.
 
 ## Next steps
 
-- Continue the BFS to absorb the 21 non-cluster survivors and verify
-  the cluster keeps $r = 0$.
-- Check whether the cluster covers ALL 113 step-1-survivor orbits
-  (likely, given the growth pattern).
-- Once full BFS converges, compare to the full $n=9$ symbolic nullspace
-  (= the equivalent of `full_ansatz_nullspace/full_ansatz_n7.py` but for
-  $n=9$) — they should agree up to the triangulation tree direction.
+The locality proof at $n = 9$ is closed (modulo the d-subset unitarity
+piece, which is established independently). Natural next questions:
+
+- Extend the cluster-matrix verification to $n = 10$ — the same
+  block-rule kill should work there.
+- Prove the all-$n$ block-rule conjecture combinatorially (currently
+  empirical at $n = 7, 8, 9$).

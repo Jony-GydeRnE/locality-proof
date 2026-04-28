@@ -21,14 +21,23 @@ This file is a one-page summary.
 
 ## Verdict
 
-> **Block-rule Laurent kill works at $n=9$.**
+> **Locality at $n=9$ is FULLY PROVEN.**
+>
+> Every non-triangulation coefficient is forced to zero by Step-1 +
+> the 23 non-cluster single-orbit cascades + the block-rule kill on
+> the 90-orbit cluster.
 
 The singleton cascade rule that closed every $n=7, 8$ survivor
-sometimes fails at $n=9$, but the depth-1 fingerprint matrix on
-the cluster around orbit 22 has trivial cluster nullspace, so the
-4 failures (and their cluster) are killed jointly.
+sometimes fails at $n=9$ (orbits 22, 46, 88, 108), but the depth-1
+fingerprint matrix on the 90-orbit cluster has trivial cluster
+nullspace, so the 4 failures and their cluster are killed jointly.
 
-## What changes for the proof
+UNITARITY (all triangulation $c$-values equal a common scalar) is a
+**separate** question, handled by the d-subset argument in
+`../../paper/Details missing in Hidden zero -> unitarity Rodina proof/details for Rodina D subset argument/`
+and `notes/18. d subset rigorous proof.pdf`.
+
+## What changes for the locality conjecture
 
 The all-$n$ conjecture (Item 10 of the master plan) was originally
 stated as *"every step-1 survivor admits its own depth-1 cascade

@@ -1,110 +1,77 @@
-# n=9 Step-2 flip-graph connectivity check
+# n=9 Step-2 flip-graph data
 
-**Backs paper §3 (Step-2 unitarity engine) and Item 7 of the master plan.**
+This folder contains the Step-2 bare/special swap data for the
+triangulations of the 9-gon, plus exploratory scripts that look at how
+the flip-graph components relate to the n=9 cluster matrix.
 
-This folder contains the verifier for whether Step-2's bare/special swap
-identities, applied to the 9-gon's triangulations, connect them into a
-single cyclic-orbit class — the property that gives unitarity at $n=9$.
+## Important framing
 
-## Headline result
+> **Locality at $n=9$ is fully proven** by the cluster matrix
+> (rank 90 = full on the 90-orbit cluster) plus the 23 non-cluster
+> single-orbit cascades plus Step-1 directly — every non-triangulation
+> coefficient at $n=9$ is forced to zero. See
+> [`../../step4_laurent_block_analysis/n9/`](../../step4_laurent_block_analysis/n9/).
+>
+> **Triangulations are LOCAL terms.** Step-2 swap data is about
+> *equating* triangulation coefficients (a unitarity question), not
+> about killing them. The 4 "untouched" Step-2 components surfaced
+> by the cluster cross-check were a misframing — they were never a
+> locality gap. Whether all triangulation $c$-values reduce to a single
+> common scalar at $n=9$ is handled by a separate **d-subset argument**
+> (see `notes/18.` and
+> `../../paper/Details missing in Hidden zero -> unitarity Rodina proof/`),
+> independent of the cascade machinery.
+
+## What's in this folder
+
+| File | What it is |
+|---|---|
+| `flip_graph_n9.py` | Verifier: enumerates 429 triangulations, computes cyclic-orbit decomposition (49 orbits), Step-2 swap edges (378 at triangulation level / 41 at orbit level), and connected components (16). |
+| `outputs/n9_triangulation_orbits.json` | 49 orbits + canonical reps + sizes. |
+| `outputs/n9_step2_bare_swap_pairs.json` | every Step-2 swap edge at triangulation level + orbit level + which zones produce it. |
+| `outputs/n9_flip_graph_connectivity.txt` | human-readable verdict, including per-component representatives. |
+| `outputs/untouched_components_readable.md` | structural data on the 4 components ({1, 3, 7, 14}) that the cluster matrix's external triangulation columns don't reach. *Used for descriptive characterization only — not a locality gap.* |
+| `diagrams/component_<id>_orbit_<id>.png` | PNG 9-gon diagrams for each orbit in those 4 components. |
+| `visualize_untouched.py` | script that produces the readable + diagram outputs. |
+| `build_bridges.py`, `find_bridge_equations.py` | exploratory scripts that searched for triangulation-bridging equations across Step-2 components. **NOT a locality test.** Kept for reference; results superseded by the d-subset argument cited above. |
+
+## Headline numbers
 
 | | Value |
 |---|---:|
 | Triangulations of the 9-gon | 429 = $C_7$ ✓ |
-| Cyclic orbits | **49** (47 of size 9, 2 of size 3) |
+| Cyclic orbits | 49 (47 of size 9, 2 of size 3) |
 | Step-2 swap edges (triangulation level) | 378 |
 | Step-2 swap edges (orbit level) | 41 |
-| **Connected components (orbit level)** | **16** |
-| Largest component | 4 orbits |
+| Connected components (orbit level) | 16 |
+| Components touched by cluster matrix's external triangulation columns | 12 |
+| Components NOT touched ("fan-class", chord-length signature (2,2,3,3,4,4)) | 4 → orbits {1, 2, 27, 45}, {4, 5, 11, 49}, {12, 13, 32, 48}, {29, 30, 33, 47} |
 
-> **Step-2 alone does NOT bridge all triangulation orbits at $n=9$.**
-> The flip graph has 16 connected components: 9 of size 4, 6 of size 2,
-> 1 of size 1.
+## Why we walked through this exploration
 
-The user's prompt expected 32 orbits and 1 component. The 32 came from a
-different count — the 32 triangulation **external columns** that appear
-in the n=9 cluster-partial matrix, which is a SUBSET of all 49 orbits.
-The actual triangulation-orbit count under Z_9 is 49.
+The cluster cross-check produced a tantalising 12-of-16 pattern, and we
+chased the question of whether depth-1 / depth-2 fingerprint equations
+could bridge the remaining 4 components into the cluster's reach. The
+honest answer (after re-reading the goal) is that **bridging
+triangulation components is a unitarity question, not a locality one**,
+and unitarity is established separately. So this folder records the
+flip-graph data and the structural observation that the 4 untouched
+components share signature `(2,2,3,3,4,4)` — interesting combinatorics
+on its own, but not a locality gap to be closed here.
 
-## Interpretation
+## Cross-references
 
-### Step-2 is not sufficient at $n=9$
-
-The bare/special swap is a single-edge move that exchanges
-$X_{r, r+2} \leftrightarrow X_{r+1, r-1}$ (which always cross, so a
-triangulation contains at most one of the two). Two triangulations are
-swap-related iff they differ by exactly one such pair at some zone. At
-$n \le 8$ the resulting flip graph is connected. **At $n=9$ it has
-16 components.**
-
-The 4 size-2-or-1 components (smaller than the typical 4-orbit size)
-are likely the rotation-stabilised triangulations: with orbit sizes 3
-and 9, certain swap moves that would normally produce length-4 cycles
-collapse onto themselves.
-
-### How the n=9 cluster matrix relates to this
-
-The 90-orbit cluster analysis at
-`../../step4_laurent_block_analysis/n9/` produced a 506-row
-fingerprint matrix with 32 triangulation external columns (out of the
-49 orbits). Cross-checking which of the 16 Step-2 components those 32
-external triangulation orbits land in:
-
-| | Count |
-|---|---:|
-| Step-2 components touched by ≥1 cluster external column | **12** |
-| Components NOT touched (cluster has no relation involving them) | **4** |
-
-So the cluster matrix can — in principle — provide *additional*
-bridging equations on the 12 touched components, beyond what Step-2
-alone gives. But **4 components are completely outside the cluster
-matrix's reach**, so they need a separate mechanism (likely some
-deeper Laurent / cluster equation, or a connection to the 21
-non-cluster step-1 survivors).
-
-### What this means for the n=9 locality theorem
-
-The story is now:
-
-| n=9 component | Mechanism | Status |
-|---|---|---|
-| Cluster orbits (90 of 113) | depth-1 fingerprint matrix, rank 90 = full | ✓ done |
-| Non-cluster non-tri survivors (23) | single-orbit depth-1 cascade | ✓ done |
-| **Triangulation orbits (49)** | **Step-2 (16 components) + cluster bridging on 12 of them** | **partially open** |
-
-The "missing" piece is bridging the remaining components into a single
-unitarity class. Possible avenues:
-- The cluster matrix rows that involve the 4 untouched components
-  may exist via deeper-Laurent fingerprints (depth-2 or higher).
-- Higher-Laurent Step-2 identities (multi-bare swaps) may merge
-  components.
-- An "anchor" orbit at higher depth that simultaneously equates two
-  different components.
-
-This is the central open question for the n=9 closure.
-
-## Files
-
-- **`flip_graph_n9.py`** — verifier script (heavily commented per repo standards).
-- **`outputs/n9_triangulation_orbits.json`** — manifest of the 49 cyclic orbits with reps.
-- **`outputs/n9_step2_bare_swap_pairs.json`** — every Step-2 swap edge at the
-  triangulation level and the orbit level, plus self-loops.
-- **`outputs/n9_flip_graph_connectivity.txt`** — human-readable verdict, including
-  per-component representatives.
+- Locality proof at $n=9$ (cluster matrix + cascades):
+  `../../step4_laurent_block_analysis/n9/cluster_findings.md`
+- Triangulation equating (unitarity via d-subset):
+  `../../../paper/Details missing in Hidden zero -> unitarity Rodina proof/details for Rodina D subset argument/`
+  and `../../../notes/18. d subset rigorous proof.pdf`
+- Step-2 conservative classes at $n=7$ (sister folder):
+  `../equivalence_classes/`
 
 ## Run
 
 ```bash
-python3 flip_graph_n9.py
+python3 flip_graph_n9.py            # the only test that's "load-bearing" here
+python3 visualize_untouched.py      # generates readable + PNG diagrams
 ```
-
-Runs in ~1 second on a laptop.
-
-## Cross-references
-
-- Cluster analysis at $n=9$:
-  `../../step4_laurent_block_analysis/n9/cluster_findings.md`
-- Step-2 conservative classes at $n=7$ (sister folder):
-  `../equivalence_classes/`
-- Master plan Item 7 (unitarity from Step-2 flip-graph):
-  root README §6.
