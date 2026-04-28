@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.3.30)  28 APR 2026 01:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.3.30)  28 APR 2026 06:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**step3_block_rule_n9.tex
-(./step3_block_rule_n9.tex
+**step3_block_rule_n9_REVISED.tex
+(./step3_block_rule_n9_REVISED.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-21>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -368,8 +368,8 @@ File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count294
 \l__pdf_internal_box=\box54
 )
-(./step3_block_rule_n9.aux)
-\openout1 = `step3_block_rule_n9.aux'.
+(./step3_block_rule_n9_REVISED.aux)
+\openout1 = `step3_block_rule_n9_REVISED.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
 LaTeX Font Info:    ... okay on input line 28.
@@ -484,9 +484,9 @@ LaTeX Info: Redefining \ref on input line 28.
 LaTeX Info: Redefining \pageref on input line 28.
 LaTeX Info: Redefining \nameref on input line 28.
 
-(./step3_block_rule_n9.out) (./step3_block_rule_n9.out)
+(./step3_block_rule_n9_REVISED.out) (./step3_block_rule_n9_REVISED.out)
 \@outlinefile=\write3
-\openout3 = `step3_block_rule_n9.out'.
+\openout3 = `step3_block_rule_n9_REVISED.out'.
 
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
 1.
@@ -531,30 +531,15 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 31.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 31.
-LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 31.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 31.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 58.
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 6
-5.
-
-(/usr/share/texmf/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Underfull \hbox (badness 10000) in paragraph at lines 64--65
-
- []
-
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+(Font)              <8> on input line 31.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 31.
 LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
-164.
+49.
 
 (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -563,79 +548,152 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 69.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 7
+6.
 
-Overfull \hbox (58.13496pt too wide) in paragraph at lines 163--168
-\OT1/lmr/m/n/10.95 (-20) and the com-pan-ion file [][]\OT1/lmtt/m/n/10.95 finge
-rprint_lemma_5pt_6pt.tex[]\OT1/lmr/m/n/10.95 (-20) . The ver-i-fi-ca-tion scrip
-t [][]\OT1/lmtt/m/n/10.95 verify_6pt_anchor_kill.py
+(/usr/share/texmf/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
+
+ []
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (75.42392pt too wide) in paragraph at lines 173--178
+\OT1/lmr/m/n/10.95 (-20) la-tion) and the com-pan-ion [][]\OT1/lmtt/m/n/10.95 f
+ingerprint_lemma_5pt_6pt.tex[]\OT1/lmr/m/n/10.95 (-20) . The ver-i-fi-ca-tion s
+cript [][]\OT1/lmtt/m/n/10.95 verify_6pt_anchor_kill.py
  []
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 170.
+(Font)              <14.4> on input line 180.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 170.
+(hyperref)                removing `math shift' on input line 180.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 170.
+(hyperref)                removing `math shift' on input line 180.
 
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 189.
 [2]
-Overfull \hbox (88.48637pt too wide) in paragraph at lines 249--257
-[]\OT1/lmr/m/n/10.95 (-20) The proof is the rank-90 cal-cu-la-tion re-ported ab
-ove; the trace is [][]\OT1/lmtt/m/n/10.95 .../n9/outputs/n9_cluster_partial_res
-ults.json[]\OT1/lmr/m/n/10.95 (-20) .
- []
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 280.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 258.
+(hyperref)                removing `math shift' on input line 280.
+
+[3]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 319.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 258.
+(hyperref)                removing `math shift' on input line 319.
 
-[3] [4]
-Overfull \hbox (42.72816pt too wide) in paragraph at lines 397--400
+[4]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 382.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 382.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 428.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 428.
+
+[5]
+Overfull \hbox (1.00298pt too wide) in paragraph at lines 467--473
 [][][]\OT1/lmtt/m/n/10.95 computations/step4_laurent_block_analysis/n9/outputs/
- []\OT1/lmr/m/n/10.95 (-20) --- [][]\OT1/lmtt/m/n/10.95 n9_cluster_partial_resu
-lts.json
+ []\OT1/lmr/m/n/10.95 (-20) --- [][]\OT1/lmtt/m/n/10.95 cluster_partial.json []
+\OT1/lmr/m/n/10.95 (-20) (the
  []
 
 
-Overfull \hbox (11.08635pt too wide) in paragraph at lines 400--403
+Overfull \hbox (50.51053pt too wide) in paragraph at lines 467--473
+\OT1/lmr/m/n/10.95 (-20) rank-$90$ ma-trix trace), [][]\OT1/lmtt/m/n/10.95 clus
+ter_partial.md []\OT1/lmr/m/n/10.95 (-20) (human-readable sum-mary), [][]\OT1/l
+mtt/m/n/10.95 results_cascade_n9_reps.json
+ []
+
+
+Overfull \hbox (11.08635pt too wide) in paragraph at lines 473--476
 [][][]\OT1/lmtt/m/n/10.95 computations/step4_laurent_block_analysis/n9/diagnost
 ics/ []\OT1/lmr/m/n/10.95 (-20) --- per-anomaly walk-throughs
  []
 
 
-Underfull \hbox (badness 3547) in paragraph at lines 407--410
-[]\OT1/lmr/m/it/10.95 (+20) Step-1 kill statis-tics and asymp-totic lo-cal-ity.
- \OT1/lmr/m/n/10.95 (+20) Com-pan-ion satel-lite, this repos-i-tory,
+Underfull \hbox (badness 10000) in paragraph at lines 480--483
+[]\OT1/lmr/m/it/10.95 (+20) Consolidated $\OML/lmm/m/it/10.95 n \OT1/lmr/m/n/10
+.95 (+20) = 9$ \OT1/lmr/m/it/10.95 (+20) lo-cal-ity sta-tus. \OT1/lmr/m/n/10.95
+ (+20) This repos-i-tory,
  []
 
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 412--415
-[]\OT1/lmr/m/it/10.95 (+20) Triangulations are not Step-1 kil-l-able. \OT1/lmr/
-m/n/10.95 (+20) Com-pan-ion satel-lite, this repos-i-tory,
+
+Underfull \hbox (badness 3568) in paragraph at lines 485--488
+[]\OT1/lmr/m/it/10.95 (+20) Step-$\OT1/lmr/m/n/10.95 (+20) 1$ \OT1/lmr/m/it/10.
+95 (+20) kill statis-tics and asymp-totic lo-cal-ity. \OT1/lmr/m/n/10.95 (+20) 
+Com-pan-ion satel-lite, this repos-i-tory,
  []
 
-[6] (./step3_block_rule_n9.aux)
-Package rerunfilecheck Info: File `step3_block_rule_n9.out' has not changed.
-(rerunfilecheck)             Checksum: DF5FCD33F9DEC2F5CB15C7870FA0763E;1664.
+
+Underfull \hbox (badness 10000) in paragraph at lines 490--493
+[]\OT1/lmr/m/it/10.95 (+20) Triangulations are not Step-$\OT1/lmr/m/n/10.95 (+2
+0) 1$ \OT1/lmr/m/it/10.95 (+20) kil-l-able. \OT1/lmr/m/n/10.95 (+20) Com-pan-io
+n satel-lite, this repos-i-tory,
+ []
+
+
+Overfull \hbox (2.01097pt too wide) in paragraph at lines 490--493
+[][]\OT1/lmtt/m/n/10.95 paper/step1 Kill technique and statistics/step-one-does
+nt-kill-triangulations/[]\OT1/lmr/m/n/10.95 (-20) . 
+ []
+
+
+Underfull \hbox (badness 1694) in paragraph at lines 495--498
+[]\OT1/lmr/m/it/10.95 (+20) Proof of Ro-d-ina's claim $\OML/lmm/m/it/10.95 B \O
+T1/lmr/m/n/10.95 (+20) = 0 \OMS/lmsy/m/n/10.95 ) \OML/lmm/m/it/10.95 B[] \OT1/l
+mr/m/n/10.95 (+20) = 0$\OT1/lmr/m/it/10.95 (+20) . \OT1/lmr/m/n/10.95 (+20) Com
+-pan-ion note, this repos-i-tory,
+ []
+
+
+Overfull \hbox (116.98564pt too wide) in paragraph at lines 495--498
+[][]\OT1/lmtt/m/n/10.95 paper/Details missing in Hidden zero -> unitarity Rodin
+a proof/Proof of Rodina claim B=0->B_i = 0/[]\OT1/lmr/m/n/10.95 (-20) . 
+ []
+
+[6] [7] (./step3_block_rule_n9_REVISED.aux)
+Package rerunfilecheck Info: File `step3_block_rule_n9_REVISED.out' has not cha
+nged.
+(rerunfilecheck)             Checksum: C225C36B70FB366A37A1978995A37ADD;2035.
  ) 
 Here is how much of TeX's memory you used:
- 12570 strings out of 480247
- 197538 string characters out of 5896151
- 531549 words of memory out of 5000000
- 30137 multiletter control sequences out of 15000+600000
- 542070 words of font info for 167 fonts, out of 8000000 for 9000
+ 12627 strings out of 480247
+ 198320 string characters out of 5896151
+ 532915 words of memory out of 5000000
+ 30156 multiletter control sequences out of 15000+600000
+ 547106 words of font info for 186 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,12n,63p,1016b,578s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/d
-vips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/
-texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-
-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}</usr/share/texmf
+ 60i,12n,63p,1024b,554s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dv
+ips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/s
+hare/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/l
+m-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}</usr/share/texmf
 /fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx1
 2.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/font
 s/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb
@@ -645,15 +703,16 @@ hare/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public
 /lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr5.pfb></usr/share/texm
 f/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.p
 fb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/typ
-e1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></us
-r/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/pub
-lic/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/
-texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/symbols/msbm10.pfb>
-Output written on step3_block_rule_n9.pdf (6 pages, 359765 bytes).
+e1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/
+share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/publ
+ic/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/t
+exmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lm
+tt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msb
+m10.pfb>
+Output written on step3_block_rule_n9_REVISED.pdf (7 pages, 393100 bytes).
 PDF statistics:
- 230 PDF objects out of 1000 (max. 8388607)
- 176 compressed objects within 2 object streams
- 42 named destinations out of 1000 (max. 500000)
- 39497 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 265 PDF objects out of 1000 (max. 8388607)
+ 208 compressed objects within 3 object streams
+ 50 named destinations out of 1000 (max. 500000)
+ 40017 words of extra memory for PDF output out of 42996 (max. 10000000)
 
