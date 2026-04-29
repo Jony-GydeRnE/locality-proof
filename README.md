@@ -179,7 +179,7 @@ homogeneity degree:
 → `paper/Details missing in Hidden zero -> unitarity Rodina proof/Proof of Rodina claim B=0->B_i = 0/subset_vanishing.pdf`
    (homogeneity decomposition: $B|_{\mathcal Z_r}=0 \Rightarrow B_i|_{\mathcal Z_r}=0$)
 
-This justifies applying the kill move term-by-term.
+This justifies applying the kill move at sub-amplitude level.
 
 ### 4.4 Read the Laurent cascade for hard kills
 For why Step 1 alone is not enough at $n \ge 7$:
@@ -286,67 +286,6 @@ Rodina-locality-proof/
 The updated dependency chain is:
 
 **Items 1 + 2 (closed) ⟹ Item 3 (mechanical) ⟹ Item 10 (locality, via block-rule cluster kill) + Item 11 (unitarity, via d-subset) ⟹ locality + unitarity theorem.**
-
----
-
-## 7. Contributing
-
-### The non-negotiable rule
-
-**If you produce experimental results that inform the research
-direction of this proof, the code that produced them AND the
-result files MUST land in this repo, in a folder under
-[`computations/`](computations/).** No load-bearing claim about
-locality, kill rates, cascade depth, cluster rank, etc. is
-allowed in the paper or in any working note unless a reader can
-go to a folder under `computations/` and find:
-
-- the script that produced it (well commented per the rules below),
-- the raw output (`.txt` / `.json` / `.md`) the script wrote,
-- a README explaining what was tested, how long it took, what command
-  ran, what the result means mathematically, and what remains unknown.
-
-This is so that a mathematician who can't read code, but knows the
-proof, can still verify *what was actually computed* by reading the
-README and the result files. And so that another contributor (or a
-future you) can re-run any experiment without having to reconstruct
-the setup.
-
-### Code style for the scripts themselves
-
-If you write code for this repo (verifier scripts, enumerators,
-symbolic checks, figure generators), follow these conventions so
-that mathematicians and physicists can read the code without prior
-Python fluency, and so that programmers can read it without prior
-knowledge of the proof:
-
-1. **Every function has a docstring with two parts:**
-   - *LOGIC* — what algorithm is implemented (in CS / Python terms).
-   - *PHYSICS / MATHEMATICS* — what the algorithm computes in the
-     language of the proof (chords, zones, kill mechanism, etc.).
-   See `computations/step4_laurent_block_analysis/n8/scripts/cascade_kill_n8.py`
-   for the canonical example.
-2. **Every script has a top-of-file block comment** stating its purpose,
-   the conjecture it tests, the inputs/outputs, and any conventions that
-   differ from the rest of the repo. If conventions are shared with
-   another file (e.g. chord normalization), say so explicitly.
-3. **Add a `README.md` to every new folder.** State what the folder is
-   for, what files it contains, how to run them, and what results to
-   expect. Headline numbers (kill rates, survivor counts, etc.) belong
-   in the README, not buried in the script's stdout.
-4. **No silent constants.** Every magic number (Laurent order to expand
-   to, max number of survivors to check, etc.) is named and commented.
-5. **If the script prints results, also write them to a text file** so
-   they are reviewable without re-running.
-6. **Push the code and the results together.** Don't push a paper claim
-   like "all 100 survivors die" without simultaneously pushing the
-   verifier and its trace; don't push a verifier without its
-   results; don't put either of them outside `computations/`.
-
-The goal is that any working physicist or mathematician who knows the
-proof but has never seen this codebase should be able to open any script
-and follow the logic in one read, and any contributor adding a new
-experiment should know exactly what conventions to match.
 
 ---
 
