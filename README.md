@@ -171,16 +171,15 @@ The full kill mechanism worked through at $n = 4, 5, 6$ explicitly, so you
 can see Step 1 and Step 2 in action. This is the placeholder while the
 core paper is still being written.
 
-### 4.3 Read the foundational lemmas
-The kill mechanism rests on two foundational lemmas:
+### 4.3 Read the foundational lemma
+The kill mechanism rests on one foundational lemma — the homogeneity
+decomposition that lets the kill argument run term-by-term in
+homogeneity degree:
 
 → `paper/Details missing in Hidden zero -> unitarity Rodina proof/Proof of Rodina claim B=0->B_i = 0/subset_vanishing.pdf`
    (homogeneity decomposition: $B|_{\mathcal Z_r}=0 \Rightarrow B_i|_{\mathcal Z_r}=0$)
 
-→ `paper/Details missing in Hidden zero -> unitarity Rodina proof/details for Rodina D subset argument/dsubset_uniqueness.pdf`
-   (uniqueness of the master substitution from the d-subset structure)
-
-Together these justify applying the kill move term-by-term.
+This justifies applying the kill move term-by-term.
 
 ### 4.4 Read the Laurent cascade for hard kills
 For why Step 1 alone is not enough at $n \ge 7$:
