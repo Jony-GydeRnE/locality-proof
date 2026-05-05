@@ -1,0 +1,2226 @@
+{
+  "n_z9_cluster_orbits": 90,
+  "n_d9_groups": 55,
+  "n_palindromic": 7,
+  "n_palindromic_with_external_partner": 13,
+  "n_reflection_pairs": 35,
+  "groups": [
+    {
+      "rep_orbit_id": 1,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        1,
+        13
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 2,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "z9_orbits_in_group": [
+        2,
+        5
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 3,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        3,
+        11
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 4,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        4,
+        12
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 6,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        6,
+        9
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 7,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        7,
+        10
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 14,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        14,
+        86
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 16,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        16,
+        77
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 17,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        17,
+        76
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 19,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        19,
+        62
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 21,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "z9_orbits_in_group": [
+        21,
+        23
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 22,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "z9_orbits_in_group": [
+        22
+      ],
+      "n_z9_orbits": 1,
+      "rot_copies": 9,
+      "refl_copies": 0,
+      "kind": "palindromic",
+      "external_partner_orbit": null,
+      "is_seed": true
+    },
+    {
+      "rep_orbit_id": 24,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        24,
+        98
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 25,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        25,
+        90
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 27,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        27,
+        65
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 28,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        28
+      ],
+      "n_z9_orbits": 1,
+      "rot_copies": 9,
+      "refl_copies": 0,
+      "kind": "palindromic",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 34,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        34,
+        100
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 35,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        35,
+        91
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 36,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        36,
+        97
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 37,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        37,
+        89
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 38,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        38,
+        47
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 39,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        39
+      ],
+      "n_z9_orbits": 1,
+      "rot_copies": 9,
+      "refl_copies": 0,
+      "kind": "palindromic",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 42,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        42,
+        60
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 43,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        43,
+        93
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 44,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        44,
+        102
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 45,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        45,
+        96
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 46,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        46,
+        88
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": true
+    },
+    {
+      "rep_orbit_id": 49,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        49,
+        87
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 50,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        50,
+        58
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 51,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        51,
+        66
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 52,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        52,
+        59
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 53,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        53
+      ],
+      "n_z9_orbits": 1,
+      "rot_copies": 9,
+      "refl_copies": 0,
+      "kind": "palindromic",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 54,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        54
+      ],
+      "n_z9_orbits": 1,
+      "rot_copies": 9,
+      "refl_copies": 0,
+      "kind": "palindromic",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 55,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        55,
+        107
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 56,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        56,
+        111
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 61,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        61,
+        84
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 63,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        63,
+        64
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 67,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        67,
+        83
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 69,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        69,
+        79
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 71,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        71,
+        72
+      ],
+      "n_z9_orbits": 2,
+      "rot_copies": 18,
+      "refl_copies": 18,
+      "kind": "reflection_pair",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 73,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        73
+      ],
+      "n_z9_orbits": 1,
+      "rot_copies": 9,
+      "refl_copies": 0,
+      "kind": "palindromic_leak",
+      "external_partner_orbit": 30,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 74,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        74
+      ],
+      "n_z9_orbits": 1,
+      "rot_copies": 9,
+      "refl_copies": 0,
+      "kind": "palindromic_leak",
+      "external_partner_orbit": 70,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 75,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        75
+      ],
+      "n_z9_orbits": 1,
+      "rot_copies": 9,
+      "refl_copies": 0,
+      "kind": "palindromic_leak",
+      "external_partner_orbit": 41,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 78,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "z9_orbits_in_group": [
+        78
+      ],
+      "n_z9_orbits": 1,
+      "rot_copies": 9,
+      "refl_copies": 0,
+      "kind": "palindromic_leak",
+      "external_partner_orbit": 15,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 80,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        80
+      ],
+      "n_z9_orbits": 1,
+      "rot_copies": 9,
+      "refl_copies": 0,
+      "kind": "palindromic_leak",
+      "external_partner_orbit": 68,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 81,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        81
+      ],
+      "n_z9_orbits": 1,
+      "rot_copies": 9,
+      "refl_copies": 0,
+      "kind": "palindromic_leak",
+      "external_partner_orbit": 106,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 82,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        82
+      ],
+      "n_z9_orbits": 1,
+      "rot_copies": 9,
+      "refl_copies": 0,
+      "kind": "palindromic_leak",
+      "external_partner_orbit": 40,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 85,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        85
+      ],
+      "n_z9_orbits": 1,
+      "rot_copies": 9,
+      "refl_copies": 0,
+      "kind": "palindromic_leak",
+      "external_partner_orbit": 20,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 95,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "z9_orbits_in_group": [
+        95
+      ],
+      "n_z9_orbits": 1,
+      "rot_copies": 9,
+      "refl_copies": 0,
+      "kind": "palindromic_leak",
+      "external_partner_orbit": 32,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 103,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        103
+      ],
+      "n_z9_orbits": 1,
+      "rot_copies": 9,
+      "refl_copies": 0,
+      "kind": "palindromic",
+      "external_partner_orbit": null,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 104,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "z9_orbits_in_group": [
+        104
+      ],
+      "n_z9_orbits": 1,
+      "rot_copies": 9,
+      "refl_copies": 0,
+      "kind": "palindromic_leak",
+      "external_partner_orbit": 105,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 108,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        108
+      ],
+      "n_z9_orbits": 1,
+      "rot_copies": 3,
+      "refl_copies": 0,
+      "kind": "palindromic",
+      "external_partner_orbit": null,
+      "is_seed": true
+    },
+    {
+      "rep_orbit_id": 110,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        110
+      ],
+      "n_z9_orbits": 1,
+      "rot_copies": 9,
+      "refl_copies": 0,
+      "kind": "palindromic_leak",
+      "external_partner_orbit": 57,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 112,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        112
+      ],
+      "n_z9_orbits": 1,
+      "rot_copies": 9,
+      "refl_copies": 0,
+      "kind": "palindromic_leak",
+      "external_partner_orbit": 18,
+      "is_seed": false
+    },
+    {
+      "rep_orbit_id": 113,
+      "rep_multiset": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "z9_orbits_in_group": [
+        113
+      ],
+      "n_z9_orbits": 1,
+      "rot_copies": 9,
+      "refl_copies": 0,
+      "kind": "palindromic_leak",
+      "external_partner_orbit": 26,
+      "is_seed": false
+    }
+  ],
+  "reflection_partner_of_each_cluster_orbit": {
+    "1": 13,
+    "2": 5,
+    "3": 11,
+    "4": 12,
+    "5": 2,
+    "6": 9,
+    "7": 10,
+    "9": 6,
+    "10": 7,
+    "11": 3,
+    "12": 4,
+    "13": 1,
+    "14": 86,
+    "16": 77,
+    "17": 76,
+    "19": 62,
+    "21": 23,
+    "22": 22,
+    "23": 21,
+    "24": 98,
+    "25": 90,
+    "27": 65,
+    "28": 28,
+    "34": 100,
+    "35": 91,
+    "36": 97,
+    "37": 89,
+    "38": 47,
+    "39": 39,
+    "42": 60,
+    "43": 93,
+    "44": 102,
+    "45": 96,
+    "46": 88,
+    "47": 38,
+    "49": 87,
+    "50": 58,
+    "51": 66,
+    "52": 59,
+    "53": 53,
+    "54": 54,
+    "55": 107,
+    "56": 111,
+    "58": 50,
+    "59": 52,
+    "60": 42,
+    "61": 84,
+    "62": 19,
+    "63": 64,
+    "64": 63,
+    "65": 27,
+    "66": 51,
+    "67": 83,
+    "69": 79,
+    "71": 72,
+    "72": 71,
+    "73": 30,
+    "74": 70,
+    "75": 41,
+    "76": 17,
+    "77": 16,
+    "78": 15,
+    "79": 69,
+    "80": 68,
+    "81": 106,
+    "82": 40,
+    "83": 67,
+    "84": 61,
+    "85": 20,
+    "86": 14,
+    "87": 49,
+    "88": 46,
+    "89": 37,
+    "90": 25,
+    "91": 35,
+    "93": 43,
+    "95": 32,
+    "96": 45,
+    "97": 36,
+    "98": 24,
+    "100": 34,
+    "102": 44,
+    "103": 103,
+    "104": 105,
+    "107": 55,
+    "108": 108,
+    "110": 57,
+    "111": 56,
+    "112": 18,
+    "113": 26
+  }
+}

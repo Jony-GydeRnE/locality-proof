@@ -282,6 +282,7 @@ def main():
     # Save outputs.
     out_json = os.path.join(OUT_DIR, "cluster_partial.json")
     out_md = os.path.join(OUT_DIR, "cluster_partial.md")
+    out_npz = os.path.join(OUT_DIR, "cluster_partial_matrix.npz")
     out_data = {
         "n_cluster_orbits": info["n_cluster"],
         "n_external_columns": info["n_external"],
@@ -297,6 +298,10 @@ def main():
         ],
         # Drop full matrix from JSON to keep file small; keep row_labels.
         "row_labels": info["row_labels"],
+        # Pointer to companion .npz containing the actual integer matrix
+        # entries (saved separately to keep this JSON small but the matrix
+        # available for downstream visualization / re-analysis).
+        "matrix_npz": os.path.basename(out_npz),
     }
     # ranks contains sympy-typed null-space; coerce to strings.
     out_data["ranks"]["cluster_nullspace"] = [
@@ -304,6 +309,26 @@ def main():
     ]
     with open(out_json, "w") as f:
         json.dump(out_data, f, indent=2)
+
+    # Save the actual integer matrix entries to a compressed numpy archive
+    # so block-structure visualizations and other downstream analyses can
+    # access the scalars without a 10-hour rebuild.
+    try:
+        import numpy as np
+        matrix_int = np.array(
+            [[int(v) for v in row] for row in info["matrix"]],
+            dtype=np.int64,
+        )
+        np.savez_compressed(
+            out_npz,
+            matrix=matrix_int,
+            cluster_orbits=np.array(info["cluster_sorted"], dtype=np.int64),
+            n_cluster=np.int64(info["n_cluster"]),
+            n_external=np.int64(info["n_external"]),
+        )
+        print(f"Saved matrix .npz: {out_npz} ({matrix_int.shape[0]}x{matrix_int.shape[1]})")
+    except Exception as e:
+        print(f"WARNING: could not save matrix .npz ({e}); continuing.")
 
     # Markdown summary.
     lines = []
