@@ -1,0 +1,1994 @@
+{
+  "n_z9_cluster_orbits": 90,
+  "n_d9_groups": 55,
+  "n_length_spectrum_shapes": 8,
+  "n_multisets_total": 804,
+  "shapes": [
+    {
+      "shape_index": 1,
+      "length_spectrum": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "spectrum_pretty": "2^6",
+      "n_d9_groups": 5,
+      "n_z9_orbits": 7,
+      "n_multisets": 57,
+      "d9_groups": [
+        {
+          "rep_orbit_id": 4,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            4,
+            12
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 6,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            6,
+            9
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 103,
+          "kind": "palindromic",
+          "z9_orbits_in_group": [
+            103
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              9
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 104,
+          "kind": "palindromic_leak",
+          "z9_orbits_in_group": [
+            104
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 108,
+          "kind": "palindromic",
+          "z9_orbits_in_group": [
+            108
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "shape_index": 2,
+      "length_spectrum": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        3
+      ],
+      "spectrum_pretty": "2^5 \u00b7 3",
+      "n_d9_groups": 14,
+      "n_z9_orbits": 26,
+      "n_multisets": 234,
+      "d9_groups": [
+        {
+          "rep_orbit_id": 1,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            1,
+            13
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 2,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            2,
+            5
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              7
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 3,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            3,
+            11
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 7,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            7,
+            10
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 28,
+          "kind": "palindromic",
+          "z9_orbits_in_group": [
+            28
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 34,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            34,
+            100
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 36,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            36,
+            97
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 37,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            37,
+            89
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 45,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            45,
+            96
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 46,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            46,
+            88
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 49,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            49,
+            87
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 55,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            55,
+            107
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              9
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 56,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            56,
+            111
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              9
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 110,
+          "kind": "palindromic_leak",
+          "z9_orbits_in_group": [
+            110
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "shape_index": 3,
+      "length_spectrum": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        4
+      ],
+      "spectrum_pretty": "2^5 \u00b7 4",
+      "n_d9_groups": 4,
+      "n_z9_orbits": 6,
+      "n_multisets": 54,
+      "d9_groups": [
+        {
+          "rep_orbit_id": 69,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            69,
+            79
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 71,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            71,
+            72
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 74,
+          "kind": "palindromic_leak",
+          "z9_orbits_in_group": [
+            74
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              9
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 81,
+          "kind": "palindromic_leak",
+          "z9_orbits_in_group": [
+            81
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              9
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "shape_index": 4,
+      "length_spectrum": [
+        2,
+        2,
+        2,
+        2,
+        3,
+        3
+      ],
+      "spectrum_pretty": "2^4 \u00b7 3^2",
+      "n_d9_groups": 17,
+      "n_z9_orbits": 28,
+      "n_multisets": 252,
+      "d9_groups": [
+        {
+          "rep_orbit_id": 14,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            14,
+            86
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 21,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            21,
+            23
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              7
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 22,
+          "kind": "palindromic",
+          "z9_orbits_in_group": [
+            22
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              7
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 24,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            24,
+            98
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 25,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            25,
+            90
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 35,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            35,
+            91
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 38,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            38,
+            47
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 39,
+          "kind": "palindromic",
+          "z9_orbits_in_group": [
+            39
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 42,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            42,
+            60
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 44,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            44,
+            102
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 50,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            50,
+            58
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 52,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            52,
+            59
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 53,
+          "kind": "palindromic",
+          "z9_orbits_in_group": [
+            53
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 54,
+          "kind": "palindromic",
+          "z9_orbits_in_group": [
+            54
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              9
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 63,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            63,
+            64
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 95,
+          "kind": "palindromic_leak",
+          "z9_orbits_in_group": [
+            95
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              5,
+              7
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 113,
+          "kind": "palindromic_leak",
+          "z9_orbits_in_group": [
+            113
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "shape_index": 5,
+      "length_spectrum": [
+        2,
+        2,
+        2,
+        2,
+        3,
+        4
+      ],
+      "spectrum_pretty": "2^4 \u00b7 3 \u00b7 4",
+      "n_d9_groups": 11,
+      "n_z9_orbits": 16,
+      "n_multisets": 144,
+      "d9_groups": [
+        {
+          "rep_orbit_id": 16,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            16,
+            77
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 17,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            17,
+            76
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 43,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            43,
+            93
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 61,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            61,
+            84
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 67,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            67,
+            83
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 73,
+          "kind": "palindromic_leak",
+          "z9_orbits_in_group": [
+            73
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 75,
+          "kind": "palindromic_leak",
+          "z9_orbits_in_group": [
+            75
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 78,
+          "kind": "palindromic_leak",
+          "z9_orbits_in_group": [
+            78
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              7
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 80,
+          "kind": "palindromic_leak",
+          "z9_orbits_in_group": [
+            80
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 82,
+          "kind": "palindromic_leak",
+          "z9_orbits_in_group": [
+            82
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 112,
+          "kind": "palindromic_leak",
+          "z9_orbits_in_group": [
+            112
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "shape_index": 6,
+      "length_spectrum": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        3
+      ],
+      "spectrum_pretty": "2^3 \u00b7 3^3",
+      "n_d9_groups": 2,
+      "n_z9_orbits": 4,
+      "n_multisets": 36,
+      "d9_groups": [
+        {
+          "rep_orbit_id": 27,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            27,
+            65
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        },
+        {
+          "rep_orbit_id": 51,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            51,
+            66
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "shape_index": 7,
+      "length_spectrum": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        4
+      ],
+      "spectrum_pretty": "2^3 \u00b7 3^2 \u00b7 4",
+      "n_d9_groups": 1,
+      "n_z9_orbits": 2,
+      "n_multisets": 18,
+      "d9_groups": [
+        {
+          "rep_orbit_id": 19,
+          "kind": "reflection_pair",
+          "z9_orbits_in_group": [
+            19,
+            62
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "shape_index": 8,
+      "length_spectrum": [
+        2,
+        2,
+        2,
+        3,
+        4,
+        4
+      ],
+      "spectrum_pretty": "2^3 \u00b7 3 \u00b7 4^2",
+      "n_d9_groups": 1,
+      "n_z9_orbits": 1,
+      "n_multisets": 9,
+      "d9_groups": [
+        {
+          "rep_orbit_id": 85,
+          "kind": "palindromic_leak",
+          "z9_orbits_in_group": [
+            85
+          ],
+          "rep_multiset": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              7,
+              9
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}
