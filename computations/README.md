@@ -1,12 +1,12 @@
 # `computations/` — experiments backing each proof step
 
 This folder is organized by the **logical steps of the proof**, in the
-order the upcoming core paper introduces them. Each top-level
-`stepN_*/` folder is a *container* — adding a new sub-experiment under
-the same step never forces renames elsewhere.
+order Part I (`paper/part1 1-zero asymptotic analysis/`) introduces
+them. Each top-level `stepN_*/` folder is a *container* — adding a new
+sub-experiment under the same step never forces renames elsewhere.
 
 For the precise theorem and proof strategy, read the root README §1–2
-first.
+first, and the three-part write-up in `paper/`.
 
 ## The folders, in proof order
 

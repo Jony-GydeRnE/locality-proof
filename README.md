@@ -26,17 +26,15 @@ establishes it.
 
 | Result | File / folder |
 |---|---|
-| **Foundational lemma 1.** Self-contained proof of $B \equiv 0 \Rightarrow B_i \equiv 0$ on each cyclic 1-zero zone (homogeneity decomposition). | `paper/Details missing in Hidden zero -> unitarity Rodina proof/Proof of Rodina claim B=0->B_i = 0/subset_vanishing.pdf` and `notes/13. alternate-proof-more-general.pdf` |
-| **Foundational lemma 2.** Self-contained proof that the d-subset uniqueness argument works for all $n$. | `paper/Details missing in Hidden zero -> unitarity Rodina proof/details for Rodina D subset argument/dsubset_uniqueness.pdf` and `notes/18. d subset rigorous proof.pdf` |
-| **Locality at $n = 4, 5, 6$ by hand.** Cyclic 1-zeros force every non-local coefficient to vanish via the Step-1 kill mechanism — 100% of non-locals killed at $n \le 6$. | `paper/step1 Kill technique and statistics/locality_unitarity_v5.pdf` |
-| **Step-1 kill statistics across $n$.** 100% at $n \le 6$, 99.7–99.9% at $n = 7, 8, 9$. | `paper/step1 Kill technique and statistics/step-one-kill-statistics/step1_statistics.pdf` |
-| **Locality at $n = 7, 8$.** Every Step-1 survivor dies via a depth-1 Laurent cascade — verified analytically (representative cases) and computationally (complete enumeration). | `paper/step2 Laurent series for hard kills/cascade_n7.pdf` (analytic write-up); `computations/step3_laurent/cascade_n7/` ($n=7$ enumeration); `computations/step4_laurent_block_analysis/n8/` ($n=8$ enumeration) |
+| **Part I — locality from the 1-zero, through $n=9$.** Step-1 asymptotic kill (Theorem 1), triangulation escape (Theorem 2), asymptotic completeness $S(n)/T(n)\le 8/n+O(n^{-2})$, the $n=7$ fish (Theorem 3), the $n=9$ 90-orbit block rule. | [`paper/part1 1-zero asymptotic analysis/one_zero_part1.pdf`](paper/part1%201-zero%20asymptotic%20analysis/) |
+| **Part II — the fat-zero generalization.** Promote the 1-zero to a $k$-zero. Rate-vector classification of admissible asymptotic limits gives criteria $A$, $B$, $C$; the non-crossing survival builds a $(k{+}2)$-gon over the length-$k$ enclosing chord (special / bare / column-pair). | [`paper/part2 fat-zero generalization/fat_zero_part2.pdf`](paper/part2%20fat-zero%20generalization/) |
+| **Part III — Step-2 $k$-zero relations.** Universal binomial trace $\sum_j(-1)^j a_{s^{m-j}b^j}=0$ at every $k,n,m$; per-column and per-offset relations; the genuinely new $k\ge 2$ identities like $a_{14,14}+a_{3n,3n}-a_{14,3n}=0$. | [`paper/part3 step2 K-zero relations/step2_part3.pdf`](paper/part3%20step2%20K-zero%20relations/) |
+| **Symbolic stress tests.** Sympy verification of every load-bearing claim in Parts II/III: telescoping lemma, chord-rate table, Prop 1 over 17,602 multisets, binomial trace, per-column / offset relations, triangulation escape over 400 Catalan-many triangulations. | [`paper/part2 fat-zero generalization/tests/stress_tests.py`](paper/part2%20fat-zero%20generalization/tests/) |
+| **Step-1 kill statistics across $n$.** 100% at $n \le 6$, 99.7–99.9% at $n = 7, 8, 9$. | Part I §4 + `computations/step1_layer0_kill/kill_enumeration/` |
+| **$n=9$ block-rule per-orbit audit.** All 113 orbit reps accounted for: 23 single-orbit cascades + 90-orbit block rule (rank 90 / nullity 0). | `computations/step4_laurent_block_analysis/n9/outputs/n9_locality_status.md` |
 | **Full nullspace dim $= 1$ at $n = 5, 6, 7$.** End-to-end SVD verification of the complete constraint system. | `computations/full_nullspace_verification/` |
-| **Locality at $n = 9$ (new).** Step-1 kills 904,752 of 905,763 non-locals directly. The 1,011 survivors form 113 cyclic orbits — 23 close by independent depth-1 cascades, and the remaining **90 form a coupled cluster whose depth-1 fingerprint matrix has rank 90 (full)**, forcing every cluster coefficient to vanish jointly. First $n$ at which a block-rule mechanism is required. | `paper/step3 block rule/step3_block_rule_n9_REVISED.pdf` (write-up) and `paper/step3 block rule/step3_block_rule_README_REVISED.md`; per-orbit consolidated audit (all 113 reps) at `computations/step4_laurent_block_analysis/n9/outputs/n9_locality_status.md` |
-| **Structural lemma.** Step-1 *never* removes a triangulation at any zone. Two-page exhaustive proof. | `paper/step1 Kill technique and statistics/step-one-doesnt-kill-triangulations/triangulation_layer0.pdf` |
-| **All-$n$ working conjecture.** Locality follows from a rank condition on the depth-1 fingerprint matrix on each connected component of the cousin graph (verified through $n = 9$). | §6 below; refined statement in `paper/step3 block rule/step3_block_rule_README_REVISED.md` |
 | **Reproducibility.** Every script that produced a number in this repo is committed alongside its raw output and a folder README. | `computations/` (top-level guide); each subfolder has its own README |
-| **Working notes (~70 PDFs, condensing into a ~30-page undergrad-accessible companion).** | `notes/` — load-bearing: notes 13–17; the d-subset proof is note 18 |
+| **Working notes (~70 PDFs).** Notes 12, 16–27 are the load-bearing notes for Parts II/III; notes 13–17 for Part I. | `notes/` |
 
 The status table below (§3) gives the same picture in tabular form, and
 the guided tour (§4) walks through how to read the repo end-to-end.
@@ -100,12 +98,10 @@ the coefficients of $B$:
   already-established Step-1 kills at one neighbouring zone.
 
 **Item 2 (formerly an important thing to verify) is now closed.**
-The lemma in `paper/step1 Kill technique and statistics/step-one-doesnt-kill-triangulations/` proves the
-strictly stronger statement that *no triangulation $T$ is in
-$\mathcal K_{r,r+2}$ at any zone $r$* — ruling out both the originally
-conjectured $T \subseteq F_r$ case and the case where $T$ contains a
-substitute without its companion. The proof is two pages, three
-exhaustive cases, using only the polygon edge $(r, r{+}1)$.
+Theorem 2 of Part I (triangulations escape) proves the strictly stronger
+statement that *no triangulation $T$ is in $\mathcal K_{r,r+2}$ at any zone
+$r$* — using only the polygon edge $(r, r{+}1)$ and the unique triangle of
+$T$ that contains it.
 
 The **central question** is the *all-$n$ uniformity* of the
 Laurent cascade (Items 7 + 10 below):
@@ -137,9 +133,8 @@ fast with $n$ (Item 4).
 | 9 | 1 011 escape (out of 906 192 non-tri multisets) | not relevant for locality at this $n$ (unitarity handled separately by d-subset) | **all 1 011 survivors die: 23 single-orbit depth-1 cascades + 90-orbit block-rule cluster (rank 90, nullity 0)** | — |
 
 > **Bottom line: locality is proven at $n \le 9$ from the cyclic 1-zeros
-> alone.** Unitarity (all triangulation coefficients equal one common
-> scalar) is handled separately by the d-subset paper in
-> `paper/Details missing in Hidden zero -> unitarity Rodina proof/details for Rodina D subset argument/`.
+> alone** (Part I). Unitarity is recovered through the Step-2 D-subset
+> mechanism (Part III, §3, and note 18).
 
 At $n = 9$ Step 1 alone already kills **99.888%** of all non-triangulation
 multisets. The hope is to prove the survivor fraction drops to $0$ fast as
@@ -153,48 +148,41 @@ the Laurent cascade.
 Follow this order. Each section ends with a pointer to the relevant file
 or subfolder. General notes are found in the Notes. This content takes one from trace phi 3 lagrangian and Feynman diagrams as triangulations to the the detailed proof that unitarity emerges at all n via hidden zeroes, following Rodina's paper https://arxiv.org/abs/2406.04234.  
 
-### 4.1 Start with the geometric story
-For readers who have never seen scattering amplitudes:
+### 4.1 Read Part I — locality from the 1-zero through $n=9$
+→ [`paper/part1 1-zero asymptotic analysis/one_zero_part1.pdf`](paper/part1%201-zero%20asymptotic%20analysis/)
 
-→ `paper/elementary-geometric-background-and-understanding/geometric_story.pdf`
+The Step-1 asymptotic kill, the triangulation-escape theorem, the
+asymptotic completeness bound $S(n)/T(n)\le 8/n+O(n^{-2})$, the
+worked $n=7$ "fish" via a depth-1 Laurent cascade, and the $n=9$
+block-rule cluster argument (rank 90 / nullity 0 on the 90-orbit
+cluster).
 
-The gentlest possible introduction to the polygon ↔ Feynman-diagram
-dictionary, what a "hidden zero" is geometrically, and a closed-timelike-curve
-heuristic for why locality has to hold. No prior knowledge assumed.
+### 4.2 Read Part II — the fat-zero generalisation
+→ [`paper/part2 fat-zero generalization/fat_zero_part2.pdf`](paper/part2%20fat-zero%20generalization/)
 
-### 4.2 Read the by-hand worked example (the current "core" placeholder)
-Once the setup makes sense:
+Promote the cyclic hidden 1-zero to a $k$-zero (impose hidden-zero on $k$
+consecutive boundaries). Telescoping lemma + rate-vector classification
+gives the criteria $A$, $B$, $C$. The non-crossing geometric shadow:
+build a $(k{+}2)$-gon over the length-$k$ enclosing chord in three
+flavours — via the special, the bare, or an internal column pair.
 
-→ `paper/step1 Kill technique and statistics/locality_unitarity_v5.pdf`
+### 4.3 Read Part III — Step-2 $k$-zero coefficient relations
+→ [`paper/part3 step2 K-zero relations/step2_part3.pdf`](paper/part3%20step2%20K-zero%20relations/)
 
-The full kill mechanism worked through at $n = 4, 5, 6$ explicitly, so you
-can see Step 1 and Step 2 in action. This is the placeholder while the
-core paper is still being written.
+Boundary-propagator grading + D-subsets. Universal binomial trace
+$\sum_j(-1)^j a_{s^{m-j}b^j}=0$ at every $(k,n,m)$, plus per-column and
+per-offset relations. At $k=1$, $m=1$ this recovers $a_{13}=a_{2n}$;
+at $k\ge 2$, $m\ge 2$ it produces genuinely new relations such as
+$a_{14,14}+a_{3n,3n}-a_{14,3n}=0$.
 
-### 4.3 Read the foundational lemma
-The kill mechanism rests on one foundational lemma — the homogeneity
-decomposition that lets the kill argument run term-by-term in
-homogeneity degree:
+### 4.4 (Optional) Verify the claims symbolically
+→ [`paper/part2 fat-zero generalization/tests/stress_tests.py`](paper/part2%20fat-zero%20generalization/tests/)
 
-→ `paper/Details missing in Hidden zero -> unitarity Rodina proof/Proof of Rodina claim B=0->B_i = 0/subset_vanishing.pdf`
-   (homogeneity decomposition: $B|_{\mathcal Z_r}=0 \Rightarrow B_i|_{\mathcal Z_r}=0$)
-
-This justifies applying the kill move at sub-amplitude level.
-
-### 4.4 Read the Laurent cascade for hard kills
-For why Step 1 alone is not enough at $n \ge 7$:
-
-→ `paper/step2 Laurent series for hard kills/cascade_n7.pdf`
-
-Proves all 7 of the $n=7$ "fish" die via a depth-1 Laurent cascade.
-At $n = 9$ singleton cascade fails for some orbits and the **block-rule**
-generalisation kicks in:
-
-→ `paper/step3 block rule/step3_block_rule_n9_REVISED.pdf`
-
-The 90-orbit cluster around orbit 22 has a depth-1 fingerprint matrix
-of full rank — collectively kills every cluster orbit including the
-4 singletons-cascade failures.
+A sympy stress-test suite that symbolically checks every load-bearing
+claim in Parts II/III: telescoping lemma, chord-rate table, Prop 1 by
+exhaustive enumeration (17,602 multisets), binomial trace at $m=1,2,3$,
+per-column and offset relations, triangulation escape across 400
+Catalan-many triangulations.
 
 ### 4.5 Run the experiments
 For numerical verification, survivor enumeration, and figures:
@@ -207,14 +195,14 @@ plus end-to-end checks (`full_nullspace_verification`) and figures
 (`survivor_gallery`).
 
 ### 4.6 Browse the chronological notes
-The complete working notebook (~50 PDFs):
+The complete working notebook (~70 PDFs):
 
 → `notes/`
 
-Notes 1–17 are the topical PDFs (#1 = Feynman diagrams & triangulations,
-#17 = hidden zeros ↔ non-local interactions). Notes 13–17 are the most
-load-bearing for the current direction; the rest are dated session notes
-from May 2025 onwards.
+Notes 1–27 are the topical PDFs (#1 = Feynman diagrams & triangulations,
+#27 = Step-2 K-zero relations). Load-bearing for Parts II/III: notes 12,
+16–27. Load-bearing for Part I: notes 13–17. The rest are dated session
+notes from May 2025 onwards.
 
 ### 4.7 Existing literature
 Background papers referenced throughout:
@@ -234,18 +222,11 @@ Rodina-locality-proof/
 │
 ├── README.md                                ← you are here
 │
-├── paper/                                   ← in-progress write-ups (one per §)
+├── paper/                                   ← three-part write-up
 │   ├── README.md                              guided tour of paper/
-│   ├── elementary-geometric-background…/      §1 — intuition for newcomers
-│   ├── Details missing in Hidden zero -> unitarity Rodina proof/
-│   │   ├── Proof of Rodina claim B=0->B_i = 0/  §3 — homogeneity decomposition lemma
-│   │   └── details for Rodina D subset argument/ §3 — d-subset uniqueness lemma
-│   ├── step1 Kill technique and statistics/   §4 + §5 — Step-1 layer-0 kill
-│   │   ├── locality_unitarity_v5               worked examples (n=4,5,6)
-│   │   ├── step-one-doesnt-kill-triangulations local-survival lemma (Item 2 closed)
-│   │   └── step-one-kill-statistics            global kill rates + asymptotic
-│   ├── step2 Laurent series for hard kills/   §6 — singleton Laurent cascade (n=7)
-│   └── step3 block rule/                      §7 — block-rule cluster kill (n=9)
+│   ├── part1 1-zero asymptotic analysis/      Part I  — 1-zero kill, through n = 9
+│   ├── part2 fat-zero generalization/         Part II — k-zero kill (A/B/C criteria) + tests/
+│   └── part3 step2 K-zero relations/          Part III — Step-2 coefficient relations
 │
 ├── computations/                            ← experiments backing each proof step
 │   ├── README.md                              guided tour of computations/
@@ -271,21 +252,21 @@ Rodina-locality-proof/
 
 | # | Item | Status |
 |---|---|---|
-| 1 | Foundational lemma $B = 0 \Rightarrow B_i = 0$ | draft in `paper/Details missing.../Proof of Rodina claim B=0->B_i = 0/` |
-| 2 | No triangulation is killed by Step 1 at any zone | **closed** — `paper/step1 Kill technique and statistics/step-one-doesnt-kill-triangulations/` |
-| 3 | Use Item 2 to identify exactly which indices Step 1 kills | now mechanical (Item 2 closed) |
-| 4 | Survivor fraction $\to 0$ fast as $n$ grows | data through $n=9$; asymptotic conjecture open |
-| 5 | Numerical verification at $n = 7, 8, 9$ | done ($n=7,8,9$); see `computations/step3_laurent/` and `computations/step4_laurent_block_analysis/` |
+| 1 | Foundational lemma $B = 0 \Rightarrow B_i = 0$ | **closed** — note 12; underwrites the boundary-propagator grading of Part III |
+| 2 | No triangulation is killed by Step 1 at any zone | **closed** — Part I Theorem 2; Part II Prop 1 generalises to every $k$-zero (verified for $n\le 8$ in `paper/part2/tests/stress_tests.py` T4) |
+| 3 | Use Item 2 to identify exactly which indices Step 1 kills | now mechanical (Items 1 + 2 closed) |
+| 4 | Survivor fraction $\to 0$ fast as $n$ grows | data through $n=9$ (Part I §4); asymptotic conjecture open |
+| 5 | Numerical verification at $n = 7, 8, 9$ | done — `computations/step3_laurent/` and `computations/step4_laurent_block_analysis/` |
 | 6 | Dual experiment ($X_{13}$ never special) | done — `computations/step1_layer0_kill/dual_X13_never_special/` |
-| 7 | Conditional theorem: # survivors $= C_{n-2}$ | reduces to Item 10 |
-| 8 | Worked examples at $n = 5, 6$ | done — `paper/step1 Kill technique and statistics/locality_unitarity_v5.pdf` |
-| 9 | Undergraduate guide derived from the notes | in progress; `geometric_story.pdf` is the seed |
-| 10 | Per-orbit depth-1 Laurent cascade closes all Step-1 survivors | **refined**; singleton verified at $n=7,8$; at $n=9$ generalises to BLOCK-RULE (cluster rank = full on the 90-orbit cluster). **Locality at $n=9$ is fully proven** (Step-1 + 23 single-orbit cascades + block-rule cluster kill ⟹ every non-triangulation coefficient is zero). |
-| 11 | Triangulation $c$-values collapse to a single common scalar at $n \ge 9$ (UNITARITY) | handled separately by the **d-subset argument** in `paper/Details missing.../details for Rodina D subset argument/` and `notes/18.` — independent of the cascade machinery. (An earlier flip-graph framing of this question turned out to be a misframing — the 4 "untouched" Step-2 components at $n=9$ are triangulation components, which are LOCAL terms that should survive Step-1 by design, not be killed.) |
+| 7 | **Locality at $n \le 9$ from the 1-zero alone** | **closed** — Part I; Step-1 + 23 single-orbit cascades + block-rule 90-orbit cluster kill ⟹ every non-triangulation coefficient is zero. |
+| 8 | **$k$-zero classification of kills** | **closed** — Part II Theorem 1 (rate-vector classification of admissible finite-sets); verified symbolically over 17,602 multisets at $n\le 8$ |
+| 9 | **Step-2 $k$-zero relations** | **closed for $k=1,2,3$** — Part III; binomial trace + per-column + per-offset relations verified symbolically |
+| 10 | All-$n$ locality from the union of $k$-zero kills + Step-2 relations | **open** — central conjecture; the question is whether the combined linear system has cokernel exactly on the triangulation coefficients |
+| 11 | Triangulation $c$-values collapse to a single common scalar (UNITARITY) | recovered from Part III's $m=1$ binomial trace $a_{X_{1,k+2}}=a_{X_{k+1,n}}$ at every $k$ and rotation; the resulting flip-graph collapses triangulation classes |
 
 The updated dependency chain is:
 
-**Items 1 + 2 (closed) ⟹ Item 3 (mechanical) ⟹ Item 10 (locality, via block-rule cluster kill) + Item 11 (unitarity, via d-subset) ⟹ locality + unitarity theorem.**
+**Items 1 + 2 (closed) + Items 7–9 (closed at $n \le 9$ and $k \le 3$) ⟹ Item 10 (all-$n$ locality) + Item 11 (unitarity) ⟹ locality + unitarity theorem.**
 
 ---
 
