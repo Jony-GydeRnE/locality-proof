@@ -117,64 +117,35 @@ def fig_kplus2gon():
     save(fig, "kplus2gon.pdf")
 
 
-# ---------------------------------------------------------------- Fig 3 & 4
-def _regime(ax, n, k, bridges, dashed_special_bare=True):
-    setup(ax)
-    shade(ax, n, list(range(1, k + 2)), C_NEAR, 0.45)
-    ngon(ax, n)
-    chord(ax, n, 1, k + 1, color=C_ENCL, lw=2.6)
-    if dashed_special_bare:
-        chord(ax, n, 1, k + 2, color=C_SPECIAL, lw=1.6, ls=(0, (3, 2)), alpha=0.7)
-        chord(ax, n, k + 1, n, color=C_BARE, lw=1.6, ls=(0, (3, 2)), alpha=0.7)
-    for (a, b) in bridges:
-        chord(ax, n, a, b, color=C_FREE, lw=2.2)
-
-
-def fig_regimeA():
-    n, k = 9, 2
-    # A : {X_{i,k+2}: i=2..k} U {X_{1,j}: j=k+3..n-1}
-    bridges = [(i, k + 2) for i in range(2, k + 1)] + [(1, j) for j in range(k + 3, n)]
-    fig, ax = plt.subplots(figsize=(3.4, 3.4))
-    _regime(ax, n, k, bridges)
-    save(fig, "regimeA.pdf")
-
-
-def fig_regimeB():
-    n, k = 9, 2
-    # B : {X_{i,n}: i=2..k} U {X_{k+1,j}: j=k+3..n-1}
-    bridges = [(i, n) for i in range(2, k + 1)] + [(k + 1, j) for j in range(k + 3, n)]
-    fig, ax = plt.subplots(figsize=(3.4, 3.4))
-    _regime(ax, n, k, bridges)
-    save(fig, "regimeB.pdf")
-
-
-# ---------------------------------------------------------------- Fig 5
-def fig_criterionC():
-    n, k, l = 8, 2, 6
-    fig, axs = plt.subplots(1, 3, figsize=(7.4, 2.7))
-    slots = [
-        ([(1, l)],                              r"slot $X_{1,\ell}$"),
-        ([(k + 1, l)],                          r"slot $X_{k+1,\ell}$"),
-        ([(i, l) for i in range(2, k + 1)],     r"slot $\{X_{2,\ell},\dots,X_{k,\ell}\}$"),
-    ]
-    for ax, (bridges, tag) in zip(axs, slots):
-        setup(ax)
-        shade(ax, n, list(range(1, k + 2)), C_NEAR, 0.4)
-        ngon(ax, n)
-        chord(ax, n, 1, k + 1, color=C_ENCL, lw=2.2)
-        chord(ax, n, 1, k + 2, color=C_SPECIAL, lw=1.3, ls=(0, (3, 2)), alpha=0.55)
-        chord(ax, n, k + 1, n, color=C_BARE, lw=1.3, ls=(0, (3, 2)), alpha=0.55)
-        for (a, b) in bridges:
-            chord(ax, n, a, b, color=C_FREE, lw=2.4)
-        panel_tag(ax, tag)
-    save(fig, "criterionC.pdf")
-
-
-# ---------------------------------------------------------------- Fig 6
-def fig_survivors():
-    n, k = 8, 2  # bigger so a column-pair example fits
+# ---------------------------------------------------------------- Fig 3 (NEW)
+# Recursive stacking: as k grows, the (k+2)-gon at the k-zero is itself the
+# (k+1)-gon at the (k+1)-zero -- so the polygons build on top of each other.
+def fig_stacking():
+    n = 10
     fig, axs = plt.subplots(1, 3, figsize=(9.6, 3.4))
-    # (a) special present -> (k+2)-gon completion {1,..,k+2}
+    for ax, k in zip(axs, [1, 2, 3]):
+        setup(ax)
+        # the (k+1)-gon over k edges = vertices 1..k+1
+        shade(ax, n, list(range(1, k + 2)), C_NEAR, 0.45)
+        # closing one more vertex -> (k+2)-gon  = vertices 1..k+2
+        shade(ax, n, list(range(1, k + 3)), C_NEAR, 0.20)
+        ngon(ax, n)
+        # enclosing chord of the (k+1)-gon
+        if k >= 2:
+            chord(ax, n, 1, k + 1, color=C_ENCL, lw=2.6)
+        # the new chord that closes into the (k+2)-gon (here: via the special)
+        chord(ax, n, 1, k + 2, color=C_SPECIAL, lw=2.6)
+        panel_tag(ax, rf"$k = {k}$:  ({k+1})-gon $\Rightarrow$ ({k+2})-gon")
+    save(fig, "stacking.pdf")
+
+
+# ---------------------------------------------------------------- Fig: survivors
+# Three geometric survival modes: P2 (build a (k+2)-gon via special / bare /
+# column pair) and P1 (a chord crosses the enclosing chord).
+def fig_survivors():
+    n, k = 8, 2  # k=2 zero based at {1,2,3}, enclosing X_{1,3}
+    fig, axs = plt.subplots(1, 3, figsize=(9.6, 3.4))
+    # (a) P2 via special: (k+2)-gon {1,2,3,4} closed by special X_{1,4}
     ax = axs[0]
     setup(ax)
     shade(ax, n, list(range(1, k + 3)), C_NEAR, 0.4)
@@ -183,8 +154,8 @@ def fig_survivors():
     chord(ax, n, 1, k + 2, color=C_SPECIAL, lw=2.6)
     chord(ax, n, 5, 7, color=C_FREE, lw=2.0)
     chord(ax, n, 5, 8, color=C_FREE, lw=2.0)
-    panel_tag(ax, r"(a) special $X_{1,4}$ present")
-    # (b) column-pair survival: X_{1,m} AND X_{k+1,m} for m=6 -> rate incompat
+    panel_tag(ax, r"P2 via special $X_{1,4}$")
+    # (b) P2 via column pair {X_{1,6}, X_{3,6}}: (k+2)-gon {1,2,3,6}
     ax = axs[1]
     setup(ax)
     shade(ax, n, list(range(1, k + 2)) + [6], C_NEAR, 0.4)
@@ -193,25 +164,23 @@ def fig_survivors():
     chord(ax, n, 1, 6, color=C_FREE, lw=2.6)
     chord(ax, n, k + 1, 6, color=C_FREE, lw=2.6)
     chord(ax, n, 5, 7, color=C_FREE, lw=2.0)
-    panel_tag(ax, r"(b) column pair $\{X_{1,6},X_{3,6}\}$")
-    # (c) column-(k+2) x column-n pair survival: X_{i,k+2} AND X_{i,n}, same i
+    panel_tag(ax, r"P2 via column pair $\{X_{1,6},\,X_{3,6}\}$")
+    # (c) P1: a chord crosses the enclosing chord X_{1,3}
     ax = axs[2]
     setup(ax)
     shade(ax, n, list(range(1, k + 2)), C_NEAR, 0.4)
     ngon(ax, n)
     chord(ax, n, 1, k + 1, color=C_ENCL, lw=2.2)
-    chord(ax, n, 2, k + 2, color=C_FREE, lw=2.6)      # X_{2, k+2}
-    chord(ax, n, 2, n, color=C_FREE, lw=2.6)          # X_{2, n}
+    chord(ax, n, 2, 6, color=C_CROSS, lw=2.6)          # crosses X_{1,3}
     chord(ax, n, 5, 7, color=C_FREE, lw=2.0)
-    panel_tag(ax, r"(c) offset pair $\{X_{2,4},X_{2,8}\}$")
+    chord(ax, n, 4, 8, color=C_FREE, lw=2.0)
+    panel_tag(ax, r"P1: $X_{2,6}$ crosses enclosing $X_{1,3}$")
     save(fig, "survivors.pdf")
 
 
 if __name__ == "__main__":
     fig_geometry()
     fig_kplus2gon()
-    fig_regimeA()
-    fig_regimeB()
-    fig_criterionC()
+    fig_stacking()
     fig_survivors()
     print("figures written to", OUT)

@@ -30,8 +30,9 @@
 \vspace{-3.2em}
 
 \begin{abstract}
-\noindent Part~II classified the asymptotic limits on a $k$--zero $\Z^{(k)}$ by a rate vector and
-showed which coefficients $a_M$ are forced to vanish on each. The vanishing of $B_n$ on
+\noindent Part~II gave the geometric survival theorem on a $k$--zero $\Z^{(k)}$ (P1/P2: either a
+chord crosses the enclosing chord, or the $(k{+}1)$--gon extends to a $(k{+}2)$--gon). The
+vanishing of $B_n$ on
 $\Z^{(k)}$ carries strictly more information than that: it descends to vanishing on each homogeneous
 piece (boundary--propagator order), then on each \emph{D--subset} (born--free monomial), and within
 each D--subset the $X\!\to\!0$ cuts read off explicit linear relations among the surviving
@@ -164,8 +165,8 @@ Multiplying by $s$ and letting $s\to0$ extracts the binomial trace
 \end{equation}
 The remainder is then a polynomial in $\X{1\ell},\X{2\ell},\X{3\ell},\X{2,4},\X{2n}$ that vanishes
 identically, forcing $a_{1\ell}=a_{3\ell}=a_{2\ell}=0$ for all relevant $\ell$. \\
-\emph{Step--$1$ recovered:} the kill at the $2$--zero, in Part~II's language regime~$A$ or~$B$,
-follows automatically from this BP--graded D--subset decomposition.
+\emph{Step--$1$ recovered:} the geometric kill at the $2$--zero (Part~II Theorem~1) follows
+automatically from this BP--graded D--subset decomposition.
 
 \paragraph{$m=2$ (2 BP).}
 The leading $1/s^2$ piece gives the new quadratic
@@ -256,10 +257,9 @@ $\X{2n}\!\to\!0$ etc.\ isolates the offset relations.
 \end{proof}
 
 \section{Status: closing the system}
-The combination of Part~II (all admissible asymptotic kills, indexed by the rate vector
-$(\alpha_\ell;\beta_i)$) and the present Step--$2$ relations gives, for each pair $(k,n)$ and each
-cyclic rotation, a closed linear system on the multiset coefficients $a_M$. Three structural facts
-are immediate:
+The combination of Part~II (the geometric P1/P2 survival theorem on each $k$--zero) and the
+present Step--$2$ relations gives, for each pair $(k,n)$ and each cyclic rotation, a closed
+linear system on the multiset coefficients $a_M$. Three structural facts are immediate:
 \begin{itemize}[topsep=2pt,itemsep=1pt]
   \item \textbf{Unitarity at every $k$.} The $m=1$ binomial trace \eqref{eq:unit} promotes the
   single $1$--zero unitarity $a_{13}=a_{2n}$ to a family $a_{\X{1,k+2}}=a_{\X{k+1,n}}$ valid for
@@ -274,8 +274,12 @@ are immediate:
   $n$ cyclic rotations the total scales as $O(n^3)$. Whether the resulting system has trivial
   cokernel exactly on the triangulation coefficients is the all--$n$ locality conjecture.
 \end{itemize}
-The empirical data through $n=9$ (Part~I, $\S5$) and the explicit small--$n$ relations recorded in
-notes~26--27 are consistent with this conjecture; a clean closed form for the kernel of the
-combined Part~II + Part~III system is the next target.
+The empirical data through $n=9$ (Part~I, $\S5$) and the explicit small--$n$ relations recorded
+in notes~26--27 are consistent with this conjecture. \textbf{An end--to--end rank computation
+of the combined Part~II + Part~III system at $n=5,6,7$
+(see \texttt{computations/full\_constraint\_system/}) confirms it directly: at each $n$ the
+constraint matrix has rank $T(n)-1$, with kernel exactly $1$--dim and spanned by the
+triangulation indicator.} A clean closed form for the kernel uniformly in $n$ is the next
+target.
 
 \end{document}

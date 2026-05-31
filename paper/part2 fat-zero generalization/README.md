@@ -1,34 +1,50 @@
 # Part II — the fat-zero (k-zero) generalisation
 
-`fat_zero_part2.tex` → `fat_zero_part2.pdf` (6 pp).
+`fat_zero_part2.tex` → `fat_zero_part2.pdf` (5 pp).
 
-**Core point.** Promote the hidden 1-zero to a **k-zero** (impose the hidden-zero relations on
-*k consecutive boundaries*). The constraint surface $\mathcal Z^{(k)}$ has near block
-`N={1..k+1}`, far block `F={k+2..n}`, length-k **enclosing chord** `X_{1,k+1}`, special
-`X_{1,k+2}`, bare `X_{k+1,n}`. Rate-vector analysis (Theorem 1) gives the **complete**
-classification of admissible asymptotic limits — every $\mathcal F$ comes from a rate vector
-$(\alpha_\ell;\beta_i)\in\mathbb R^{(n-k-3)+(k-1)}$ via an explicit per-chord "finite iff" table.
-The three named regimes:
+**Core point — purely geometric.** Promote the hidden 1-zero to a **k-zero** (impose
+hidden-zero on *k consecutive boundaries*). The constraint surface $\mathcal Z^{(k)}$
+has near block `N={1..k+1}`, far block `F={k+2..n}`, length-$k$ **enclosing chord**
+`X_{1,k+1}`, special `X_{1,k+2}`, bare `X_{k+1,n}`.
 
-- **(A)** all $\beta_i=0, \alpha_\ell=0$ — the 1-side;
-- **(B)** all $\beta_i=1, \alpha_\ell=1$ — the (k+1)-side;
-- **(C)** any other consistent rate vector (per-column slot picks + offset pairings).
+**Survival theorem (Theorem 1):** for every $k$ consecutive edges, a multiset $M$
+survives iff at least one of:
 
-Geometric shadow (Proposition 1): in the non-crossing case, survival forces a $(k{+}2)$-gon
-completion of $N$, with **three** flavors — via the special, via the bare, or via an internal
-**column pair** $\{X_{1m},X_{k+1,m}\}$ for any $m\in\{k{+}3,\dots,n{-}1\}$ (the column pair forces
-$\alpha_m=0$ and $\alpha_m=1$ simultaneously).
+- **(P1)** $M$ contains a chord crossing the enclosing chord, or
+- **(P2)** $M$ extends the $(k{+}1)$-gon to a $(k{+}2)$-gon, in one of three flavours:
+  - via the **special** $X_{1,k+2}$ (closes on the small side),
+  - via the **bare** $X_{k+1,n}$ (closes on the large side),
+  - via a **column pair** $\{X_{1,m}, X_{k+1,m}\}$ for some $m\in\{k{+}3,\dots,n{-}1\}$.
 
-**Build:** `python3 figures/make_figures.py` then `tectonic fat_zero_part2.tex`. Companion to
-Part I (`final-paper-draft.pdf`, root) and Part III (`paper/part3 step2 K-zero relations/`).
+**Stacking.** The $(k{+}2)$-gon that closes a survival at the $k$-zero IS the
+$(k{+}1)$-gon at the next $(k{+}1)$-zero. So the family of $k$-zero survival
+conditions builds recursively: 2-gon → 3-gon → 4-gon → 5-gon → ...
 
-**Source notes:** 20 (fat zeros), 21 (conjecture), 22 (P1/P2 dichotomy), 24-25 (A/B/C
-classification), 26-27 (Step 2 — see Part III).
+**Multi-region P1.** When P1 must do the work, a single crossing isn't enough if
+the diagram has multiple open regions — survival requires multiple chords crossing
+the enclosing structure simultaneously, **one cherry per region** (note 22 page 6).
+
+**Companion:** Part I (`paper/part1 1-zero asymptotic analysis/`) and Part III
+(`paper/part3 step2 K-zero relations/`). Together with the end-to-end rank
+experiment at `computations/full_constraint_system/`, this is "Paper 2" for
+Rodina.
+
+**Source notes:** 20 (fat zeros), 21 (the geometric survival statement; three
+escapes), 22 (P1/P2 dichotomy + multi-region/cherry rule), 23 (case analysis of
+two-step-removed survivors). Older draft revisions (with the rate-vector / α/β
+framing) are superseded by this purely geometric version.
+
+**Build:** `python3 figures/make_figures.py` then `tectonic fat_zero_part2.tex`.
+
+**Sympy stress tests** at `tests/stress_tests.py` independently verify every
+load-bearing claim (telescoping lemma, geometric survival = special/bare/column-pair,
+binomial trace, per-column and offset Step-2 relations, triangulation escape).
+All pass. The tests still use a rate-vector parametrisation internally as a
+convenient scaffold for the symbolic checks; the paper itself does not.
 
 **Revision log.**
-- v1 (2026-05-25): initial draft; Theorem 1 overclaimed exhaustiveness of A/B/C via a per-column
-  three-slot rule that missed mixed-$\beta$ pairings; Prop 1 only invoked the crude limit.
-- v2 (2026-05-30): rewrote Theorem 1 as the rate-vector classification (Eq. 7), upgraded Prop 1
-  to all three $(k{+}2)$-gon completions including the column-pair (proof via rate-equation
-  inconsistency). Survivors section now shows three families: special/bare, column pair, offset
-  pair.
+- v1 (2026-05-25): first draft with per-column three-slot rule.
+- v2 (2026-05-30): rewrote with a rate-vector classification (since dropped --- that
+  notation was Giuseppe's bookkeeping and never made it into the notes).
+- v3 (2026-05-31): rewrote around the geometric P1/P2 theorem + stacking +
+  multi-region rule, matching notes 20-22 directly.
