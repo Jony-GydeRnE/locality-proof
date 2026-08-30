@@ -1,0 +1,9 @@
+{
+  "n": 8,
+  "total_multisets": 42504,
+  "triangulations": 132,
+  "killed_non_triangs": 42372,
+  "surviving_non_triangs": 0,
+  "surviving_list": [],
+  "elapsed_seconds": 5.072517156600952
+}

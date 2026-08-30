@@ -1,0 +1,62 @@
+{
+  "5": {
+    "n": 5,
+    "T": 15,
+    "C_{n-2}": 5,
+    "kr_pairs": 10,
+    "samples_used": 14,
+    "rank": 14,
+    "nullspace_dim": 1,
+    "triangulation_indicator_in_nullspace": true,
+    "elapsed_seconds": 0.0,
+    "prime": 998244353,
+    "nullspace_basis": [
+      {
+        "n_nonzero": 5,
+        "n_nonzero_triang": 5,
+        "n_nonzero_nontriang": 0,
+        "matches_triang_indicator": true
+      }
+    ]
+  },
+  "6": {
+    "n": 6,
+    "T": 165,
+    "C_{n-2}": 14,
+    "kr_pairs": 18,
+    "samples_used": 164,
+    "rank": 164,
+    "nullspace_dim": 1,
+    "triangulation_indicator_in_nullspace": true,
+    "elapsed_seconds": 0.23,
+    "prime": 998244353,
+    "nullspace_basis": [
+      {
+        "n_nonzero": 14,
+        "n_nonzero_triang": 14,
+        "n_nonzero_nontriang": 0,
+        "matches_triang_indicator": true
+      }
+    ]
+  },
+  "7": {
+    "n": 7,
+    "T": 2380,
+    "C_{n-2}": 42,
+    "kr_pairs": 28,
+    "samples_used": 2379,
+    "rank": 2379,
+    "nullspace_dim": 1,
+    "triangulation_indicator_in_nullspace": true,
+    "elapsed_seconds": 70.45,
+    "prime": 998244353,
+    "nullspace_basis": [
+      {
+        "n_nonzero": 42,
+        "n_nonzero_triang": 42,
+        "n_nonzero_nontriang": 0,
+        "matches_triang_indicator": true
+      }
+    ]
+  }
+}

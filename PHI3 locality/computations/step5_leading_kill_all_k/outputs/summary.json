@@ -1,0 +1,38 @@
+{
+  "world_a": true,
+  "per_n": {
+    "5": {
+      "phase0_survivors": 0,
+      "phase0_step1_tested": 0,
+      "phase1_surviving_non_triangs": 0,
+      "phase1_total_multisets": 15,
+      "phase1_triangulations": 5,
+      "phase1_killed_non_triangs": 10
+    },
+    "7": {
+      "phase0_survivors": 0,
+      "phase0_step1_tested": 7,
+      "phase1_surviving_non_triangs": 0,
+      "phase1_total_multisets": 2380,
+      "phase1_triangulations": 42,
+      "phase1_killed_non_triangs": 2338
+    },
+    "8": {
+      "phase0_survivors": 0,
+      "phase0_step1_tested": 100,
+      "phase1_surviving_non_triangs": 0,
+      "phase1_total_multisets": 42504,
+      "phase1_triangulations": 132,
+      "phase1_killed_non_triangs": 42372
+    },
+    "9": {
+      "phase0_survivors": 0,
+      "phase0_step1_tested": 1011,
+      "phase1_surviving_non_triangs": 0,
+      "phase1_total_multisets": 906192,
+      "phase1_triangulations": 429,
+      "phase1_killed_non_triangs": 905763
+    }
+  },
+  "note": "n=9 phase1 values from the earlier full run (verified before the patch that added per-survivor JSON; conclusions unchanged)."
+}

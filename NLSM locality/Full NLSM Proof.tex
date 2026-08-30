@@ -1,0 +1,2181 @@
+\documentclass[11pt]{article}
+
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  urlcolor=blue!45!black,
+  citecolor=blue!45!black,
+  pdftitle={Full NLSM Proof through Theorem 6},
+  pdfauthor={}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.62em}
+\setlist{itemsep=0.35em,topsep=0.4em}
+\allowdisplaybreaks
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Full NLSM Proof}
+\fancyhead[R]{Through Theorem 6}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{innerlemma}{Lemma}
+\newtheorem*{innerproposition}{Proposition}
+\newtheorem*{innerremark}{Remark}
+
+\newcommand{\K}{\mathbb K}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\Span}{\operatorname{span}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\initial}{\alpha}
+
+\tikzset{
+  pole node/.style={
+    draw=blue!55!black,
+    fill=blue!5,
+    rounded corners=2pt,
+    inner sep=4pt,
+    align=center,
+    font=\small
+  },
+  root pole/.style={
+    pole node,
+    very thick,
+    fill=blue!14
+  },
+  label node/.style={
+    circle,
+    draw=black!70,
+    fill=white,
+    minimum size=7mm,
+    inner sep=0pt,
+    font=\small
+  },
+  dock edge/.style={line width=0.9pt,draw=black!70},
+  forest edge/.style={line width=1.7pt,draw=teal!70!black},
+  omitted edge/.style={line width=1.2pt,draw=red!70!black,dashed},
+  branch box/.style={
+    draw=black!65,
+    rounded corners=2pt,
+    inner sep=5pt,
+    align=center,
+    font=\small
+  }
+}
+
+\title{\textbf{Full NLSM Proof}\\[0.4em]
+\large A first-principles reconstruction through Theorem 6}
+\author{}
+\date{Working proof manuscript --- August 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This manuscript reconstructs the NLSM locality argument only through Theorem~6.
+The argument begins with the chord and rectangle variables, proceeds through
+the hidden-zero conditions and the exact
+integer sequence, then the restriction on physical poles, and finally the
+quadratic interpolation curves.  Every displayed coefficient vector is
+derived from its equations.  Every telescoping identity, forced node
+collision, root-counting inequality, and Jacobian rank calculation is shown.
+No material from Theorem~7 or from the later multi-pole argument is included.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{The precise algebraic setting}
+
+\subsection{The cyclic polygon and its chord coordinates}
+
+Let
+\[
+n=2m
+\]
+be even.  Label the vertices of a convex $n$-gon cyclically by
+\[
+1,2,\ldots,n,
+\]
+with every subscript interpreted modulo $n$.  Thus $n+1$ means $1$, $0$ means $n$, and so forth.
+
+Let $C_n$ be the set of unordered non-boundary chords of the polygon.  A pair $\{i,j\}$ belongs to $C_n$ precisely when $i\neq j$ and $i,j$ are not adjacent on the boundary.  Write
+\[
+N:=|C_n|.
+\]
+For each $\{i,j\}\in C_n$ introduce a chord coordinate $X_{ij}=X_{ji}$.  Boundary edges and degenerate pairs are declared to be zero:
+\[
+X_{i,i}=X_{i,i+1}=0.
+\]
+This convention is not cosmetic.  It allows every rectangle formula below to be written without separate boundary cases.
+
+There are two copies of the same rank-$N$ free module, and it is important not to confuse them:
+\[
+V_X:=\Z^{C_n},\qquad V_q:=\Z^{C_n}.
+\]
+The standard basis of $V_X$ is indexed by the chord variables $X_{ij}$; the standard basis of $V_q$ is indexed by the rectangle labels $q_{ij}$.  Their index sets agree, but they play different roles.
+
+For every $\{i,j\}\in C_n$, define the elementary rectangle curvature
+\begin{equation}
+q_{ij}=Q_{ij}(X)
+:=X_{ij}+X_{i+1,j+1}-X_{i,j+1}-X_{i+1,j}.
+\label{eq:rectangle}
+\end{equation}
+The rectangle operator is the integer linear map
+\begin{equation}
+R:V_X\longrightarrow V_q,
+\qquad
+(RX)_{ij}=Q_{ij}(X).
+\label{eq:R-map}
+\end{equation}
+
+For example,
+\[
+Q_{13}(X)=X_{13}+X_{24}-X_{14}-X_{23}.
+\]
+Because $23$ is a boundary edge, $X_{23}=0$.  If, merely for illustration,
+\[
+X_{13}=0,\qquad X_{24}=3,\qquad X_{14}=1,
+\]
+then $Q_{13}(X)=0+3-1-0=2$.  This is all that a rectangle coordinate is: a
+specified four-term linear combination of chord coordinates.
+
+The following two statements must be kept separate:
+\begin{enumerate}
+\item Equation~\eqref{eq:rectangle} defines $q$ as the image of a chord vector $X$ under $R$.
+\item Later, after the image of $R$ has been characterized, the symbols $q_{ij}$ may be used as coordinates on that image.  A formula such as $q_{ij}(t)=c_{ij}(t-\tau_i)(t-\tau_j)$ then specifies a curve in rectangle-coordinate space; it does not redefine the linear map $Q_{ij}(X)$.
+\end{enumerate}
+The exact rectangle complex will prove that every such curve satisfying one linear relation actually comes from some chord curve $X(t)$.
+
+\subsection{The alternating flat direction}
+
+Define the parity vector $g=(g_{ij})_{\{i,j\}\in C_n}$ by
+\begin{equation}
+g_{ij}=
+\begin{cases}
++1,&i,j\text{ both even},\\
+-1,&i,j\text{ both odd},\\
+0,&i,j\text{ of opposite parity}.
+\end{cases}
+\label{eq:g}
+\end{equation}
+There is a copy $g_X\in V_X$ and a copy $g_q\in V_q$.  When the ambient module is clear, both are denoted by $g$.
+
+Translation by the chord-space copy of $g$ is
+\[
+X\longmapsto X+\delta g.
+\]
+Explicitly,
+\[
+X_{ee}\longmapsto X_{ee}+\delta,
+\qquad
+X_{oo}\longmapsto X_{oo}-\delta,
+\qquad
+X_{eo}\longmapsto X_{eo}.
+\]
+Every elementary rectangle is invariant under this translation.  Indeed, in each rectangle the same-parity corners occur with opposite signs, while the opposite-parity corners do not move.  Equivalently,
+\begin{equation}
+Rg_X=0.
+\label{eq:Rgzero}
+\end{equation}
+
+There is also a linear functional on rectangle space,
+\begin{equation}
+g_q^T:V_q\longrightarrow\Z,
+\qquad
+q\longmapsto g^Tq:=\sum_{\{i,j\}\in C_n}g_{ij}q_{ij}.
+\label{eq:gtranspose}
+\end{equation}
+The transpose symbol means the ordinary dot product with the coefficient vector $g$; it does not mean that $g$ is itself a matrix.
+
+\subsection{The complete ansatz and the hidden-zero datum}
+
+The ground field $\K$ has characteristic zero.  Whenever the analytic implicit function theorem is used, scalars may be extended to $\C$: a nonzero polynomial over $\K$ remains nonzero after a field extension, so vanishing after extension implies vanishing before extension.
+
+\begin{definition}[Complete NLSM-weight chord-pole ansatz]
+Let $n=2m$.  The complete tree-level NLSM-weight ansatz is
+\begin{equation}
+\mathcal A_n
+=
+\sum_{r=0}^{m-2}
+\ \sum_{|\Sigma|=r}
+\frac{\K[X]_{r+1}}{\prod_{P\in\Sigma}P},
+\label{eq:ansatz}
+\end{equation}
+where $\Sigma$ is a multiset of planar chord coordinates and $\K[X]_{r+1}$ denotes homogeneous polynomials of degree $r+1$.  Every summand is taken in reduced form: if a numerator cancels a displayed denominator, the result belongs to a lower-pole stratum.
+\end{definition}
+
+The notation in~\eqref{eq:ansatz} is easiest to read from one example.  At
+$n=10$ the summands may have the forms
+\[
+L_1(X),\qquad
+\frac{L_2(X)}{X_{13}},\qquad
+\frac{L_3(X)}{X_{14}X_{16}},\qquad
+\frac{L_4(X)}{X_{14}^{,2}X_{26}},
+\]
+where $L_d$ is an arbitrary homogeneous polynomial of degree $d$.  The
+subscript on $L_d$ is its degree, not a label.  Thus a term with $r$
+displayed denominator factors has numerator degree $r+1$.  At this stage a
+repeated denominator such as $X_{14}^2$ is allowed; locality is supposed to
+rule it out later.
+
+The ansatz deliberately permits three kinds of support that locality would forbid: same-parity chord poles, repeated poles, and simultaneous crossing poles.  The theorem is supposed to remove these possibilities rather than assume them away.
+
+For a vertex $w$, define the skinny star ideal
+\begin{equation}
+I_w:=(q_{wv}:\{w,v\}\in C_n).
+\label{eq:skinny-star}
+\end{equation}
+Its zero locus $H_w$ is the skinny hidden-zero chart: every rectangle incident on $w$ vanishes there.  More general interval charts are obtained by setting all rectangle coordinates in the corresponding interval band to zero.  Theorem~6 below needs only the skinny charts.
+
+Here is the interval definition without shorthand.  Let
+\[
+T=\{a,a+1,\ldots,b\}\subseteq[n]
+\]
+be a cyclic interval.  The cut $T\mid T^c$ separates the vertices in $T$
+from those outside $T$.  A rectangle label $ij$ is said to cross this
+cut when its elementary four-corner rectangle has corners on both sides of
+the cut.  Then
+\[
+H_T
+=V\bigl(q_{ij}:ij\hbox{ crosses }T\mid T^c\bigr).
+\]
+Thus $H_T$ is not a single equation: it is the common zero locus of all the
+listed rectangle coordinates.  If $T=\{w\}$, the crossing rectangles are
+exactly the rectangles incident on $w$, and the definition reduces to
+$H_w=V(I_w)$.
+
+\begin{definition}[Extended hidden-zero datum]
+A rational function $F\in\mathcal A_n$ obeys the extended hidden-zero datum if:
+\begin{enumerate}[label=\textup{(H\arabic*)}]
+\item $F$ restricts to zero on every interval hidden-zero chart, as an identity in that chart's function field;
+\item $F$ descends along the flat fiber:
+\begin{equation}
+F(X+\delta g)=F(X)
+\quad\text{for every }\delta.
+\label{eq:descent}
+\end{equation}
+\end{enumerate}
+\end{definition}
+
+A chord $X_{ij}$ is called \emph{physical} when $i,j$ have opposite parity.  Two chords are \emph{compatible} when they do not cross in the open polygon.  A polar support is \emph{local} when it consists of pairwise compatible physical chords, each appearing with multiplicity one.
+
+\begin{theorem}[All-$n$ tree-level NLSM locality]
+Let $n\ge4$ be even and let $F\in\mathcal A_n$ obey the extended hidden-zero datum.  Then every nonzero simultaneous polar support of $F$ is a squarefree compatible set of opposite-parity chords.  Equivalently, $F$ lies in the local planar subspace
+\[
+\mathcal L_n
+=
+\sum_{r=0}^{m-2}
+\ \sum_{\substack{|\Sigma|=r\\
+\Sigma\text{ squarefree and compatible}}}
+\frac{\K[X]_{r+1}}{\prod_{P\in\Sigma}P}.
+\]
+No cyclicity, Adler condition, factorization, or unitarity assumption is used.
+\end{theorem}
+
+Theorem~3 is the final theorem of the full paper.  The present reconstruction does not yet prove it.  Its purpose is to establish the first two load-bearing inputs: Proposition~4 and Lemma~5, followed by the complete single-divisor interpolation theorem, Theorem~6.
+
+\subsection{The exact rectangle complex}
+
+\subsection{Statement of the result}
+
+Fix an even integer $n\geq 6$.  Number the vertices of a convex $n$-gon
+cyclically by $1,2,\ldots,n$.  Let $C_n$ be the set of unordered non-boundary
+chords:
+\[
+ C_n=\bigl\{\{i,j\}:i\neq j,\;j\not\equiv i\pm1\pmod n\bigr\}.
+\]
+The abbreviation $ij$ will be used for $\{i,j\}$.  Its cardinality is
+\[
+ N=|C_n|=\frac{n(n-3)}2.
+\]
+For bookkeeping, chord coordinates are symmetric, $X_{ij}=X_{ji}$, indices
+are read modulo $n$, and every boundary-edge coordinate is declared to be
+zero:
+\[
+ X_{i,i+1}=0.
+\]
+
+Define the sign $\varepsilon_i$ and the parity vector $g\in\Z^{C_n}$ by
+\[
+ \varepsilon_i=
+ \begin{cases}
+ +1,&i\text{ even},\\
+ -1,&i\text{ odd},
+ \end{cases}
+ \qquad
+ g_{ij}=\frac{\varepsilon_i+\varepsilon_j}{2}.
+\]
+Thus
+\[
+ g_{ij}=
+ \begin{cases}
+ +1,&i,j\text{ both even},\\
+ -1,&i,j\text{ both odd},\\
+ 0,&i,j\text{ of opposite parity}.
+ \end{cases}
+\]
+Because $n$ is even, cyclically adjacent vertices have opposite parity, so
+the convention $g_{i,i+1}=0$ is compatible with the displayed formula.
+
+Consider the sequence
+\begin{equation}\label{eq:complex}
+0\longrightarrow \Z
+ \xrightarrow{\;\iota\;}
+ \Z^{C_n}
+ \xrightarrow{\;R\;}
+ \Z^{C_n}
+ \xrightarrow{\;\pi\;}
+ \Z\longrightarrow0,
+\end{equation}
+where
+\begin{align}
+ \iota(a)&=ag,\label{eq:iota}\\
+ (RX)_{ij}=Q_{ij}(X)
+ &=X_{ij}+X_{i+1,j+1}-X_{i,j+1}-X_{i+1,j},\label{eq:R}\\
+ \pi(q)&=g^Tq=\sum_{ij\in C_n}g_{ij}q_{ij}.
+ \label{eq:pi}
+\end{align}
+
+\begin{proposition}[Exact rectangle complex]
+For every even \(n\ge6\), the sequence \eqref{eq:complex} is exact.  Equivalently,
+\[
+ \ker\iota=0,
+ \qquad
+ \im\iota=\ker R,
+ \qquad
+ \im R=\ker(g^T),
+ \qquad
+ \im(g^T)=\Z.
+\]
+(The \(n=4\) case is an immediate direct calculation and is not needed by the interpolation theorem.)
+\end{proposition}
+
+The proof will verify each equality by both inclusions.  This matters over
+$\Z$: a rank calculation over $\mathbb Q$ cannot by itself detect a finite-index
+gap such as $2\Z\subsetneq\Z$.
+
+\subsection{The matrix of the rectangle map}
+
+The map $R:\Z^N\to\Z^N$ has an $N\times N$ integer matrix.  Its meaning is
+completely concrete:
+\begin{itemize}[leftmargin=2em]
+\item the column labelled $X_{ab}$ records the coefficient of the input
+      variable $X_{ab}$;
+\item the row labelled $Q_{ij}$ records the coefficients in the output
+      equation \eqref{eq:R};
+\item the entry in row $Q_{ij}$ and column $X_{ab}$ is the coefficient of
+      $X_{ab}$ in $Q_{ij}$.
+\end{itemize}
+For example,
+\[
+ Q_{13}=X_{13}+X_{24}-X_{14}-X_{23}
+       =X_{13}+X_{24}-X_{14},
+\]
+because $23$ is a boundary edge.  Hence the $Q_{13}$ row has coefficients
+$+1$ in the $X_{13}$ and $X_{24}$ columns, $-1$ in the $X_{14}$ column, and
+zero elsewhere.
+
+\subsubsection{The full hexagon matrix}
+
+For $n=6$, order the nine chords as
+\[
+13,14,15,24,25,26,35,36,46.
+\]
+Using this order for both rows and columns gives
+\[
+R_6=
+\begin{pmatrix}
+ 1&-1& 0& 1& 0& 0& 0& 0& 0\\
+ 0& 1&-1&-1& 1& 0& 0& 0& 0\\
+ 0& 0& 1& 0&-1& 1& 0& 0& 0\\
+ 0& 0& 0& 1&-1& 0& 1& 0& 0\\
+ 0& 0& 0& 0& 1&-1&-1& 1& 0\\
+ 1& 0& 0& 0& 0& 1& 0&-1& 0\\
+ 0& 0& 0& 0& 0& 0& 1&-1& 1\\
+-1& 1& 0& 0& 0& 0& 0& 1&-1\\
+ 0&-1& 1& 0& 0& 0& 0& 0& 1
+\end{pmatrix}.
+\]
+There is no extra object hidden behind phrases such as ``delete $Q_{13}$''
+or ``delete $X_{13}$'': they mean literally delete the row labelled $Q_{13}$
+or the column labelled $X_{13}$ from this matrix (and analogously for general
+$n$).
+
+\subsection{Exactness at the first copy of \texorpdfstring{$\Z$}{Z}}
+
+\begin{innerproposition}[Injectivity of the first map]
+The map $\iota$ is injective, so $\ker\iota=0$.
+\end{innerproposition}
+
+\begin{proof}
+Suppose $\iota(a)=ag=0$.  The chord $13$ exists for $n\geq6$, and
+$g_{13}=-1$.  Looking at the $13$ coordinate gives
+\[
+ 0=(ag)_{13}=a g_{13}=-a.
+\]
+Thus $a=0$.
+\end{proof}
+
+\subsection{Exactness at the first copy of \texorpdfstring{$\Z^{C_n}$}{Z(Cn)}}
+
+Both inclusions in
+\[
+ \im\iota=\ker R.
+\]
+will be proved separately.
+
+\subsubsection{The inclusion \texorpdfstring{$\im\iota\subseteq\ker R$}{im(iota) contained in ker(R)}}
+
+Take $X\in\im\iota$.  Then $X=ag$ for some $a\in\Z$.  For every chord
+$ij$,
+\begin{align*}
+(R(ag))_{ij}
+ &=a\bigl(g_{ij}+g_{i+1,j+1}-g_{i,j+1}-g_{i+1,j}\bigr)\\
+ &=\frac a2\Bigl[
+ (\varepsilon_i+\varepsilon_j)+(\varepsilon_{i+1}+\varepsilon_{j+1})
+ -(\varepsilon_i+\varepsilon_{j+1})-(\varepsilon_{i+1}+\varepsilon_j)
+ \Bigr]\\
+ &=0.
+\end{align*}
+Thus $R(ag)=0$ and
+\[
+ \im\iota\subseteq\ker R.
+\]
+
+\subsubsection{A discrete-integration lemma}
+
+The reverse inclusion uses the elementary fact that zero mixed differences
+integrate to a sum of one-variable potentials.
+
+\begin{innerlemma}[Discrete integration on the cyclic strip]
+Let $X=(X_{ij})$ be a symmetric cyclic chord array, extended to boundary
+edges by $X_{i,i+1}=0$.  If
+\[
+ X_{ij}+X_{i+1,j+1}-X_{i,j+1}-X_{i+1,j}=0
+\]
+for every chord $ij$, then there exist integer sequences $(A_i)$ and $(B_j)$
+on the lifted strip
+\[
+ \mathcal S=\{(i,j)\in\Z^2:1\leq j-i\leq n-1\}
+\]
+such that
+\[
+ X_{ij}=A_i+B_j
+\]
+throughout $\mathcal S$.
+\end{innerlemma}
+
+\begin{proof}
+Lift the cyclic labels periodically to $\mathcal S$.  On every unit square
+contained in the strip, the hypothesis says that the alternating sum of the
+four vertex values is zero.  Equivalently, the vertical increment
+\[
+ X_{i+1,j}-X_{ij}
+\]
+is unchanged when the vertical edge is translated one unit in the
+$j$-direction; likewise, the horizontal increment
+\[
+ X_{i,j+1}-X_{ij}
+\]
+is unchanged when translated in the $i$-direction.
+
+Choose a base vertex and define $A_i$ by summing vertical increments and
+$B_j$ by summing horizontal increments.  Any two lattice paths in the strip
+with the same endpoints differ by inserting or removing boundaries of unit
+squares.  The alternating sum around each such square is zero, so the sum of
+increments is path-independent.  Therefore $X_{ij}-A_i-B_j$ is constant.
+Absorb that constant into one of the two potentials.  All increments and the
+base value are integers, so $A_i,B_j\in\Z$.
+\end{proof}
+
+\subsubsection{The inclusion \texorpdfstring{$\ker R\subseteq\im\iota$}{ker(R) contained in im(iota)}}
+
+Take $X\in\ker R$.  By the discrete-integration sublemma, write
+\[
+ X_{ij}=A_i+B_j
+\]
+on the lifted strip.  On its lower boundary,
+\[
+ 0=X_{i,i+1}=A_i+B_{i+1},
+\]
+so
+\begin{equation}\label{eq:B-from-A}
+ B_j=-A_{j-1}.
+\end{equation}
+Consequently,
+\begin{equation}\label{eq:X-A}
+ X_{ij}=A_i-A_{j-1}.
+\end{equation}
+On the upper boundary of the strip,
+\[
+0=X_{i,i+n-1}=A_i-A_{i+n-2},
+\]
+and hence
+\begin{equation}\label{eq:A-period-n-2}
+ A_{i+n-2}=A_i.
+\end{equation}
+
+The original chord array is symmetric and cyclic.  The two lifted points
+$(i,j)$ and $(j,i+n)$ represent the same unordered chord, so
+\[
+ A_i-A_{j-1}=X_{ij}=X_{j,i+n}=A_j-A_{i+n-1}.
+\]
+Equation \eqref{eq:A-period-n-2} gives $A_{i+n-1}=A_{i+1}$, and therefore
+\begin{equation}\label{eq:sym-potential}
+ A_i+A_{i+1}=A_{j-1}+A_j.
+\end{equation}
+Taking $j=i+2$ in \eqref{eq:sym-potential} yields
+\[
+ A_i+A_{i+1}=A_{i+1}+A_{i+2},
+\]
+so
+\[
+ A_{i+2}=A_i.
+\]
+Thus $A_i$ has period two.  Write
+\[
+ A_i=
+ \begin{cases}
+ u,&i\text{ even},\\
+ v,&i\text{ odd}.
+ \end{cases}
+\]
+Equation~\eqref{eq:X-A} gives
+\[
+ X_{ij}=
+ \begin{cases}
+ u-v,&i,j\text{ both even},\\
+ v-u,&i,j\text{ both odd},\\
+ 0,&i,j\text{ of opposite parity}.
+ \end{cases}
+\]
+Set $a=u-v$.  Then $X=ag=\iota(a)$, proving
+\[
+ \ker R\subseteq\im\iota.
+\]
+Together with the first inclusion,
+\begin{equation}\label{eq:kerR}
+ \boxed{\ker R=\im\iota=\Z g.}
+\end{equation}
+
+\subsection{The easy inclusion at the second copy of \texorpdfstring{$\Z^{C_n}$}{Z(Cn)}}
+
+The next equality to establish is
+\[
+ \im R\subseteq\ker(g^T).
+\]
+Take $q\in\im R$, so $q=RX$ for some $X$.  The expression $g^TRX$ is calculated by
+collecting the coefficient of each input coordinate $X_{ab}$.  That
+coefficient is
+\begin{align*}
+g_{ab}+g_{a-1,b-1}-g_{a,b-1}-g_{a-1,b}
+&=\frac12\Bigl[(\varepsilon_a+\varepsilon_b)
+ +(\varepsilon_{a-1}+\varepsilon_{b-1})\\
+&\hspace{2.7cm}-(\varepsilon_a+\varepsilon_{b-1})
+ -(\varepsilon_{a-1}+\varepsilon_b)\Bigr]\\
+&=0.
+\end{align*}
+Boundary labels that do not index rows contribute zero, consistently with
+$g_{i,i+1}=0$.  Every coefficient of $X$ therefore vanishes, and
+\begin{equation}\label{eq:gTR}
+ g^TR=0.
+\end{equation}
+Hence
+\begin{equation}\label{eq:easy-image}
+ \boxed{\im R\subseteq\ker(g^T).}
+\end{equation}
+
+Over $\mathbb Q$, equations \eqref{eq:kerR} and \eqref{eq:easy-image} would nearly
+finish the proof: rank-nullity gives $\rank R=N-1$, while $g^T\neq0$ gives
+$\dim\ker(g^T)=N-1$.  Over $\Z$, however, equality of ranks does not imply
+equality of sublattices.  The rest of the argument eliminates precisely this
+possible finite-index defect.
+
+\subsection{The deleted row and deleted column}
+
+Delete from the matrix of $R$
+\begin{itemize}[leftmargin=2em]
+\item the row labelled $Q_{13}$, and
+\item the column labelled $X_{13}$.
+\end{itemize}
+Call the resulting $(N-1)\times(N-1)$ integer matrix $M$.
+
+The purpose of this construction is operational.  If $M$ is invertible over
+$\Z$, then after setting $X_{13}=0$ all equations $RX=q$ can be solved except
+possibly the $Q_{13}$ equation.  The one remaining relation $g^Tq=0$ will
+force that final equation automatically.
+
+\subsubsection{Unit pivots}
+
+The only units in $\Z$ are $+1$ and $-1$.  A pivot equal to a unit can be
+cleared using integer row and column operations.  For example,
+\[
+\begin{pmatrix}1&a\\ b&c\end{pmatrix}
+\xrightarrow{R_2\leftarrow R_2-bR_1}
+\begin{pmatrix}1&a\\0&c-ab\end{pmatrix}
+\xrightarrow{C_2\leftarrow C_2-aC_1}
+\begin{pmatrix}1&0\\0&c-ab\end{pmatrix}.
+\]
+The corresponding operations are multiplication by unimodular matrices, and
+they preserve the absolute value of the determinant.  Thus every unit pivot
+splits off a $1\times1$ block $(\pm1)$.
+
+\subsubsection{Explicit block reduction to the signed path}
+
+Let
+\[
+ \mathcal F_n=\{3n,4n,\ldots,(n-2)n\}
+\]
+be the retained fan of chords ending at $n$, and put
+\[
+ \mathcal P_n=C_n\setminus\bigl(\{13\}\cup\mathcal F_n\bigr).
+\]
+Thus $|\mathcal F_n|=n-4$, while $\mathcal P_n$ consists of every remaining
+label not in the fan.  Order $\mathcal P_n$ lexicographically: $(i,j)<(k,\ell)$
+when $i<k$, or when $i=k$ and $j<\ell$.
+
+Reorder both the rows and the columns of $M$ so that the $\mathcal P_n$ labels
+come first and the $\mathcal F_n$ labels come last.  The same permutation is
+used on the two sides, so the determinant does not change.  In this ordering,
+write
+\begin{equation}\label{eq:block-M}
+ M=\begin{pmatrix}A&B\\ C&D\end{pmatrix}.
+\end{equation}
+Here $A$ has $\mathcal P_n$ rows and columns, $B$ has $\mathcal P_n$ rows and
+$\mathcal F_n$ columns, $C$ has $\mathcal F_n$ rows and $\mathcal P_n$
+columns, and $D$ has $\mathcal F_n$ rows and columns.
+
+\begin{innerlemma}[Explicit reduction to an even path]
+The block $A$ is upper unitriangular.  For prescribed fan variables
+\[
+ y_a:=X_{a,n},\qquad 3\leq a\leq n-2,
+\]
+the equations $Q_{ij}=0$ for $ij\in\mathcal P_n$, together with $X_{13}=0$,
+have a unique integral solution for all non-fan variables.  After substituting
+that solution, the retained fan equations are
+\begin{align}
+ Q_{3n}&=-X_{4n},\label{eq:path-first}\\
+ Q_{an}&=X_{a-1,n}-X_{a+1,n},
+       &&4\leq a\leq n-3,\label{eq:path-middle}\\
+ Q_{n-2,n}&=X_{n-3,n}.
+ \label{eq:path-last}
+\end{align}
+Equivalently, the Schur complement $D-CA^{-1}B$ is the signed path matrix
+displayed in \eqref{eq:path-matrix} below.
+\end{innerlemma}
+
+\begin{proof}
+The proof is divided into explicit steps.
+
+\medskip
+\noindent\textbf{Step 1: the block $A$ is upper unitriangular.}
+Take $(i,j)\in\mathcal P_n$.  Its row is
+\begin{equation}\label{eq:rectangle-four-terms}
+ Q_{ij}=X_{ij}+X_{i+1,j+1}-X_{i,j+1}-X_{i+1,j}.
+\end{equation}
+The diagonal variable $X_{ij}$ has coefficient $+1$.  If $j<n$, every other
+term in this row that is a genuine $\mathcal P_n$ variable has label among
+\[
+ (i,j+1),\qquad(i+1,j),\qquad(i+1,j+1),
+\]
+and each is lexicographically later than $(i,j)$.  Therefore the row has no
+nonzero $A$-entry strictly to the left of its diagonal.
+
+There is one cyclic endpoint to check.  The only label of $\mathcal P_n$ with
+second endpoint $n$ is $(2,n)$: the pair $1n$ is a boundary edge and
+$3n,\ldots,(n-2)n$ are in $\mathcal F_n$.  Its equation is
+\[
+ Q_{2n}=X_{2n}+X_{31}-X_{21}-X_{3n}.
+\]
+The $X_{31}=X_{13}$ column was deleted, $X_{21}=0$ is a boundary coordinate,
+and $X_{3n}$ belongs to the fan.  Thus the $Q_{2n}$ row contains only
+$+X_{2n}$ inside $A$.
+
+It follows that $A$ is upper triangular and every diagonal entry is $1$.
+Hence
+\begin{equation}\label{eq:det-A}
+ \det A=1,
+ \qquad
+ A^{-1}\in\operatorname{Mat}_{|\mathcal P_n|}(\Z).
+\end{equation}
+
+\medskip
+\noindent\textbf{Step 2: identify the Schur complement.}
+Write a vector of input variables in block form as
+\[
+ \begin{pmatrix}u\\y\end{pmatrix},
+ \qquad
+ u=(X_{ij})_{ij\in\mathcal P_n},
+ \qquad
+ y=(X_{3n},X_{4n},\ldots,X_{n-2,n}).
+\]
+Then
+\[
+ M\begin{pmatrix}u\\y\end{pmatrix}
+ =\begin{pmatrix}Au+By\\ Cu+Dy\end{pmatrix}.
+\]
+The first component consists exactly of the $\mathcal P_n$ equations.  If
+$Au+By=0$, then
+\begin{equation}\label{eq:u-solution}
+ u=-A^{-1}By.
+\end{equation}
+Substitution into the fan component gives
+\[
+ Cu+Dy=(D-CA^{-1}B)y.
+\]
+Thus the matrix governing the fan equations after the non-fan equations have
+been solved is the Schur complement
+\begin{equation}\label{eq:Schur}
+ S=D-CA^{-1}B.
+\end{equation}
+The matrix $S$ can now be computed without computing $A^{-1}$.
+
+\medskip
+\noindent\textbf{Step 3: solve every non-fan variable explicitly.}
+For convenience set
+\[
+ y_{n-1}:=0,
+\]
+which records the boundary value $X_{n-1,n}=0$.  The unique
+solution of the non-fan equations is
+\begin{align}
+ X_{1j}&=-y_{j-1}, &&4\leq j\leq n-1,
+ \label{eq:explicit-row1}\\
+ X_{2j}&=y_3-y_{j-1}, &&4\leq j\leq n,
+ \label{eq:explicit-row2}\\
+ X_{ij}&=y_i-y_{j-1},
+ &&3\leq i<j\leq n-1,
+ \label{eq:explicit-interior}\\
+ X_{i,n}&=y_i, &&3\leq i\leq n-2,
+ \label{eq:explicit-fan}
+\end{align}
+where \eqref{eq:explicit-interior} is used whenever $ij$ is a chord, and
+$X_{13}=0$ remains separate.  Formula \eqref{eq:explicit-interior} is also
+compatible with a boundary edge $j=i+1$, because then it gives
+$y_i-y_i=0$.
+
+Every non-fan equation is verified by cases.
+
+\smallskip
+\emph{Case I: $i=1$.}
+For $4\leq j\leq n-2$, equations
+\eqref{eq:explicit-row1}--\eqref{eq:explicit-row2} give
+\begin{align*}
+ Q_{1j}
+ &=X_{1j}+X_{2,j+1}-X_{1,j+1}-X_{2j}\\
+ &=-y_{j-1}+(y_3-y_j)-(-y_j)-(y_3-y_{j-1})\\
+ &=0.
+\end{align*}
+At the endpoint $j=n-1$, use $X_{1n}=0$:
+\begin{align*}
+ Q_{1,n-1}
+ &=X_{1,n-1}+X_{2n}-X_{1n}-X_{2,n-1}\\
+ &=-y_{n-2}+y_3-0-(y_3-y_{n-2})\\
+ &=0.
+\end{align*}
+The $Q_{13}$ row is the deleted row, so this exhausts the $i=1$ equations in
+$\mathcal P_n$.
+
+\smallskip
+\emph{Case II: $i=2$.}
+For $4\leq j\leq n-2$,
+\begin{align*}
+ Q_{2j}
+ &=X_{2j}+X_{3,j+1}-X_{2,j+1}-X_{3j}\\
+ &=(y_3-y_{j-1})+(y_3-y_j)
+   -(y_3-y_j)-(y_3-y_{j-1})\\
+ &=0.
+\end{align*}
+For $j=n-1$,
+\begin{align*}
+ Q_{2,n-1}
+ &=X_{2,n-1}+X_{3n}-X_{2n}-X_{3,n-1}\\
+ &=(y_3-y_{n-2})+y_3-y_3-(y_3-y_{n-2})\\
+ &=0.
+\end{align*}
+Finally, cyclic indexing gives
+\[
+ Q_{2n}=X_{2n}+X_{31}-X_{21}-X_{3n}
+       =y_3+0-0-y_3=0.
+\]
+
+\smallskip
+\emph{Case III: $3\leq i$ and $j\leq n-2$.}
+For every interior non-fan rectangle,
+\begin{align*}
+ Q_{ij}
+ &=(y_i-y_{j-1})+(y_{i+1}-y_j)
+   -(y_i-y_j)-(y_{i+1}-y_{j-1})\\
+ &=0.
+\end{align*}
+When $j=i+2$, the last term is a boundary edge; the same formula assigns it
+$y_{i+1}-y_{i+1}=0$, so the calculation remains valid.
+
+\smallskip
+\emph{Case IV: $j=n-1$.}
+For $3\leq i\leq n-3$,
+\begin{align*}
+ Q_{i,n-1}
+ &=X_{i,n-1}+X_{i+1,n}-X_{i,n}-X_{i+1,n-1}\\
+ &=(y_i-y_{n-2})+y_{i+1}-y_i-(y_{i+1}-y_{n-2})\\
+ &=0.
+\end{align*}
+These four cases cover every label in $\mathcal P_n$.  Therefore
+\eqref{eq:explicit-row1}--\eqref{eq:explicit-fan} solve $Au+By=0$.  Since
+$A$ is invertible, the solution is unique and hence is exactly
+$u=-A^{-1}By$.
+
+\medskip
+\noindent\textbf{Step 4: compute the retained fan equations.}
+For $3\leq a\leq n-2$, cyclic indexing and symmetry give
+\begin{equation}\label{eq:fan-general}
+ Q_{a,n}
+ =X_{a,n}+X_{a+1,1}-X_{a,1}-X_{a+1,n}
+ =X_{a,n}+X_{1,a+1}-X_{1a}-X_{a+1,n}.
+\end{equation}
+
+At the lower endpoint $a=3$,
+\[
+ Q_{3n}=y_3+(-y_3)-0-y_4=-y_4=-X_{4n}.
+\]
+For $4\leq a\leq n-3$,
+\begin{align*}
+ Q_{a,n}
+ &=y_a+(-y_a)-(-y_{a-1})-y_{a+1}\\
+ &=y_{a-1}-y_{a+1}
+  =X_{a-1,n}-X_{a+1,n}.
+\end{align*}
+At the upper endpoint $a=n-2$, using $X_{n-1,n}=0$,
+\begin{align*}
+ Q_{n-2,n}
+ &=y_{n-2}+(-y_{n-2})-(-y_{n-3})-0\\
+ &=y_{n-3}=X_{n-3,n}.
+\end{align*}
+These are precisely \eqref{eq:path-first}--\eqref{eq:path-last}, so they give
+the action of the Schur complement $S$ on the fan vector $y$.
+\end{proof}
+
+\begin{innerremark}
+For $n=6$, the non-fan labels are
+\[
+14,15,24,25,26,35,
+\]
+and the retained fan labels are $36,46$.  The Schur complement is
+\[
+ \begin{pmatrix}0&-1\\1&0\end{pmatrix}.
+\]
+This $2\times2$ matrix is only the smallest instance of the general signed
+path matrix, whose size is $(n-4)\times(n-4)$.
+\end{innerremark}
+
+\subsection{The determinant of the path block}
+
+Let $m=n-4$, the number of retained fan labels.  Since $n$ is even, $m$ is
+even.  the explicit-reduction sublemma gives the final block
+\begin{equation}\label{eq:path-matrix}
+S_m=
+\begin{pmatrix}
+0&-1&0&\cdots&0\\
+1&0&-1&\ddots&\vdots\\
+0&1&0&\ddots&0\\
+\vdots&\ddots&\ddots&\ddots&-1\\
+0&\cdots&0&1&0
+\end{pmatrix}.
+\end{equation}
+It is the signed adjacency matrix of a path with $m$ vertices.
+
+Set $D_m=\det S_m$ and adopt the empty-determinant convention $D_0=1$.
+Expanding along the first row of $S_m$, whose only nonzero entry is the
+$-1$ in column two, and then along the first column of the resulting minor,
+gives
+\begin{equation}\label{eq:det-recurrence}
+ D_m=D_{m-2}.
+\end{equation}
+The initial nonempty case is
+\[
+ D_2=\det\begin{pmatrix}0&-1\\1&0\end{pmatrix}=1.
+\]
+It follows by induction that
+\[
+ D_m=1\qquad\text{for every even }m.
+\]
+Thus the Schur complement $S=S_m$ satisfies $\det S=1$.
+
+To recover the determinant of $M$, define the block lower-triangular integer
+matrix
+\[
+ L=\begin{pmatrix}I&0\\-CA^{-1}&I\end{pmatrix}.
+\]
+Equation \eqref{eq:det-A} ensures that $A^{-1}$ is integral, and
+$\det L=1$.  Direct block multiplication gives
+\[
+ LM=
+ \begin{pmatrix}
+ A&B\\
+ 0&D-CA^{-1}B
+ \end{pmatrix}
+ =\begin{pmatrix}A&B\\0&S\end{pmatrix}.
+\]
+Therefore
+\[
+ \det M=\det(LM)=\det A\det S=1\cdot1=1.
+\]
+Hence
+\begin{equation}\label{eq:detM}
+ \boxed{\det M=1.}
+\end{equation}
+With a different, unmatched convention for ordering rows and columns the sign
+could change; the invariant statement needed later is $|\det M|=1$.
+
+The graph-theoretic phrase ``the path has a unique perfect matching'' is a
+compressed version of the same computation: for even $m$, the only perfect
+matching is $(1,2),(3,4),\ldots,(m-1,m)$, so only one determinant monomial
+survives, with coefficient $\pm1$.
+
+\subsection{The hard inclusion \texorpdfstring{$\ker(g^T)\subseteq\im R$}{ker(gT) contained in im(R)}}
+
+Equation~\eqref{eq:detM} now permits an explicit construction of the preimage.
+
+\begin{innerproposition}[Integral lifting]
+Every $q\in\Z^{C_n}$ satisfying $g^Tq=0$ has an integral preimage under
+$R$.  Hence $\ker(g^T)\subseteq\im R$.
+\end{innerproposition}
+
+\begin{proof}
+Because $M$ has integer entries and determinant $\pm1$,
+\[
+ M^{-1}=\frac{\operatorname{adj}(M)}{\det M}
+\]
+also has integer entries.  Indeed, every entry of the adjugate is a signed
+determinant of an integer minor, and division by $\pm1$ creates no
+denominators.
+
+Take $q\in\ker(g^T)$, and delete its $Q_{13}$ coordinate to obtain
+$\widehat q\in\Z^{N-1}$.  Define
+\[
+ \widehat X=M^{-1}\widehat q\in\Z^{N-1}.
+\]
+Reinsert the deleted input coordinate by setting
+\[
+ X_{13}=0
+\]
+and taking all other coordinates of $X$ from $\widehat X$.  By construction,
+\[
+ (RX)_{ij}=q_{ij}
+ \qquad\text{for every }ij\neq13.
+\]
+Therefore the difference $q-RX$ is supported in at most the missing target
+coordinate: for some $t\in\Z$,
+\begin{equation}\label{eq:error}
+ q-RX=t e_{13},
+\end{equation}
+where $e_{13}$ is the standard basis vector in the target.
+
+Now $g^Tq=0$ by hypothesis, and $g^TRX=0$ by \eqref{eq:gTR}.  Apply $g^T$ to
+\eqref{eq:error}:
+\[
+ 0=g^T(q-RX)=t g_{13}=-t.
+\]
+Thus $t=0$, so $q=RX$.  The constructed $X$ is integral, and therefore
+$q\in\im R$.
+\end{proof}
+
+Combining the integral-lifting argument with
+\eqref{eq:easy-image} gives
+\begin{equation}\label{eq:middle-exact}
+ \boxed{\im R=\ker(g^T).}
+\end{equation}
+
+The two special labels have distinct logical roles.  Deleting the
+$X_{13}$ column fixes the one-dimensional ambiguity $X\mapsto X+ag$.
+Deleting the $Q_{13}$ row temporarily discards one equation.  The nonzero
+coefficient $g_{13}=-1$ lets the single relation $g^Tq=0$ restore precisely
+that discarded equation.
+
+\subsection{Exactness at the final copy of \texorpdfstring{$\Z$}{Z}}
+
+It remains to prove that $g^T:\Z^{C_n}\to\Z$ is surjective.  Since
+\[
+ g^T e_{13}=g_{13}=-1,
+\]
+the image contains $-1$, and hence it contains every integer.  Therefore
+\[
+ \im(g^T)=\Z.
+\]
+Together with the injectivity argument, \eqref{eq:kerR}, and \eqref{eq:middle-exact}, this completes the proof of exactness in
+Proposition~4.
+
+
+\subsection{The two consequences needed for interpolation}
+
+The exactness proof has two consequences which must be kept logically separate.
+
+First, Proposition~4 says directly that a vector \(q=(q_{ij})\in V_q\) is the rectangle image of an integral chord vector if and only if
+\begin{equation}
+g_q^Tq=0.
+\label{eq:legitimate-q}
+\end{equation}
+Thus a parametrized vector \(q(t)\) satisfying \(g_q^Tq(t)=0\) for every \(t\) really does lift to chord space.
+
+Second, interpolation requires us to express a physical chord coordinate as an integral linear combination of rectangles.  This is a statement about the transpose
+\[
+R^T:V_q\longrightarrow V_X.
+\]
+This statement follows constructively from the same deleted minor.
+
+Let \(y\in V_X\) satisfy \(g_X^Ty=0\).  Delete its \(X_{13}\)-coordinate to form \(\widehat y\).  The transpose \(M^T\) also has determinant \(1\), so
+\[
+\widehat k:=(M^T)^{-1}\widehat y
+\]
+is integral.  Reinsert the deleted coefficient by setting \(k_{13}=0\).  Then \(y-R^Tk\) is supported only at \(13\), so
+\[
+y-R^Tk=s e_{13}
+\]
+for some \(s\in\Z\).  Apply \(g_X^T\).  By hypothesis \(g_X^Ty=0\), while
+\[
+g_X^TR^Tk=(Rg_X)^Tk=0.
+\]
+Therefore
+\[
+0=s g_{13}=-s,
+\]
+so \(s=0\).  Therefore
+\begin{equation}
+\ker g_X^T=\im R^T.
+\label{eq:prop4-transpose-exact}
+\end{equation}
+
+Let \(P=X_{ab}\) be physical, and let \(e_P\in V_X\) be its standard basis vector.  Opposite parity means
+\[
+g_X^Te_P=g_{ab}=0.
+\]
+Equation~\eqref{eq:prop4-transpose-exact} supplies an integral \(k_P\in V_q\) such that
+\begin{equation}
+R^Tk_P=e_P.
+\label{eq:kpreimage}
+\end{equation}
+Pairing this identity with \(X\) gives
+\begin{align}
+k_P^Tq
+&=k_P^TRX\notag\\
+&=(R^Tk_P)^TX\notag\\
+&=e_P^TX\notag\\
+&=X_{ab}=P.
+\label{eq:pole-rectangle-rep}
+\end{align}
+Hence the physical pole equation \(P=0\) becomes, in rectangle coordinates,
+\begin{equation}
+k_P^Tq=0.
+\label{eq:pole-qeq}
+\end{equation}
+
+\section{Flat descent fixes the pole alphabet}
+
+\begin{lemma}[Descent fixes the pole alphabet]
+Let $F$ be a rational function whose reduced denominator is a product of chord coordinates.  If
+\[
+F(X+\delta g)=F(X)
+\quad\text{for every }\delta,
+\]
+then no same-parity chord coordinate occurs in that reduced denominator.  Consequently every chord-coordinate pole of $F$ is an opposite-parity physical channel.
+\end{lemma}
+
+\begin{proof}
+Write $F=A/B$ in reduced form, so $A,B\in\K[X]$ have no common irreducible factor.  Factor the denominator as
+\[
+B=u\,p_1^{a_1}\cdots p_s^{a_s},
+\]
+where $u\in\K^\times$ and the $p_i$ are distinct irreducible polynomials.  The polar divisor of $F$ is the finite union
+\[
+V(p_1)\cup\cdots\cup V(p_s).
+\]
+
+For each $\delta$, translation
+\[
+T_\delta:X\longmapsto X+\delta g
+\]
+is an algebraic automorphism of chord space.  Invariance of $F$ implies that $T_\delta$ preserves its polar divisor.  Hence $T_\delta$ permutes the finite set of irreducible components $V(p_1),\ldots,V(p_s)$.
+
+Why must each component be fixed rather than merely permuted?  The parameter space of translations is the affine line $\mathbb A^1$, which is connected, while a finite permutation group is discrete.  The permutation induced by $T_\delta$ therefore cannot jump as $\delta$ varies.  At $\delta=0$ the permutation is the identity, so it is the identity for every $\delta$.
+
+Now suppose that a same-parity chord $Y=X_{ij}$ occurs in the reduced denominator.  If $i,j$ are both even, then $g_{ij}=+1$ and
+\[
+Y\longmapsto Y+\delta.
+\]
+The divisor $Y=0$ is carried to $Y+\delta=0$.  As $\delta$ varies, these are infinitely many distinct parallel hyperplanes.  Thus $Y=0$ is not fixed, contradicting the preceding paragraph.  If $i,j$ are both odd, the same argument uses $Y\mapsto Y-\delta$.
+
+If $i,j$ have opposite parity, then $g_{ij}=0$, so $X_{ij}$ is fixed by every $T_\delta$.  Therefore the only chord-coordinate divisors compatible with descent are the opposite-parity physical ones.
+\end{proof}
+
+The conclusion is exact and limited: Lemma~5 fixes the possible pole \emph{alphabet}.  It does not yet prove that a physical pole is simple, nor that several physical poles are compatible.  Those are later locality questions.
+
+\section{Detection on one physical divisor}
+
+\subsection{The pole quotient without opaque quotient notation}
+
+Fix a physical pole $P$.  Choose an integral rectangle representative $k_P$ as in~\eqref{eq:kpreimage}.  The affine rectangle space on the divisor $P=0$ is the linear subspace
+\begin{equation}
+B_P
+:=
+\bigl\{c\in\C^{C_n}:g^Tc=0,\ k_P^Tc=0\bigr\}.
+\label{eq:BP}
+\end{equation}
+The letter $B_P$ denotes a linear subspace, not an open ball.  It is closed in the ambient coefficient space.
+
+Equivalently, its coordinate ring is
+\begin{equation}
+S_P
+:=
+\C[q_e:e\in C_n]/(g^Tq,k_P^Tq).
+\label{eq:SP}
+\end{equation}
+Let $\overline I_w\subset S_P$ be the image of the skinny star ideal $I_w$.  Define the skinny single-pole detection module by
+\begin{equation}
+D_P:=\bigcap_{w=1}^n\overline I_w\subseteq S_P.
+\label{eq:DP}
+\end{equation}
+Thus a polynomial class $f\in S_P$ belongs to $D_P$ precisely when
+\begin{equation}
+f|_{H_w\cap\{P=0\}}=0
+\quad\text{for every }w.
+\label{eq:skinny-vanishing}
+\end{equation}
+This formulation says directly what the quotient notation
+\[
+\frac{I_w+(P,g)}{(P,g)}
+\]
+means: first impose the flat and pole equations, then ask whether the resulting class vanishes after the star equations are imposed.
+
+The module $D_P$ is graded by polynomial degree.  For any nonzero graded module $M=\bigoplus_{d\ge0}M_d$, define its initial degree by
+\begin{equation}
+\initial(M):=\min\{d:M_d\neq0\},
+\label{eq:alpha-def}
+\end{equation}
+and set $\initial(0)=+\infty$.  Consequently,
+\[
+\initial(D_P)\ge\frac n2
+\]
+means exactly
+\[
+(D_P)_d=0
+\quad\text{for every integer }d<\frac n2.
+\]
+
+\subsection{The quadratic edge-star curve}
+
+Choose coefficients $c=(c_{ij})$ and node parameters $\tau=(\tau_1,\ldots,\tau_n)$.  Define a one-parameter vector in rectangle-coordinate space by
+\begin{equation}
+q_{ij}(t):=c_{ij}(t-\tau_i)(t-\tau_j).
+\label{eq:quadratic-curve}
+\end{equation}
+At this stage~\eqref{eq:quadratic-curve} is an ansatz for a curve in $V_q\otimes\C$.  It represents a genuine rectangle curve if $g^Tq(t)=0$ for all $t$, by Proposition~4.
+
+The reason for the factorization in~\eqref{eq:quadratic-curve} is immediate.  At $t=\tau_w$,
+\[
+q_{wv}(\tau_w)
+=c_{wv}(\tau_w-\tau_w)(\tau_w-\tau_v)
+=0
+\]
+for every chord incident on $w$.  Therefore
+\begin{equation}
+q(\tau_w)\in H_w.
+\label{eq:curve-hits-star}
+\end{equation}
+One curve can therefore pass through every skinny chart, one node value at a time.
+
+The curve must also remain inside legitimate rectangle space and inside the selected physical divisor.  Let $a=(a_{ij})$ be any coefficient vector.  Expanding one component gives
+\[
+(t-\tau_i)(t-\tau_j)
+=t^2-(\tau_i+\tau_j)t+\tau_i\tau_j.
+\]
+Define three moments
+\begin{align}
+C_a(c)&:=\sum_{i<j}a_{ij}c_{ij},\label{eq:Ca}\\
+S_a(c,\tau)&:=\sum_{i<j}a_{ij}c_{ij}(\tau_i+\tau_j),\label{eq:Sa}\\
+T_a(c,\tau)&:=\sum_{i<j}a_{ij}c_{ij}\tau_i\tau_j.\label{eq:Ta}
+\end{align}
+Then direct substitution gives the polynomial identity
+\begin{equation}
+a^Tq(t)=C_a t^2-S_a t+T_a.
+\label{eq:moment-expansion}
+\end{equation}
+Therefore $a^Tq(t)$ vanishes for every $t$ if and only if
+\begin{equation}
+C_a=S_a=T_a=0.
+\label{eq:three-moments}
+\end{equation}
+
+Apply this first to $a=g$ and then to $a=k_P$.  The six equations are
+\begin{equation}
+C_g=S_g=T_g=0,
+\qquad
+C_{k_P}=S_{k_P}=T_{k_P}=0.
+\label{eq:six-moments}
+\end{equation}
+If $c\in B_P$, then the two leading equations
+\[
+C_g=g^Tc=0,
+\qquad
+C_{k_P}=k_P^Tc=0
+\]
+already hold.  The remaining requirements are the four moment equations
+\begin{equation}
+S_g=T_g=S_{k_P}=T_{k_P}=0.
+\label{eq:four-moments}
+\end{equation}
+When they hold, Proposition~4 and~\eqref{eq:pole-rectangle-rep} give
+\[
+q(t)\in\im R
+\quad\text{and}\quad
+P(q(t))=0
+\qquad\text{for every }t.
+\]
+
+\subsection{Why root counting will prove vanishing}
+
+Let $f(q)$ be homogeneous of degree $d$.  Every monomial of $f$ is a product of $d$ rectangle variables.  Each $q_{ij}(t)$ has degree at most two in $t$, so
+\begin{equation}
+\deg_t f(q(t))\le2d.
+\label{eq:pullback-degree}
+\end{equation}
+If $f\in D_P$, then~\eqref{eq:skinny-vanishing} and~\eqref{eq:curve-hits-star} imply
+\begin{equation}
+f(q(\tau_w))=0
+\quad\text{for every }w.
+\label{eq:nodal-roots}
+\end{equation}
+Thus every distinct node value $\tau_w$ is a root of the ordinary one-variable polynomial $f(q(t))$.
+
+Suppose $d<n/2$.  Since $d$ is an integer and $n$ is even,
+\begin{equation}
+d<\frac n2
+\quad\Longrightarrow\quad
+d\le\frac n2-1
+\quad\Longrightarrow\quad
+2d\le n-2.
+\label{eq:integer-degree}
+\end{equation}
+Consequently:
+\begin{itemize}
+\item $n$ distinct nodes are more than enough, because $n>n-2\ge\deg_t f(q(t))$;
+\item even $n-1$ distinct nodes are enough, because $n-1>n-2\ge\deg_t f(q(t))$.
+\end{itemize}
+In either case, elementary root counting forces
+\begin{equation}
+f(q(t))\equiv0.
+\label{eq:pullback-zero}
+\end{equation}
+
+The highest power of $t$ has a useful coefficient.  From~\eqref{eq:quadratic-curve},
+\[
+q_{ij}(t)=c_{ij}t^2+\text{terms of lower degree in }t.
+\]
+Because $f$ is homogeneous of degree $d$,
+\begin{equation}
+f(q(t))=f(c)t^{2d}+\text{terms of lower degree in }t.
+\label{eq:leading-fc}
+\end{equation}
+Hence~\eqref{eq:pullback-zero} implies $f(c)=0$.
+
+One successful pair $(c,\tau)$ proves $f(c)=0$ at only one point.  Vanishing on all of $B_P$ requires such curves for a nonempty open family of coefficient vectors $c\in B_P$.  This is the sole purpose of the Jacobian calculation below.  At one solution $(c_0,\tau_0)$, the number of movable nodes is chosen to equal the number of remaining moment equations, and the derivative with respect to those nodes is shown to be invertible.  The implicit function theorem then adjusts the nodes under perturbations of $c$, producing an open family of curves.
+
+\section{Theorem 6: every physical divisor}
+
+\begin{theorem}[Every physical divisor]
+Let $n\ge8$ be even and let $P$ be any physical opposite-parity chord.  Then
+\begin{equation}
+\initial(D_P)\ge\frac n2.
+\label{eq:thm6-alpha}
+\end{equation}
+Equivalently, if a homogeneous polynomial class $f$ on the physical divisor $P=0$ vanishes on every skinny sliced chart and has degree $d<n/2$, then $f=0$ on the entire divisor.
+\end{theorem}
+
+The proof has two cases.  The short physical-pole orbit forces one node collision.  Every other orbit admits a uniform family with all nodes distinct.  Both witnesses are derived rather than merely listed.
+
+\subsection{The short physical pole}
+
+\subsubsection{Why \texorpdfstring{$X_{14}$}{X14} is the representative}
+
+A physical chord has endpoints of opposite parity, so the number of boundary steps between its endpoints is odd.  A non-boundary chord has at least three boundary steps.  Therefore every shortest physical chord is carried by a rotation or reflection of the $n$-gon to
+\[
+P=X_{14}.
+\]
+The rectangle definition and the hidden-zero stars are equivariant under these relabelings, so it is enough to treat this representative.
+
+\subsubsection{Derive the rectangle representative of \texorpdfstring{$X_{14}$}{X14}}
+
+The required identity is
+\begin{equation}
+X_{14}=-q_{13}+\sum_{j=4}^n q_{2j}.
+\label{eq:short-representative}
+\end{equation}
+This identity follows by direct telescoping.  From~\eqref{eq:rectangle},
+\[
+q_{2j}=X_{2j}+X_{3,j+1}-X_{2,j+1}-X_{3j}.
+\]
+Summing from $j=4$ to $n$, the row-$2$ terms telescope:
+\[
+\sum_{j=4}^n(X_{2j}-X_{2,j+1})
+=X_{24}-X_{2,n+1}
+=X_{24},
+\]
+because $n+1=1$ and $X_{21}$ is a boundary edge.  The row-$3$ terms also telescope:
+\[
+\sum_{j=4}^n(X_{3,j+1}-X_{3j})
+=X_{3,n+1}-X_{34}
+=X_{31}=X_{13}.
+\]
+Thus
+\begin{equation}
+\sum_{j=4}^nq_{2j}=X_{24}+X_{13}.
+\label{eq:short-telescope}
+\end{equation}
+On the other hand,
+\[
+q_{13}=X_{13}+X_{24}-X_{14}-X_{23}
+=X_{13}+X_{24}-X_{14},
+\]
+since $X_{23}$ is a boundary edge.  Subtracting this equation from~\eqref{eq:short-telescope} proves~\eqref{eq:short-representative}.
+
+Therefore the short-pole representative $k_P$ is given by
+\begin{equation}
+(k_P)_{13}=-1,
+\qquad
+(k_P)_{2j}=+1\quad(4\le j\le n),
+\label{eq:short-k}
+\end{equation}
+with every other entry zero.
+
+\subsubsection{The collision is forced by the pole equation}
+
+Require the curve~\eqref{eq:quadratic-curve} to remain on $X_{14}=0$.  By~\eqref{eq:short-representative}, this means
+\begin{equation}
+-c_{13}(t-\tau_1)(t-\tau_3)
++\sum_{j=4}^n c_{2j}(t-\tau_2)(t-\tau_j)
+\equiv0.
+\label{eq:short-curve-poly}
+\end{equation}
+Set
+\begin{equation}
+S:=\sum_{j=4}^n c_{2j}.
+\label{eq:S-short}
+\end{equation}
+
+The coefficient of $t^2$ in~\eqref{eq:short-curve-poly} is
+\[
+-c_{13}+S,
+\]
+so the leading pole equation is
+\begin{equation}
+c_{13}=S.
+\label{eq:short-leading}
+\end{equation}
+
+The coefficient of $t$ is
+\[
+c_{13}(\tau_1+\tau_3)
+-\sum_{j=4}^n c_{2j}(\tau_2+\tau_j).
+\]
+Using~\eqref{eq:short-leading} and~\eqref{eq:S-short}, its vanishing is equivalent to
+\begin{equation}
+\sum_{j=4}^n c_{2j}\tau_j
+=S(\tau_1+\tau_3-\tau_2).
+\label{eq:short-linear}
+\end{equation}
+
+The constant coefficient is
+\[
+-c_{13}\tau_1\tau_3
++\tau_2\sum_{j=4}^n c_{2j}\tau_j.
+\]
+Substitute~\eqref{eq:short-leading} and~\eqref{eq:short-linear}:
+\begin{align*}
+0
+&=-S\tau_1\tau_3
++S\tau_2(\tau_1+\tau_3-\tau_2)\\
+&=S(\tau_2-\tau_1)(\tau_3-\tau_2).
+\end{align*}
+Therefore, provided $S\neq0$,
+\begin{equation}
+\tau_1=\tau_2
+\qquad\text{or}\qquad
+\tau_2=\tau_3.
+\label{eq:short-two-branches}
+\end{equation}
+The short pole genuinely forces a collision.  It is not an arbitrary choice introduced for convenience.
+
+Only one branch is needed; choose
+\[
+\tau_1=\tau_2.
+\]
+If their common value is $a$, replace
+\[
+t'=t-a,
+\qquad
+\tau_i'=\tau_i-a.
+\]
+Then $t-\tau_i=t'-\tau_i'$, so the parametrized curve does not change; only its parameter origin changes.  Therefore one may normalize
+\begin{equation}
+\tau_1=\tau_2=0.
+\label{eq:short-normalization}
+\end{equation}
+With this normalization, $T_{k_P}=0$ is automatic because every nonzero entry of $k_P$ is attached to vertex $1$ or $2$.  The short-pole curve is governed by the two leading equations
+\[
+C_g=C_{k_P}=0
+\]
+and the three remaining moments
+\begin{equation}
+S_g=T_g=S_{k_P}=0.
+\label{eq:short-three-moments}
+\end{equation}
+
+\subsubsection{Why the seven chosen labels have the needed structure}
+
+Set
+\begin{equation}
+\tau_j=j-2\quad(j\ge3),
+\qquad
+\tau_1=\tau_2=0.
+\label{eq:short-nodes}
+\end{equation}
+Thus
+\[
+\tau_3=1,\quad \tau_4=2,\quad \tau_5=3,\quad \tau_7=5,
+\]
+and the only collision among all $n$ nodes is $\tau_1=\tau_2$.
+
+A sparse support is now chosen.  No claim of uniqueness or minimality is needed.
+
+First use the three labels
+\[
+13,\ 24,\ 25.
+\]
+The pole representative~\eqref{eq:short-k} sees precisely these labels with weights $-1,+1,+1$.  They are therefore enough to solve the two nonautomatic short-pole equations $C_{k_P}=S_{k_P}=0$ nontrivially.
+
+Next consider $T_g$.  If every same-parity supported edge has an endpoint at node value zero, $T_g$ may vanish but have no useful sensitivity to the movable nonzero nodes.  The equation must not only vanish at one point but also remain adjustable under perturbations of $c$.  This requires adding
+\[
+35,\ 37.
+\]
+Both endpoints have nonzero node values, so these edges contribute genuinely to $T_g$ and to its derivative.
+
+Finally, $C_g$ and $S_g$ must be corrected without disturbing $T_g$.  The labels
+\[
+15,\ 17
+\]
+do exactly this: they are same-parity edges, so $g$ sees them, but $\tau_1=0$, so their contributions to $T_g$ vanish.  Their $S_g$ weights are different:
+\[
+\tau_1+\tau_5=3,
+\qquad
+\tau_1+\tau_7=5.
+\]
+Thus the support
+\begin{equation}
+\{13,24,25\}
+\ \cup\ \{35,37\}
+\ \cup\ \{15,17\}
+\label{eq:short-support}
+\end{equation}
+has a transparent architecture: solve the short pole, make $T_g$ both solvable and movable, then correct $C_g,S_g$ without changing $T_g$.
+
+\subsubsection{Solve the five-by-seven system by hand}
+
+Order the seven unknowns as
+\[
+(c_{13},c_{15},c_{17},c_{24},c_{25},c_{35},c_{37}).
+\]
+At the nodes~\eqref{eq:short-nodes}, the five equations
+\[
+C_{k_P}=S_{k_P}=C_g=S_g=T_g=0
+\]
+are
+\begin{equation}
+\begin{pmatrix}
+-1&0&0&1&1&0&0\\
+-1&0&0&2&3&0&0\\
+-1&-1&-1&1&0&-1&-1\\
+-1&-3&-5&2&0&-4&-6\\
+0&0&0&0&0&-3&-5
+\end{pmatrix}
+\begin{pmatrix}
+c_{13}\\c_{15}\\c_{17}\\c_{24}\\c_{25}\\c_{35}\\c_{37}
+\end{pmatrix}
+=0.
+\label{eq:five-seven}
+\end{equation}
+Each row follows directly from~\eqref{eq:Ca}--\eqref{eq:Ta}.  For example, $g_{13}=g_{15}=g_{17}=g_{35}=g_{37}=-1$, $g_{24}=+1$, and $g_{25}=0$, producing the third row.  The final row is the $T_g$ equation; only $35$ and $37$ survive, with weights
+\[
+g_{35}\tau_3\tau_5=-3,
+\qquad
+g_{37}\tau_3\tau_7=-5.
+\]
+
+Perform the row operation $R_2\leftarrow R_2-R_1$.  The second row becomes
+\[
+(0,0,0,1,2,0,0),
+\]
+so
+\begin{equation}
+c_{24}=-2c_{25}.
+\label{eq:short-c24}
+\end{equation}
+The first row then gives
+\begin{equation}
+c_{13}=-c_{25}.
+\label{eq:short-c13}
+\end{equation}
+The fifth row gives
+\begin{equation}
+c_{35}=-\frac53c_{37}.
+\label{eq:short-c35}
+\end{equation}
+Let
+\[
+a:=c_{25},
+\qquad
+b:=c_{37}.
+\]
+Substitute~\eqref{eq:short-c24}--\eqref{eq:short-c35} into the third and fourth rows.  They reduce to
+\begin{align}
+c_{15}+c_{17}&=-a+\frac23b,\label{eq:short-rem1}\\
+3c_{15}+5c_{17}&=-3a+\frac23b.\label{eq:short-rem2}
+\end{align}
+Subtract three times~\eqref{eq:short-rem1} from~\eqref{eq:short-rem2}:
+\[
+2c_{17}=-\frac43b,
+\]
+and therefore
+\begin{equation}
+c_{17}=-\frac23b,
+\qquad
+c_{15}=-a+\frac43b.
+\label{eq:short-c15-c17}
+\end{equation}
+The entire two-parameter kernel is
+\begin{equation}
+\left(
+-a,
+-a+\frac43b,
+-\frac23b,
+-2a,
+a,
+-\frac53b,
+b
+\right).
+\label{eq:short-kernel}
+\end{equation}
+Choosing $a=b=3$ clears denominators and yields the explicit coefficient vector
+\begin{equation}
+\boxed{
+(c_{13},c_{15},c_{17},c_{24},c_{25},c_{35},c_{37})
+=(-3,1,-2,-6,3,-5,3).
+}
+\label{eq:short-witness}
+\end{equation}
+Thus the witness is not an unexplained certificate: it is one convenient point in a two-dimensional kernel derived by elementary elimination.
+
+\subsubsection{Derive the Jacobian and prove it is invertible}
+
+Keep the coefficient vector~\eqref{eq:short-witness}, set every other $c_{ij}$ to zero, and fix
+\[
+\tau_1=\tau_2=0,
+\qquad
+\tau_7=5.
+\]
+Regard $\tau_3,\tau_4,\tau_5$ as variables.  Define
+\begin{equation}
+\mathcal I(c,\tau)
+:=
+\bigl(S_g(c,\tau),T_g(c,\tau),S_{k_P}(c,\tau)\bigr).
+\label{eq:I-short}
+\end{equation}
+Its three components follow directly from the definitions.
+
+For $S_g$, sum $g_{ij}c_{ij}(\tau_i+\tau_j)$ over the seven supported labels.  After using $\tau_1=\tau_2=0$ and collecting terms,
+\begin{equation}
+S_g=5\tau_3-6\tau_4+4\tau_5-\tau_7
+=5\tau_3-6\tau_4+4\tau_5-5.
+\label{eq:Sg-short-explicit}
+\end{equation}
+For $T_g$, all supported edges containing vertex $1$ or $2$ vanish because their corresponding node is zero, and $g_{25}=0$.  Only $35$ and $37$ remain:
+\begin{equation}
+T_g=5\tau_3\tau_5-3\tau_3\tau_7
+=5\tau_3\tau_5-15\tau_3.
+\label{eq:Tg-short-explicit}
+\end{equation}
+For $S_{k_P}$, only $13,24,25$ contribute:
+\begin{equation}
+S_{k_P}=3\tau_3-6\tau_4+3\tau_5.
+\label{eq:Sk-short-explicit}
+\end{equation}
+Consequently
+\begin{equation}
+\mathcal I(\tau_3,\tau_4,\tau_5)
+=
+\begin{pmatrix}
+5\tau_3-6\tau_4+4\tau_5-5\\
+5\tau_3\tau_5-15\tau_3\\
+3\tau_3-6\tau_4+3\tau_5
+\end{pmatrix}.
+\label{eq:I-short-explicit}
+\end{equation}
+At the selected point
+\[
+(\tau_3,\tau_4,\tau_5)=(1,2,3),
+\]
+all three entries vanish.
+
+For a map $(F_1,F_2,F_3):\C^3\to\C^3$, its derivative is the Jacobian matrix whose $(i,j)$ entry is $\partial F_i/\partial x_j$.  Applying this definition to~\eqref{eq:I-short-explicit} gives
+\begin{equation}
+D_{(\tau_3,\tau_4,\tau_5)}\mathcal I
+=
+\begin{pmatrix}
+5&-6&4\\
+5\tau_5-15&0&5\tau_3\\
+3&-6&3
+\end{pmatrix}.
+\label{eq:J-short-general}
+\end{equation}
+At $(1,2,3)$ this becomes
+\begin{equation}
+J_{\mathrm{short}}
+=
+\begin{pmatrix}
+5&-6&4\\
+0&0&5\\
+3&-6&3
+\end{pmatrix}.
+\label{eq:J-short}
+\end{equation}
+Invertibility can be checked directly from the kernel.  Suppose
+\[
+J_{\mathrm{short}}
+\begin{pmatrix}x\\y\\z\end{pmatrix}=0.
+\]
+The second row gives $5z=0$, so $z=0$.  The third row then gives
+\[
+3x-6y=0,
+\quad\text{so}\quad x=2y.
+\]
+The first row gives $5x-6y=0$.  Substituting $x=2y$ yields $4y=0$, hence $y=0$ and then $x=0$.  Thus the kernel is trivial.  Since~\eqref{eq:J-short} is a square linear map,
+\begin{equation}
+J_{\mathrm{short}}\text{ is invertible}.
+\label{eq:J-short-invertible}
+\end{equation}
+
+\subsubsection{The implicit function theorem produces an open family}
+
+Restrict $c$ to the linear space $B_P$ in~\eqref{eq:BP}.  This keeps the leading equations $C_g=C_{k_P}=0$ satisfied.  Keep $\tau_1=\tau_2=0$ fixed, so $T_{k_P}=0$ remains automatic.  The only remaining equations are the three components of $\mathcal I$.
+
+At $(c_0,\tau_0)$ given by~\eqref{eq:short-nodes} and~\eqref{eq:short-witness},
+\[
+\mathcal I(c_0,\tau_0)=0,
+\]
+and the derivative in the three variables $(\tau_3,\tau_4,\tau_5)$ is invertible by~\eqref{eq:J-short-invertible}.  The complex implicit function theorem therefore gives a Euclidean-open neighborhood
+\begin{equation}
+U\subset B_P
+\label{eq:short-open-U}
+\end{equation}
+of $c_0$ and holomorphic functions
+\[
+\tau_3(c),\tau_4(c),\tau_5(c)
+\]
+such that
+\[
+\mathcal I(c,\tau(c))=0
+\quad\text{for every }c\in U.
+\]
+All other node values remain fixed.
+
+At the original solution, the only node equality is $\tau_1=\tau_2=0$.  Every other difference $\tau_i-\tau_j$ is nonzero.  There are only finitely many such differences, and each varies continuously with $c$.  Shrinking $U$ if necessary preserves all of their nonvanishing.  Hence every $c\in U$ has exactly $n-1$ distinct node values.
+
+This completes the construction needed for the short orbit: a nonempty open family of coefficient vectors on the pole divisor, each admitting a quadratic interpolation curve with one and only one controlled collision.
+
+\subsection{Every long physical pole}
+
+\subsubsection{Dihedral reduction to one uniform family}
+
+The dihedral group $D_n$ is the group of rotations and reflections of the labeled $n$-gon.  It is generated, for example, by
+\[
+\rho(i)=i+1\pmod n,
+\qquad
+\sigma(i)=2-i\pmod n.
+\]
+It acts on chord labels by relabeling both endpoints.  The rectangle formula~\eqref{eq:rectangle}, the parity vector, and the skinny stars retain exactly the same form after a dihedral relabeling.  Therefore it is enough to prove the interpolation statement for one representative of each dihedral orbit of physical chords.
+
+Take any physical chord $X_{ab}$.  Let $s$ be the number of boundary edges on the shorter arc between $a$ and $b$.  Since the endpoints have opposite parity, $s$ is odd.  Since the pair is a non-boundary chord, $s\ge3$.  By definition of the shorter arc, $s\le n/2$.  Write
+\[
+s=2r+1,
+\qquad
+r\ge1.
+\]
+After a rotation, one endpoint is $1$.  If necessary, reflect the polygon so the shorter arc points in the positive cyclic direction.  The other endpoint is then $2r+2$.  Hence every physical chord is dihedrally equivalent to
+\begin{equation}
+P_r=X_{1,2r+2},
+\qquad
+1\le r\le\left\lfloor\frac{n-2}{4}\right\rfloor.
+\label{eq:Pr}
+\end{equation}
+The case $r=1$ is the short pole $X_{14}$ already treated.  The long poles are exactly the cases $r\ge2$.
+
+\subsubsection{Construct the long-pole rectangle representative}
+
+Fix $r\ge2$ and abbreviate
+\[
+u:=2r+2,
+\qquad
+P_r=X_{1u}.
+\]
+Define three vertex sets
+\begin{align}
+O_r&:=\{1,3,5,\ldots,2r+1\},\label{eq:Or}\\
+U_r&:=\{2,4,6,\ldots,2r\},\label{eq:Ur}\\
+W_r&:=\{1,\ldots,n\}\setminus(O_r\cup U_r)
+=\{2r+2,\ldots,n\}.
+\label{eq:Wr}
+\end{align}
+Define a coefficient vector $k^{(r)}=(k^{(r)}_{ij})$ on rectangle labels by
+\begin{equation}
+k^{(r)}_{ij}
+=
+\begin{cases}
+-1,&i,j\in O_r,\\
++1,&\{i,j\}\cap U_r\neq\varnothing
+\text{ and }\{i,j\}\cap O_r=\varnothing,\\
+0,&\text{otherwise}.
+\end{cases}
+\label{eq:kr}
+\end{equation}
+The following identity will be proved directly:
+\begin{equation}
+\sum_{i<j}k^{(r)}_{ij}q_{ij}=X_{1u}.
+\label{eq:kr-rep}
+\end{equation}
+
+First make the transpose map explicit.  If $k=(k_{ij})\in V_q$, then
+\[
+\sum_{i<j}k_{ij}q_{ij}
+=\sum_{a<b}(R^Tk)_{ab}X_{ab}.
+\]
+Collecting the four rectangles in which $X_{ab}$ can occur gives
+\begin{equation}
+(R^Tk)_{ab}
+=k_{ab}+k_{a-1,b-1}-k_{a,b-1}-k_{a-1,b},
+\label{eq:RT-mixed}
+\end{equation}
+with a coefficient interpreted as zero when its label is a boundary leg.  Thus $R^T$ is the discrete mixed-difference operator on coefficient arrays.
+
+Let $o_i$ and $w_i$ be the indicator functions of $O_r$ and $W_r$.  The piecewise definition~\eqref{eq:kr} can be written exactly as
+\begin{equation}
+k^{(r)}_{ij}
+=(1-o_i)(1-o_j)-w_iw_j-o_io_j.
+\label{eq:k-indicators}
+\end{equation}
+Indeed, if both endpoints lie in $O_r$, only the final term survives and gives $-1$.  If neither lies in $O_r$ and at least one lies in $U_r$, the first term gives $1$ and the $w_iw_j$ term is zero.  If both lie in $W_r$, the first and second terms cancel.  If exactly one lies in $O_r$, all three terms vanish.
+
+For any one-variable function $h_i$, the mixed difference of the product $h_ih_j$ factors:
+\begin{align}
+&h_ah_b+h_{a-1}h_{b-1}-h_ah_{b-1}-h_{a-1}h_b\\
+&\hspace{4em}=(h_a-h_{a-1})(h_b-h_{b-1}).
+\label{eq:product-mixed}
+\end{align}
+Apply~\eqref{eq:product-mixed} term by term to~\eqref{eq:k-indicators}.  The two $o$-products cancel, leaving
+\begin{equation}
+(R^Tk^{(r)})_{ab}
+=-(w_a-w_{a-1})(w_b-w_{b-1}).
+\label{eq:k-mixed-step}
+\end{equation}
+The cyclic step function $w$ has only two jumps:
+\[
+w_1-w_n=-1,
+\qquad
+w_u-w_{u-1}=+1.
+\]
+Therefore both factors in~\eqref{eq:k-mixed-step} can be nonzero on a genuine chord only for $(a,b)=(1,u)$.  At that chord,
+\[
+(R^Tk^{(r)})_{1u}=-(-1)(+1)=1.
+\]
+Every other chord coefficient is zero.  In other words,
+\begin{equation}
+R^Tk^{(r)}=e_{1u}.
+\label{eq:RTkr-delta}
+\end{equation}
+Pairing with $X$ proves~\eqref{eq:kr-rep}.
+
+This calculation clarifies the notation completely:
+\[
+\sum_{i<j}k^{(r)}_{ij}q_{ij}
+=\sum_{a<b}(R^Tk^{(r)})_{ab}X_{ab}
+=1\cdot X_{1u}+\sum_{(a,b)\neq(1,u)}0\cdot X_{ab}.
+\]
+
+\subsubsection{What the long-pole witness must accomplish}
+
+For the curve~\eqref{eq:quadratic-curve} to remain in legitimate rectangle space and on $P_r=0$, choose
+\begin{equation}
+c\in B_{P_r}
+=\{c:g^Tc=0,\ (k^{(r)})^Tc=0\}
+\label{eq:BPr}
+\end{equation}
+and solve the four remaining moments
+\begin{equation}
+S_g=T_g=S_{k^{(r)}}=T_{k^{(r)}}=0.
+\label{eq:long-four}
+\end{equation}
+All $\tau_i$ are required to be distinct.  The simplest base point is
+\begin{equation}
+\tau_i=i.
+\label{eq:long-nodes}
+\end{equation}
+
+There is no claim that four rectangle labels are necessary for one triple of equations $C=S=T=0$.  Three labels can suffice if their three moment vectors are deliberately dependent.  Four labels are a convenient uniform witness because four vectors in a three-dimensional moment space necessarily have a nontrivial dependence, and a $2\times2$ endpoint grid makes that dependence easy to solve and gives a rank-two node derivative.  The calculation below, rather than a minimality assertion, justifies the choice.
+
+Consider the four rectangle labels
+\begin{equation}
+\mathcal B_A:=\{(2,u),(2,u+2),(4,u),(4,u+2)\}
+=\{2,4\}\times\{u,u+2\}.
+\label{eq:blockA}
+\end{equation}
+The notation $\{2,4\}\times\{u,u+2\}$ means that every possible
+pair with left endpoint in $\{2,4\}$ and right endpoint in
+$\{u,u+2\}$ is taken.  It is a set of four rectangle labels.  It is not a matrix,
+and these labels are not four physical poles.
+
+Why four labels?  No minimality claim is being made.  The three homogeneous
+equations $C=S=T=0$ must be solved, and the derivative of
+$(S,T)$ in two node directions must have rank two.  Four coefficients give a
+convenient nonzero kernel vector for the three moment equations.  If a
+three-label choice happened to work, that would not contradict anything.
+
+On $\mathcal B_A$, all four endpoints are even, so
+\[
+g_{ij}=1.
+\]
+Also $2,4\in U_r$, neither endpoint is in $O_r$, and therefore~\eqref{eq:kr} gives
+\[
+k^{(r)}_{ij}=1.
+\]
+Thus
+\begin{equation}
+(g_{ij},k^{(r)}_{ij})=(1,1)
+\quad\text{on }\mathcal B_A.
+\label{eq:weightsA}
+\end{equation}
+Consequently the $g$-moments and the $k^{(r)}$-moments are literally the
+same three equations on this four-label support.  Therefore one displayed
+$C,S,T$ system suffices for both sets of constraints at the chosen point.
+
+\subsubsection{Derive the coefficients on block A}
+
+Order the four labels in $\mathcal B_A$ as
+\[
+(2,u),\ (2,u+2),\ (4,u),\ (4,u+2)
+\]
+and call their coefficients $c_1,c_2,c_3,c_4$.  Since $g=k^{(r)}=1$ on this block, its contributions to $C,S,T$ vanish precisely when
+\begin{equation}
+\begin{pmatrix}
+1&1&1&1\\
+u+2&u+4&u+4&u+6\\
+2u&2u+4&4u&4u+8
+\end{pmatrix}
+\begin{pmatrix}c_1\\c_2\\c_3\\c_4\end{pmatrix}=0.
+\label{eq:blockA-system}
+\end{equation}
+Subtract $(u+4)$ times the first equation from the second.  This gives
+\[
+-2c_1+2c_4=0,
+\]
+so
+\begin{equation}
+c_4=c_1.
+\label{eq:A-c4}
+\end{equation}
+The first equation gives
+\begin{equation}
+c_2+c_3=-2c_1.
+\label{eq:A-c2c3}
+\end{equation}
+Substitute~\eqref{eq:A-c4} and~\eqref{eq:A-c2c3} into the third equation.  It reduces to
+\[
+u c_1+(u-2)c_3=0.
+\]
+Since $u=2r+2$, choosing $c_1=r$ gives
+\[
+c_3=-(r+1),
+\qquad
+c_2=-(r-1),
+\qquad
+c_4=r.
+\]
+Thus
+\begin{equation}
+\boxed{
+(c_{2u},c_{2,u+2},c_{4u},c_{4,u+2})
+=(r,-(r-1),-(r+1),r).
+}
+\label{eq:blockA-coeff}
+\end{equation}
+
+This block also supplies two independent node directions.  With $\tau_2,\tau_4$ fixed and $\tau_u,\tau_{u+2}$ variable, substitute~\eqref{eq:blockA-coeff} into the definition of $S_g$:
+\begin{align*}
+S_g
+&=r(\tau_2+\tau_u)
+-(r-1)(\tau_2+\tau_{u+2})\\
+&\quad -(r+1)(\tau_4+\tau_u)
++r(\tau_4+\tau_{u+2})\\
+&=\tau_2-\tau_4-\tau_u+\tau_{u+2}.
+\end{align*}
+Therefore
+\begin{equation}
+\frac{\partial S_g}{\partial\tau_u}=-1,
+\qquad
+\frac{\partial S_g}{\partial\tau_{u+2}}=1.
+\label{eq:A-S-derivative}
+\end{equation}
+Similarly,
+\begin{align*}
+T_g
+&=r\tau_2\tau_u
+-(r-1)\tau_2\tau_{u+2}\\
+&\quad -(r+1)\tau_4\tau_u
++r\tau_4\tau_{u+2}.
+\end{align*}
+At $\tau_2=2,\tau_4=4$,
+\begin{align}
+\frac{\partial T_g}{\partial\tau_u}
+&=2r-4(r+1)=-(u+2),\label{eq:A-Tdu}\\
+\frac{\partial T_g}{\partial\tau_{u+2}}
+&=-2(r-1)+4r=u.\label{eq:A-Tdv}
+\end{align}
+Hence
+\begin{equation}
+D_{(\tau_u,\tau_{u+2})}(S_g,T_g)
+=
+\begin{pmatrix}
+-1&1\\
+-(u+2)&u
+\end{pmatrix}.
+\label{eq:A-J}
+\end{equation}
+If this matrix kills $(x,y)^T$, the first row gives $y=x$ and the second gives $-2x=0$.  Thus $x=y=0$, so the block has rank two.
+
+\subsubsection{Scope of the rank-two calculation}
+
+The preceding calculation gives one explicit coefficient vector and proves
+\[
+\rank D_{(\tau_u,\tau_{u+2})}(S_g,T_g)=2.
+\]
+Because $g=k^{(r)}$ on the four chosen labels, the same curve also satisfies
+$S_{k^{(r)}}=T_{k^{(r)}}=0$ at the displayed solution.
+
+There is, however, one further point which cannot be suppressed if the
+conclusion is to hold on an open subset of the full space $B_{P_r}$.  For a
+general perturbation $c\in B_{P_r}$, the two pairs
+\[
+(S_g,T_g)
+\qquad\hbox{and}\qquad
+(S_{k^{(r)}},T_{k^{(r)}})
+\]
+need not remain equal.  The implicit-function argument therefore has four
+equations, not two.  A $2\times2$ derivative proves solvability only inside
+the restricted four-label slice where the two pairs coincide; that slice is
+not open in $B_{P_r}$.  Root counting on that slice alone would prove
+$f(c)=0$ only on that slice, not on the entire divisor.
+
+The open-family statement requires two additional node
+directions which alter the $k^{(r)}$ moments without altering the $g$
+moments.  This is the only purpose of the next four labels.  They do not
+alter the first rank-two calculation; they complete the dominance step used
+by the final root-counting argument.
+
+Define
+\begin{equation}
+\mathcal B_B:=\{2,4\}\times\{u+1,u+3\}.
+\label{eq:blockB}
+\end{equation}
+On this block the left endpoint is even and the right endpoint is odd, so
+$g_{ij}=0$.  But the left endpoint lies in $U_r$ and neither endpoint lies
+in $O_r$, so $k^{(r)}_{ij}=1$.  Thus
+\begin{equation}
+(g_{ij},k^{(r)}_{ij})=(0,1)
+\quad\text{on }\mathcal B_B.
+\label{eq:weightsB}
+\end{equation}
+
+\subsubsection{The additional rank-two block required for dominance}
+
+Order the four labels in $\mathcal B_B$ as
+\[
+(2,u+1),\ (2,u+3),\ (4,u+1),\ (4,u+3)
+\]
+and call their coefficients $d_1,d_2,d_3,d_4$.  Since $g=0$ and $k^{(r)}=1$ on this block, it is invisible to all $g$-moments, and its $k$-moments vanish precisely when
+\begin{equation}
+\begin{pmatrix}
+1&1&1&1\\
+u+3&u+5&u+5&u+7\\
+2(u+1)&2(u+3)&4(u+1)&4(u+3)
+\end{pmatrix}
+\begin{pmatrix}d_1\\d_2\\d_3\\d_4\end{pmatrix}=0.
+\label{eq:blockB-system}
+\end{equation}
+Subtract $(u+5)$ times the first equation from the second.  This gives $d_4=d_1$.  The first equation gives $d_2+d_3=-2d_1$.  Substituting both relations into the third equation reduces it to
+\[
+(u+1)d_1+(u-1)d_3=0.
+\]
+Choose $d_1=u-1=2r+1$.  Then
+\[
+d_3=-(u+1)=-(2r+3),
+\]
+\[
+d_2=-(u-3)=-(2r-1),
+\qquad
+d_4=u-1=2r+1.
+\]
+Thus
+\begin{equation}
+\boxed{
+\begin{aligned}
+&(c_{2,u+1},c_{2,u+3},c_{4,u+1},c_{4,u+3})\\
+&\hspace{5em}=(2r+1,-(2r-1),-(2r+3),2r+1).
+\end{aligned}}
+\label{eq:blockB-coeff}
+\end{equation}
+This calculation verifies directly that block $B$ kills its own $C,S,T$ moments for $k^{(r)}$ while contributing nothing to the corresponding $g$ moments.
+
+The derivatives in the two block-$B$ node directions follow from the same definitions.  For $S_{k^{(r)}}$,
+\begin{align}
+\frac{\partial S_{k^{(r)}}}{\partial\tau_{u+1}}
+&=(u-1)-(u+1)=-2,\label{eq:B-Sdu}\\
+\frac{\partial S_{k^{(r)}}}{\partial\tau_{u+3}}
+&=-(u-3)+(u-1)=2.\label{eq:B-Sdv}
+\end{align}
+For $T_{k^{(r)}}$, using $\tau_2=2,\tau_4=4$,
+\begin{align}
+\frac{\partial T_{k^{(r)}}}{\partial\tau_{u+1}}
+&=2(u-1)-4(u+1)=-(2u+6),\label{eq:B-Tdu}\\
+\frac{\partial T_{k^{(r)}}}{\partial\tau_{u+3}}
+&=-2(u-3)+4(u-1)=2u+2.\label{eq:B-Tdv}
+\end{align}
+
+\subsubsection{The full long-pole Jacobian}
+
+Let $c^{(r)}$ be supported on $\mathcal B_A\cup\mathcal B_B$ with coefficients~\eqref{eq:blockA-coeff} and~\eqref{eq:blockB-coeff}, and let all other coefficients vanish.  Each block separately kills its three relevant moments, so
+\[
+C_g=S_g=T_g=0,
+\qquad
+C_{k^{(r)}}=S_{k^{(r)}}=T_{k^{(r)}}=0.
+\]
+In particular $c^{(r)}\in B_{P_r}$.
+
+Order the four equations as
+\[
+(S_g,T_g,S_{k^{(r)}},T_{k^{(r)}})
+\]
+and the four movable nodes as
+\[
+(\tau_u,\tau_{u+2},\tau_{u+1},\tau_{u+3}).
+\]
+Equations~\eqref{eq:A-S-derivative}--\eqref{eq:B-Tdv} give the Jacobian
+\begin{equation}
+J_{\mathrm{long}}
+=
+\begin{pmatrix}
+-1&1&0&0\\
+-(u+2)&u&0&0\\
+-1&1&-2&2\\
+-(u+2)&u&-(2u+6)&2u+2
+\end{pmatrix}.
+\label{eq:J-long}
+\end{equation}
+Invertibility is again checked directly from the kernel.  Suppose $J_{\mathrm{long}}(x,y,z,w)^T=0$.  The first row gives $y=x$.  The second row then gives
+\[
+-(u+2)x+ux=-2x=0,
+\]
+so $x=y=0$.  The third row now gives $-2z+2w=0$, hence $w=z$.  The fourth row gives
+\[
+-(2u+6)z+(2u+2)w=-4z=0,
+\]
+so $z=w=0$.  Therefore $J_{\mathrm{long}}$ has trivial kernel and is invertible.  Equivalently, its determinant is the product $2\cdot8=16$, but the kernel computation shows what the determinant is proving.
+
+All base nodes satisfy $\tau_i=i$, so they are pairwise distinct.  The orbit bound in~\eqref{eq:Pr} and $r\ge2$ imply $n\ge10$ and $u+3\le n-1$, so all eight displayed rectangle labels exist and are non-boundary chords.
+
+Restricting $c$ to $B_{P_r}$ and applying the implicit function theorem to the four remaining moment equations, with the four node variables used in~\eqref{eq:J-long}, gives a nonempty Euclidean-open neighborhood
+\[
+U_r\subset B_{P_r}
+\]
+such that every $c\in U_r$ admits a solution of all moment equations.  Pairwise distinctness of finitely many node values is an open condition.  After shrinking $U_r$, every resulting curve has all $n$ nodes distinct.
+
+\subsection{Root counting and completion of the proof}
+
+The common argument prepared above now applies.
+
+Let $f\in(D_P)_d$ with $d<n/2$.  If $P$ is short, choose any $c$ in the open set $U\subset B_P$ from~\eqref{eq:short-open-U}.  The corresponding curve stays inside $P=0$ and has exactly $n-1$ distinct node values.  If $P$ is long, choose $c\in U_r\subset B_{P_r}$; the corresponding curve has $n$ distinct node values.
+
+At every node,~\eqref{eq:curve-hits-star} and the defining property of $D_P$ give
+\[
+f(q(\tau_w))=0.
+\]
+Thus $f(q(t))$ has at least $n-1$ distinct roots in the short case and $n$ distinct roots in the long case.  On the other hand,~\eqref{eq:pullback-degree} and~\eqref{eq:integer-degree} give
+\[
+\deg_t f(q(t))\le2d\le n-2.
+\]
+A nonzero polynomial of degree at most $n-2$ cannot have $n-1$ distinct roots.  Therefore
+\[
+f(q(t))\equiv0.
+\]
+By~\eqref{eq:leading-fc}, the coefficient of $t^{2d}$ is $f(c)$, so
+\[
+f(c)=0.
+\]
+This holds on a nonempty Euclidean-open subset of the complex linear space $B_P$.
+
+The restriction $f|_{B_P}$ is a polynomial on a linear space.  A nonzero complex polynomial cannot vanish on a nonempty Euclidean-open set: fixing all but one coordinate successively would produce a nonzero one-variable polynomial vanishing on an open disk, which is impossible.  Hence
+\[
+f|_{B_P}=0.
+\]
+Equivalently,
+\[
+(D_P)_d=0
+\qquad\text{for every integer }d<\frac n2.
+\]
+By the definition~\eqref{eq:alpha-def}, this is exactly
+\[
+\initial(D_P)\ge\frac n2.
+\]
+Theorem~6 is proved for the short orbit and for every long orbit, and dihedral equivariance carries the result to every physical pole.
+\qed
+
+\section*{Scope at the end of Theorem 6}
+\addcontentsline{toc}{section}{Scope at the end of Theorem 6}
+
+The argument completed here controls one physical divisor at a time.  It proves that a collision-safe hidden-zero numerator of degree below $n/2$ cannot survive on any single physical pole.  In the full locality proof, this becomes the initial-degree input for removing repeated poles.
+
+It does not yet prove the simultaneous statement for an arbitrary set of physical poles.  Several pole equations impose several families of moments at once, and restrictions of different poles may collide on a hidden-zero chart.  Those genuinely new issues begin with Theorem~7 and the later leaf-smoothing and global-scar arguments.  They are intentionally outside the present reconstruction.
+
+\end{document}
